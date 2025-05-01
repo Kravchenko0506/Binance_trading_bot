@@ -2,6 +2,7 @@ import logging
 import numpy as np
 from services.binance_client import client
 from services.technical_indicators import calculate_rsi, calculate_macd, calculate_ema
+from services.technical_indicators import IndicatorCalculationError
 
 def get_ohlcv(symbol, timeframe):
     try:
@@ -33,9 +34,35 @@ def check_buy_sell_signals(profile):
     if prices.size == 0:
         return 'hold'
 
-    rsi = calculate_rsi(prices, rsi_period) if use_rsi else np.array([])
-    macd, signal = calculate_macd(prices, macd_fast_period, macd_slow_period, macd_signal_period) if use_macd else (np.array([]), np.array([]))
-    ema = calculate_ema(prices, ema_period) if use_ema else np.array([])
+# Wrap RSI,MACD,EMA calculation to catch and log IndicatorCalculationError
+
+    if use_rsi:
+        try:
+            rsi = calculate_rsi(prices, rsi_period)
+        except IndicatorCalculationError as e:
+            logging.error(f"RSI error: {e}")
+            rsi = np.array([])  # fallback to empty → hold
+        else:
+            rsi = np.array([])
+
+    if use_macd:
+        try:
+            zmacd, signal = calculate_macd(prices, macd_fast_period, macd_slow_period, macd_signal_period)
+        except IndicatorCalculationError as e:
+            logging.error(f"MACD error: {e}")
+            macd, signal = np.array([]), np.array([])
+        else:    
+            macd, signal = np.array([]), np.array([])
+            
+    if use_ema:
+        try:
+            ema = calculate_ema(prices, ema_period)
+        except IndicatorCalculationError as e:
+            logging.error(f"EMA error: {e}")
+            ema = np.array([])
+        else:
+            ema = np.array([])        
+
     if (use_rsi and rsi.size == 0) or (use_macd and (macd.size == 0 or signal.size == 0)) or (use_ema and ema.size == 0):
         return 'hold'
 

@@ -6,6 +6,11 @@ except ImportError:
 import numpy as np
 import logging
 
+# Custom exception for indicator calculation failures
+class IndicatorCalculationError(Exception):
+    """Exception raised when a technical indicator calculation fails."""
+    
+
 def calculate_rsi(data, timeperiod):
     try:
         if talib:
@@ -16,7 +21,7 @@ def calculate_rsi(data, timeperiod):
 
     except Exception as e:
         logging.error(f"Ошибка при расчете RSI: {e}")
-        return np.array([])
+        raise IndicatorCalculationError(f"RSI calculation failed: {e}")
 
 def calculate_macd(data, fastperiod, slowperiod, signalperiod):
     try:
@@ -28,7 +33,7 @@ def calculate_macd(data, fastperiod, slowperiod, signalperiod):
             return fallback_macd(data, fastperiod, slowperiod, signalperiod)
     except Exception as e:
         logging.error(f"Ошибка при расчете MACD: {e}")
-        return np.array([]), np.array([])
+        raise IndicatorCalculationError(f"MACD calculation failed: {e}")
 
 def calculate_ema(data, period):
     try:
@@ -40,7 +45,7 @@ def calculate_ema(data, period):
 
     except Exception as e:
         logging.error(f"Ошибка при расчете EMA: {e}")
-        return np.array([])
+        raise IndicatorCalculationError(f"EMA calculation failed: {e}")
 
     
 def fallback_ema(data, period):
