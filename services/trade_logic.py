@@ -39,29 +39,29 @@ def check_buy_sell_signals(profile):
     if use_rsi:
         try:
             rsi = calculate_rsi(prices, rsi_period)
+            logging.debug(f"Calculated RSI for {symbol}: {rsi[-1]:.2f}")  # Log RSI last value
         except IndicatorCalculationError as e:
             logging.error(f"RSI error: {e}")
             rsi = np.array([])  # fallback to empty → hold
-        else:
-            rsi = np.array([])
+        
 
     if use_macd:
         try:
-            zmacd, signal = calculate_macd(prices, macd_fast_period, macd_slow_period, macd_signal_period)
+            macd, signal = calculate_macd(prices, macd_fast_period, macd_slow_period, macd_signal_period)
+            logging.debug(f"Calculated MACD for {symbol}: macd={macd[-1]:.6f}, signal={signal[-1]:.6f}")  # Log MACD last values
         except IndicatorCalculationError as e:
             logging.error(f"MACD error: {e}")
             macd, signal = np.array([]), np.array([])
-        else:    
-            macd, signal = np.array([]), np.array([])
+        
             
     if use_ema:
         try:
             ema = calculate_ema(prices, ema_period)
+            logging.debug(f"Calculated EMA for {symbol} (period {ema_period}): {ema[-1]:.6f}")  # Log EMA last value
         except IndicatorCalculationError as e:
             logging.error(f"EMA error: {e}")
             ema = np.array([])
-        else:
-            ema = np.array([])        
+                
 
     if (use_rsi and rsi.size == 0) or (use_macd and (macd.size == 0 or signal.size == 0)) or (use_ema and ema.size == 0):
         return 'hold'
