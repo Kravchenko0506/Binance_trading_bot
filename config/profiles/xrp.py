@@ -7,7 +7,7 @@ USE_RSI = True      # использовать RSI при проверке
 USE_MACD = True    # использовать MACD при проверке
 USE_MACD_FOR_BUY = True  # использовать MACD для покупки
 USE_MACD_FOR_SELL = True # использовать MACD для продажи
-USE_EMA = False        # Использовать ли EMA в стратегии
+USE_EMA = True        # Использовать ли EMA в стратегии
 
 
 # --- Настройки индикаторов ---
