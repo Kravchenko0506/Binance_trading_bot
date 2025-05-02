@@ -3,3 +3,8 @@ __pycache__/
 *.pyc
 bot.log
 trading_bot.log
+README.md
+
+config/profiles/doge.py
+config/profiles/xrp.py
+config/profiles/bnb.py

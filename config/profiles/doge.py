@@ -11,8 +11,8 @@ USE_EMA = False        # Использовать ли EMA в стратегии
 # --- Настройки индикаторов ---
 # RSI
 RSI_PERIOD = 14                # Период RSI
-RSI_OVERBOUGHT = 60            # RSI выше этого значения = перепроданность
-RSI_OVERSOLD = 30              # RSI ниже этого значения = перепроданность
+RSI_OVERBOUGHT = 70            # RSI выше этого значения = перепроданность
+RSI_OVERSOLD = 35              # RSI ниже этого значения = перепроданность
 
 # MACD
 MACD_FAST_PERIOD = 8           # Быстрый EMA для MACD

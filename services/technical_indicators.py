@@ -58,14 +58,12 @@ def fallback_rsi(data, period):
     delta = np.diff(data)
     up = delta.clip(min=0)
     down = -delta.clip(max=0)
-
     roll_up = np.convolve(up, np.ones(period), 'valid') / period
     roll_down = np.convolve(down, np.ones(period), 'valid') / period
-
     rs = roll_up / (roll_down + 1e-9)
     rsi = 100.0 - (100.0 / (1.0 + rs))
-
     return np.concatenate([np.full(period, np.nan), rsi])
+
 def fallback_macd(data, fast=12, slow=26, signal=9):
     ema_fast = fallback_ema(data, fast)
     ema_slow = fallback_ema(data, slow)
