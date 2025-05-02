@@ -1,10 +1,10 @@
 import logging
 import json
-import os
 from services.binance_client import client
 from utils.quantity_utils import get_lot_size, round_step_size
-from config.settings import COMMISSION_RATE, MIN_PROFIT_RATIO
+from config.settings import COMMISSION_RATE
 from colorama import Fore, Style
+from utils.profit_check import is_enough_profit
 
 
 
@@ -69,8 +69,8 @@ def place_order(action, symbol, commission_rate):
             price_now = float(client.get_symbol_ticker(symbol=symbol)['price'])
             if last_buy_price:
                 profit_ratio = (price_now - last_buy_price) / last_buy_price
-                if profit_ratio < MIN_PROFIT_RATIO:
-                    logging.info(f"📉 Профит слишком мал: {profit_ratio*100:.2f}% — отмена продажи")
+                if not is_enough_profit(symbol):
+                    logging.info("📉 Профит слишком мал — отмена продажи")
                     return
 
             # Выполняем продажу
