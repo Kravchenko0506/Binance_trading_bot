@@ -5,7 +5,8 @@ from config.settings import MIN_PROFIT_RATIO
 
 def is_enough_profit(symbol: str) -> bool:
     try:
-        with open(f'last_buy_price_{symbol}.json', 'r') as f:
+        file_path = os.path.join("data", f"last_buy_price_{symbol}.json")
+        with open(file_path, 'r') as f:
             data = json.load(f)
             last_buy_price = float(data['price'])
     except (FileNotFoundError, KeyError, ValueError):

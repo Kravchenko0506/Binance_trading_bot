@@ -1,5 +1,6 @@
 import logging
 import json
+import os
 from services.binance_client import client
 from utils.quantity_utils import get_lot_size, round_step_size
 from config.settings import COMMISSION_RATE
@@ -31,9 +32,12 @@ def place_order(action, symbol, commission_rate):
             fills = order.get('fills', [])
             total_qty = sum(float(f.get('qty', 0)) for f in fills)
             avg_price = sum(float(f.get('price', 0)) * float(f.get('qty', 0)) for f in fills) / total_qty if total_qty else 0
-            # Save average buy price to JSON after market buy
-            with open(f'last_buy_price_{symbol}.json', 'w') as f:
+            # Save buy price to data/ folder
+            os.makedirs("data", exist_ok=True)
+            file_path = os.path.join("data", f"last_buy_price_{symbol}.json")
+            with open(file_path, 'w') as f:
                 json.dump({"price": avg_price}, f)
+
 
                 total_commission = sum(float(f.get('commission', 0)) for f in fills)
                 commission_asset = fills[0].get('commissionAsset', '') if fills else ''
