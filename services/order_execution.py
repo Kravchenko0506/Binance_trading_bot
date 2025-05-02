@@ -32,8 +32,11 @@ def place_order(action, symbol, commission_rate):
             commission_asset = fills[0].get('commissionAsset', '') if fills else ''
 
             total_received = avg_price * total_qty
-            log_message = (f"Продажа: {total_qty:.6f} {base_asset} по средней цене {avg_price:.6f} USDT. "
-               f"Получено: {total_received:.6f} USDT. Комиссия: {total_commission:.6f} {commission_asset}.")
+
+            log_message = (f"Покупка: {total_qty:.6f} {symbol.replace('USDT', '')} по средней цене {avg_price:.6f} USDT. "
+               f"Потрачено: {total_received:.6f} USDT. Комиссия: {total_commission:.6f} {commission_asset}.")
+
+
 
             logging.info(log_message)
             print(Fore.GREEN + log_message + Style.RESET_ALL)
@@ -49,16 +52,17 @@ def place_order(action, symbol, commission_rate):
 
         if quantity >= min_qty:
             order = client.order_market_sell(symbol=symbol, quantity=quantity)
-            fills = order.get('fills', [{}])[0]
-            price = float(fills.get('price', 0))
-            qty = float(fills.get('qty', 0))
-            commission = float(fills.get('commission', 0))
-            commission_asset = fills.get('commissionAsset', '')
+            fills = order.get('fills', [])
+            total_qty = sum(float(f.get('qty', 0)) for f in fills)
+            avg_price = sum(float(f.get('price', 0)) * float(f.get('qty', 0)) for f in fills) / total_qty if total_qty else 0
+            total_commission = sum(float(f.get('commission', 0)) for f in fills)
+            commission_asset = fills[0].get('commissionAsset', '') if fills else ''
 
-            total_received = price * qty
+            total_received = avg_price * total_qty
 
-            log_message = (f"Продажа: {qty} {base_asset} по цене {price:.6f} USDT. "
-                           f"Получено: {total_received:.6f} USDT. Комиссия: {commission} {commission_asset}.")
+            log_message = (f"Продажа: {total_qty:.6f} {base_asset} по средней цене {avg_price:.6f} USDT. "
+               f"Получено: {total_received:.6f} USDT. Комиссия: {total_commission:.6f} {commission_asset}.")
+
             logging.info(log_message)
             print(Fore.RED + log_message + Style.RESET_ALL)
 
