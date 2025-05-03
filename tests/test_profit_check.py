@@ -1,6 +1,7 @@
 import pytest
 import json
 import builtins
+import os
 from utils.profit_check import is_enough_profit
 from services.binance_client import client
 
@@ -10,20 +11,14 @@ def mock_ticker(monkeypatch):
     monkeypatch.setattr(client, "get_symbol_ticker", lambda **kwargs: {"price": "1.05"})
 
 @pytest.fixture
-def patch_open_with_file(tmp_path, monkeypatch):
-    # Patch built-in open to use a fake file with JSON buy price
+def patch_open_with_file(monkeypatch):
     real_open = builtins.open
 
     def patch(symbol, json_data):
-        expected_path = tmp_path / f"last_buy_price_{symbol}.json"
-        expected_path.write_text(json.dumps(json_data))
-
-        def mocked_open(path, *args, **kwargs):
-            if path == f"last_buy_price_{symbol}.json":
-                return real_open(expected_path, *args, **kwargs)
-            return real_open(path, *args, **kwargs)
-
-        monkeypatch.setattr("builtins.open", mocked_open)
+        os.makedirs("data", exist_ok=True)
+        test_path = os.path.join("data", f"last_buy_price_{symbol}.json")
+        with real_open(test_path, "w") as f:
+            json.dump(json_data, f)
 
     return patch
 
@@ -37,3 +32,36 @@ def test_profit_check_returns_false_when_profit_too_low(patch_open_with_file, mo
     monkeypatch.setattr(client, "get_symbol_ticker", lambda **kwargs: {"price": "1.001"})
     patch_open_with_file("XRPUSDT", {"price": 1.0})
     assert is_enough_profit("XRPUSDT") is False
+
+def test_stop_loss_triggered(monkeypatch):
+    from utils.profit_check import is_stop_loss_triggered
+    import builtins
+
+    symbol = "XRPUSDT"
+    os.makedirs("data", exist_ok=True)
+    real_open = builtins.open
+
+    # Записываем цену покупки 1.0
+    with real_open(f"data/last_buy_price_{symbol}.json", "w") as f:
+        json.dump({"price": 1.0}, f)
+
+    # Текущая цена 0.95 → -5%
+    monkeypatch.setattr(client, "get_symbol_ticker", lambda **kwargs: {"price": "0.95"})
+
+    assert is_stop_loss_triggered(symbol) is True
+
+def test_stop_loss_not_triggered(monkeypatch):
+    from utils.profit_check import is_stop_loss_triggered
+    import builtins
+
+    symbol = "XRPUSDT"
+    os.makedirs("data", exist_ok=True)
+    real_open = builtins.open
+
+    with real_open(f"data/last_buy_price_{symbol}.json", "w") as f:
+        json.dump({"price": 1.0}, f)
+
+    # Текущая цена 0.99 → убыток 1%
+    monkeypatch.setattr(client, "get_symbol_ticker", lambda **kwargs: {"price": "0.99"})
+
+    assert is_stop_loss_triggered(symbol) is False

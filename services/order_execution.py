@@ -3,9 +3,9 @@ import json
 import os
 from services.binance_client import client
 from utils.quantity_utils import get_lot_size, round_step_size
-from config.settings import COMMISSION_RATE
+from config.settings import COMMISSION_RATE, STOP_LOSS_RATIO
 from colorama import Fore, Style
-from utils.profit_check import is_enough_profit
+from utils.profit_check import is_enough_profit, is_stop_loss_triggered
 
 
 
@@ -62,22 +62,15 @@ def place_order(action, symbol, commission_rate):
         quantity = round_step_size(raw_quantity, step_size)
 
         if quantity >= min_qty:
-            # Проверка прибыли
-            try:
-                with open(f'last_buy_price_{symbol}.json', 'r') as f:
-                    data = json.load(f)
-                    last_buy_price = float(data['price'])
-            except (FileNotFoundError, KeyError, ValueError):
-                last_buy_price = None
-
-            price_now = float(client.get_symbol_ticker(symbol=symbol)['price'])
-            if last_buy_price:
-                profit_ratio = (price_now - last_buy_price) / last_buy_price
+             # Forced sell if loss exceeds threshold
+            if is_stop_loss_triggered(symbol):
+                logging.warning(f"❗ Stop-loss: убыток превышает {STOP_LOSS_RATIO*100:.1f}% — принудительная продажа")
+            else:
                 if not is_enough_profit(symbol):
                     logging.info("📉 Профит слишком мал — отмена продажи")
                     return
 
-            # Выполняем продажу
+            # Making the sale
             order = client.order_market_sell(symbol=symbol, quantity=quantity)
             fills = order.get('fills', [])
             total_qty = sum(float(f.get('qty', 0)) for f in fills)
