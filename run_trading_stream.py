@@ -1,49 +1,31 @@
 import sys
 import argparse
-import importlib
 import asyncio
-import datetime
-import os
-import logging
-
+import subprocess
+from types import SimpleNamespace
+from config.profile_loader import get_profile_by_name
 from services.binance_stream import listen_klines
 from services.trade_logic import check_buy_sell_signals
 from services.order_execution import place_order
 from utils.logger import setup_logger
 from services.technical_indicators import talib
 from config.settings import log_enabled_features
-
-setup_logger()
-
-if talib is None:
-    logging.warning("⚠️ TA-Lib is not installed. All indicators will use numpy fallbacks.")
-
-PROFILES_DIR = 'config/profiles'
-
-def list_available_profiles():
-    return [f.replace('.py', '') for f in os.listdir(PROFILES_DIR)
-            if f.endswith('.py') and f != '__init__.py']
-
+import pickle
 
 async def price_processor(queue: asyncio.Queue, profile):
     while True:
         price = await queue.get()
-        print(f"[WebSocket] New close price: {price}")
         action = check_buy_sell_signals(profile)
         if action != 'hold':
             place_order(action, profile.SYMBOL, profile.COMMISSION_RATE)
         queue.task_done()
 
-async def main(profile):
-
-    print("\n🚀 Binance Trading Bot with WebSocket started!")
-    print(f"✅ Profile loaded: {profile.SYMBOL}")
-    print()
+async def trade_main(profile):
+    setup_logger()
+    if talib is None:
+        print("⚠️ TA-Lib не установлен — используем numpy fallback")
+    print(f"\n🚀 Торговля по профилю {profile.SYMBOL} начата!")
     log_enabled_features()
-    print()
-    start_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    logging.info(f"WebSocket bot started at {start_time} using profile {profile.SYMBOL}")
-    print()
     action = check_buy_sell_signals(profile)
     if action != 'hold':
         place_order(action, profile.SYMBOL, profile.COMMISSION_RATE)
@@ -58,27 +40,73 @@ async def main(profile):
     await asyncio.gather(listener, processor)
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Run Binance trading stream")
-    parser.add_argument("profile", nargs="?", help="Profile name from config/profiles")
-    args = parser.parse_args()
-
-    available_profiles = list_available_profiles()
-
-    # Если профиль не передан — показать доступные и запросить ввод
-    if not args.profile:
-        print("\n📁 Available profiles:")
-        for name in available_profiles:
-            print(f" - {name}")
-        profile_name = input("\nВведите профиль: ").strip().lower()
+    if len(sys.argv) == 2:
+        profile_dict = get_profile_by_name(sys.argv[1])
+        profile = SimpleNamespace(**{k.upper(): v for k, v in profile_dict.items()})
+        asyncio.run(trade_main(profile))
     else:
-        profile_name = args.profile.strip().lower()
+        while True:
+            print("\n🧠 Главное меню Binance-бота")
+            print("1. Выбрать профиль")
+            print("2. Менеджер профилей")
+            print("3. Выход")
+            choice = input("Выбери действие (1/2/3): ").strip()
 
-    if profile_name not in available_profiles:
-        print(f"\n❌ Profile '{profile_name}' not found.\nAvailable: {', '.join(available_profiles)}")
-        sys.exit(1)
+            if choice == '1':
+                from config.profile_loader import load_profiles
+                profiles = load_profiles()
+    
+                if not profiles:
+                    print("📭 Нет доступных профилей. Сначала создай хотя бы один через менеджер.")
+                    continue
 
-    loaded_profile = importlib.import_module(f"config.profiles.{profile_name}")
-    asyncio.run(main(loaded_profile))
+                print("\n📁 Доступные профили:")
+                for name in profiles:
+                    print(f" - {name}")
+
+                profile_name = input("\nВведите имя профиля: ").strip().lower()
+                if not profile_name:
+                    print("❌ Имя профиля не может быть пустым.")
+                    continue
+                if profile_name not in profiles:
+                    print(f"❌ Профиль '{profile_name}' не найден.")
+                    continue
+
+                try:
+                    profile_dict = get_profile_by_name(profile_name)
+                    profile = SimpleNamespace(**{k.upper(): v for k, v in profile_dict.items()})
+
+                    print("\nЧто сделать с этим профилем?")
+                    print("1. 🚀 Запустить торговлю")
+                    print("2. 🧪 Запустить бэктест")
+                    print("3. ↩️ Назад")
+                    action = input("Выбор (1/2/3): ").strip()
+
+                    if action == '1':
+                        asyncio.run(trade_main(profile))
+                    elif action == '2':
+                        
+                        with open("temp_profile.pkl", "wb") as f:
+                            pickle.dump(profile, f)
+                        subprocess.run(["python", "backtest.py", "--from-pkl"])
+                    else:
+                        print("↩️ Возврат в меню")
+                except SystemExit:
+                        continue
+
+            
+            elif choice == '2':
+                subprocess.run(["python", "manage_profiles.py"])
+            elif choice == '3':
+                print("👋 Выход из программы.")
+                break
+            else:
+                print("❌ Неверный выбор. Попробуй снова.")
+
+
+
+
+
   
 
 

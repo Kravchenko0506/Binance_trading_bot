@@ -71,4 +71,18 @@ def fallback_macd(data, fast=12, slow=26, signal=9):
     signal_line = fallback_ema(macd_line, signal)
     return macd_line, signal_line
 
+def apply_indicators(df, profile):
+    # Добавляем индикаторы к датафрейму, если они включены
+    if profile.USE_RSI:
+        df["rsi"] = calculate_rsi(df["close"], profile.RSI_PERIOD)
+    if profile.USE_MACD:
+        macd, signal = calculate_macd(df["close"], profile.MACD_FAST_PERIOD,
+                                       profile.MACD_SLOW_PERIOD, profile.MACD_SIGNAL_PERIOD)
+        df["macd"] = macd
+        df["macd_signal"] = signal
+    if profile.USE_EMA:
+        df["ema"] = calculate_ema(df["close"], profile.EMA_PERIOD)
+    return df
+
+
     
