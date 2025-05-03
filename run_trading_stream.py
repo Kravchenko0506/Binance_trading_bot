@@ -11,6 +11,7 @@ from services.trade_logic import check_buy_sell_signals
 from services.order_execution import place_order
 from utils.logger import setup_logger
 from services.technical_indicators import talib
+from config.settings import log_enabled_features
 
 setup_logger()
 
@@ -23,6 +24,7 @@ def list_available_profiles():
     return [f.replace('.py', '') for f in os.listdir(PROFILES_DIR)
             if f.endswith('.py') and f != '__init__.py']
 
+
 async def price_processor(queue: asyncio.Queue, profile):
     while True:
         price = await queue.get()
@@ -33,12 +35,15 @@ async def price_processor(queue: asyncio.Queue, profile):
         queue.task_done()
 
 async def main(profile):
+
     print("\n🚀 Binance Trading Bot with WebSocket started!")
     print(f"✅ Profile loaded: {profile.SYMBOL}")
-
+    print()
+    log_enabled_features()
+    print()
     start_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     logging.info(f"WebSocket bot started at {start_time} using profile {profile.SYMBOL}")
-
+    print()
     action = check_buy_sell_signals(profile)
     if action != 'hold':
         place_order(action, profile.SYMBOL, profile.COMMISSION_RATE)
@@ -74,6 +79,7 @@ if __name__ == "__main__":
 
     loaded_profile = importlib.import_module(f"config.profiles.{profile_name}")
     asyncio.run(main(loaded_profile))
+  
 
 
 

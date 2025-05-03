@@ -1,6 +1,3 @@
-# services/binance_stream.py
-
-import os
 import json
 import threading
 import asyncio
@@ -12,6 +9,7 @@ def _listen_thread(symbol: str, interval: str, queue: asyncio.Queue, loop: async
     """
     url = f"wss://stream.binance.com:9443/ws/{symbol.lower()}@kline_{interval}"
     ws = create_connection(url)
+    
     try:
         while True:
             message = ws.recv()
