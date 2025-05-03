@@ -65,3 +65,56 @@ def test_stop_loss_not_triggered(monkeypatch):
     monkeypatch.setattr(client, "get_symbol_ticker", lambda **kwargs: {"price": "0.99"})
 
     assert is_stop_loss_triggered(symbol) is False
+    
+def test_take_profit_reached(monkeypatch):
+    from utils.profit_check import is_take_profit_reached
+    import builtins
+
+    symbol = "XRPUSDT"
+    os.makedirs("data", exist_ok=True)
+    real_open = builtins.open
+
+    # Write buy price 1.0 to JSON
+    with real_open(f"data/last_buy_price_{symbol}.json", "w") as f:
+        json.dump({"price": 1.0}, f)
+
+    # Current price = 1.06 → profit = 6%
+    monkeypatch.setattr(client, "get_symbol_ticker", lambda **kwargs: {"price": "1.06"})
+
+    # Expect True (take-profit triggered)
+    assert is_take_profit_reached(symbol) is True
+
+def test_take_profit_not_reached(monkeypatch):
+    from utils.profit_check import is_take_profit_reached
+    import builtins
+
+    symbol = "XRPUSDT"
+    os.makedirs("data", exist_ok=True)
+    real_open = builtins.open
+
+    # Write buy price 1.0 to JSON
+    with real_open(f"data/last_buy_price_{symbol}.json", "w") as f:
+        json.dump({"price": 1.0}, f)
+
+    # Current price = 1.03 → profit = 3%
+    monkeypatch.setattr(client, "get_symbol_ticker", lambda **kwargs: {"price": "1.03"})
+
+    # Expect False (profit too low)
+    assert is_take_profit_reached(symbol) is False
+
+def test_take_profit_file_not_found(monkeypatch):
+    from utils.profit_check import is_take_profit_reached
+
+    symbol = "XRPUSDT"
+
+    # Удаляем файл, если вдруг остался после предыдущих тестов
+    file_path = f"data/last_buy_price_{symbol}.json"
+    if os.path.exists(file_path):
+        os.remove(file_path)
+
+    # Мокаем текущую цену (любая)
+    monkeypatch.setattr(client, "get_symbol_ticker", lambda **kwargs: {"price": "1000.0"})
+
+    # Ожидаем False — файла нет
+    assert is_take_profit_reached(symbol) is False
+    

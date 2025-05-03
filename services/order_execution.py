@@ -3,9 +3,9 @@ import json
 import os
 from services.binance_client import client
 from utils.quantity_utils import get_lot_size, round_step_size
-from config.settings import COMMISSION_RATE, STOP_LOSS_RATIO
+from config.settings import STOP_LOSS_RATIO, TAKE_PROFIT_RATIO
 from colorama import Fore, Style
-from utils.profit_check import is_enough_profit, is_stop_loss_triggered
+from utils.profit_check import is_enough_profit, is_stop_loss_triggered, is_take_profit_reached
 
 
 
@@ -66,9 +66,12 @@ def place_order(action, symbol, commission_rate):
             if is_stop_loss_triggered(symbol):
                 logging.warning(f"❗ Stop-loss: убыток превышает {STOP_LOSS_RATIO*100:.1f}% — принудительная продажа")
             else:
-                if not is_enough_profit(symbol):
-                    logging.info("📉 Профит слишком мал — отмена продажи")
-                    return
+                if is_take_profit_reached(symbol):
+                    logging.info(f"✅ Take-profit: прибыль превышает {TAKE_PROFIT_RATIO*100:.1f}% — фиксируем")
+                else:
+                    if not is_enough_profit(symbol):
+                        logging.info("📉 Профит слишком мал — отмена продажи")
+                        return
 
             # Making the sale
             order = client.order_market_sell(symbol=symbol, quantity=quantity)
