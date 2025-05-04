@@ -6,6 +6,8 @@ from utils.quantity_utils import get_lot_size, round_step_size
 import config.settings as settings
 from colorama import Fore, Style
 from utils.profit_check import is_enough_profit, is_stop_loss_triggered, is_take_profit_reached
+import asyncio
+from utils.notifier import send_notification
 
 
 
@@ -51,6 +53,17 @@ def place_order(action, symbol, commission_rate):
 
             logging.info(log_message)
             print(Fore.GREEN + log_message + Style.RESET_ALL)
+           
+        # ✅ Telegram-уведомление о покупке
+            msg = (
+                f"🟢 КУПЛЕНО\n"
+                f"Символ: {symbol}\n"
+                f"Объём: {total_qty:.6f}\n"
+                f"Цена: {avg_price:.4f} USDT\n"
+                f"Комиссия: {total_commission:.6f} {commission_asset}"
+            )
+            asyncio.create_task(send_notification(msg))
+    
 
         else:
             logging.warning(f"Недостаточно средств для покупки: {quantity} < {min_qty}")
@@ -89,6 +102,18 @@ def place_order(action, symbol, commission_rate):
                            f"Получено: {total_received:.6f} USDT. Комиссия: {total_commission:.6f} {commission_asset}.")
             logging.info(log_message)
             print(Fore.RED + log_message + Style.RESET_ALL)
+            
+            # ✅ Telegram-уведомление о продаже
+            msg = (
+                f"🔴 ПРОДАНО\n"
+                f"Символ: {symbol}\n"
+                f"Объём: {total_qty:.6f}\n"
+                f"Цена: {avg_price:.4f} USDT\n"
+                f"Комиссия: {total_commission:.6f} {commission_asset}"
+            )
+            asyncio.create_task(send_notification(msg))
+
+            
         else:
             logging.warning(f"Недостаточно средств для продажи: {quantity} < {min_qty}")
 

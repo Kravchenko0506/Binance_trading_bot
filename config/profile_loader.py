@@ -35,3 +35,6 @@ def load_profiles():
         return {}
     with open(PROFILE_FILE, "r", encoding="utf-8") as f:
         return json.load(f)
+
+def get_all_profiles():
+    return list(load_profiles().keys())

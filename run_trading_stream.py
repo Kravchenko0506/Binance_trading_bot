@@ -31,13 +31,20 @@ async def trade_main(profile):
         place_order(action, profile.SYMBOL, profile.COMMISSION_RATE)
 
     queue = asyncio.Queue()
-    listener = asyncio.create_task(
-        listen_klines(profile.SYMBOL, profile.TIMEFRAME, queue)
-    )
-    processor = asyncio.create_task(
-        price_processor(queue, profile)
-    )
-    await asyncio.gather(listener, processor)
+    try:
+        listener = asyncio.create_task(
+            listen_klines(profile.SYMBOL, profile.TIMEFRAME, queue)
+        )
+        processor = asyncio.create_task(
+            price_processor(queue, profile)
+        )
+        await asyncio.gather(listener, processor)
+    except asyncio.CancelledError:
+        print("❗️ Торговля остановлена по команде.")
+        listener.cancel()
+        processor.cancel()
+        await asyncio.gather(listener, processor, return_exceptions=True)
+
 
 if __name__ == "__main__":
     if len(sys.argv) == 2:
@@ -102,6 +109,17 @@ if __name__ == "__main__":
                 break
             else:
                 print("❌ Неверный выбор. Попробуй снова.")
+                
+# в самом низу run_trading_stream.py
+async def trade_main_for_telegram(profile_name):
+    from config.profile_loader import get_profile_by_name
+    from types import SimpleNamespace
+
+    profile_dict = get_profile_by_name(profile_name)
+    profile = SimpleNamespace(**{k.upper(): v for k, v in profile_dict.items()})
+
+    await trade_main(profile)
+           
 
 
 
