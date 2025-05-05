@@ -5,6 +5,9 @@ bot.log
 trading_bot.log
 README.md
 
-config/profiles/doge.py
-config/profiles/xrp.py
-config/profiles/bnb.py
+profiles.json
+PROJECT_OVERVIEW.md
+temp_profile.pkl
+trading_bot_test.log
+config/profiles.json
+data/last_buy_price_XRPUSDT.json

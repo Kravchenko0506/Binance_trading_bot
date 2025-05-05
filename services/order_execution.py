@@ -87,6 +87,7 @@ def place_order(action, symbol, commission_rate):
                     if settings.USE_MIN_PROFIT and not is_enough_profit(symbol):
 
                         logging.info("📉 Профит слишком мал — отмена продажи")
+                        
                         return
 
             # Making the sale
