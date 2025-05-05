@@ -1,22 +1,3 @@
-import json
-import os
-from services.binance_client import client
-from config.settings import MIN_PROFIT_RATIO, STOP_LOSS_RATIO, TAKE_PROFIT_RATIO
-from config import settings
-from utils.quantity_utils import get_current_price
-from utils.profit_check import load_last_buy_price
-import logging
-
-#Returns True if the current price is higher than the last purchase price by at least MIN_PROFIT_RATIO
-
-from config import settings
-from utils.quantity_utils import get_current_price
-from utils.profit_check import load_last_buy_price
-import logging
-from utils.notifier import send_notification
-
-
-
 # utils/profit_check.py
 
 import json
@@ -24,13 +5,15 @@ import os
 import logging
 import asyncio
 
+from services.binance_client import client
 from config import settings
-from utils.quantity_utils import get_current_price
 from utils.notifier import send_notification
+
 
 def get_last_buy_price_path(symbol: str) -> str:
     """Путь к файлу с ценой последней покупки."""
     return f"data/last_buy_price_{symbol}.json"
+
 
 def save_last_buy_price(symbol: str, price: float):
     """Сохранить цену последней покупки в файл."""
@@ -38,6 +21,7 @@ def save_last_buy_price(symbol: str, price: float):
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         json.dump({"price": price}, f)
+
 
 def load_last_buy_price(symbol: str) -> dict:
     """Загрузить данные о цене последней покупки или вернуть пустой dict."""
@@ -51,6 +35,7 @@ def load_last_buy_price(symbol: str) -> dict:
         logging.warning(f"⚠️ Не удалось загрузить цену покупки для {symbol}: {e}")
         return {}
 
+
 def is_enough_profit(symbol: str) -> bool:
     """
     Проверяет, достаточно ли прибыли, чтобы продавать:
@@ -60,22 +45,29 @@ def is_enough_profit(symbol: str) -> bool:
       4) Если current_price < target — отменяет продажу.
     При отмене логгирует warning и шлёт уведомление в Telegram.
     """
+    # 1) Загрузка цен
     data = load_last_buy_price(symbol)
     buy_price = data.get("price") if data else None
-    current_price = get_current_price(symbol)
 
-    # 1) Проверка наличия данных
+    # берём текущую цену напрямую из Binance API
+    try:
+        ticker = client.get_symbol_ticker(symbol=symbol)
+        current_price = float(ticker["price"])
+    except Exception as e:
+        logging.warning(f"⚠️ Не удалось получить текущую цену для {symbol}: {e}")
+        current_price = None
+
+    # 2) Проверка наличия данных
     if buy_price is None or current_price is None:
         msg = (
             f"⛔ Продажа отменена для {symbol}: "
-            f"нет данных (buy_price={buy_price}, current_price={current_price})"
+            f"buy_price={buy_price}, current_price={current_price}"
         )
         logging.warning(msg)
-        # шлём в Telegram в фоне
         asyncio.create_task(send_notification(msg))
         return False
 
-    # 2) Вычисляем целевой уровень продаж
+    # 3) Вычисляем цель
     target_price = buy_price * (1 + settings.MIN_PROFIT_RATIO)
     if current_price < target_price:
         msg = (
@@ -87,37 +79,31 @@ def is_enough_profit(symbol: str) -> bool:
         asyncio.create_task(send_notification(msg))
         return False
 
-    # 3) Если всё ок — разрешаем продажу
+    # 4) Достаточно прибыли
     return True
 
 
-
-# Returns True if current loss exceeds STOP_LOSS_RATIO
-
 def is_stop_loss_triggered(symbol: str) -> bool:
+    """True, если убыток по текущей цене ниже STOP_LOSS_RATIO."""
     try:
-        file_path = os.path.join("data", f"last_buy_price_{symbol}.json")
-        with open(file_path, 'r') as f:
-            data = json.load(f)
-            last_buy_price = float(data['price'])
-    except (FileNotFoundError, KeyError, ValueError):
-        return False  # No data = no stop loss
-
-    price_now = float(client.get_symbol_ticker(symbol=symbol)['price'])
-    profit_ratio = (price_now - last_buy_price) / last_buy_price
-    return profit_ratio < STOP_LOSS_RATIO
-
-# True if current profit exceeds take-profit level
-
-def is_take_profit_reached(symbol: str) -> bool:
-    try:
-        file_path = os.path.join("data", f"last_buy_price_{symbol}.json")
-        with open(file_path, 'r') as f:
-            data = json.load(f)
-            last_buy_price = float(data['price'])
-    except (FileNotFoundError, KeyError, ValueError):
+        path = get_last_buy_price_path(symbol)
+        with open(path, "r", encoding="utf-8") as f:
+            last_buy_price = float(json.load(f)["price"])
+    except Exception:
         return False
 
-    price_now = float(client.get_symbol_ticker(symbol=symbol)['price'])
-    profit_ratio = (price_now - last_buy_price) / last_buy_price
-    return profit_ratio >= TAKE_PROFIT_RATIO
+    price_now = float(client.get_symbol_ticker(symbol=symbol)["price"])
+    return (price_now - last_buy_price) / last_buy_price < settings.STOP_LOSS_RATIO
+
+
+def is_take_profit_reached(symbol: str) -> bool:
+    """True, если прибыль по текущей цене выше TAKE_PROFIT_RATIO."""
+    try:
+        path = get_last_buy_price_path(symbol)
+        with open(path, "r", encoding="utf-8") as f:
+            last_buy_price = float(json.load(f)["price"])
+    except Exception:
+        return False
+
+    price_now = float(client.get_symbol_ticker(symbol=symbol)["price"])
+    return (price_now - last_buy_price) / last_buy_price >= settings.TAKE_PROFIT_RATIO

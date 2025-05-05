@@ -211,7 +211,7 @@ async def ask_log(message: types.Message):
 async def show_log(callback: types.CallbackQuery):
     """Показывает строки лога"""
     count = int(callback.data.split("_", 1)[1])
-    path = "trading.log"
+    path = "trading_bot.log"
     if not os.path.exists(path):
         await callback.message.answer("⚠️ Лог не найден.")
     else:
