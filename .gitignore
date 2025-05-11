@@ -9,5 +9,8 @@ profiles.json
 PROJECT_OVERVIEW.md
 temp_profile.pkl
 trading_bot_test.log
+config/telegram_admins.json
+config/auth.json
 config/profiles.json
 data/last_buy_price_XRPUSDT.json
+logs/system.log
