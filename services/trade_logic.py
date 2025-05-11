@@ -1,15 +1,16 @@
-import logging
+
 import numpy as np
 from services.binance_client import client
 from services.technical_indicators import calculate_rsi, calculate_macd, calculate_ema
 from services.technical_indicators import IndicatorCalculationError
+from utils.logger import trading_logger
 
 def get_ohlcv(symbol, timeframe):
     try:
         klines = client.get_klines(symbol=symbol, interval=timeframe, limit=100)
         return np.array([float(kline[4]) for kline in klines])
     except Exception as e:
-        logging.error(f"Ошибка при получении OHLCV: {e}")
+        trading_logger.error(f"Ошибка при получении OHLCV: {e}")
         return np.array([])
 
 def check_buy_sell_signals(profile):
@@ -39,27 +40,27 @@ def check_buy_sell_signals(profile):
     if use_rsi:
         try:
             rsi = calculate_rsi(prices, rsi_period)
-            logging.debug(f"Calculated RSI for {symbol}: {rsi[-1]:.2f}")  # Log RSI last value
+            trading_logger.debug(f"Calculated RSI for {symbol}: {rsi[-1]:.2f}")  # Log RSI last value
         except IndicatorCalculationError as e:
-            logging.error(f"RSI error: {e}")
+            trading_logger.error(f"RSI error: {e}")
             rsi = np.array([])  # fallback to empty → hold
         
 
     if use_macd:
         try:
             macd, signal = calculate_macd(prices, macd_fast_period, macd_slow_period, macd_signal_period)
-            logging.debug(f"Calculated MACD for {symbol}: macd={macd[-1]:.6f}, signal={signal[-1]:.6f}")  # Log MACD last values
+            trading_logger.debug(f"Calculated MACD for {symbol}: macd={macd[-1]:.6f}, signal={signal[-1]:.6f}")  # Log MACD last values
         except IndicatorCalculationError as e:
-            logging.error(f"MACD error: {e}")
+            trading_logger.error(f"MACD error: {e}")
             macd, signal = np.array([]), np.array([])
         
             
     if use_ema:
         try:
             ema = calculate_ema(prices, ema_period)
-            logging.debug(f"Calculated EMA for {symbol} (period {ema_period}): {ema[-1]:.6f}")  # Log EMA last value
+            trading_logger.debug(f"Calculated EMA for {symbol} (period {ema_period}): {ema[-1]:.6f}")  # Log EMA last value
         except IndicatorCalculationError as e:
-            logging.error(f"EMA error: {e}")
+            trading_logger.error(f"EMA error: {e}")
             ema = np.array([])
                 
 
@@ -103,18 +104,18 @@ def check_buy_sell_signals(profile):
 
     if buy:
         msg += "→ ПОКУПКА"
-        logging.info(msg)
+        trading_logger.info(msg)
         print(msg)
         return 'buy'
 
     if sell:
         msg += "→ ПРОДАЖА"
-        logging.info(msg)
+        trading_logger.info(msg)
         print(msg)
         return 'sell'
 
     # При hold
     msg += "→ нет сигнала"
-    logging.info(msg)
+    trading_logger.info(msg)
     print(msg)
     return 'hold'

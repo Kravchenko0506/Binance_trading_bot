@@ -2,12 +2,12 @@
 
 import json
 import os
-import logging
 import asyncio
 
 from services.binance_client import client
 from config import settings
 from utils.notifier import send_notification
+from utils.logger import trading_logger
 
 
 def get_last_buy_price_path(symbol: str) -> str:
@@ -32,7 +32,7 @@ def load_last_buy_price(symbol: str) -> dict:
         with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
     except Exception as e:
-        logging.warning(f"⚠️ Не удалось загрузить цену покупки для {symbol}: {e}")
+        trading_logger.warning(f"⚠️ Не удалось загрузить цену покупки для {symbol}: {e}")
         return {}
 
 
@@ -54,7 +54,7 @@ def is_enough_profit(symbol: str) -> bool:
         ticker = client.get_symbol_ticker(symbol=symbol)
         current_price = float(ticker["price"])
     except Exception as e:
-        logging.warning(f"⚠️ Не удалось получить текущую цену для {symbol}: {e}")
+        trading_logger.warning(f"⚠️ Не удалось получить текущую цену для {symbol}: {e}")
         current_price = None
 
     # 2) Проверка наличия данных
@@ -63,7 +63,7 @@ def is_enough_profit(symbol: str) -> bool:
             f"⛔ Продажа отменена для {symbol}: "
             f"buy_price={buy_price}, current_price={current_price}"
         )
-        logging.warning(msg)
+        trading_logger.warning(msg)
         asyncio.create_task(send_notification(msg))
         return False
 
@@ -75,7 +75,7 @@ def is_enough_profit(symbol: str) -> bool:
             f"куплено по {buy_price:.4f}, сейчас {current_price:.4f}, "
             f"нужно ≥ {target_price:.4f}"
         )
-        logging.warning(msg)
+        trading_logger.warning(msg)
         asyncio.create_task(send_notification(msg))
         return False
 

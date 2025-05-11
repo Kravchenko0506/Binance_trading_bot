@@ -1,0 +1,6 @@
+2025-05-11 19:43:33,627 - logs/trading_bot_log - INFO - Логгер 'trading_activity' успешно настроен.
+2025-05-11 19:44:29,247 - logs/trading_bot_log - INFO - Логгер 'trading_activity' успешно настроен.
+2025-05-11 19:48:16,970 - logs/trading_bot_log - INFO - Логгер 'trading_activity' успешно настроен.
+2025-05-11 20:01:15,810 - logs/trading_bot_log - INFO - Логгер 'trading_activity' успешно настроен.
+2025-05-11 20:01:37,713 - logs/trading_bot_log - INFO - 🚀 Торговля по профилю XRPUSDT запущена
+2025-05-11 20:01:59,536 - logs/trading_bot_log - INFO - RSI: 56.19 MACD: 0.001578 → нет сигнала

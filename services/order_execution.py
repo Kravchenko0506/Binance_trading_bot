@@ -1,4 +1,3 @@
-import logging
 import json
 import os
 from services.binance_client import client
@@ -8,6 +7,7 @@ from colorama import Fore, Style
 from utils.profit_check import is_enough_profit, is_stop_loss_triggered, is_take_profit_reached
 import asyncio
 from utils.notifier import send_notification
+from utils.logger import trading_logger
 
 
 
@@ -20,7 +20,7 @@ def place_order(action, symbol, commission_rate):
     step_size, min_qty = get_lot_size(symbol)
 
     if step_size is None:
-        logging.error("Не удалось получить stepSize.")
+        trading_logger.error("Не удалось получить stepSize.")
         return
 
     if action == 'buy':
@@ -51,7 +51,7 @@ def place_order(action, symbol, commission_rate):
 
 
 
-            logging.info(log_message)
+            trading_logger.info(log_message)
             print(Fore.GREEN + log_message + Style.RESET_ALL)
            
         # ✅ Telegram-уведомление о покупке
@@ -66,7 +66,7 @@ def place_order(action, symbol, commission_rate):
     
 
         else:
-            logging.warning(f"Недостаточно средств для покупки: {quantity} < {min_qty}")
+            trading_logger.warning(f"Недостаточно средств для покупки: {quantity} < {min_qty}")
 
     elif action == 'sell':
         base_asset = symbol.replace('USDT', '')
@@ -78,15 +78,15 @@ def place_order(action, symbol, commission_rate):
              # Forced sell if loss exceeds threshold
             if settings.USE_STOP_LOSS and is_stop_loss_triggered(symbol):
 
-                logging.warning(f"❗ Stop-loss: убыток превышает {settings.STOP_LOSS_RATIO*100:.1f}% — принудительная продажа")
+                trading_logger.warning(f"❗ Stop-loss: убыток превышает {settings.STOP_LOSS_RATIO*100:.1f}% — принудительная продажа")
             else:
                 if settings.USE_TAKE_PROFIT and is_take_profit_reached(symbol):
 
-                    logging.info(f"✅ Take-profit: прибыль превышает {settings.TAKE_PROFIT_RATIO*100:.1f}% — фиксируем")
+                    trading_logger.info(f"✅ Take-profit: прибыль превышает {settings.TAKE_PROFIT_RATIO*100:.1f}% — фиксируем")
                 else:
                     if settings.USE_MIN_PROFIT and not is_enough_profit(symbol):
 
-                        logging.info("📉 Профит слишком мал — отмена продажи")
+                        trading_logger.info("📉 Профит слишком мал — отмена продажи")
                         
                         return
 
@@ -101,7 +101,7 @@ def place_order(action, symbol, commission_rate):
 
             log_message = (f"Продажа: {total_qty:.6f} {base_asset} по средней цене {avg_price:.6f} USDT. "
                            f"Получено: {total_received:.6f} USDT. Комиссия: {total_commission:.6f} {commission_asset}.")
-            logging.info(log_message)
+            trading_logger.info(log_message)
             print(Fore.RED + log_message + Style.RESET_ALL)
             
             # ✅ Telegram-уведомление о продаже
@@ -116,7 +116,7 @@ def place_order(action, symbol, commission_rate):
 
             
         else:
-            logging.warning(f"Недостаточно средств для продажи: {quantity} < {min_qty}")
+            trading_logger.warning(f"Недостаточно средств для продажи: {quantity} < {min_qty}")
 
 
 

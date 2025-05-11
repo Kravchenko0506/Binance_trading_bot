@@ -22,10 +22,12 @@ async def start_aiogram_bot():
 
 
 def stop_bot_gracefully(*args):
-    """Обработчик сигнала SIGINT для остановки бота и WebSocket"""
-    # тут можно отменить ещё другие async задачи, если нужно
-    print("🛑 Остановка по сигналу пользователя")
+    """Handles SIGINT/SIGTERM — gracefully stops WebSocket and logs shutdown"""
+    from run_trading_stream import system_logger
+    system_logger.info("🛑 Received termination signal in Telegram bot (SIGINT/SIGTERM)")
     stop_websocket()
+    print("🛑 Bot shutdown signal handled.")
+
    
 # ▶ Точка входа
 if __name__ == "__main__":

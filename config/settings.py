@@ -30,10 +30,5 @@ MIN_ORDER_QUANTITY = 1         # Минимальное количество д�
 
 
 
-def log_enabled_features(log_func=logging.info):
-    logging.info("⚙️  Active Trading Features:")
-    logging.info(f" - Commission enabled:     {USE_COMMISSION} (rate: {COMMISSION_RATE})")
-    logging.info(f" - Min profit check:       {USE_MIN_PROFIT} (min: {MIN_PROFIT_RATIO})")
-    logging.info(f" - Stop-loss protection:   {USE_STOP_LOSS} (limit: {STOP_LOSS_RATIO})")
-    logging.info(f" - Take-profit logic:      {USE_TAKE_PROFIT} (limit: {TAKE_PROFIT_RATIO})")
+
 

@@ -1,6 +1,6 @@
 import math
 from services.binance_client import client
-import logging
+from utils.logger import trading_logger
 
 
 def get_lot_size(symbol):
@@ -10,7 +10,7 @@ def get_lot_size(symbol):
             if f['filterType'] == 'LOT_SIZE':
                 return float(f['stepSize']), float(f['minQty'])
     except Exception as e:
-        logging.error(f"Ошибка при получении LOT_SIZE: {e}")
+        trading_logger.error(f"Ошибка при получении LOT_SIZE: {e}")
     return None, None
 
 

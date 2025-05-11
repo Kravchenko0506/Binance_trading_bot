@@ -1,26 +1,12 @@
 import sys
 import asyncio
-import subprocess
-import os
-import pickle
-import logging
 from types import SimpleNamespace
 from config.profile_loader import get_profile_by_name
 from services.binance_stream import listen_klines, stop_websocket
 from services.trade_logic import check_buy_sell_signals
 from services.order_execution import place_order
-from utils.logger import setup_logger
 from services.technical_indicators import talib
-from config.settings import log_enabled_features
-
-# === Настройка системного логгера ===
-os.makedirs("logs", exist_ok=True)
-system_logger = logging.getLogger("system")
-system_logger.setLevel(logging.INFO)
-file_handler = logging.FileHandler("logs/system.log", encoding="utf-8")
-file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
-system_logger.addHandler(file_handler)
-
+from utils.logger import system_logger,trading_logger
 
 async def price_processor(queue: asyncio.Queue, profile):
     try:
@@ -37,13 +23,12 @@ async def price_processor(queue: asyncio.Queue, profile):
 
 
 async def trade_main(profile):
-    setup_logger()
-    system_logger.info(f"🚀 Торговля по профилю {profile.SYMBOL} запущена")
+  
+    trading_logger.info(f"🚀 Торговля по профилю {profile.SYMBOL} запущена")
 
     if talib is None:
-        system_logger.warning("⚠️ TA-Lib не установлен — используем fallback")
+        trading_logger.warning("⚠️ TA-Lib не установлен — используем fallback")
 
-    log_enabled_features()
 
     queue = asyncio.Queue()
     listener = asyncio.create_task(listen_klines(profile.SYMBOL, profile.TIMEFRAME, queue))
@@ -52,7 +37,7 @@ async def trade_main(profile):
     try:
         await asyncio.gather(listener, processor)
     except asyncio.CancelledError:
-        system_logger.info("🛑 Торговля отменена пользователем или системой (CancelledError)")
+        trading_logger.info("🛑 Торговля отменена пользователем или системой (CancelledError)")
         listener.cancel()
         processor.cancel()
         await asyncio.gather(listener, processor, return_exceptions=True)
@@ -69,7 +54,7 @@ if __name__ == "__main__":
             profile_dict = get_profile_by_name(sys.argv[1])
             profile = SimpleNamespace(**{k.upper(): v for k, v in profile_dict.items()})
             asyncio.run(trade_main(profile))
-            system_logger.info("✅ Торговля завершена корректно")
+            trading_logger.info("✅ Торговля завершена корректно")
         except Exception as e:
             system_logger.exception(f"❗ Ошибка на верхнем уровне: {e}")
     else:

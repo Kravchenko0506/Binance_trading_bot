@@ -4,7 +4,7 @@ except ImportError:
     talib = None
     print("❌ TA-Lib not available. Using fallback.")
 import numpy as np
-import logging
+from utils.logger import trading_logger
 
 # Custom exception for indicator calculation failures
 class IndicatorCalculationError(Exception):
@@ -16,11 +16,11 @@ def calculate_rsi(data, timeperiod):
         if talib:
             return talib.RSI(data, timeperiod=timeperiod)
         else:
-            logging.warning("📉 TA-Lib not available. Using fallback RSI.")
+            trading_logger.warning("📉 TA-Lib not available. Using fallback RSI.")
         return fallback_rsi(data, timeperiod)
 
     except Exception as e:
-        logging.error(f"Ошибка при расчете RSI: {e}")
+        trading_logger.error(f"Ошибка при расчете RSI: {e}")
         raise IndicatorCalculationError(f"RSI calculation failed: {e}")
 
 def calculate_macd(data, fastperiod, slowperiod, signalperiod):
@@ -29,10 +29,10 @@ def calculate_macd(data, fastperiod, slowperiod, signalperiod):
             macd, signal, _ = talib.MACD(data, fastperiod, slowperiod, signalperiod)
             return macd, signal
         else:
-            logging.warning("📉 TA-Lib not available. Using fallback MACD.")
+            trading_logger.warning("📉 TA-Lib not available. Using fallback MACD.")
             return fallback_macd(data, fastperiod, slowperiod, signalperiod)
     except Exception as e:
-        logging.error(f"Ошибка при расчете MACD: {e}")
+        trading_logger.error(f"Ошибка при расчете MACD: {e}")
         raise IndicatorCalculationError(f"MACD calculation failed: {e}")
 
 def calculate_ema(data, period):
@@ -40,11 +40,11 @@ def calculate_ema(data, period):
         if talib:
             return talib.EMA(data, timeperiod=period)
         else:
-            logging.warning("📉 TA-Lib not available. Using fallback EMA.")
+            trading_logger.warning("📉 TA-Lib not available. Using fallback EMA.")
             return fallback_ema(data, period)
 
     except Exception as e:
-        logging.error(f"Ошибка при расчете EMA: {e}")
+        trading_logger.error(f"Ошибка при расчете EMA: {e}")
         raise IndicatorCalculationError(f"EMA calculation failed: {e}")
 
     
