@@ -10,7 +10,7 @@ API_KEY = os.getenv('BINANCE_API_KEY')
 API_SECRET = os.getenv('BINANCE_API_SECRET')
 
 # --- Торговля ---
-LOG_FILE = 'trading_bot.log'
+LOG_FILE = 'trading.log'
 MIN_TRADE_AMOUNT = 5           # Минимальная сумма ордера (в USDT)
 
 USE_COMMISSION = True

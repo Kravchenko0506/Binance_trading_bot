@@ -1,54 +1,153 @@
 # run_trading_stream.py
-import asyncio
-import threading
-from types import SimpleNamespace
-import numpy as np # Для работы с массивами numpy
-import collections # Для использования deque
+import asyncio # Библиотека для асинхронного программирования
+import threading # Для создания объекта threading.Event для управления остановкой
+import sys # Для работы с аргументами командной строки (при прямом запуске) и sys.exit
+import logging # Для вызова logging.shutdown()
+from types import SimpleNamespace # Для удобного создания объектов из словарей (например, для профиля)
+import numpy as np # Для работы с массивами цен, если это требуется индикаторами
+import collections # Для использования collections.deque для эффективного хранения истории цен
 
-# Импорты из твоего проекта
-from config.profile_loader import get_profile_by_name # Предполагается, что он есть
+# --- Импорты из твоего проекта ---
+
+# Предполагается, что объект settings импортируется из config.settings
+# и содержит флаги USE_STOP_LOSS, USE_TAKE_PROFIT, USE_MIN_PROFIT и др.
+from config import settings
+
+# Функции для проверки условий стоп-лосса, тейк-профита и достаточной прибыли.
+# ВАЖНО: Эти функции должны быть адаптированы, чтобы принимать current_close_price как аргумент,
+# а не делать собственные API-запросы для получения текущей цены.
+from utils.profit_check import is_stop_loss_triggered, is_take_profit_reached, is_enough_profit
+# Асинхронная функция для отправки уведомлений в Telegram
+from utils.notifier import send_notification
+
+# Загрузка конфигурации профиля по имени
+from config.profile_loader import get_profile_by_name
+# Асинхронная функция-менеджер для прослушивания WebSocket стрима Binance
 from services.binance_stream import listen_klines
-# Изменяем импорт get_ohlcv на get_initial_ohlcv
+# Функции торговой логики: проверка сигналов по индикаторам и начальная загрузка истории цен
 from services.trade_logic import check_buy_sell_signals, get_initial_ohlcv
-from services.order_execution import place_order # Предполагается, что он есть
-from utils.logger import system_logger, trading_logger # Импортируем оба логгера
-from bot_control.control_center import CURRENT_STATE # Для регистрации компонентов
+# Функция для размещения ордеров на бирже (покупка/продажа)
+from services.order_execution import place_order
+# Централизованные логгеры: system_logger для системных событий, trading_logger для торговых операций
+from utils.logger import system_logger, trading_logger
+# Глобальное состояние для отслеживания активных задач и stop_event из control_center
+from bot_control.control_center import CURRENT_STATE
 
-# Настройки для истории цен (можно вынести в config/settings.py или профиль)
-PRICE_HISTORY_MAX_LEN = 250  # Максимальная длина истории цен для индикаторов (для MACD нужно ~50-100, для EMA может больше)
-MIN_PRICE_HISTORY_FOR_TRADE = 50 # Минимальное количество свечей для начала расчетов (зависит от самого длинного периода индикатора)
+
+# --- Константы для управления историей цен ---
+
+# Максимальная длина истории цен (количество свечей), которую мы храним для расчета индикаторов.
+# Это значение должно быть достаточным для самого "длинного" периода индикатора, который ты используешь.
+# Например, если у тебя EMA с периодом 200, то PRICE_HISTORY_MAX_LEN должен быть не меньше 200.
+PRICE_HISTORY_MAX_LEN = 250
+# Минимальное количество свечей в истории, необходимое для начала расчетов индикаторов и принятия торговых решений.
+# Это значение также зависит от периодов используемых индикаторов. Например, MACD(12,26,9) требует около 35+ свечей,
+# RSI(14) требует около 15+. Устанавливается с запасом.
+MIN_PRICE_HISTORY_FOR_TRADE = 50
+
+
+async def execute_trade_action(
+    action_type: str, # "buy" или "sell"
+    symbol: str,
+    profile: SimpleNamespace,
+    reason_message: str # Сообщение-причина для лога и уведомления
+):
+    """
+    Вспомогательная асинхронная функция для выполнения торгового действия (покупка/продажа),
+    логирования этого действия и отправки уведомления.
+    """
+    # Логируем намерение совершить действие
+    # trading_logger для торговых действий, system_logger для более общего контекста
+    trading_logger.info(reason_message)
+    system_logger.info(f"Price processor ({symbol}): Инициировано действие '{action_type}' по причине: {reason_message}")
+
+    try:
+        # Размещаем ордер на бирже.
+        # ВАЖНО: Если place_order - это синхронная блокирующая функция (делает сетевой запрос),
+        # ее вызов заблокирует весь asyncio event loop. В идеале, place_order должна быть
+        # асинхронной (async def) и использовать await для сетевых операций,
+        # либо вызываться через await asyncio.to_thread(place_order, ...) (для Python 3.9+)
+        # или await loop.run_in_executor(None, place_order, ...).
+        # Пока оставляем прямой вызов, предполагая, что он либо быстрый, либо ты это учтешь.
+        place_order(action_type, symbol, profile.COMMISSION_RATE)
+        
+        # Отправляем уведомление в Telegram об успешном действии
+        await send_notification(reason_message) # Уведомление содержит причину
+        system_logger.info(f"Price processor ({symbol}): Уведомление об операции '{action_type}' отправлено.")
+        return True # Действие успешно инициировано
+    except Exception as e:
+        system_logger.error(f"Price processor ({symbol}): Ошибка при размещении ордера '{action_type}': {e}", exc_info=True)
+        # Уведомляем об ошибке ордера
+        await send_notification(f"❌ Ошибка ордера '{action_type}' для {symbol}. Причина: {e}. Смотрите системные логи.")
+        return False # Действие не удалось
+
+
+async def check_and_handle_risk_conditions(
+    symbol: str,
+    profile: SimpleNamespace,
+    current_price: float, # Актуальная цена для проверки
+    strategy_has_issued_sell: bool # Флаг, указывающий, дала ли уже стратегия сигнал на продажу
+) -> bool:
+    """
+    Проверяет условия стоп-лосса, тейк-профита и минимальной прибыли.
+    Если условие срабатывает, выполняет продажу и возвращает True.
+    Иначе возвращает False.
+    ВАЖНО: Функции is_stop_loss_triggered, is_take_profit_reached, is_enough_profit
+    должны быть изменены, чтобы принимать current_price как аргумент.
+    """
+    # 1. Проверка Стоп-лосса (наивысший приоритет)
+    if settings.USE_STOP_LOSS and is_stop_loss_triggered(symbol, current_price): # Передаем current_price
+        reason = f"‼️ Stop-loss: {symbol} принудительно продается (цена {current_price:.6f}) из-за достижения уровня стоп-лосс."
+        await execute_trade_action("sell", symbol, profile, reason)
+        return True # Позиция закрыта по стоп-лоссу
+
+    # 2. Проверка Тейк-профита
+    if settings.USE_TAKE_PROFIT and is_take_profit_reached(symbol, current_price): # Передаем current_price
+        reason = f"✅ Take-profit: {symbol} достиг цели прибыли (цена {current_price:.6f}). Принудительная продажа."
+        await execute_trade_action("sell", symbol, profile, reason)
+        return True # Позиция закрыта по тейк-профиту
+            
+    # 3. Проверка Минимального профита
+    # Эта проверка выполняется, только если стратегия НЕ дала сигнал на продажу,
+    # и если не сработал стоп-лосс или тейк-профит выше.
+    if settings.USE_MIN_PROFIT and not strategy_has_issued_sell:
+        # is_enough_profit должна принимать current_price и сама решать, логировать ли отмену продажи.
+        # Если она возвращает True, значит, профит достаточен для продажи по этой логике.
+        if is_enough_profit(symbol, current_price): # Передаем current_price
+            reason = f"💰 Минимальный профит: {symbol} продается (цена {current_price:.6f}) для фиксации мин. прибыли без сигнала стратегии."
+            await execute_trade_action("sell", symbol, profile, reason)
+            return True # Позиция закрыта по минимальному профиту
+        # else: is_enough_profit сама залогирует и уведомит об отмене, если профит мал
+
+    return False # Ни одно из условий риск-менеджмента на продажу не сработало
 
 
 async def price_processor(
     price_queue: asyncio.Queue,
     profile: SimpleNamespace,
-    stop_event_ref: threading.Event # Ссылка на stop_event из trade_main для проверки перед длительными операциями
+    stop_event_ref: threading.Event
 ):
     """
     Асинхронно обрабатывает цены из очереди, обновляет историю цен,
-    вызывает торговую логику и размещает ордера.
+    вызывает торговую логику (включая риск-менеджмент) и размещает ордера.
     """
     symbol = profile.SYMBOL
     timeframe = profile.TIMEFRAME
-    system_logger.info(f"Price processor ({symbol}): ЗАПУЩЕН и ожидает инициализации истории цен.")
+    system_logger.info(f"Price processor ({symbol}): ЗАПУЩЕН. Ожидание инициализации истории цен...")
 
     # --- 1. Инициализация истории цен ---
-    # Вызываем get_initial_ohlcv ОДИН РАЗ при старте price_processor
-    initial_close_prices_np = get_initial_ohlcv(symbol, timeframe, limit=PRICE_HISTORY_MAX_LEN + 50) # Запрашиваем с запасом
+    try:
+        initial_close_prices_np = get_initial_ohlcv(symbol, timeframe, limit=PRICE_HISTORY_MAX_LEN + 50)
+    except Exception as e:
+        system_logger.error(f"Price processor ({symbol}): Критическая ошибка при вызове get_initial_ohlcv: {e}", exc_info=True)
+        if not stop_event_ref.is_set(): stop_event_ref.set()
+        return
 
     if initial_close_prices_np.size < MIN_PRICE_HISTORY_FOR_TRADE:
         system_logger.error(f"Price processor ({symbol}): Недостаточно начальных исторических данных ({initial_close_prices_np.size} из мин. {MIN_PRICE_HISTORY_FOR_TRADE}). Обработчик цен останавливается.")
-        # Здесь нужно как-то сигнализировать об ошибке в trade_main, чтобы остановить всю сессию
-        # Например, можно выбросить исключение, которое будет поймано в trade_main
-        # Или использовать asyncio.Event для сигнализации об ошибке
-        # Пока просто выходим, но это требует доработки для корректной остановки сессии.
-        if not stop_event_ref.is_set(): # Если не останавливаемся штатно
-             stop_event_ref.set() # Сигнализируем об остановке, т.к. дальше работать не можем
+        if not stop_event_ref.is_set(): stop_event_ref.set()
         return 
 
-    # Используем deque для эффективного хранения скользящего окна цен
-    # Заполняем deque начальными данными, обрезая до PRICE_HISTORY_MAX_LEN, если их больше.
-    # Берем последние PRICE_HISTORY_MAX_LEN цен.
     price_history_deque = collections.deque(
         initial_close_prices_np[-(PRICE_HISTORY_MAX_LEN):], 
         maxlen=PRICE_HISTORY_MAX_LEN
@@ -56,57 +155,76 @@ async def price_processor(
     system_logger.info(f"Price processor ({symbol}): Инициализирована история цен, {len(price_history_deque)} записей (maxlen={PRICE_HISTORY_MAX_LEN}).")
 
     try:
-        # Основной цикл обработки цен из очереди
-        while not stop_event_ref.is_set(): # Добавляем проверку stop_event_ref для более быстрой остановки
+        while not stop_event_ref.is_set():
+            new_close_price = None
             try:
-                # Ожидаем новую цену из очереди с таймаутом, чтобы не блокироваться вечно
-                # и периодически проверять stop_event_ref.
                 new_close_price = await asyncio.wait_for(price_queue.get(), timeout=1.0)
             except asyncio.TimeoutError:
-                # system_logger.debug(f"Price processor ({symbol}): Таймаут ожидания цены из очереди. Проверяем stop_event...")
-                if stop_event_ref.is_set(): # Если дана команда на остановку, выходим
-                    break
-                continue # Продолжаем цикл, если не останавливаемся
-
-            system_logger.debug(f"Price processor ({symbol}): получена новая цена закрытия {new_close_price} из очереди.")
-
-            # Обновляем историю: добавляем новую цену.
-            # Если deque полон, самая старая цена автоматически удалится слева.
-            price_history_deque.append(new_close_price)
-            
-            # Преобразуем deque в numpy array для передачи в функции расчета индикаторов.
-            # Это делается на каждой итерации, т.к. индикаторы требуют numpy array.
-            current_prices_np_for_indicators = np.array(price_history_deque)
-
-            # Проверяем, достаточно ли у нас данных в истории ПОСЛЕ добавления новой цены
-            if current_prices_np_for_indicators.size < MIN_PRICE_HISTORY_FOR_TRADE:
-                trading_logger.info(f"Price processor ({symbol}): Накапливаем историю, {current_prices_np_for_indicators.size}/{MIN_PRICE_HISTORY_FOR_TRADE} цен. Сигналы не проверяются.")
-                price_queue.task_done() # Не забываем подтверждать обработку элемента очереди
+                if stop_event_ref.is_set(): break
                 continue
 
-            # Вызываем check_buy_sell_signals с актуальной историей и последней ценой закрытия
-            trading_action = check_buy_sell_signals(
+            system_logger.debug(f"Price processor ({symbol}): Получена новая цена закрытия {new_close_price} из очереди.")
+            price_history_deque.append(new_close_price)
+            current_prices_np_for_indicators = np.array(price_history_deque)
+
+            if current_prices_np_for_indicators.size < MIN_PRICE_HISTORY_FOR_TRADE:
+                trading_logger.info(f"Price processor ({symbol}): Накапливаем историю, {current_prices_np_for_indicators.size}/{MIN_PRICE_HISTORY_FOR_TRADE} цен. Сигналы не проверяются.")
+                price_queue.task_done()
+                continue
+
+            # --- Шаг 1: Проверки риск-менеджмента (Стоп-лосс, Тейк-профит) ---
+            # Эти проверки имеют приоритет. strategy_has_issued_sell здесь False, т.к. основная стратегия еще не вызывалась.
+            # Передаем new_close_price для актуальной проверки.
+            risk_sell_executed = await check_and_handle_risk_conditions(symbol, profile, new_close_price, strategy_has_issued_sell=False)
+            if risk_sell_executed:
+                price_queue.task_done()
+                continue # Позиция закрыта, переходим к следующей цене
+
+            # --- Шаг 2: Основная торговая стратегия ---
+            strategy_action = check_buy_sell_signals(
                 profile, 
                 current_prices_np_for_indicators, 
-                new_close_price # new_close_price - это самая актуальная цена для принятия решения
-            ) 
+                new_close_price
+            )
             
-            # Логируем принятое действие (если нужно дополнительно к логам из check_buy_sell_signals)
-            # trading_logger.debug(f"Price processor ({symbol}): Действие от trade_logic: {trading_action}")
+            action_taken_this_cycle = False
+            if strategy_action == 'buy':
+                # (Дополнительные проверки перед покупкой: есть ли уже позиция, достаточно ли баланса и т.д.)
+                reason_msg_buy = f"📈 Стратегия ({symbol}) подала сигнал на ПОКУПКУ по цене {new_close_price:.6f}."
+                # Логирование самого сигнала 'buy' происходит внутри check_buy_sell_signals
+                # Здесь логируем намерение и результат place_order
+                if await execute_trade_action("buy", symbol, profile, reason_msg_buy):
+                    action_taken_this_cycle = True
+            
+            elif strategy_action == 'sell':
+                # Логика продажи по сигналу стратегии
+                proceed_with_strategy_sell = True
+                # Опциональная проверка минимальной прибыли для ПРОДАЖИ по СТРАТЕГИИ
+                if getattr(settings, "USE_MIN_PROFIT_FOR_STRATEGY_SELL", False): # Если такой флаг есть и True
+                    if not is_enough_profit(symbol, new_close_price): # is_enough_profit сама логирует отмену
+                        proceed_with_strategy_sell = False
+                        trading_logger.info(f"Price processor ({symbol}): Продажа по стратегии отменена из-за недостаточной прибыли (согласно is_enough_profit).")
+                
+                if proceed_with_strategy_sell:
+                    reason_msg_sell = f"📉 Стратегия ({symbol}) подала сигнал на ПРОДАЖУ по цене {new_close_price:.6f}."
+                    if await execute_trade_action("sell", symbol, profile, reason_msg_sell):
+                        action_taken_this_cycle = True
 
-            if trading_action != 'hold':
-                # Здесь логика размещения ордера
-                system_logger.info(f"Price processor ({symbol}): Размещение ордера: {trading_action}")
-                place_order(trading_action, profile.SYMBOL, profile.COMMISSION_RATE) # Убедись, что place_order корректно обрабатывает ошибки
+            # --- Шаг 3: Проверка минимального профита (если не было других действий) ---
+            # Вызываем, только если стратегия сказала 'hold' (т.е. strategy_action == 'hold')
+            # и не было других действий по риску или стратегии в этом цикле
+            if not action_taken_this_cycle and strategy_action == 'hold':
+                # Передаем strategy_has_issued_sell=False, так как стратегия не дала сигнал на продажу
+                await check_and_handle_risk_conditions(symbol, profile, new_close_price, strategy_has_issued_sell=False)
+                # Результат этой функции уже обработан внутри нее (если была продажа)
             
-            price_queue.task_done() # Сообщаем очереди, что элемент обработан
+            price_queue.task_done()
 
     except asyncio.CancelledError:
         system_logger.info(f"Price processor ({symbol}): Задача отменена (asyncio.CancelledError).")
     except Exception as e:
         system_logger.error(f"Price processor ({symbol}): Непредвиденная ошибка: {e}", exc_info=True)
-        if not stop_event_ref.is_set(): # Если ошибка, а не штатная остановка
-            stop_event_ref.set() # Сигнализируем об остановке всей сессии
+        if not stop_event_ref.is_set(): stop_event_ref.set()
     finally:
         system_logger.info(f"Price processor ({symbol}): Завершение работы.")
 
@@ -114,72 +232,55 @@ async def price_processor(
 async def trade_main(profile: SimpleNamespace):
     """
     Основная асинхронная функция для управления торговой сессией одного профиля.
+    Создает и управляет задачами listen_klines и price_processor.
     """
     symbol = profile.SYMBOL
-    system_logger.info(f"trade_main ({symbol}): Запуск торговой сессии для профиля.")
+    system_logger.info(f"trade_main ({symbol}): Запуск торговой сессии для профиля '{profile.SYMBOL}'.")
     
-    # stop_event создается здесь и передается во все компоненты, которые должны на него реагировать
     stop_event = threading.Event()
-    # Очередь для цен от listen_klines к price_processor
-    price_queue = asyncio.Queue(maxsize=100) # Ограничиваем размер очереди
+    price_queue = asyncio.Queue(maxsize=100) 
     
     listener_task = None
     processor_task = None
 
-    # Регистрация stop_event в CURRENT_STATE для доступа из control_center
-    # Это должно быть сделано как можно раньше
     try:
-        if "stop_event" not in CURRENT_STATE or CURRENT_STATE["stop_event"] is None: # Предотвращаем перезапись, если уже есть (хотя не должно быть)
-            CURRENT_STATE["stop_event"] = stop_event
-            system_logger.debug(f"trade_main ({symbol}): stop_event зарегистрирован в CURRENT_STATE.")
-        else:
-            system_logger.warning(f"trade_main ({symbol}): stop_event уже был в CURRENT_STATE. Не перезаписан.")
-            # Если stop_event уже есть, возможно, предыдущая сессия не была корректно очищена.
-            # Устанавливаем текущий stop_event, чтобы новая сессия реагировала на него.
-            if not CURRENT_STATE["stop_event"].is_set(): # Если старый не установлен, значит что-то не так
-                 CURRENT_STATE["stop_event"].set() # Останавливаем старый, если он еще не остановлен
-            CURRENT_STATE["stop_event"] = stop_event # Устанавливаем новый
-            system_logger.info(f"trade_main ({symbol}): Перезаписан stop_event в CURRENT_STATE.")
-
+        current_stop_event = CURRENT_STATE.get("stop_event")
+        if current_stop_event is not None and not current_stop_event.is_set():
+            system_logger.warning(f"trade_main ({symbol}): Обнаружен активный stop_event в CURRENT_STATE от предыдущей сессии. Попытка остановить старую сессию.")
+            current_stop_event.set() 
+            await asyncio.sleep(0.5) # Даем время на реакцию
+        
+        CURRENT_STATE["stop_event"] = stop_event
+        system_logger.debug(f"trade_main ({symbol}): stop_event ({id(stop_event)}) зарегистрирован в CURRENT_STATE.")
     except Exception as e:
         system_logger.critical(f"trade_main ({symbol}): НЕ УДАЛОСЬ зарегистрировать stop_event в CURRENT_STATE: {e}", exc_info=True)
-        # Если CURRENT_STATE не работает, дальнейшая работа невозможна
-        return # Завершаем trade_main
+        return
 
     try:
-        # Запускаем listen_klines для получения цен
         listener_task = asyncio.create_task(
             listen_klines(symbol, profile.TIMEFRAME, price_queue, stop_event)
         )
-        # Запускаем price_processor для обработки цен и торговой логики
         processor_task = asyncio.create_task(
-            price_processor(price_queue, profile, stop_event) # Передаем stop_event и в processor
+            price_processor(price_queue, profile, stop_event) 
         )
 
-        # Обновляем CURRENT_STATE ссылками на созданные задачи
         CURRENT_STATE["listener_task"] = listener_task
         CURRENT_STATE["processor_task"] = processor_task
         system_logger.debug(f"trade_main ({symbol}): listener_task и processor_task зарегистрированы в CURRENT_STATE.")
 
-        # Ожидаем завершения обеих задач (listen_klines и price_processor)
-        # Они должны завершиться, когда будет установлен stop_event или если они сами упадут с ошибкой.
         await asyncio.gather(listener_task, processor_task)
-        
         system_logger.info(f"trade_main ({symbol}): asyncio.gather(listener, processor) завершен.")
 
     except asyncio.CancelledError:
         system_logger.info(f"trade_main ({symbol}): Основная задача отменена (asyncio.CancelledError). Инициируем остановку компонентов.")
         if not stop_event.is_set():
-            system_logger.info(f"trade_main ({symbol}): Установка stop_event из-за CancelledError.")
+            system_logger.info(f"trade_main ({symbol}): Установка stop_event из-за CancelledError в trade_main.")
             stop_event.set()
         
-        # Отменяем дочерние задачи (хотя они должны среагировать на stop_event)
-        if listener_task and not listener_task.done(): listener_task.cancel()
-        if processor_task and not processor_task.done(): processor_task.cancel()
-        
-        if listener_task or processor_task:
-            tasks_to_await = [t for t in [listener_task, processor_task] if t]
-            await asyncio.gather(*tasks_to_await, return_exceptions=True)
+        tasks_to_cancel = [t for t in [listener_task, processor_task] if t and not t.done()]
+        if tasks_to_cancel:
+            for task in tasks_to_cancel: task.cancel()
+            await asyncio.gather(*tasks_to_cancel, return_exceptions=True)
             system_logger.info(f"trade_main ({symbol}): Дочерние задачи собраны после отмены trade_main.")
             
     except Exception as e:
@@ -188,13 +289,11 @@ async def trade_main(profile: SimpleNamespace):
             system_logger.info(f"trade_main ({symbol}): Установка stop_event из-за непредвиденной ошибки.")
             stop_event.set()
         
-        if listener_task and not listener_task.done(): listener_task.cancel()
-        if processor_task and not processor_task.done(): processor_task.cancel()
-
-        if listener_task or processor_task:
-            tasks_to_await = [t for t in [listener_task, processor_task] if t]
-            await asyncio.gather(*tasks_to_await, return_exceptions=True)
-            system_logger.info(f"trade_main ({symbol}): Дочерние задачи собраны после непредвиденной ошибки.")
+        tasks_to_cancel_on_error = [t for t in [listener_task, processor_task] if t and not t.done()]
+        if tasks_to_cancel_on_error:
+            for task in tasks_to_cancel_on_error: task.cancel()
+            await asyncio.gather(*tasks_to_cancel_on_error, return_exceptions=True)
+            system_logger.info(f"trade_main ({symbol}): Дочерние задачи собраны после непредвиденной ошибки в trade_main.")
             
     finally:
         system_logger.info(f"trade_main ({symbol}): Блок finally. Гарантируем установку stop_event.")
@@ -202,12 +301,13 @@ async def trade_main(profile: SimpleNamespace):
             system_logger.warning(f"trade_main ({symbol}): stop_event не был установлен к моменту finally. Устанавливаем принудительно.")
             stop_event.set()
         
-        # Очистка CURRENT_STATE должна происходить в control_center.stop_trading
-        system_logger.info(f"trade_main ({symbol}): Функция для профиля полностью завершена.")
+        system_logger.info(f"trade_main ({symbol}): Функция для профиля '{symbol}' полностью завершена.")
 
-# Функция-обертка для вызова из Telegram хендлеров
+
 async def trade_main_for_telegram(profile_name: str):
-    """Загружает профиль и запускает trade_main."""
+    """
+    Асинхронная функция-обертка для запуска trade_main из Telegram хендлеров.
+    """
     system_logger.info(f"trade_main_for_telegram: Загрузка профиля '{profile_name}'...")
     try:
         profile_dict = get_profile_by_name(profile_name)
@@ -216,39 +316,33 @@ async def trade_main_for_telegram(profile_name: str):
         await trade_main(profile)
     except FileNotFoundError as e:
         system_logger.error(f"trade_main_for_telegram: Профиль '{profile_name}' не найден: {e}")
-        # В идеале, здесь нужно вернуть информацию об ошибке, чтобы control_center мог ее обработать
-        # или отправить уведомление в Telegram из notifier.py
+        await send_notification(f"❌ Ошибка запуска: Профиль '{profile_name}' не найден.")
     except Exception as e:
         system_logger.error(f"trade_main_for_telegram: Ошибка при выполнении для профиля '{profile_name}': {e}", exc_info=True)
+        await send_notification(f"❌ Критическая ошибка для профиля '{profile_name}'. Подробности в системном логе.")
 
-# Код для прямого запуска run_trading_stream.py (если нужен)
+# Блок для прямого запуска (если нужен для отладки)
 if __name__ == "__main__":
-    import sys
-    import logging # для logging.shutdown()
-    # ... (твой код для выбора профиля из sys.argv или интерактивного меню) ...
-    # Пример:
     if len(sys.argv) == 2:
         profile_name_arg = sys.argv[1]
-        system_logger.info(f"Запуск из __main__ для профиля: {profile_name_arg}")
+        system_logger.info(f"run_trading_stream.py: Запуск из __main__ для профиля: {profile_name_arg}")
         try:
             profile_dict_main = get_profile_by_name(profile_name_arg)
             profile_main_obj = SimpleNamespace(**{k.upper(): v for k, v in profile_dict_main.items()})
             asyncio.run(trade_main(profile_main_obj))
         except FileNotFoundError:
-            system_logger.error(f"Профиль '{profile_name_arg}' не найден при запуске из __main__.")
+            system_logger.error(f"run_trading_stream.py (__main__): Профиль '{profile_name_arg}' не найден.")
             print(f"❌ Профиль '{profile_name_arg}' не найден.")
         except KeyboardInterrupt:
-            system_logger.info("Программа run_trading_stream.py прервана пользователем (KeyboardInterrupt) из __main__.")
+            system_logger.info("run_trading_stream.py (__main__): Программа прервана пользователем (KeyboardInterrupt).")
         except Exception as e:
-            system_logger.error(f"Непредвиденная ошибка в __main__ (run_trading_stream.py): {e}", exc_info=True)
+            system_logger.error(f"run_trading_stream.py (__main__): Непредвиденная ошибка: {e}", exc_info=True)
         finally:
-            system_logger.info("Программа run_trading_stream.py (__main__) завершает работу.")
-            if logging.getLogger().handlers: # Проверяем, есть ли еще обработчики
+            system_logger.info("run_trading_stream.py (__main__): Завершение работы.")
+            if logging.getLogger().handlers: 
                  logging.shutdown()
     else:
-        print("Для прямого запуска: python run_trading_stream.py <имя_профиля>")
-        # Здесь может быть твой код для интерактивного меню, если он запускается отсюда
-
+        print("Для прямого запуска укажите имя профиля: python run_trading_stream.py <имя_профиля>")
 
 
 
