@@ -10,6 +10,8 @@
     "macd_fast_period": 8,
     "macd_slow_period": 21,
     "macd_signal_period": 9,
+    "use_macd_for_buy": true,
+    "use_macd_for_sell": true,
     "use_ema": false,
     "commission_rate": 0.001,
     "min_profit_ratio": 0.030,
