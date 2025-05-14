@@ -1616,3 +1616,10 @@
 2025-05-15 00:54:00,217 - trading - INFO - Профиль XRPUSDT: RSI(14): 36.32, MACD(8,21,9): -0.002280/-0.002260, Цена: 2.548700 → нет сигнала
 2025-05-15 00:55:00,222 - trading - INFO - Профиль XRPUSDT: RSI(14): 40.44, MACD(8,21,9): -0.002013/-0.002210, Цена: 2.549600 → нет сигнала
 2025-05-15 00:55:56,763 - trading - INFO - Логгер 'trading_activity' успешно настроен.
+2025-05-15 01:15:22,638 - trading - INFO - Логгер 'trading_activity' успешно настроен.
+2025-05-15 01:18:52,230 - trading - INFO - Логгер 'trading_activity' успешно настроен.
+2025-05-15 01:19:09,193 - trading - INFO - TradeLogic (XRPUSDT): Запрос начальных 300 OHLCV данных для XRPUSDT (1m)...
+2025-05-15 01:19:09,582 - trading - INFO - TradeLogic (XRPUSDT): Успешно загружено 300 цен закрытия.
+2025-05-15 01:34:54,359 - trading - INFO - Логгер 'trading_activity' успешно настроен.
+2025-05-15 01:35:06,401 - trading - INFO - TradeLogic (XRPUSDT): Запрос начальных 300 OHLCV данных для XRPUSDT (1m)...
+2025-05-15 01:35:06,666 - trading - INFO - TradeLogic (XRPUSDT): Успешно загружено 300 цен закрытия.

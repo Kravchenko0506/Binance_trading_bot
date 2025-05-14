@@ -32,6 +32,7 @@ from services.order_execution import place_order
 from utils.logger import system_logger, trading_logger
 # Глобальное состояние для отслеживания активных задач и stop_event из control_center
 from bot_control.control_center import CURRENT_STATE
+from utils.position_manager import load_last_buy_price,has_open_position
 
 
 
@@ -99,25 +100,26 @@ async def check_and_handle_risk_conditions(
     Возвращает True, если была продажа. Иначе — False.
     """
 
-    from utils.position_manager import has_open_position
+    
 
     # === Проверка: есть ли вообще открытая позиция ===
     # Если файл last_buy_price отсутствует, значит — позиции нет, продавать нечего
     # Это защищает от спама при срабатывании take-profit по уже закрытой позиции
+    last_buy_price = load_last_buy_price(symbol)
     if not has_open_position(symbol):
         system_logger.debug(f"Risk Check: позиция по {symbol} уже закрыта — пропускаем проверку TP/SL/MinProfit.")
         return False
 
     # === 1. STOP-LOSS ===
     # Наивысший приоритет: продажа при достижении убытка
-    if settings.USE_STOP_LOSS and is_stop_loss_triggered(symbol, current_price):
+    if settings.USE_STOP_LOSS and is_stop_loss_triggered(symbol, current_price, last_buy_price):
         reason = f"‼️ Stop-loss: {symbol} принудительно продается (цена {current_price:.6f}) из-за достижения уровня стоп-лосс."
         await execute_trade_action("sell", symbol, profile, reason)
         return True
 
     # === 2. TAKE-PROFIT ===
     # Второй по приоритету: продажа при достижении заданной прибыли
-    if settings.USE_TAKE_PROFIT and is_take_profit_reached(symbol, current_price):
+    if settings.USE_TAKE_PROFIT and is_take_profit_reached(symbol, current_price, last_buy_price):
         reason = f"✅ Take-profit: {symbol} достиг цели прибыли (цена {current_price:.6f}). Принудительная продажа."
         await execute_trade_action("sell", symbol, profile, reason)
         return True
@@ -125,7 +127,7 @@ async def check_and_handle_risk_conditions(
     # === 3. MIN-PROFIT ===
     # Только если стратегия НЕ дала сигнал `sell`
     if settings.USE_MIN_PROFIT and not strategy_has_issued_sell:
-        if is_enough_profit(symbol, current_price):
+        if is_enough_profit(symbol, current_price, last_buy_price):
             reason = f"💰 Минимальный профит: {symbol} продается (цена {current_price:.6f}) для фиксации прибыли без сигнала стратегии."
             await execute_trade_action("sell", symbol, profile, reason)
             return True
@@ -202,11 +204,21 @@ async def price_processor(
             )
             
             action_taken_this_cycle = False
+            # === Сигнал стратегии: BUY ===
             if strategy_action == 'buy':
-                # (Дополнительные проверки перед покупкой: есть ли уже позиция, достаточно ли баланса и т.д.)
+            # --- Защита от повторной покупки ---
+            # Если позиция уже открыта (есть сохранённая цена покупки),
+            # то игнорируем сигнал на покупку, чтобы не купить дважды.
+                if has_open_position(symbol):
+                    msg = f"🛑 Покупка отменена: позиция по {symbol} уже открыта."
+                    system_logger.info(msg)
+                    await send_notification(msg)  # Уведомляем Telegram
+                    price_queue.task_done()       # Сообщаем очереди, что элемент обработан
+                    continue                      # Пропускаем дальнейшую обработку
+
+    # --- Выполнение покупки ---
+    # Если позиции ещё нет, выполняем покупку
                 reason_msg_buy = f"📈 Стратегия ({symbol}) подала сигнал на ПОКУПКУ по цене {new_close_price:.6f}."
-                # Логирование самого сигнала 'buy' происходит внутри check_buy_sell_signals
-                # Здесь логируем намерение и результат place_order
                 if await execute_trade_action("buy", symbol, profile, reason_msg_buy):
                     action_taken_this_cycle = True
             

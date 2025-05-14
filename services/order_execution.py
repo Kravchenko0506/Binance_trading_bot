@@ -52,7 +52,7 @@ async def get_current_market_price_async(symbol: str) -> Decimal | None:
         return None
 
 
-async def place_order_async(action: str, symbol: str, profile: object) -> dict | None:
+async def place_order(action: str, symbol: str, profile: object) -> dict | None:
     """
     Асинхронно размещает рыночный ордер на покупку или продажу.
     Возвращает ответ от биржи (словарь) в случае успеха, или None в случае ошибки.
