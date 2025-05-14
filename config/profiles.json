@@ -43,7 +43,7 @@
   },
   "doge": {
     "symbol": "DOGEUSDT",
-    "timeframe": "5m",
+    "timeframe": "1m",
     "use_rsi": true,
     "rsi_period": 14,
     "rsi_overbought": 70,

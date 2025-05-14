@@ -1,23 +1,23 @@
 # interfaces/telegram_bot/handlers.py
 
 from aiogram import Router, types, Bot
-from aiogram.filters import Command, CommandObject # Добавим CommandObject для /start_profile
+from aiogram.filters import Command, CommandObject
 from aiogram.types import (
     ReplyKeyboardMarkup, KeyboardButton,
     InlineKeyboardMarkup, InlineKeyboardButton
 )
 import os
-import json # Импорт json уже был
+import json
 
 # Импортируем функции управления ботом из control_center
 from bot_control.control_center import get_status, start_trading, stop_trading
 # Импортируем функцию-обертку для запуска торговой логики
 from run_trading_stream import trade_main_for_telegram
-# Импортируем функцию для получения списка профилей
-from config.profile_loader import get_all_profiles, PROFILE_FILE # Добавим PROFILE_FILE для сообщения об отсутствии
+# Импортируем функцию для получения списка профилей и константу имени файла
+from config.profile_loader import get_all_profiles, PROFILE_FILE
 
 # Импортируем настроенный system_logger из централизованного модуля
-from utils.logger import system_logger # Раскомментировано
+from utils.logger import system_logger
 
 router = Router()
 
@@ -26,104 +26,91 @@ AUTH_FILE = "config/auth.json" # Файл для хранения данных �
 PENDING_AUTH = set()  # Множество user_id, ожидающих ввода пароля
 USER_MESSAGES = {}    # Словарь: user_id -> [msg_id,...] для очистки предыдущих сообщений бота
 
-# ───── ФУНКЦИИ АВТОРИЗАЦИИ (без изменений) ─────────────────────────────────────
+# ───── ФУНКЦИИ АВТОРИЗАЦИИ ─────────────────────────────────────
 
 def load_auth_data() -> dict:
-    """Загружает auth.json или создаёт с нуля"""
+    """Загружает auth.json или создаёт с нуля, обрабатывая возможные ошибки."""
     if not os.path.exists(AUTH_FILE):
         os.makedirs(os.path.dirname(AUTH_FILE), exist_ok=True)
         data = {"passwords": {}, "users": {}}
         with open(AUTH_FILE, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)
+        system_logger.info(f"Файл {AUTH_FILE} не найден, создан новый.")
         return data
     try:
         with open(AUTH_FILE, "r", encoding="utf-8") as f:
             return json.load(f)
     except (json.JSONDecodeError, FileNotFoundError) as e:
-        system_logger.error(f"Ошибка загрузки auth.json: {e}. Создаем новый файл.")
-        # В случае ошибки создаем пустой файл
+        system_logger.error(f"Ошибка загрузки {AUTH_FILE}: {e}. Создаем новый файл.")
         os.makedirs(os.path.dirname(AUTH_FILE), exist_ok=True)
         data = {"passwords": {}, "users": {}}
         with open(AUTH_FILE, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)
         return data
 
-
 def save_auth_data(data: dict):
-    """Сохраняет auth.json"""
+    """Сохраняет auth.json, обрабатывая возможные ошибки."""
     try:
         with open(AUTH_FILE, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)
     except IOError as e:
-        system_logger.error(f"Ошибка сохранения auth.json: {e}")
+        system_logger.error(f"Ошибка сохранения {AUTH_FILE}: {e}")
 
 def is_authenticated(user_id: int) -> bool:
-    """Проверка: есть ли user_id в списке users"""
+    """Проверка: есть ли user_id в списке users."""
     auth_data = load_auth_data()
     return str(user_id) in auth_data.get("users", {})
 
 def verify_password(password: str) -> str | None:
-    """Сверяет пароль → возвращает API-ключ (в вашей реализации он не используется напрямую из пароля)"""
-    # В вашей реализации пароль просто проверяется на наличие ключа
+    """Сверяет пароль. В вашей реализации возвращает значение, связанное с паролем (например, "api_key_placeholder")."""
     auth_data = load_auth_data()
-    return auth_data.get("passwords", {}).get(password) # Возвращает "api_key" или None
+    return auth_data.get("passwords", {}).get(password)
 
-def register_user(user_id: int, api_key_value: str): # Имя второго аргумента изменено для ясности
-    """Регистрирует Telegram ID пользователя. api_key_value здесь символический, может быть просто True или имя пароля"""
+def register_user(user_id: int, api_key_placeholder: str):
+    """Регистрирует Telegram ID пользователя."""
     data = load_auth_data()
-    # Гарантируем, что словарь 'users' существует
-    if "users" not in data:
+    if "users" not in data: # Гарантируем существование ключа 'users'
         data["users"] = {}
-    data["users"][str(user_id)] = api_key_value # Сохраняем флаг или ключ API
+    data["users"][str(user_id)] = api_key_placeholder # Сохраняем символическое значение
     save_auth_data(data)
     system_logger.info(f"Пользователь {user_id} зарегистрирован.")
 
-# ───── УТИЛИТА: отправка и удаление старых сообщений (без изменений) ────────────
+# ───── УТИЛИТА: отправка и удаление старых сообщений ────────────
 
 async def send_clean(bot: Bot, user_id: int, text: str, **kwargs):
     """
     Удаляет предыдущие сообщения бота для этого пользователя (из USER_MESSAGES)
     и отправляет новое сообщение, сохраняя его ID.
     """
-    # Удалить ВСЕ старые сообщения пользователя, если есть
     if user_id in USER_MESSAGES:
         for msg_id in USER_MESSAGES[user_id]:
             try:
                 await bot.delete_message(chat_id=user_id, message_id=msg_id)
             except Exception as e:
-                # Логируем ошибку удаления, но не прерываем работу
                 system_logger.warning(f"Не удалось удалить сообщение {msg_id} для пользователя {user_id}: {e}")
-        USER_MESSAGES[user_id] = [] # Очищаем список старых сообщений
+        USER_MESSAGES[user_id] = []
 
-    # Отправить новое сообщение и сохранить ID
     try:
         msg = await bot.send_message(chat_id=user_id, text=text, **kwargs)
-        # Добавляем ID нового сообщения в список для последующей очистки
         USER_MESSAGES.setdefault(user_id, []).append(msg.message_id)
     except Exception as e:
         system_logger.error(f"Не удалось отправить сообщение пользователю {user_id}: {e}")
 
-
-# ───── ГЕНЕРАЦИЯ МЕНЮ (без изменений) ───────────────────────────────────────────
+# ───── ГЕНЕРАЦИЯ МЕНЮ ───────────────────────────────────────────
 
 def generate_main_menu(user_id: int) -> ReplyKeyboardMarkup:
-    """Меню: динамически показывает регистрацию или команды"""
-    auth = is_authenticated(user_id)
+    """Генерирует основное меню с кнопками."""
+    # auth = is_authenticated(user_id) # Проверка аутентификации здесь не нужна для генерации кнопок
     kb = [
         [KeyboardButton(text="▶️ Запустить"), KeyboardButton(text="⏹ Остановить")],
         [KeyboardButton(text="📊 Статус"), KeyboardButton(text="📤 Лог")]
     ]
-    # Кнопка регистрации/логина показывается только неавторизованным пользователям
-    # Логика login/register обрабатывается отдельными командами /login
-    # if not auth:
-    #     kb.append([KeyboardButton(text="🔐 Зарегистрироваться")]) # Логика регистрации через /login
-    return ReplyKeyboardMarkup(keyboard=kb, resize_keyboard=True, one_time_keyboard=False) # one_time_keyboard=False, чтобы меню не скрывалось
+    return ReplyKeyboardMarkup(keyboard=kb, resize_keyboard=True, one_time_keyboard=False)
 
 # ───── ОБРАБОТЧИКИ КОМАНД ───────────────────────────────────────
 
 @router.message(Command("start", "help"))
 async def cmd_start(message: types.Message, bot: Bot):
-    """Команда /start или /help: показывает приветствие и меню"""
     user_id = message.from_user.id
     user_name = message.from_user.first_name
     system_logger.info(f"Получена команда /start от user_id: {user_id} ({user_name})")
@@ -132,7 +119,6 @@ async def cmd_start(message: types.Message, bot: Bot):
         await message.answer(f"👋 Привет, {user_name}! Чтобы получить доступ к боту, отправь команду /login")
         return
 
-    # Используем send_clean для обновления меню
     await send_clean(
         bot,
         user_id,
@@ -142,7 +128,6 @@ async def cmd_start(message: types.Message, bot: Bot):
 
 @router.message(Command("menu"))
 async def cmd_menu(message: types.Message, bot: Bot):
-    """Команда /menu: принудительно перерисовать меню"""
     user_id = message.from_user.id
     system_logger.info(f"Получена команда /menu от user_id: {user_id}")
     if not is_authenticated(user_id):
@@ -152,34 +137,26 @@ async def cmd_menu(message: types.Message, bot: Bot):
 
 @router.message(Command("login"))
 async def cmd_login(message: types.Message):
-    """Команда /login: запрашивает пароль"""
     user_id = message.from_user.id
     system_logger.info(f"Получена команда /login от user_id: {user_id}")
     if is_authenticated(user_id):
         await message.answer("✅ Вы уже авторизованы. Используйте /start для отображения меню.")
         return
-    # Добавляем пользователя в множество ожидающих ввода пароля
     PENDING_AUTH.add(user_id)
     await message.answer("🔒 Пожалуйста, введите ваш пароль доступа:")
 
-# Обработчик для сообщений от пользователей, ожидающих аутентификации
 @router.message(lambda message: message.from_user.id in PENDING_AUTH)
 async def process_password(message: types.Message, bot: Bot):
-    """Обрабатывает введенный пароль, если пользователь в PENDING_AUTH"""
     user_id = message.from_user.id
     password_attempt = message.text.strip()
-    system_logger.info(f"Получен пароль от user_id: {user_id}")
+    system_logger.info(f"Получен пароль '{password_attempt}' от user_id: {user_id}")
 
-    # Удаляем пользователя из ожидания независимо от результата
     PENDING_AUTH.discard(user_id)
     
-    # Проверяем пароль
-    api_key_value = verify_password(password_attempt) # api_key_value может быть символическим
-    if api_key_value is not None:
-        # Регистрируем пользователя
-        register_user(user_id, api_key_value) # Сохраняем пользователя как авторизованного
+    api_key_placeholder = verify_password(password_attempt)
+    if api_key_placeholder is not None:
+        register_user(user_id, api_key_placeholder)
         system_logger.info(f"Успешная аутентификация для user_id: {user_id}")
-        # Отправляем подтверждение и меню
         await send_clean(
             bot,
             user_id,
@@ -187,52 +164,42 @@ async def process_password(message: types.Message, bot: Bot):
             reply_markup=generate_main_menu(user_id)
         )
     else:
-        system_logger.warning(f"Неудачная попытка аутентификации для user_id: {user_id}")
+        system_logger.warning(f"Неудачная попытка аутентификации для user_id: {user_id} (пароль: '{password_attempt}')")
         await message.answer("❌ Неверный пароль. Попробуйте снова, отправив команду /login")
 
 # ───── ОБРАБОТЧИКИ КНОПОК ОСНОВНОГО МЕНЮ ────────────────────────
 
 @router.message(lambda message: message.text == "📊 Статус")
 async def handle_show_status_button(message: types.Message):
-    """Обрабатывает нажатие кнопки 'Статус' """
     user_id = message.from_user.id
     system_logger.info(f"Нажата кнопка 'Статус' пользователем {user_id}")
     if not is_authenticated(user_id):
         await message.answer("⛔️ Не авторизованы. Используйте /login")
         return
-
-    # Вызываем обновленный обработчик статуса
-    await show_detailed_status(message)
-
+    await show_detailed_status(message) # Вызываем отдельную функцию для отображения статуса
 
 async def show_detailed_status(message: types.Message):
-    """Отображает подробный статус торговли (вызывается из обработчика кнопки)"""
+    """Отображает подробный статус торговли, используя HTML для форматирования."""
+    system_logger.info(f"Запрос детального статуса для пользователя {message.from_user.id}")
     try:
-        status_info = get_status() # Получаем расширенный статус из control_center
-        # Форматируем статус для вывода
-        status_text = f"📊 **Текущий Статус Бота** 📊\n\n"
-        status_text += f"**Состояние:** {'✅ *Работает*' if status_info['running'] else '⛔️ *Остановлен*'}\n"
-        status_text += f"**Активный профиль:** `{status_info['profile'] if status_info['profile'] else 'Не выбран'}`\n\n"
-        
-        # Добавляем детали о задачах и событии остановки
-        status_text += f"**Компоненты:**\n"
-        status_text += f"  - Основная задача (`main_task`): `{status_info.get('main_task_status', 'N/A')}`\n"
-        status_text += f"  - Слушатель цен (`listener_task`): `{status_info.get('listener_task_status', 'N/A')}`\n"
-        status_text += f"  - Обработчик цен (`processor_task`): `{status_info.get('processor_task_status', 'N/A')}`\n"
-        status_text += f"  - Сигнал остановки (`stop_event`): `{status_info.get('stop_event_is_set', 'N/A')}`\n"
+        status_info = get_status()
+        status_text = f"📊 <b>Текущий Статус Бота</b> 📊\n\n"
+        status_text += f"<b>Состояние:</b> {'✅ <i>Работает</i>' if status_info.get('running') else '⛔️ <i>Остановлен</i>'}\n"
+        status_text += f"<b>Активный профиль:</b> <code>{status_info.get('profile', 'Не выбран')}</code>\n\n"
+        status_text += f"<b>Компоненты:</b>\n"
+        status_text += f"  - Основная задача (<code>main_task</code>): <code>{status_info.get('main_task_status', 'N/A')}</code>\n"
+        status_text += f"  - Слушатель цен (<code>listener_task</code>): <code>{status_info.get('listener_task_status', 'N/A')}</code>\n"
+        status_text += f"  - Обработчик цен (<code>processor_task</code>): <code>{status_info.get('processor_task_status', 'N/A')}</code>\n"
+        stop_event_status = status_info.get('stop_event_is_set', 'N/A')
+        status_text += f"  - Сигнал остановки (<code>stop_event</code>): <code>{stop_event_status}</code>\n"
 
-        # Можно добавить время последнего обновления, PnL и т.д., когда они будут доступны
-
-        await message.answer(status_text, parse_mode="MarkdownV2") # Используем Markdown для форматирования
-
+        await message.answer(status_text, parse_mode="HTML") # ИЗМЕНЕНО: parse_mode на HTML
     except Exception as e:
-        system_logger.error(f"Ошибка при получении или отображении статуса: {e}", exc_info=True)
-        await message.answer("⚠️ Не удалось получить статус бота. Попробуйте позже.")
-
+        system_logger.error(f"Ошибка при получении или отображении статуса для user_id {message.from_user.id}: {e}", exc_info=True)
+        await message.answer("⚠️ Не удалось получить статус бота. Пожалуйста, проверьте системные логи или попробуйте позже.")
 
 @router.message(lambda message: message.text == "▶️ Запустить")
 async def handle_run_button(message: types.Message, bot: Bot):
-    """Обрабатывает нажатие кнопки 'Запустить', показывает выбор профиля"""
     user_id = message.from_user.id
     system_logger.info(f"Нажата кнопка 'Запустить' пользователем {user_id}")
     if not is_authenticated(user_id):
@@ -240,193 +207,162 @@ async def handle_run_button(message: types.Message, bot: Bot):
         return
 
     try:
-        profiles = get_all_profiles() # Загружаем список имен профилей
+        profiles = get_all_profiles()
         if not profiles:
-            await message.answer(f"❌ Не найдены торговые профили в файле `{PROFILE_FILE}`. Сначала создайте профиль.")
+            await message.answer(f"❌ Не найдены торговые профили в файле <code>{PROFILE_FILE}</code>. Сначала создайте хотя бы один профиль.", parse_mode="HTML")
             return
 
-        # Создаем инлайн-клавиатуру с кнопками для каждого профиля
-        buttons = [
-            [InlineKeyboardButton(text=profile_name.upper(), callback_data=f"runprofile_{profile_name}")]
-            for profile_name in profiles
-        ]
+        buttons = [[InlineKeyboardButton(text=profile_name.upper(), callback_data=f"runprofile_{profile_name}")] for profile_name in profiles]
         keyboard = InlineKeyboardMarkup(inline_keyboard=buttons)
-
-        # Используем send_clean для отправки сообщения с кнопками
         await send_clean(bot, user_id, "📂 Выберите профиль для запуска:", reply_markup=keyboard)
-
     except FileNotFoundError:
         system_logger.error(f"Файл профилей '{PROFILE_FILE}' не найден при попытке запуска пользователем {user_id}.")
-        await message.answer(f"❌ Ошибка: Файл конфигурации профилей (`{PROFILE_FILE}`) не найден.")
+        await message.answer(f"❌ Ошибка: Файл конфигурации профилей (<code>{PROFILE_FILE}</code>) не найден.", parse_mode="HTML")
     except Exception as e:
-        system_logger.error(f"Ошибка при получении списка профилей: {e}", exc_info=True)
-        await message.answer("⚠️ Произошла ошибка при загрузке профилей.")
-
+        system_logger.error(f"Ошибка при получении списка профилей для user_id {user_id}: {e}", exc_info=True)
+        await message.answer("⚠️ Произошла ошибка при загрузке доступных профилей.")
 
 @router.callback_query(lambda c: c.data.startswith("runprofile_"))
-async def handle_run_profile_callback(callback: types.CallbackQuery, bot: Bot): # Добавляем bot как аргумент
-    """Обрабатывает нажатие инлайн-кнопки с выбором профиля"""
+async def handle_run_profile_callback(callback: types.CallbackQuery, bot: Bot):
     user_id = callback.from_user.id
-    profile_name = callback.data.split("_", 1)[1] # Извлекаем имя профиля из callback_data
+    profile_name = callback.data.split("_", 1)[1]
     system_logger.info(f"Пользователь {user_id} выбрал запуск профиля '{profile_name}'.")
 
     if not is_authenticated(user_id):
         await callback.message.answer("⛔️ Не авторизованы. Используйте /login")
-        await callback.answer("Действие недоступно") # Отвечаем на callback, чтобы убрать "часики"
+        await callback.answer("Действие недоступно", show_alert=True)
         return
 
-    # Попытка удалить сообщение с кнопками выбора профиля
-    try:
+    try: # Удаляем сообщение с инлайн-кнопками
         await bot.delete_message(chat_id=user_id, message_id=callback.message.message_id)
-        # Также очищаем список старых сообщений в USER_MESSAGES, если там что-то было
-        if user_id in USER_MESSAGES:
-            USER_MESSAGES[user_id] = []
+        if user_id in USER_MESSAGES: USER_MESSAGES[user_id] = [] # Очищаем для send_clean
     except Exception as e:
-        system_logger.warning(f"Не удалось удалить сообщение {callback.message.message_id} с кнопками выбора профиля: {e}")
+        system_logger.warning(f"Не удалось удалить сообщение {callback.message.message_id} с кнопками выбора профиля для user_id {user_id}: {e}")
 
-    # Отправляем подтверждение о начале запуска
-    await bot.send_message( # Используем bot.send_message вместо callback.message.answer для нового сообщения
-        chat_id=user_id,
-        text=f"⏳ Запускаем торговый профиль: **`{profile_name}`**...",
-        parse_mode="MarkdownV2"
-    )
-
+    await bot.send_message(chat_id=user_id, text=f"⏳ Запускаем торговый профиль: <code>{profile_name}</code>...", parse_mode="HTML")
+    
+    response_from_start = f"Запрос на запуск профиля '{profile_name}' отправлен." # Ответ по умолчанию для callback.answer
     try:
-        # Вызываем функцию запуска торговли из control_center
-        # Передаем имя профиля и корутину-раннер (trade_main_for_telegram)
-        # system_logger больше не передается явно, control_center использует свой импортированный
+        system_logger.info(f"--> Вызов control_center.start_trading для профиля '{profile_name}' (user_id: {user_id}).")
         response_from_start = await start_trading(profile_name, trade_main_for_telegram)
-        
-        # Отправляем результат пользователю
-        await bot.send_message(chat_id=user_id, text=response_from_start) # Отправляем ответ от start_trading
-        
+        system_logger.info(f"<-- control_center.start_trading для профиля '{profile_name}' (user_id: {user_id}) вернул: {response_from_start}")
+        await bot.send_message(chat_id=user_id, text=response_from_start)
     except Exception as e:
-        # Обрабатываем возможные ошибки на этапе запуска
-        system_logger.error(f"Ошибка при вызове start_trading для профиля '{profile_name}' пользователем {user_id}: {e}", exc_info=True)
-        await bot.send_message(chat_id=user_id, text=f"❌ Произошла ошибка при попытке запуска профиля `{profile_name}`. Проверьте логи.")
+        system_logger.error(f"Критическая ошибка при вызове или во время start_trading для '{profile_name}' (user_id: {user_id}): {e}", exc_info=True)
+        error_message = f"❌ Ошибка запуска профиля <code>{profile_name}</code>. Подробности в системном логе."
+        await bot.send_message(chat_id=user_id, text=error_message, parse_mode="HTML")
+        response_from_start = "Ошибка запуска." # Обновляем для callback.answer
+    finally:
+        await callback.answer(response_from_start, show_alert=isinstance(response_from_start, str) and "Ошибка" in response_from_start)
 
-    # Отвечаем на исходный callback, чтобы убрать "часики" на кнопке
-    await callback.answer("Запрос на запуск отправлен.")
+    # Восстанавливаем главное меню
+    await send_clean(bot, user_id, "Выберите следующее действие:", reply_markup=generate_main_menu(user_id))
 
 
 @router.message(lambda message: message.text == "⏹ Остановить")
-async def handle_stop_button(message: types.Message):
-    """Обрабатывает нажатие кнопки 'Остановить'"""
+async def handle_stop_button(message: types.Message, bot: Bot): # Добавил bot для send_clean
     user_id = message.from_user.id
     system_logger.info(f"Нажата кнопка 'Остановить' пользователем {user_id}")
     if not is_authenticated(user_id):
         await message.answer("⛔️ Не авторизованы. Используйте /login")
         return
 
-    await message.answer("⏳ Останавливаем торговую сессию...") # Уведомление о начале остановки
+    await message.answer("⏳ Останавливаем торговую сессию...")
+    response_from_stop = "Запрос на остановку обработан." # Ответ по умолчанию
     try:
-        # Вызываем функцию остановки из control_center
-        # system_logger больше не передается явно
-        reply = await stop_trading()
-        await message.answer(reply) # Отправляем результат пользователю
+        response_from_stop = await stop_trading()
+        await message.answer(response_from_stop)
     except Exception as e:
         system_logger.error(f"Ошибка при вызове stop_trading пользователем {user_id}: {e}", exc_info=True)
-        await message.answer("❌ Произошла ошибка при попытке остановки. Проверьте логи.")
+        await message.answer("❌ Произошла ошибка при попытке остановки. Подробности в системном логе.")
+    
+    # Восстанавливаем главное меню
+    await send_clean(bot, user_id, "Выберите следующее действие:", reply_markup=generate_main_menu(user_id))
 
 
 @router.message(lambda message: message.text == "📤 Лог")
-async def handle_ask_log_button(message: types.Message, bot: Bot): # Добавляем bot
-    """Обрабатывает нажатие кнопки 'Лог', предлагает выбор строк"""
+async def handle_ask_log_button(message: types.Message, bot: Bot):
     user_id = message.from_user.id
     system_logger.info(f"Нажата кнопка 'Лог' пользователем {user_id}")
     if not is_authenticated(user_id):
         await message.answer("⛔️ Не авторизованы. Используйте /login")
         return
 
-    # Создаем инлайн-кнопки для выбора количества строк
     keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
-            [ # Первый ряд кнопок
+            [
                 InlineKeyboardButton(text="📄 system (10)", callback_data="log_system_10"),
                 InlineKeyboardButton(text="📄 system (30)", callback_data="log_system_30"),
             ],
-            [ # Второй ряд кнопок
+            [
                 InlineKeyboardButton(text="📈 trading (10)", callback_data="log_trading_10"),
                 InlineKeyboardButton(text="📈 trading (30)", callback_data="log_trading_30"),
             ]
         ]
     )
-    # Используем send_clean для отправки сообщения с кнопками
     await send_clean(bot, user_id, "📜 Выберите тип и количество строк лога для просмотра:", reply_markup=keyboard)
 
-
 @router.callback_query(lambda c: c.data.startswith("log_"))
-async def handle_show_log_callback(callback: types.CallbackQuery, bot: Bot): # Добавляем bot
-    """Обрабатывает нажатие инлайн-кнопки для показа лога"""
+async def handle_show_log_callback(callback: types.CallbackQuery, bot: Bot):
     user_id = callback.from_user.id
     if not is_authenticated(user_id):
         await callback.message.answer("⛔️ Не авторизованы. Используйте /login")
-        await callback.answer("Действие недоступно")
+        await callback.answer("Действие недоступно", show_alert=True)
         return
 
+    response_text_for_callback = "Лог обработан."
     try:
-        parts = callback.data.split("_") # Разбираем callback_data, например "log_system_10"
-        log_type = parts[1] # "system" или "trading"
-        count = int(parts[2]) # 10 или 30
+        parts = callback.data.split("_")
+        log_type = parts[1]
+        count = int(parts[2])
     except (IndexError, ValueError):
-        system_logger.error(f"Некорректный callback_data для лога: {callback.data}")
-        await callback.answer("Ошибка данных запроса лога.")
+        system_logger.error(f"Некорректный callback_data для лога от user_id {user_id}: {callback.data}")
+        await callback.answer("Ошибка данных запроса лога.", show_alert=True)
         return
 
     system_logger.info(f"Пользователь {user_id} запросил лог '{log_type}', последние {count} строк.")
 
-    # Определяем путь к файлу лога в зависимости от типа
-    if log_type == "system":
-        log_path = "logs/system.log"
-    elif log_type == "trading":
-        # Используйте имя файла, которое вы задали в utils.logger для trading_logger
-        log_path = "logs/trading_activity.log" # или logs/trading_log.log
-    else:
-        await callback.message.answer("⚠️ Неизвестный тип лога.")
-        await callback.answer("Ошибка типа лога.")
-        return
+    log_path = f"logs/{log_type}.log" # Динамическое формирование пути к логу
+    # Убедись, что имена файлов system.log и trading_activity.log (или trading.log) используются консистентно
 
-    # Попытка удалить сообщение с кнопками выбора лога
-    try:
+    try: # Удаляем сообщение с инлайн-кнопками
         await bot.delete_message(chat_id=user_id, message_id=callback.message.message_id)
-        if user_id in USER_MESSAGES:
-            USER_MESSAGES[user_id] = []
+        if user_id in USER_MESSAGES: USER_MESSAGES[user_id] = []
     except Exception as e:
-        system_logger.warning(f"Не удалось удалить сообщение {callback.message.message_id} с кнопками выбора лога: {e}")
+        system_logger.warning(f"Не удалось удалить сообщение {callback.message.message_id} с кнопками выбора лога для user_id {user_id}: {e}")
 
     if not os.path.exists(log_path):
-        await bot.send_message(chat_id=user_id, text=f"⚠️ Файл лога `{log_path}` не найден.")
+        await bot.send_message(chat_id=user_id, text=f"⚠️ Файл лога <code>{log_path}</code> не найден.", parse_mode="HTML")
+        response_text_for_callback = "Файл лога не найден."
     else:
         try:
             with open(log_path, "r", encoding="utf-8") as f:
-                lines = f.readlines() # Читаем все строки
-
-            # Берем последние 'count' строк
+                lines = f.readlines()
             last_lines = lines[-count:]
             
             if not last_lines:
-                 await bot.send_message(chat_id=user_id, text=f"ℹ️ Лог-файл `{log_path}` пуст.")
-                 await callback.answer("Лог пуст.")
-                 return
+                 await bot.send_message(chat_id=user_id, text=f"ℹ️ Лог-файл <code>{log_path}</code> пуст.", parse_mode="HTML")
+                 response_text_for_callback = "Лог пуст."
+            else:
+                log_text = f"📜 <b>Лог:</b> <code>{log_path}</code> (последние {len(last_lines)} строк)\n<pre>"
+                log_text += "".join(last_lines).replace("<", "&lt;").replace(">", "&gt;") # Экранируем HTML в тексте лога
+                log_text += "</pre>"
 
-            # Формируем текст для отправки
-            # Используем ``` для моноширинного блока, он лучше подходит для логов, чем <pre>
-            log_text = f"📜 **Лог: `{log_path}` (последние {len(last_lines)} строк)**\n```\n"
-            log_text += "".join(last_lines) # Объединяем строки обратно
-            log_text += "\n```"
-
-            # Проверяем длину сообщения (Telegram лимит ~4096 символов)
-            if len(log_text) > 4000: # Оставляем запас
-                log_text = log_text[:4000] + "\n... (лог обрезан из-за длины)```"
-                system_logger.warning(f"Лог для пользователя {user_id} был обрезан из-за превышения лимита длины.")
-
-            await bot.send_message(chat_id=user_id, text=log_text, parse_mode="MarkdownV2") # Markdown для ```
+                if len(log_text) > 4000: # Оставляем запас для тегов и т.д.
+                    log_text = log_text[:4000] + "... (лог обрезан)</pre>"
+                    system_logger.warning(f"Лог '{log_path}' для пользователя {user_id} был обрезан из-за длины.")
+                
+                await bot.send_message(chat_id=user_id, text=log_text, parse_mode="HTML")
+                response_text_for_callback = "Лог отправлен."
         except Exception as e:
             system_logger.error(f"Ошибка чтения или отправки лога '{log_path}' пользователю {user_id}: {e}", exc_info=True)
-            await bot.send_message(chat_id=user_id, text=f"❌ Произошла ошибка при чтении или отправке лога `{log_path}`.")
+            await bot.send_message(chat_id=user_id, text=f"❌ Произошла ошибка при чтении или отправке лога <code>{log_path}</code>.", parse_mode="HTML")
+            response_text_for_callback = "Ошибка чтения лога."
+            
+    await callback.answer(response_text_for_callback, show_alert="Ошибка" in response_text_for_callback)
 
-    # Отвечаем на callback, чтобы убрать "часики"
-    await callback.answer("Лог отправлен.")
+    # Восстанавливаем главное меню
+    await send_clean(bot, user_id, "Выберите следующее действие:", reply_markup=generate_main_menu(user_id))
 
     
       

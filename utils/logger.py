@@ -57,17 +57,17 @@ def configure_logger(
 
 #  Initializing specific loggers for the project
 system_logger = configure_logger(
-    logger_name="system_log",
+    logger_name="system",
     log_file=os.path.join(LOG_DIR, "system.log"),
-    level=logging.INFO,
+    level=logging.DEBUG,
     add_console_handler=True, # Системные сообщения важны в консоли
     formatter_string='%(asctime)s - %(name)s:%(lineno)d - %(levelname)s - %(message)s' # Добавим номер строки
 )
 trading_logger = configure_logger(
-    logger_name="logs/trading_bot_log", # или "trading_log", если ты использовал это имя
-    log_file=os.path.join(LOG_DIR, "trading_bot_log.log"),
-    level=logging.INFO,
-    add_console_handler=False 
+    logger_name="trading", # или "trading_log", если ты использовал это имя
+    log_file=os.path.join(LOG_DIR, "trading.log"),
+    level=logging.DEBUG,
+    add_console_handler=True 
 )
 
 def get_system_logger():
