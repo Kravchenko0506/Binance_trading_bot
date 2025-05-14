@@ -9,43 +9,8 @@ import asyncio # Нужен для asyncio.create_task
 from config import settings # Предполагаем, что settings содержит MIN_PROFIT_RATIO, STOP_LOSS_RATIO, TAKE_PROFIT_RATIO
 from utils.notifier import send_notification
 from utils.logger import trading_logger, system_logger # Добавим system_logger для некоторых ошибок
+from utils.position_manager import load_last_buy_price
 
-def get_last_buy_price_path(symbol: str) -> str:
-    """Возвращает путь к файлу с ценой последней покупки для указанного символа."""
-    return f"data/last_buy_price_{symbol}.json"
-
-def save_last_buy_price(symbol: str, price: float):
-    """Сохраняет цену последней покупки в файл."""
-    path = get_last_buy_price_path(symbol)
-    try:
-        os.makedirs(os.path.dirname(path), exist_ok=True)
-        with open(path, "w", encoding="utf-8") as f:
-            json.dump({"price": price}, f)
-        trading_logger.info(f"Цена покупки для {symbol} сохранена: {price}")
-    except Exception as e:
-        system_logger.error(f"Ошибка сохранения цены покупки для {symbol}: {e}", exc_info=True)
-
-def load_last_buy_price(symbol: str) -> float | None: # Изменили возвращаемый тип для ясности
-    """
-    Загружает цену последней покупки из файла.
-    Возвращает float (цену) или None, если файл не найден или ошибка.
-    """
-    path = get_last_buy_price_path(symbol)
-    if not os.path.exists(path):
-        # trading_logger.debug(f"Файл цены покупки для {symbol} не найден ({path}).")
-        return None
-    try:
-        with open(path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-            buy_price = data.get("price")
-            if buy_price is not None:
-                return float(buy_price)
-            else:
-                trading_logger.warning(f"Ключ 'price' не найден в файле {path} для {symbol}.")
-                return None
-    except Exception as e:
-        trading_logger.warning(f"⚠️ Не удалось загрузить цену покупки для {symbol} из {path}: {e}")
-        return None
 
 # --- ИСПРАВЛЕННЫЕ ФУНКЦИИ ---
 def is_enough_profit(symbol: str, current_price: float) -> bool:

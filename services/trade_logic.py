@@ -56,8 +56,8 @@ def check_buy_sell_signals(
     use_macd_indicator = getattr(profile, "USE_MACD", True)
     
     # Флаги для использования MACD в комбинации с RSI (по умолчанию False)
-    use_macd_for_buy_confirmation = getattr(profile, "USE_MACD_FOR_BUY_CONFIRMATION", False) 
-    use_macd_for_sell_confirmation = getattr(profile, "USE_MACD_FOR_SELL_CONFIRMATION", False)
+    use_macd_for_buy_confirmation = getattr(profile, "USE_MACD_FOR_BUY_CONFIRMATION", True) 
+    use_macd_for_sell_confirmation = getattr(profile, "USE_MACD_FOR_SELL_CONFIRMATION", True)
 
     # --- Проверка достаточности данных для расчетов ---
     min_required_data_points = 1 # Минимум одна цена нужна всегда (current_close_price)

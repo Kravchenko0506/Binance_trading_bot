@@ -12,9 +12,9 @@
     "macd_signal_period": 9,
     "use_ema": false,
     "commission_rate": 0.001,
-    "min_profit_ratio": 0.010,
+    "min_profit_ratio": 0.005,
     "stop_loss_ratio": -0.002,
-    "take_profit_ratio": 0.010,
+    "take_profit_ratio": 0.020,
     "price_precision": 2,
     "min_order_quantity": 1,
     "min_trade_amount": 5
