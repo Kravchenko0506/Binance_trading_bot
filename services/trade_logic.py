@@ -1,189 +1,212 @@
 # services/trade_logic.py
-
 import numpy as np
-from services.binance_client import client # Предполагается, что client настроен и импортируется
-from services.technical_indicators import calculate_rsi, calculate_macd, calculate_ema, IndicatorCalculationError
-from utils.logger import trading_logger, system_logger # Импортируем оба логгера
+# Импортируем функции расчета индикаторов и ошибку
+from services.technical_indicators import (
+    calculate_rsi,
+    calculate_macd,
+    calculate_ema,
+    IndicatorCalculationError
+)
+from utils.logger import trading_logger # Логгер для торговых операций
 
-# Эту функцию теперь будет вызывать price_processor ОДИН РАЗ для инициализации истории
-def get_initial_ohlcv(symbol: str, timeframe: str, limit: int = 200) -> np.ndarray:
+# Минимальное количество свечей, необходимое для корректного расчета большинства индикаторов.
+# Это значение должно быть немного больше, чем самый длинный период используемого индикатора + период сглаживания.
+# Например, для MACD(12,26,9) нужно ~35 свечей (26+9). Для EMA(50) - 50 свечей.
+# Если используется несколько, ориентируемся на самый "длинный".
+# Это значение используется в run_trading_stream.py для get_initial_ohlcv и price_processor.
+# Здесь оно приведено для информации и может использоваться для внутренних проверок, если необходимо.
+MIN_CANDLES_REQUIRED_BY_LOGIC = 50
+
+
+def get_initial_ohlcv(symbol: str, timeframe: str, limit: int) -> np.ndarray:
     """
-    Загружает начальную историю цен (OHLCV) для инициализации.
-    Возвращает numpy массив цен закрытия или пустой массив в случае ошибки.
+    Загружает начальный набор исторических данных (OHLCV) для символа.
+    Эта функция вызывается один раз при старте price_processor для инициализации истории цен.
+
+    Args:
+        symbol (str): Торговый символ.
+        timeframe (str): Таймфрейм (например, '1m', '5m').
+        limit (int): Количество свечей для загрузки.
+
+    Returns:
+        np.ndarray: Массив NumPy с ценами закрытия. Пустой массив в случае ошибки.
     """
+    from services.binance_client import client # Импорт здесь, чтобы избежать циклических зависимостей на уровне модуля
+    trading_logger.info(f"TradeLogic ({symbol}): Запрос начальных {limit} OHLCV данных для {symbol} ({timeframe})...")
     try:
-        # Используем system_logger для логирования системных операций, таких как API запросы
-        system_logger.info(f"get_initial_ohlcv: Запрос {limit} свечей для {symbol} ({timeframe})...")
+        # klines: list of lists (timestamp, open, high, low, close, volume, ...)
         klines = client.get_klines(symbol=symbol, interval=timeframe, limit=limit)
+        # Нас интересуют только цены закрытия (индекс 4 в каждом подсписке kline)
         if not klines:
-            system_logger.warning(f"get_initial_ohlcv ({symbol}): Не получено данных klines от API.")
+            trading_logger.warning(f"TradeLogic ({symbol}): Получен пустой список klines от API.")
             return np.array([])
-        
-        # Извлекаем цены закрытия (индекс 4 в стандартном ответе Binance API для klines)
+            
         close_prices = np.array([float(kline[4]) for kline in klines])
-        system_logger.info(f"get_initial_ohlcv ({symbol}): Получено {len(close_prices)} цен закрытия.")
+        trading_logger.info(f"TradeLogic ({symbol}): Успешно загружено {len(close_prices)} цен закрытия.")
         return close_prices
     except Exception as e:
-        # Логируем ошибку получения данных через system_logger, так как это проблема с внешним сервисом
-        system_logger.error(f"get_initial_ohlcv ({symbol}): Ошибка при получении OHLCV от Binance API: {e}", exc_info=True)
+        trading_logger.error(f"TradeLogic ({symbol}): Ошибка при получении OHLCV: {e}", exc_info=True)
         return np.array([])
 
-def check_buy_sell_signals(
-    profile: object,                  # Объект профиля с настройками
-    price_history_np: np.ndarray,     # Numpy массив с историей цен закрытия для расчета индикаторов
-    current_close_price: float        # Самая последняя цена закрытия свечи из WebSocket
-) -> str:
+
+def check_buy_sell_signals(profile: object, historic_prices_np_array: np.ndarray, current_close_price: float) -> str:
     """
-    Анализирует исторические данные и текущую цену для генерации торговых сигналов.
-    Не делает API-запросов, работает с переданными данными.
-    Логирует значения индикаторов и итоговое решение в trading_logger.
+    Анализирует исторические данные и текущую цену для генерации торгового сигнала.
+
+    Args:
+        profile (SimpleNamespace): Объект профиля с настройками торговой пары и индикаторов.
+        historic_prices_np_array (np.ndarray): Numpy массив исторических цен закрытия.
+                                                Предполагается, что этот массив УЖЕ включает
+                                                current_close_price как последний элемент, если индикаторы
+                                                должны учитывать самую последнюю свечу для своего расчета.
+        current_close_price (float): Самая последняя известная цена закрытия (из WebSocket).
+                                     Эта цена используется для EMA фильтра и логирования.
+
+    Returns:
+        str: Торговый сигнал ('buy', 'sell', 'hold').
     """
     symbol = profile.SYMBOL
-    # trading_logger.debug(f"check_buy_sell_signals ({symbol}): Вход с price_history_np (size: {price_history_np.size}), current_close_price: {current_close_price}")
-
-    # Извлекаем параметры из профиля с использованием getattr для безопасности и значений по умолчанию
+    
+    # Параметры профиля для индикаторов
     rsi_period = int(getattr(profile, "RSI_PERIOD", 14))
     rsi_overbought = float(getattr(profile, "RSI_OVERBOUGHT", 70.0))
     rsi_oversold = float(getattr(profile, "RSI_OVERSOLD", 30.0))
     macd_fast_period = int(getattr(profile, "MACD_FAST_PERIOD", 12))
     macd_slow_period = int(getattr(profile, "MACD_SLOW_PERIOD", 26))
     macd_signal_period = int(getattr(profile, "MACD_SIGNAL_PERIOD", 9))
-    use_ema_filter = getattr(profile, "USE_EMA_FILTER", False) # Более явное имя для фильтра
-    ema_filter_period = int(getattr(profile, "EMA_FILTER_PERIOD", 50)) # Более явное имя
     
-    # Флаги использования индикаторов (по умолчанию True, если не заданы, но лучше задавать в профиле)
-    use_rsi_indicator = getattr(profile, "USE_RSI", True)
-    use_macd_indicator = getattr(profile, "USE_MACD", True)
-    
-    # Флаги для использования MACD в комбинации с RSI (по умолчанию False)
-    use_macd_for_buy_confirmation = getattr(profile, "USE_MACD_FOR_BUY_CONFIRMATION", True) 
-    use_macd_for_sell_confirmation = getattr(profile, "USE_MACD_FOR_SELL_CONFIRMATION", True)
+    # Флаги использования индикаторов из профиля
+    use_rsi = bool(getattr(profile, "USE_RSI", True))
+    use_macd = bool(getattr(profile, "USE_MACD", True))
+    use_ema = bool(getattr(profile, "USE_EMA", False))
+    ema_period = int(getattr(profile, "EMA_PERIOD", 50))
 
-    # --- Проверка достаточности данных для расчетов ---
-    min_required_data_points = 1 # Минимум одна цена нужна всегда (current_close_price)
-    if use_rsi_indicator:
-        min_required_data_points = max(min_required_data_points, rsi_period + 1) # RSI обычно требует N+1 точек
-    if use_macd_indicator:
-        # MACD требует достаточно данных для самой медленной EMA + периода сигнальной линии
-        min_required_data_points = max(min_required_data_points, macd_slow_period + macd_signal_period) 
-    if use_ema_filter:
-        min_required_data_points = max(min_required_data_points, ema_filter_period)
+    # Флаги использования MACD для подтверждения сигналов RSI
+    use_macd_for_buy = bool(getattr(profile, "USE_MACD_FOR_BUY", False))
+    use_macd_for_sell = bool(getattr(profile, "USE_MACD_FOR_SELL", False))
     
-    if price_history_np.size < min_required_data_points:
-        trading_logger.warning(f"Торг. логика ({symbol}): Недостаточно исторических данных ({price_history_np.size} из мин. {min_required_data_points}) для расчета индикаторов. Сигнал: 'hold'.")
+    prices_for_indicators = historic_prices_np_array
+
+    # Проверяем, достаточно ли у нас данных для расчета индикаторов
+    # MIN_CANDLES_REQUIRED_BY_LOGIC - это константа, определенная в этом модуле.
+    # Лучше, чтобы `run_trading_stream.price_processor` сам контролировал минимальное количество
+    # свечей перед вызовом этой функции, чтобы не делать лишних вычислений.
+    # Но дополнительная проверка здесь не помешает.
+    if prices_for_indicators.size < MIN_CANDLES_REQUIRED_BY_LOGIC:
+        trading_logger.debug(
+            f"Signal Check ({symbol}): Not enough price data to calculate indicators in check_buy_sell_signals. "
+            f"Have {prices_for_indicators.size}, need at least {MIN_CANDLES_REQUIRED_BY_LOGIC}. Holding."
+        )
         return 'hold'
 
-    # --- Инициализация переменных для значений индикаторов ---
-    rsi_value = np.nan 
-    macd_line_value = np.nan
-    signal_line_value = np.nan
-    ema_filter_value = np.nan
+    # Инициализируем переменные для индикаторов
+    rsi_values = np.array([])
+    macd_line = np.array([])
+    macd_signal_line = np.array([])
+    ema_values = np.array([])
 
-    active_indicators_log = [] # Собираем информацию об активных индикаторах для лога
-
-    # --- Расчет RSI ---
-    if use_rsi_indicator:
-        try:
-            rsi_calculated_array = calculate_rsi(price_history_np, rsi_period)
-            if rsi_calculated_array.size > 0:
-                rsi_value = rsi_calculated_array[-1]
-                active_indicators_log.append(f"RSI({rsi_period}): {rsi_value:.2f}")
-            else:
-                trading_logger.warning(f"Торг. логика ({symbol}): calculate_rsi вернул пустой массив.")
-                use_rsi_indicator = False # Отключаем для этой проверки
-        except IndicatorCalculationError as e:
-            trading_logger.error(f"Торг. логика ({symbol}): Ошибка расчета RSI: {e}")
-            use_rsi_indicator = False
-        except Exception as e: # Ловим другие возможные ошибки
-            trading_logger.error(f"Торг. логика ({symbol}): Неожиданная ошибка при расчете RSI: {e}", exc_info=True)
-            use_rsi_indicator = False # Отключаем при любой ошибке
-
-    # --- Расчет MACD ---
-    if use_macd_indicator:
-        try:
-            macd_calculated_array, signal_calculated_array = calculate_macd(
-                price_history_np, macd_fast_period, macd_slow_period, macd_signal_period
-            )
-            if macd_calculated_array.size > 0 and signal_calculated_array.size > 0:
-                macd_line_value = macd_calculated_array[-1]
-                signal_line_value = signal_calculated_array[-1]
-                active_indicators_log.append(f"MACD({macd_fast_period},{macd_slow_period},{macd_signal_period}): {macd_line_value:.6f}/{signal_line_value:.6f}")
-            else:
-                trading_logger.warning(f"Торг. логика ({symbol}): calculate_macd вернул пустые массивы.")
-                use_macd_indicator = False
-        except IndicatorCalculationError as e:
-            trading_logger.error(f"Торг. логика ({symbol}): Ошибка расчета MACD: {e}")
-            use_macd_indicator = False
-        except Exception as e:
-            trading_logger.error(f"Торг. логика ({symbol}): Неожиданная ошибка при расчете MACD: {e}", exc_info=True)
-            use_macd_indicator = False
-
-    # --- Расчет EMA для фильтра ---
-    if use_ema_filter:
-        try:
-            ema_calculated_array = calculate_ema(price_history_np, ema_filter_period)
-            if ema_calculated_array.size > 0:
-                ema_filter_value = ema_calculated_array[-1]
-                active_indicators_log.append(f"EMA({ema_filter_period}): {ema_filter_value:.6f}")
-            else:
-                trading_logger.warning(f"Торг. логика ({symbol}): calculate_ema для фильтра вернул пустой массив.")
-                use_ema_filter = False 
-        except IndicatorCalculationError as e:
-            trading_logger.error(f"Торг. логика ({symbol}): Ошибка расчета EMA для фильтра: {e}")
-            use_ema_filter = False
-        except Exception as e:
-            trading_logger.error(f"Торг. логика ({symbol}): Неожиданная ошибка при расчете EMA для фильтра: {e}", exc_info=True)
-            use_ema_filter = False
-            
-    # --- Логика принятия торговых решений ---
-    buy_decision = False
-    sell_decision = False
-
-    # Сигнал на покупку
-    if use_rsi_indicator and not np.isnan(rsi_value) and rsi_value < rsi_oversold:
-        if use_macd_indicator and use_macd_for_buy_confirmation and not (np.isnan(macd_line_value) or np.isnan(signal_line_value)):
-            if macd_line_value > signal_line_value: # MACD пересек сигнальную снизу вверх (бычий сигнал)
-                buy_decision = True
-        elif not use_macd_for_buy_confirmation: # Если подтверждение MACD не требуется
-            buy_decision = True
-    
-    # Сигнал на продажу
-    if use_rsi_indicator and not np.isnan(rsi_value) and rsi_value > rsi_overbought:
-        if use_macd_indicator and use_macd_for_sell_confirmation and not (np.isnan(macd_line_value) or np.isnan(signal_line_value)):
-            if macd_line_value < signal_line_value: # MACD пересек сигнальную сверху вниз (медвежий сигнал)
-                sell_decision = True
-        elif not use_macd_for_sell_confirmation: # Если подтверждение MACD не требуется
-            sell_decision = True
-
-    # Применение EMA фильтра
-    if use_ema_filter and not np.isnan(ema_filter_value):
-        if buy_decision and current_close_price < ema_filter_value:
-            trading_logger.debug(f"Торг. логика ({symbol}): Сигнал ПОКУПКИ отменен фильтром EMA. Цена {current_close_price:.6f} < EMA({ema_filter_period}) {ema_filter_value:.6f}")
-            buy_decision = False
-        if sell_decision and current_close_price > ema_filter_value:
-            trading_logger.debug(f"Торг. логика ({symbol}): Сигнал ПРОДАЖИ отменен фильтром EMA. Цена {current_close_price:.6f} > EMA({ema_filter_period}) {ema_filter_value:.6f}")
-            sell_decision = False
+    # Расчет индикаторов
+    try:
+        if use_rsi:
+            rsi_values = calculate_rsi(prices_for_indicators, rsi_period)
+            # trading_logger.debug(f"Signal Check ({symbol}): Calculated RSI[-1]: {rsi_values[-1]:.2f}" if rsi_values.size > 0 else f"Signal Check ({symbol}): RSI calculation resulted in empty/short array")
         
-    # --- Формирование итогового сообщения и возврат решения ---
-    log_prefix = f"Профиль {symbol}: "
-    log_indicators_part = ", ".join(active_indicators_log) if active_indicators_log else "Индикаторы неактивны/ошибка"
-    log_price_part = f"Цена: {current_close_price:.6f}"
-    
-    final_log_message = f"{log_prefix}{log_indicators_part}, {log_price_part}"
+        if use_macd:
+            macd_line, macd_signal_line = calculate_macd(prices_for_indicators, macd_fast_period, macd_slow_period, macd_signal_period)
+            # if macd_line.size > 0 and macd_signal_line.size > 0:
+            #     trading_logger.debug(f"Signal Check ({symbol}): Calculated MACD[-1]: {macd_line[-1]:.6f}, Signal[-1]: {macd_signal_line[-1]:.6f}")
+            # else:
+            #     trading_logger.debug(f"Signal Check ({symbol}): MACD calculation resulted in empty/short arrays")
 
-    if buy_decision:
-        final_log_message += " → СИГНАЛ НА ПОКУПКУ"
-        trading_logger.info(final_log_message)
-        # print(final_log_message) # Для отладки в консоли, можно будет убрать
+        if use_ema:
+            ema_values = calculate_ema(prices_for_indicators, ema_period)
+            # trading_logger.debug(f"Signal Check ({symbol}): Calculated EMA({ema_period})[-1]: {ema_values[-1]:.6f}" if ema_values.size > 0 else f"Signal Check ({symbol}): EMA calculation resulted in empty/short array")
+
+    except IndicatorCalculationError as e:
+        trading_logger.error(f"Signal Check ({symbol}): Error calculating indicators: {e}")
+        return 'hold' 
+    except Exception as e: 
+        trading_logger.error(f"Signal Check ({symbol}): Unexpected error during indicator calculation: {e}", exc_info=True)
+        return 'hold'
+
+    # Получаем последние значения индикаторов
+    last_rsi = rsi_values[-1] if use_rsi and rsi_values.size > 0 and not np.isnan(rsi_values[-1]) else None
+    last_macd = macd_line[-1] if use_macd and macd_line.size > 0 and not np.isnan(macd_line[-1]) else None
+    last_macd_signal = macd_signal_line[-1] if use_macd and macd_signal_line.size > 0 and not np.isnan(macd_signal_line[-1]) else None
+    last_ema = ema_values[-1] if use_ema and ema_values.size > 0 and not np.isnan(ema_values[-1]) else None
+    
+    # --- Логика принятия решений ---
+    buy_signal_triggered = False # Флаг для итогового решения о покупке
+    sell_signal_triggered = False # Флаг для итогового решения о продаже
+
+    # Условия для RSI
+    rsi_gives_buy_signal = use_rsi and last_rsi is not None and last_rsi < rsi_oversold
+    rsi_gives_sell_signal = use_rsi and last_rsi is not None and last_rsi > rsi_overbought
+
+    # Условия для MACD (пересечение)
+    macd_gives_buy_signal = use_macd and last_macd is not None and last_macd_signal is not None and last_macd > last_macd_signal
+    macd_gives_sell_signal = use_macd and last_macd is not None and last_macd_signal is not None and last_macd < last_macd_signal
+
+    # --- Определение сигнала на покупку ---
+    if use_rsi: 
+        if use_macd_for_buy and use_macd: 
+            if rsi_gives_buy_signal and macd_gives_buy_signal:
+                buy_signal_triggered = True
+        elif rsi_gives_buy_signal: 
+            buy_signal_triggered = True
+    elif use_macd_for_buy and use_macd: # Если RSI не используется, но MACD для покупки используется
+        if macd_gives_buy_signal:
+            buy_signal_triggered = True
+            
+    # --- Определение сигнала на продажу ---
+    if use_rsi: 
+        if use_macd_for_sell and use_macd: 
+            if rsi_gives_sell_signal and macd_gives_sell_signal:
+                sell_signal_triggered = True
+        elif rsi_gives_sell_signal: 
+            sell_signal_triggered = True
+    elif use_macd_for_sell and use_macd: # Если RSI не используется, но MACD для продажи используется
+         if macd_gives_sell_signal:
+            sell_signal_triggered = True
+            
+    # --- EMA Фильтр (если включен) ---
+    if use_ema and last_ema is not None:
+        if buy_signal_triggered and current_close_price < last_ema:
+            trading_logger.info(
+                f"Signal Check ({symbol}): BUY signal from indicators IGNORED due to EMA filter. "
+                f"Price {current_close_price:.6f} < EMA({ema_period}) {last_ema:.6f}"
+            )
+            buy_signal_triggered = False 
+        
+        if sell_signal_triggered and current_close_price > last_ema:
+            trading_logger.info(
+                f"Signal Check ({symbol}): SELL signal from indicators IGNORED due to EMA filter. "
+                f"Price {current_close_price:.6f} > EMA({ema_period}) {last_ema:.6f}"
+            )
+            sell_signal_triggered = False
+
+    # --- Формирование и логирование итогового сообщения и сигнала ---
+    log_message_parts = [f"Signal Eval ({symbol}): Price={current_close_price:.6f}"]
+    if use_rsi:
+        rsi_val_str = f"{last_rsi:.2f}" if last_rsi is not None else "N/A"
+        log_message_parts.append(f"RSI({rsi_period})={rsi_val_str} (OB:{rsi_overbought},OS:{rsi_oversold})")
+    if use_macd:
+        macd_val_str = f"{last_macd:.6f}" if last_macd is not None else "N/A"
+        signal_val_str = f"{last_macd_signal:.6f}" if last_macd_signal is not None else "N/A"
+        log_message_parts.append(f"MACD({macd_fast_period},{macd_slow_period},{macd_signal_period})={macd_val_str},Signal={signal_val_str}")
+    if use_ema:
+        ema_val_str = f"{last_ema:.6f}" if last_ema is not None else "N/A"
+        log_message_parts.append(f"EMA({ema_period})={ema_val_str}")
+
+    if buy_signal_triggered:
+        log_message_parts.append("-> Decision: BUY")
+        trading_logger.info(" | ".join(log_message_parts))
         return 'buy'
-    elif sell_decision:
-        final_log_message += " → СИГНАЛ НА ПРОДАЖУ"
-        trading_logger.info(final_log_message)
-        # print(final_log_message) # Для отладки в консоли
+    elif sell_signal_triggered:
+        log_message_parts.append("-> Decision: SELL")
+        trading_logger.info(" | ".join(log_message_parts))
         return 'sell'
     else:
-        final_log_message += " → нет сигнала"
-        # Логируем "нет сигнала" тоже на уровне INFO, чтобы видеть, что проверка прошла
-        trading_logger.info(final_log_message) 
-        # print(final_log_message) # Можно не печатать "нет сигнала" в консоль, чтобы не спамить
+        log_message_parts.append("-> Decision: HOLD")
+        trading_logger.info(" | ".join(log_message_parts))
         return 'hold'
