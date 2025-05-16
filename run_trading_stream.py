@@ -114,7 +114,7 @@ async def check_and_handle_risk_conditions(symbol, profile, current_price, strat
     # === Стоп-лосс
     if settings.USE_STOP_LOSS and is_stop_loss_triggered(symbol, current_price, last_buy_price):
         reason = f"‼️ Stop-loss: {symbol} принудительно продается (цена {current_price:.6f}) из-за достижения уровня стоп-лосс."
-        return await execute_trade_action("sell", symbol, profile, reason, current_price)
+        return await execute_trade_action("sell", symbol, profile, reason, current_price,)
 
     # === Тейк-профит
     if settings.USE_TAKE_PROFIT and is_take_profit_reached(symbol, current_price, last_buy_price):
@@ -213,7 +213,7 @@ async def price_processor(
     # --- Выполнение покупки ---
     # Если позиции ещё нет, выполняем покупку
                 reason_msg_buy = f"📈 Стратегия ({symbol}) подала сигнал на ПОКУПКУ по цене {new_close_price:.6f}."
-                if await execute_trade_action("buy", symbol, profile, reason_msg_buy):
+                if await execute_trade_action("buy", symbol, profile, reason_msg_buy, new_close_price):
                     action_taken_this_cycle = True
             
             elif strategy_action == 'sell':
@@ -227,7 +227,7 @@ async def price_processor(
                 
                 if proceed_with_strategy_sell:
                     reason_msg_sell = f"📉 Стратегия ({symbol}) подала сигнал на ПРОДАЖУ по цене {new_close_price:.6f}."
-                    if await execute_trade_action("sell", symbol, profile, reason_msg_sell):
+                    if await execute_trade_action("sell", symbol, profile, reason_msg_sell, new_close_price):
                         action_taken_this_cycle = True
 
             # --- Шаг 3: Проверка минимального профита (если не было других действий) ---

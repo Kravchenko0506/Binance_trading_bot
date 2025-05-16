@@ -22,7 +22,7 @@ MIN_PROFIT_RATIO = 0.030
 USE_STOP_LOSS = True
 STOP_LOSS_RATIO = -0.02   
 
-USE_TAKE_PROFIT = False
+USE_TAKE_PROFIT = True
 TAKE_PROFIT_RATIO = 0.015  
 # --- Ограничения торгов ---
 PRICE_PRECISION = 2            # Количество знаков после запятой для цены
