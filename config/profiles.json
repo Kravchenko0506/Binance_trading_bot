@@ -15,7 +15,7 @@
     "use_ema": false,
     "commission_rate": 0.001,
     "min_profit_ratio": 0.030,
-    "stop_loss_ratio": -0.002,
+    "stop_loss_ratio": -0.003,
     "take_profit_ratio": 0.000,
     "price_precision": 2,
     "min_order_quantity": 1,

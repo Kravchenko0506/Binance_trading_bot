@@ -242,7 +242,7 @@ async def place_order(action: str, symbol: str, profile: object) -> dict | None:
                         )
                         # Можно отправить уведомление, если это неожиданно
                         # await send_notification(f"ℹ️ Попытка продажи {symbol}: сумма ({estimated_sell_value_in_quote:.2f} {quote_asset}) меньше минимальной.")
-                        return None
+                        return False
                 else:
                     trading_logger.warning(f"Order Execution ({symbol}): Не удалось получить цену для проверки мин. суммы продажи. Продолжаем с осторожностью.")
                 

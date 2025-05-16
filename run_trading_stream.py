@@ -19,6 +19,8 @@ from config import settings
 from utils.profit_check import is_stop_loss_triggered, is_take_profit_reached, is_enough_profit
 # Асинхронная функция для отправки уведомлений в Telegram
 from utils.notifier import send_notification
+from utils.quantity_utils import get_lot_size
+
 
 # Загрузка конфигурации профиля по имени
 from config.profile_loader import get_profile_by_name
@@ -27,13 +29,15 @@ from services.binance_stream import listen_klines
 # Функции торговой логики: проверка сигналов по индикаторам и начальная загрузка истории цен
 from services.trade_logic import check_buy_sell_signals, get_initial_ohlcv
 # Функция для размещения ордеров на бирже (покупка/продажа)
-from services.order_execution import place_order
+from services.order_execution import place_order, get_asset_balance_async
+
 # Централизованные логгеры: system_logger для системных событий, trading_logger для торговых операций
 from utils.logger import system_logger, trading_logger
 # Глобальное состояние для отслеживания активных задач и stop_event из control_center
 from bot_control.control_center import CURRENT_STATE
-from utils.position_manager import load_last_buy_price,has_open_position
-
+from utils.position_manager import (load_last_buy_price,has_open_position,
+                                    save_last_buy_price, clear_position)
+from decimal import Decimal
 
 
 # --- Константы для управления историей цен ---
@@ -48,93 +52,83 @@ PRICE_HISTORY_MAX_LEN = 250
 MIN_PRICE_HISTORY_FOR_TRADE = 50
 
 
-async def execute_trade_action(
-    action_type: str, # "buy" или "sell"
-    symbol: str,
-    profile: SimpleNamespace,
-    reason_message: str # Сообщение-причина для лога и уведомления
-):
+async def execute_trade_action(action_type, symbol, profile, reason_message, execution_price: float):
     """
-    Вспомогательная асинхронная функция для выполнения торгового действия (покупка/продажа),
-    логирования этого действия и отправки уведомления.
+    Выполняет торговое действие: 'buy' или 'sell'.
+    Оборачивает place_order с логированием и управлением состоянием позиции.
     """
-    # Логируем намерение совершить действие
-    # trading_logger для торговых действий, system_logger для более общего контекста
-    trading_logger.info(reason_message)
-    system_logger.info(f"Price processor ({symbol}): Инициировано действие '{action_type}' по причине: {reason_message}")
-
     try:
-        # Размещаем ордер на бирже.
-        # ВАЖНО: Если place_order - это синхронная блокирующая функция (делает сетевой запрос),
-        # ее вызов заблокирует весь asyncio event loop. В идеале, place_order должна быть
-        # асинхронной (async def) и использовать await для сетевых операций,
-        # либо вызываться через await asyncio.to_thread(place_order, ...) (для Python 3.9+)
-        # или await loop.run_in_executor(None, place_order, ...).
-        # Пока оставляем прямой вызов, предполагая, что он либо быстрый, либо ты это учтешь.
-        await place_order(action_type, symbol, profile)
-        
-        # Отправляем уведомление в Telegram об успешном действии
-        await send_notification(reason_message) # Уведомление содержит причину
-        system_logger.info(f"Price processor ({symbol}): Уведомление об операции '{action_type}' отправлено.")
-        return True # Действие успешно инициировано
+        system_logger.info(f"Price processor ({symbol}): Инициировано действие '{action_type}' по причине: {reason_message}")
+        trading_logger.info(f"Order Execution ({symbol}): Инициировано размещение ордера '{action_type}'...")
+
+        success = await place_order(action_type, symbol, profile)
+        if not success:
+            system_logger.warning(f"Ордер '{action_type}' по {symbol} не был размещён — действие отменено.")
+            return False
+
+        await send_notification(reason_message)
+
+        if action_type == "buy":
+            save_last_buy_price(symbol, execution_price)
+        elif action_type == "sell":
+            clear_position(symbol)
+
+        return True
+
     except Exception as e:
         system_logger.error(f"Price processor ({symbol}): Ошибка при размещении ордера '{action_type}': {e}", exc_info=True)
-        # Уведомляем об ошибке ордера
-        await send_notification(f"❌ Ошибка ордера '{action_type}' для {symbol}. Причина: {e}. Смотрите системные логи.")
-        return False # Действие не удалось
+        return False
 
 
-async def check_and_handle_risk_conditions(
-    symbol: str,
-    profile: SimpleNamespace,
-    current_price: float,
-    strategy_has_issued_sell: bool
-) -> bool:
+async def check_and_handle_risk_conditions(symbol, profile, current_price, strategy_has_issued_sell):
     """
-    Проверяет условия риск-менеджмента для продажи:
-    1. Stop-loss
-    2. Take-profit
-    3. Минимальный профит (если стратегия не дала сигнал)
-    
-    Если какое-либо условие выполняется — происходит продажа, логирование и Telegram-уведомление.
-    Возвращает True, если была продажа. Иначе — False.
+    Проверяет стоп-лосс, тейк-профит и min-профит. Выполняет sell, если нужно.
+    Возвращает True, если была продажа.
     """
-
-    
-
-    # === Проверка: есть ли вообще открытая позиция ===
-    # Если файл last_buy_price отсутствует, значит — позиции нет, продавать нечего
-    # Это защищает от спама при срабатывании take-profit по уже закрытой позиции
-    last_buy_price = load_last_buy_price(symbol)
     if not has_open_position(symbol):
         system_logger.debug(f"Risk Check: позиция по {symbol} уже закрыта — пропускаем проверку TP/SL/MinProfit.")
         return False
 
-    # === 1. STOP-LOSS ===
-    # Наивысший приоритет: продажа при достижении убытка
+    last_buy_price = load_last_buy_price(symbol)
+    if last_buy_price is None:
+        system_logger.warning(f"Risk Check: не удалось загрузить цену покупки для {symbol}. Пропускаем проверки.")
+        return False
+
+    # === Защита от продаж при нулевом балансе (MinQty check)
+    step_size, min_qty = get_lot_size(symbol)
+    if min_qty is None:
+        system_logger.error(f"{symbol}: Невозможно получить minQty — фильтр отсутствует.")
+        return False
+
+    min_qty = Decimal(min_qty)
+
+    balance = await get_asset_balance_async(symbol)
+
+    if balance < min_qty:
+        system_logger.warning(
+            f"{symbol}: Баланс {balance} меньше MinQty ({min_qty}). Считаем позицию закрытой, сбрасываем last_buy_price."
+        )
+        clear_position(symbol)
+        return False
+
+    # === Стоп-лосс
     if settings.USE_STOP_LOSS and is_stop_loss_triggered(symbol, current_price, last_buy_price):
         reason = f"‼️ Stop-loss: {symbol} принудительно продается (цена {current_price:.6f}) из-за достижения уровня стоп-лосс."
-        await execute_trade_action("sell", symbol, profile, reason)
-        return True
+        return await execute_trade_action("sell", symbol, profile, reason, current_price)
 
-    # === 2. TAKE-PROFIT ===
-    # Второй по приоритету: продажа при достижении заданной прибыли
+    # === Тейк-профит
     if settings.USE_TAKE_PROFIT and is_take_profit_reached(symbol, current_price, last_buy_price):
         reason = f"✅ Take-profit: {symbol} достиг цели прибыли (цена {current_price:.6f}). Принудительная продажа."
-        await execute_trade_action("sell", symbol, profile, reason)
-        return True
+        return await execute_trade_action("sell", symbol, profile, reason, current_price)
 
-    # === 3. MIN-PROFIT ===
-    # Только если стратегия НЕ дала сигнал `sell`
+    # === Минимальный профит (только если стратегия не дала sell)
     if settings.USE_MIN_PROFIT and not strategy_has_issued_sell:
         if is_enough_profit(symbol, current_price, last_buy_price):
-            reason = f"💰 Минимальный профит: {symbol} продается (цена {current_price:.6f}) для фиксации прибыли без сигнала стратегии."
-            await execute_trade_action("sell", symbol, profile, reason)
-            return True
-        # Ветка else логируется внутри is_enough_profit()
+            reason = f"💰 Минимальный профит: {symbol} продается (цена {current_price:.6f}) без сигнала стратегии."
+            return await execute_trade_action("sell", symbol, profile, reason, current_price)
 
-    # Если ни одно из условий не выполнено — ничего не делаем
     return False
+
 
 
 
