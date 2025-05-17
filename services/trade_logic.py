@@ -85,7 +85,9 @@ def check_buy_sell_signals(profile: object, historic_prices_np_array: np.ndarray
     use_macd = bool(getattr(profile, "USE_MACD", True))
     use_ema = bool(getattr(profile, "USE_EMA", False))
     ema_period = int(getattr(profile, "EMA_PERIOD", 50))
-    ema_buffer = float(getattr(profile, "EMA_BUFFER", 0.002))
+    ema_buy_buffer = getattr(profile, "EMA_BUY_BUFFER", getattr(profile, "EMA_BUFFER", 0.002))
+    ema_sell_buffer = getattr(profile, "EMA_SELL_BUFFER", getattr(profile, "EMA_BUFFER", 0.002))
+
 
     # Флаги использования MACD для подтверждения сигналов RSI
     use_macd_for_buy = bool(getattr(profile, "USE_MACD_FOR_BUY", False))
@@ -183,18 +185,23 @@ def check_buy_sell_signals(profile: object, historic_prices_np_array: np.ndarray
             sell_signal_triggered = True
 
     # --- EMA Фильтр (если включен) ---
-    if use_ema and last_ema is not None:
-        if buy_signal_triggered and current_close_price < last_ema * (1 - ema_buffer):
-            trading_logger.info(
-            f"Signal Check ({symbol}): BUY IGNORED by EMA filter. Price {current_close_price:.6f} < EMA({ema_period}) {last_ema:.6f} - buffer {ema_buffer*100:.2f}%"
-            )
-            buy_signal_triggered = False
+    if buy_signal_triggered and current_close_price < last_ema * (1 - ema_buy_buffer):
+        border = last_ema * (1 - ema_buy_buffer)
+        trading_logger.info(
+        f"Signal Check ({symbol}): BUY IGNORED by EMA filter. "
+        f"Price {current_close_price:.6f} < EMA({ema_period})-buffer {border:.6f} (buffer {ema_buy_buffer*100:.2f}%)"
+        )
+        buy_signal_triggered = False
 
-        if sell_signal_triggered and current_close_price > last_ema * (1 + ema_buffer):
-            trading_logger.info(
-            f"Signal Check ({symbol}): SELL IGNORED by EMA filter. Price {current_close_price:.6f} > EMA({ema_period}) {last_ema:.6f} + buffer {ema_buffer*100:.2f}%"
+
+    if sell_signal_triggered and current_close_price > last_ema * (1 + ema_sell_buffer):
+        border = last_ema * (1 + ema_sell_buffer)
+        trading_logger.info(
+        f"Signal Check ({symbol}): SELL IGNORED by EMA filter. "
+        f"Price {current_close_price:.6f} > EMA({ema_period})+buffer {border:.6f} (buffer {ema_sell_buffer*100:.2f}%)"
         )
         sell_signal_triggered = False
+
 
     # --- Формирование и логирование итогового сообщения и сигнала ---
     log_message_parts = [
@@ -209,7 +216,15 @@ def check_buy_sell_signals(profile: object, historic_prices_np_array: np.ndarray
         log_message_parts.append(
             f"MACD({macd_fast_period},{macd_slow_period},{macd_signal_period})={macd_val_str},Signal={signal_val_str}")
     if use_ema:
-        ema_val_str = f"{last_ema:.6f}" if last_ema is not None else "N/A"
+         ema_val_str = f"{last_ema:.6f}" if last_ema is not None else "N/A"
+    # Показываем EMA-buffer и границы фильтра
+    if last_ema is not None:
+        lower = last_ema * (1 - ema_buy_buffer)
+        upper = last_ema * (1 + ema_sell_buffer)
+        log_message_parts.append(
+            f"EMA({ema_period})={ema_val_str} [buy buffer: -{ema_buy_buffer*100:.2f}% | sell buffer: +{ema_sell_buffer*100:.2f}% | zone: {lower:.6f}-{upper:.6f}]"
+        )
+    else:
         log_message_parts.append(f"EMA({ema_period})={ema_val_str}")
 
     if buy_signal_triggered:

@@ -12503,3 +12503,615 @@ AttributeError: 'NoneType' object has no attribute 'get'
 2025-05-17 02:42:59,571 - trading - INFO - Signal Eval (XRPUSDT): Price=2.347100 | RSI(14)=32.15 (OB:70.0,OS:30.0) | EMA(50)=2.365864 | -> Decision: HOLD
 2025-05-17 02:43:59,575 - trading - INFO - Signal Eval (XRPUSDT): Price=2.347400 | RSI(14)=32.73 (OB:70.0,OS:30.0) | EMA(50)=2.365140 | -> Decision: HOLD
 2025-05-17 02:44:59,680 - trading - INFO - Signal Eval (XRPUSDT): Price=2.350600 | RSI(14)=38.75 (OB:70.0,OS:30.0) | EMA(50)=2.364570 | -> Decision: HOLD
+2025-05-17 02:45:59,583 - trading - INFO - Signal Eval (XRPUSDT): Price=2.349700 | RSI(14)=37.73 (OB:70.0,OS:30.0) | EMA(50)=2.363987 | -> Decision: HOLD
+2025-05-17 02:46:59,588 - trading - INFO - Signal Eval (XRPUSDT): Price=2.348500 | RSI(14)=36.35 (OB:70.0,OS:30.0) | EMA(50)=2.363380 | -> Decision: HOLD
+2025-05-17 02:48:15,558 - trading - INFO - Логгер 'trading_activity' успешно настроен.
+2025-05-17 02:48:35,045 - trading - INFO - TradeLogic (XRPUSDT): Запрос начальных 300 OHLCV данных для XRPUSDT (1m)...
+2025-05-17 02:48:35,371 - trading - INFO - TradeLogic (XRPUSDT): Успешно загружено 300 цен закрытия.
+2025-05-17 02:48:59,596 - trading - INFO - Signal Eval (XRPUSDT): Price=2.353800 | RSI(14)=46.51 (OB:70.0,OS:30.0) | EMA(50)=2.362221 | -> Decision: HOLD
+2025-05-17 02:49:59,599 - trading - INFO - Signal Eval (XRPUSDT): Price=2.356300 | RSI(14)=50.30 (OB:70.0,OS:30.0) | EMA(50)=2.361989 | -> Decision: HOLD
+2025-05-17 02:50:59,605 - trading - INFO - Signal Eval (XRPUSDT): Price=2.354500 | RSI(14)=47.68 (OB:70.0,OS:30.0) | EMA(50)=2.361695 | -> Decision: HOLD
+2025-05-17 02:51:59,608 - trading - INFO - Signal Eval (XRPUSDT): Price=2.354600 | RSI(14)=47.85 (OB:70.0,OS:30.0) | EMA(50)=2.361417 | -> Decision: HOLD
+2025-05-17 02:53:08,368 - trading - INFO - Логгер 'trading_activity' успешно настроен.
+2025-05-17 02:53:20,780 - trading - INFO - TradeLogic (XRPUSDT): Запрос начальных 300 OHLCV данных для XRPUSDT (1m)...
+2025-05-17 02:53:21,053 - trading - INFO - TradeLogic (XRPUSDT): Успешно загружено 300 цен закрытия.
+2025-05-17 02:53:59,618 - trading - INFO - Signal Eval (XRPUSDT): Price=2.359300 | RSI(14)=55.33 (OB:70.0,OS:30.0) | EMA(50)=2.361311 [buffer: ±0.20% | zone: 2.356588-2.366033] | -> Decision: HOLD
+2025-05-17 02:54:59,621 - trading - INFO - Signal Eval (XRPUSDT): Price=2.360900 | RSI(14)=57.83 (OB:70.0,OS:30.0) | EMA(50)=2.361295 [buffer: ±0.20% | zone: 2.356572-2.366017] | -> Decision: HOLD
+2025-05-17 02:55:59,727 - trading - INFO - Signal Eval (XRPUSDT): Price=2.360000 | RSI(14)=55.93 (OB:70.0,OS:30.0) | EMA(50)=2.361244 [buffer: ±0.20% | zone: 2.356522-2.365967] | -> Decision: HOLD
+2025-05-17 02:56:59,629 - trading - INFO - Signal Eval (XRPUSDT): Price=2.357300 | RSI(14)=50.57 (OB:70.0,OS:30.0) | EMA(50)=2.361089 [buffer: ±0.20% | zone: 2.356367-2.365812] | -> Decision: HOLD
+2025-05-17 02:57:59,632 - trading - INFO - Signal Eval (XRPUSDT): Price=2.356300 | RSI(14)=48.70 (OB:70.0,OS:30.0) | EMA(50)=2.360902 [buffer: ±0.20% | zone: 2.356180-2.365624] | -> Decision: HOLD
+2025-05-17 02:58:59,535 - trading - INFO - Signal Eval (XRPUSDT): Price=2.357500 | RSI(14)=51.04 (OB:70.0,OS:30.0) | EMA(50)=2.360768 [buffer: ±0.20% | zone: 2.356047-2.365490] | -> Decision: HOLD
+2025-05-17 02:59:08,486 - trading - INFO - Логгер 'trading_activity' успешно настроен.
+2025-05-17 02:59:15,263 - trading - INFO - TradeLogic (XRPUSDT): Запрос начальных 300 OHLCV данных для XRPUSDT (1m)...
+2025-05-17 02:59:15,612 - trading - INFO - TradeLogic (XRPUSDT): Успешно загружено 300 цен закрытия.
+2025-05-17 02:59:59,540 - trading - INFO - Signal Eval (XRPUSDT): Price=2.356900 | RSI(14)=49.62 (OB:70.0,OS:30.0) | EMA(100)=2.367763 [buffer: ±0.10% | zone: 2.365396-2.370131] | -> Decision: HOLD
+2025-05-17 03:00:59,543 - trading - INFO - Signal Eval (XRPUSDT): Price=2.348600 | RSI(14)=37.89 (OB:70.0,OS:30.0) | EMA(100)=2.367391 [buffer: ±0.10% | zone: 2.365023-2.369758] | -> Decision: HOLD
+2025-05-17 03:01:26,398 - trading - INFO - Логгер 'trading_activity' успешно настроен.
+2025-05-17 03:01:34,240 - trading - INFO - TradeLogic (XRPUSDT): Запрос начальных 300 OHLCV данных для XRPUSDT (1m)...
+2025-05-17 03:01:34,563 - trading - INFO - TradeLogic (XRPUSDT): Успешно загружено 300 цен закрытия.
+2025-05-17 03:01:59,548 - trading - INFO - Signal Eval (XRPUSDT): Price=2.347200 | RSI(14)=37.16 (OB:70.0,OS:30.0) | EMA(40)=2.357570 [buffer: ±0.10% | zone: 2.355213-2.359928] | -> Decision: HOLD
+2025-05-17 03:02:59,550 - trading - INFO - Signal Eval (XRPUSDT): Price=2.352400 | RSI(14)=46.05 (OB:70.0,OS:30.0) | EMA(40)=2.357318 [buffer: ±0.10% | zone: 2.354961-2.359675] | -> Decision: HOLD
+2025-05-17 03:03:59,555 - trading - INFO - Signal Eval (XRPUSDT): Price=2.348300 | RSI(14)=41.11 (OB:70.0,OS:30.0) | EMA(40)=2.356878 [buffer: ±0.10% | zone: 2.354521-2.359235] | -> Decision: HOLD
+2025-05-17 03:04:59,560 - trading - INFO - Signal Eval (XRPUSDT): Price=2.349200 | RSI(14)=42.57 (OB:70.0,OS:30.0) | EMA(40)=2.356504 [buffer: ±0.10% | zone: 2.354147-2.358860] | -> Decision: HOLD
+2025-05-17 03:05:42,802 - trading - INFO - Логгер 'trading_activity' успешно настроен.
+2025-05-17 03:05:54,513 - trading - INFO - TradeLogic (XRPUSDT): Запрос начальных 300 OHLCV данных для XRPUSDT (1m)...
+2025-05-17 03:05:54,853 - trading - INFO - TradeLogic (XRPUSDT): Успешно загружено 300 цен закрытия.
+2025-05-17 03:05:59,566 - trading - INFO - Signal Eval (XRPUSDT): Price=2.344000 | RSI(14)=36.80 (OB:70.0,OS:30.0) | EMA(150)=2.371180 [buffer: ±0.10% | zone: 2.368809-2.373551] | -> Decision: HOLD
+2025-05-17 03:06:59,566 - trading - INFO - Signal Eval (XRPUSDT): Price=2.346400 | RSI(14)=40.95 (OB:70.0,OS:30.0) | EMA(150)=2.370838 [buffer: ±0.10% | zone: 2.368467-2.373209] | -> Decision: HOLD
+2025-05-17 03:07:12,527 - trading - INFO - Логгер 'trading_activity' успешно настроен.
+2025-05-17 03:07:22,978 - trading - INFO - TradeLogic (XRPUSDT): Запрос начальных 300 OHLCV данных для XRPUSDT (1m)...
+2025-05-17 03:07:23,312 - trading - INFO - TradeLogic (XRPUSDT): Успешно загружено 300 цен закрытия.
+2025-05-17 03:07:59,570 - trading - INFO - Signal Eval (XRPUSDT): Price=2.349900 | RSI(14)=46.23 (OB:70.0,OS:30.0) | EMA(20)=2.351244 [buffer: ±0.10% | zone: 2.348893-2.353596] | -> Decision: HOLD
+2025-05-17 03:08:59,575 - trading - INFO - Signal Eval (XRPUSDT): Price=2.349700 | RSI(14)=45.97 (OB:70.0,OS:30.0) | EMA(20)=2.351097 [buffer: ±0.10% | zone: 2.348746-2.353448] | -> Decision: HOLD
+2025-05-17 03:09:59,580 - trading - INFO - Signal Eval (XRPUSDT): Price=2.350800 | RSI(14)=47.75 (OB:70.0,OS:30.0) | EMA(20)=2.351069 [buffer: ±0.10% | zone: 2.348718-2.353420] | -> Decision: HOLD
+2025-05-17 03:10:59,539 - trading - INFO - Signal Eval (XRPUSDT): Price=2.350400 | RSI(14)=47.14 (OB:70.0,OS:30.0) | EMA(20)=2.351005 [buffer: ±0.10% | zone: 2.348654-2.353356] | -> Decision: HOLD
+2025-05-17 03:11:59,479 - trading - INFO - Signal Eval (XRPUSDT): Price=2.350800 | RSI(14)=47.86 (OB:70.0,OS:30.0) | EMA(20)=2.350986 [buffer: ±0.10% | zone: 2.348635-2.353337] | -> Decision: HOLD
+2025-05-17 03:12:59,607 - trading - INFO - Signal Eval (XRPUSDT): Price=2.345300 | RSI(14)=39.85 (OB:70.0,OS:30.0) | EMA(20)=2.350444 [buffer: ±0.10% | zone: 2.348094-2.352795] | -> Decision: HOLD
+2025-05-17 03:13:10,697 - trading - INFO - Логгер 'trading_activity' успешно настроен.
+2025-05-17 03:13:23,257 - trading - INFO - TradeLogic (XRPUSDT): Запрос начальных 300 OHLCV данных для XRPUSDT (1m)...
+2025-05-17 03:13:23,552 - trading - INFO - TradeLogic (XRPUSDT): Успешно загружено 300 цен закрытия.
+2025-05-17 03:13:59,494 - trading - INFO - Signal Eval (XRPUSDT): Price=2.340500 | RSI(14)=34.03 (OB:70.0,OS:30.0) | EMA(25)=2.350068 [buffer: ±0.10% | zone: 2.347718-2.352418] | -> Decision: HOLD
+2025-05-17 03:14:40,602 - trading - INFO - Логгер 'trading_activity' успешно настроен.
+2025-05-17 03:14:47,071 - trading - INFO - TradeLogic (XRPUSDT): Запрос начальных 300 OHLCV данных для XRPUSDT (1m)...
+2025-05-17 03:14:47,343 - trading - INFO - TradeLogic (XRPUSDT): Успешно загружено 300 цен закрытия.
+2025-05-17 03:14:59,495 - trading - INFO - Signal Eval (XRPUSDT): Price=2.339400 | RSI(14)=33.89 (OB:70.0,OS:30.0) | EMA(20)=2.348094 [buffer: ±0.10% | zone: 2.345746-2.350442] | -> Decision: HOLD
+2025-05-17 03:15:59,459 - trading - INFO - Signal Eval (XRPUSDT): Price=2.346000 | RSI(14)=45.32 (OB:70.0,OS:30.0) | EMA(20)=2.347894 [buffer: ±0.10% | zone: 2.345547-2.350242] | -> Decision: HOLD
+2025-05-17 03:16:59,473 - trading - INFO - Signal Eval (XRPUSDT): Price=2.348900 | RSI(14)=49.46 (OB:70.0,OS:30.0) | EMA(20)=2.347990 [buffer: ±0.10% | zone: 2.345642-2.350338] | -> Decision: HOLD
+2025-05-17 03:17:59,457 - trading - INFO - Signal Eval (XRPUSDT): Price=2.340900 | RSI(14)=40.38 (OB:70.0,OS:30.0) | EMA(20)=2.347315 [buffer: ±0.10% | zone: 2.344968-2.349662] | -> Decision: HOLD
+2025-05-17 03:18:59,450 - trading - INFO - Signal Eval (XRPUSDT): Price=2.343100 | RSI(14)=43.46 (OB:70.0,OS:30.0) | EMA(20)=2.346914 [buffer: ±0.10% | zone: 2.344567-2.349260] | -> Decision: HOLD
+2025-05-17 03:19:59,449 - trading - INFO - Signal Eval (XRPUSDT): Price=2.339000 | RSI(14)=39.38 (OB:70.0,OS:30.0) | EMA(20)=2.346160 [buffer: ±0.10% | zone: 2.343814-2.348506] | -> Decision: HOLD
+2025-05-17 03:20:59,447 - trading - INFO - Signal Eval (XRPUSDT): Price=2.334300 | RSI(14)=35.30 (OB:70.0,OS:30.0) | EMA(20)=2.345030 [buffer: ±0.10% | zone: 2.342685-2.347375] | -> Decision: HOLD
+2025-05-17 03:21:59,448 - trading - INFO - Signal Eval (XRPUSDT): Price=2.332500 | RSI(14)=33.85 (OB:70.0,OS:30.0) | EMA(20)=2.343837 [buffer: ±0.10% | zone: 2.341493-2.346181] | -> Decision: HOLD
+2025-05-17 03:22:59,444 - trading - INFO - Signal Eval (XRPUSDT): Price=2.332400 | RSI(14)=33.77 (OB:70.0,OS:30.0) | EMA(20)=2.342748 [buffer: ±0.10% | zone: 2.340405-2.345090] | -> Decision: HOLD
+2025-05-17 03:23:59,440 - trading - INFO - Signal Eval (XRPUSDT): Price=2.335900 | RSI(14)=39.36 (OB:70.0,OS:30.0) | EMA(20)=2.342096 [buffer: ±0.10% | zone: 2.339753-2.344438] | -> Decision: HOLD
+2025-05-17 03:24:59,448 - trading - INFO - Signal Eval (XRPUSDT): Price=2.336100 | RSI(14)=39.68 (OB:70.0,OS:30.0) | EMA(20)=2.341525 [buffer: ±0.10% | zone: 2.339183-2.343866] | -> Decision: HOLD
+2025-05-17 03:25:59,435 - trading - INFO - Signal Eval (XRPUSDT): Price=2.331400 | RSI(14)=35.08 (OB:70.0,OS:30.0) | EMA(20)=2.340560 [buffer: ±0.10% | zone: 2.338220-2.342901] | -> Decision: HOLD
+2025-05-17 03:26:59,439 - trading - INFO - Signal Eval (XRPUSDT): Price=2.335000 | RSI(14)=40.74 (OB:70.0,OS:30.0) | EMA(20)=2.340031 [buffer: ±0.10% | zone: 2.337691-2.342371] | -> Decision: HOLD
+2025-05-17 03:27:59,433 - trading - INFO - Signal Eval (XRPUSDT): Price=2.337500 | RSI(14)=44.37 (OB:70.0,OS:30.0) | EMA(20)=2.339790 [buffer: ±0.10% | zone: 2.337450-2.342130] | -> Decision: HOLD
+2025-05-17 03:28:59,426 - trading - INFO - Signal Eval (XRPUSDT): Price=2.338000 | RSI(14)=45.09 (OB:70.0,OS:30.0) | EMA(20)=2.339619 [buffer: ±0.10% | zone: 2.337280-2.341959] | -> Decision: HOLD
+2025-05-17 03:29:59,437 - trading - INFO - Signal Eval (XRPUSDT): Price=2.336300 | RSI(14)=43.04 (OB:70.0,OS:30.0) | EMA(20)=2.339303 [buffer: ±0.10% | zone: 2.336964-2.341642] | -> Decision: HOLD
+2025-05-17 03:30:59,423 - trading - INFO - Signal Eval (XRPUSDT): Price=2.339200 | RSI(14)=47.43 (OB:70.0,OS:30.0) | EMA(20)=2.339293 [buffer: ±0.10% | zone: 2.336954-2.341633] | -> Decision: HOLD
+2025-05-17 03:31:59,418 - trading - INFO - Signal Eval (XRPUSDT): Price=2.336300 | RSI(14)=43.80 (OB:70.0,OS:30.0) | EMA(20)=2.339008 [buffer: ±0.10% | zone: 2.336669-2.341347] | -> Decision: HOLD
+2025-05-17 03:32:59,434 - trading - INFO - Signal Eval (XRPUSDT): Price=2.330300 | RSI(14)=37.41 (OB:70.0,OS:30.0) | EMA(20)=2.338179 [buffer: ±0.10% | zone: 2.335841-2.340517] | -> Decision: HOLD
+2025-05-17 03:33:59,440 - trading - INFO - Signal Eval (XRPUSDT): Price=2.333100 | RSI(14)=41.68 (OB:70.0,OS:30.0) | EMA(20)=2.337695 [buffer: ±0.10% | zone: 2.335358-2.340033] | -> Decision: HOLD
+2025-05-17 03:34:59,420 - trading - INFO - Signal Eval (XRPUSDT): Price=2.326600 | RSI(14)=35.60 (OB:70.0,OS:30.0) | EMA(20)=2.336639 [buffer: ±0.10% | zone: 2.334302-2.338975] | -> Decision: HOLD
+2025-05-17 03:35:59,419 - trading - INFO - Signal Eval (XRPUSDT): Price=2.335500 | RSI(14)=47.00 (OB:70.0,OS:30.0) | EMA(20)=2.336530 [buffer: ±0.10% | zone: 2.334194-2.338867] | -> Decision: HOLD
+2025-05-17 03:36:59,412 - trading - INFO - Signal Eval (XRPUSDT): Price=2.331300 | RSI(14)=43.12 (OB:70.0,OS:30.0) | EMA(20)=2.336032 [buffer: ±0.10% | zone: 2.333696-2.338368] | -> Decision: HOLD
+2025-05-17 03:37:59,420 - trading - INFO - Signal Eval (XRPUSDT): Price=2.328400 | RSI(14)=40.63 (OB:70.0,OS:30.0) | EMA(20)=2.335305 [buffer: ±0.10% | zone: 2.332970-2.337640] | -> Decision: HOLD
+2025-05-17 03:38:59,418 - trading - INFO - Signal Eval (XRPUSDT): Price=2.324100 | RSI(14)=37.19 (OB:70.0,OS:30.0) | EMA(20)=2.334238 [buffer: ±0.10% | zone: 2.331904-2.336572] | -> Decision: HOLD
+2025-05-17 03:39:59,445 - trading - INFO - Signal Eval (XRPUSDT): Price=2.328700 | RSI(14)=42.77 (OB:70.0,OS:30.0) | EMA(20)=2.333711 [buffer: ±0.10% | zone: 2.331377-2.336044] | -> Decision: HOLD
+2025-05-17 03:40:59,398 - trading - INFO - Signal Eval (XRPUSDT): Price=2.330700 | RSI(14)=45.05 (OB:70.0,OS:30.0) | EMA(20)=2.333424 [buffer: ±0.10% | zone: 2.331090-2.335757] | -> Decision: HOLD
+2025-05-17 03:41:59,396 - trading - INFO - Signal Eval (XRPUSDT): Price=2.330500 | RSI(14)=44.86 (OB:70.0,OS:30.0) | EMA(20)=2.333145 [buffer: ±0.10% | zone: 2.330812-2.335479] | -> Decision: HOLD
+2025-05-17 03:42:59,397 - trading - INFO - Signal Eval (XRPUSDT): Price=2.326800 | RSI(14)=41.34 (OB:70.0,OS:30.0) | EMA(20)=2.332541 [buffer: ±0.10% | zone: 2.330209-2.334874] | -> Decision: HOLD
+2025-05-17 03:43:59,396 - trading - INFO - Signal Eval (XRPUSDT): Price=2.330900 | RSI(14)=46.36 (OB:70.0,OS:30.0) | EMA(20)=2.332385 [buffer: ±0.10% | zone: 2.330052-2.334717] | -> Decision: HOLD
+2025-05-17 03:44:59,405 - trading - INFO - Signal Eval (XRPUSDT): Price=2.331600 | RSI(14)=47.19 (OB:70.0,OS:30.0) | EMA(20)=2.332310 [buffer: ±0.10% | zone: 2.329978-2.334642] | -> Decision: HOLD
+2025-05-17 03:45:59,388 - trading - INFO - Signal Eval (XRPUSDT): Price=2.322700 | RSI(14)=38.93 (OB:70.0,OS:30.0) | EMA(20)=2.331395 [buffer: ±0.10% | zone: 2.329063-2.333726] | -> Decision: HOLD
+2025-05-17 03:46:59,384 - trading - INFO - Signal Eval (XRPUSDT): Price=2.317600 | RSI(14)=35.13 (OB:70.0,OS:30.0) | EMA(20)=2.330081 [buffer: ±0.10% | zone: 2.327751-2.332411] | -> Decision: HOLD
+2025-05-17 03:47:59,382 - trading - INFO - Signal Eval (XRPUSDT): Price=2.316900 | RSI(14)=34.63 (OB:70.0,OS:30.0) | EMA(20)=2.328826 [buffer: ±0.10% | zone: 2.326497-2.331154] | -> Decision: HOLD
+2025-05-17 03:48:59,381 - trading - INFO - Signal Eval (XRPUSDT): Price=2.317400 | RSI(14)=35.34 (OB:70.0,OS:30.0) | EMA(20)=2.327737 [buffer: ±0.10% | zone: 2.325410-2.330065] | -> Decision: HOLD
+2025-05-17 03:49:59,385 - trading - INFO - Signal Eval (XRPUSDT): Price=2.316700 | RSI(14)=34.77 (OB:70.0,OS:30.0) | EMA(20)=2.326686 [buffer: ±0.10% | zone: 2.324360-2.329013] | -> Decision: HOLD
+2025-05-17 03:50:59,376 - trading - INFO - Signal Eval (XRPUSDT): Price=2.315800 | RSI(14)=34.01 (OB:70.0,OS:30.0) | EMA(20)=2.325650 [buffer: ±0.10% | zone: 2.323324-2.327975] | -> Decision: HOLD
+2025-05-17 03:51:59,374 - trading - INFO - Signal Eval (XRPUSDT): Price=2.315600 | RSI(14)=33.84 (OB:70.0,OS:30.0) | EMA(20)=2.324692 [buffer: ±0.10% | zone: 2.322368-2.327017] | -> Decision: HOLD
+2025-05-17 03:52:59,378 - trading - INFO - Signal Eval (XRPUSDT): Price=2.319100 | RSI(14)=39.72 (OB:70.0,OS:30.0) | EMA(20)=2.324160 [buffer: ±0.10% | zone: 2.321836-2.326484] | -> Decision: HOLD
+2025-05-17 03:53:59,369 - trading - INFO - Signal Eval (XRPUSDT): Price=2.323300 | RSI(14)=45.93 (OB:70.0,OS:30.0) | EMA(20)=2.324078 [buffer: ±0.10% | zone: 2.321754-2.326402] | -> Decision: HOLD
+2025-05-17 03:54:59,369 - trading - INFO - Signal Eval (XRPUSDT): Price=2.326300 | RSI(14)=49.90 (OB:70.0,OS:30.0) | EMA(20)=2.324290 [buffer: ±0.10% | zone: 2.321965-2.326614] | -> Decision: HOLD
+2025-05-17 03:55:59,367 - trading - INFO - Signal Eval (XRPUSDT): Price=2.326100 | RSI(14)=49.63 (OB:70.0,OS:30.0) | EMA(20)=2.324462 [buffer: ±0.10% | zone: 2.322138-2.326786] | -> Decision: HOLD
+2025-05-17 03:56:59,381 - trading - INFO - Signal Eval (XRPUSDT): Price=2.326200 | RSI(14)=49.78 (OB:70.0,OS:30.0) | EMA(20)=2.324627 [buffer: ±0.10% | zone: 2.322303-2.326952] | -> Decision: HOLD
+2025-05-17 03:57:59,366 - trading - INFO - Signal Eval (XRPUSDT): Price=2.325500 | RSI(14)=48.74 (OB:70.0,OS:30.0) | EMA(20)=2.324711 [buffer: ±0.10% | zone: 2.322386-2.327035] | -> Decision: HOLD
+2025-05-17 03:58:59,359 - trading - INFO - Signal Eval (XRPUSDT): Price=2.328500 | RSI(14)=53.23 (OB:70.0,OS:30.0) | EMA(20)=2.325071 [buffer: ±0.10% | zone: 2.322746-2.327397] | -> Decision: HOLD
+2025-05-17 03:59:59,386 - trading - INFO - Signal Eval (XRPUSDT): Price=2.329000 | RSI(14)=53.95 (OB:70.0,OS:30.0) | EMA(20)=2.325446 [buffer: ±0.10% | zone: 2.323120-2.327771] | -> Decision: HOLD
+2025-05-17 04:00:59,352 - trading - INFO - Signal Eval (XRPUSDT): Price=2.333300 | RSI(14)=59.72 (OB:70.0,OS:30.0) | EMA(20)=2.326194 [buffer: ±0.10% | zone: 2.323867-2.328520] | -> Decision: HOLD
+2025-05-17 04:01:59,351 - trading - INFO - Signal Eval (XRPUSDT): Price=2.332400 | RSI(14)=58.08 (OB:70.0,OS:30.0) | EMA(20)=2.326785 [buffer: ±0.10% | zone: 2.324458-2.329112] | -> Decision: HOLD
+2025-05-17 04:02:59,422 - trading - INFO - Signal Eval (XRPUSDT): Price=2.330500 | RSI(14)=54.67 (OB:70.0,OS:30.0) | EMA(20)=2.327139 [buffer: ±0.10% | zone: 2.324811-2.329466] | -> Decision: HOLD
+2025-05-17 04:03:59,350 - trading - INFO - Signal Eval (XRPUSDT): Price=2.331500 | RSI(14)=56.13 (OB:70.0,OS:30.0) | EMA(20)=2.327554 [buffer: ±0.10% | zone: 2.325226-2.329882] | -> Decision: HOLD
+2025-05-17 04:04:59,352 - trading - INFO - Signal Eval (XRPUSDT): Price=2.330200 | RSI(14)=53.70 (OB:70.0,OS:30.0) | EMA(20)=2.327806 [buffer: ±0.10% | zone: 2.325478-2.330134] | -> Decision: HOLD
+2025-05-17 04:05:59,342 - trading - INFO - Signal Eval (XRPUSDT): Price=2.328400 | RSI(14)=50.46 (OB:70.0,OS:30.0) | EMA(20)=2.327863 [buffer: ±0.10% | zone: 2.325535-2.330190] | -> Decision: HOLD
+2025-05-17 04:06:59,353 - trading - INFO - Signal Eval (XRPUSDT): Price=2.327500 | RSI(14)=48.86 (OB:70.0,OS:30.0) | EMA(20)=2.327828 [buffer: ±0.10% | zone: 2.325500-2.330156] | -> Decision: HOLD
+2025-05-17 04:07:59,342 - trading - INFO - Signal Eval (XRPUSDT): Price=2.327200 | RSI(14)=48.32 (OB:70.0,OS:30.0) | EMA(20)=2.327768 [buffer: ±0.10% | zone: 2.325440-2.330096] | -> Decision: HOLD
+2025-05-17 04:08:59,356 - trading - INFO - Signal Eval (XRPUSDT): Price=2.327900 | RSI(14)=49.73 (OB:70.0,OS:30.0) | EMA(20)=2.327781 [buffer: ±0.10% | zone: 2.325453-2.330109] | -> Decision: HOLD
+2025-05-17 04:09:59,346 - trading - INFO - Signal Eval (XRPUSDT): Price=2.330900 | RSI(14)=55.37 (OB:70.0,OS:30.0) | EMA(20)=2.328078 [buffer: ±0.10% | zone: 2.325750-2.330406] | -> Decision: HOLD
+2025-05-17 04:10:59,341 - trading - INFO - Signal Eval (XRPUSDT): Price=2.331900 | RSI(14)=57.10 (OB:70.0,OS:30.0) | EMA(20)=2.328442 [buffer: ±0.10% | zone: 2.326113-2.330770] | -> Decision: HOLD
+2025-05-17 04:11:59,327 - trading - INFO - Signal Eval (XRPUSDT): Price=2.328200 | RSI(14)=49.47 (OB:70.0,OS:30.0) | EMA(20)=2.328419 [buffer: ±0.10% | zone: 2.326090-2.330747] | -> Decision: HOLD
+2025-05-17 04:12:59,329 - trading - INFO - Signal Eval (XRPUSDT): Price=2.324000 | RSI(14)=42.52 (OB:70.0,OS:30.0) | EMA(20)=2.327998 [buffer: ±0.10% | zone: 2.325670-2.330326] | -> Decision: HOLD
+2025-05-17 04:13:59,324 - trading - INFO - Signal Eval (XRPUSDT): Price=2.322600 | RSI(14)=40.48 (OB:70.0,OS:30.0) | EMA(20)=2.327484 [buffer: ±0.10% | zone: 2.325156-2.329811] | -> Decision: HOLD
+2025-05-17 04:14:59,326 - trading - INFO - Signal Eval (XRPUSDT): Price=2.318900 | RSI(14)=35.62 (OB:70.0,OS:30.0) | EMA(20)=2.326666 [buffer: ±0.10% | zone: 2.324340-2.328993] | -> Decision: HOLD
+2025-05-17 04:15:59,318 - trading - INFO - Signal Eval (XRPUSDT): Price=2.321700 | RSI(14)=41.36 (OB:70.0,OS:30.0) | EMA(20)=2.326193 [buffer: ±0.10% | zone: 2.323867-2.328520] | -> Decision: HOLD
+2025-05-17 04:16:59,318 - trading - INFO - Signal Eval (XRPUSDT): Price=2.318200 | RSI(14)=36.93 (OB:70.0,OS:30.0) | EMA(20)=2.325432 [buffer: ±0.10% | zone: 2.323107-2.327758] | -> Decision: HOLD
+2025-05-17 04:17:59,327 - trading - INFO - Signal Eval (XRPUSDT): Price=2.324500 | RSI(14)=47.78 (OB:70.0,OS:30.0) | EMA(20)=2.325343 [buffer: ±0.10% | zone: 2.323018-2.327669] | -> Decision: HOLD
+2025-05-17 04:18:59,339 - trading - INFO - Signal Eval (XRPUSDT): Price=2.330500 | RSI(14)=55.61 (OB:70.0,OS:30.0) | EMA(20)=2.325834 [buffer: ±0.10% | zone: 2.323509-2.328160] | -> Decision: HOLD
+2025-05-17 04:19:59,316 - trading - INFO - Signal Eval (XRPUSDT): Price=2.326100 | RSI(14)=49.72 (OB:70.0,OS:30.0) | EMA(20)=2.325860 [buffer: ±0.10% | zone: 2.323534-2.328186] | -> Decision: HOLD
+2025-05-17 04:20:59,311 - trading - INFO - Signal Eval (XRPUSDT): Price=2.330000 | RSI(14)=54.34 (OB:70.0,OS:30.0) | EMA(20)=2.326254 [buffer: ±0.10% | zone: 2.323928-2.328580] | -> Decision: HOLD
+2025-05-17 04:21:59,329 - trading - INFO - Signal Eval (XRPUSDT): Price=2.332200 | RSI(14)=56.75 (OB:70.0,OS:30.0) | EMA(20)=2.326820 [buffer: ±0.10% | zone: 2.324494-2.329147] | -> Decision: HOLD
+2025-05-17 04:22:59,326 - trading - INFO - Signal Eval (XRPUSDT): Price=2.334500 | RSI(14)=59.18 (OB:70.0,OS:30.0) | EMA(20)=2.327552 [buffer: ±0.10% | zone: 2.325224-2.329879] | -> Decision: HOLD
+2025-05-17 04:23:59,303 - trading - INFO - Signal Eval (XRPUSDT): Price=2.338100 | RSI(14)=62.71 (OB:70.0,OS:30.0) | EMA(20)=2.328556 [buffer: ±0.10% | zone: 2.326228-2.330885] | -> Decision: HOLD
+2025-05-17 04:24:59,307 - trading - INFO - Signal Eval (XRPUSDT): Price=2.339400 | RSI(14)=63.92 (OB:70.0,OS:30.0) | EMA(20)=2.329589 [buffer: ±0.10% | zone: 2.327259-2.331919] | -> Decision: HOLD
+2025-05-17 04:25:59,295 - trading - INFO - Signal Eval (XRPUSDT): Price=2.342000 | RSI(14)=66.28 (OB:70.0,OS:30.0) | EMA(20)=2.330771 [buffer: ±0.10% | zone: 2.328440-2.333102] | -> Decision: HOLD
+2025-05-17 04:26:59,302 - trading - INFO - Signal Eval (XRPUSDT): Price=2.344400 | RSI(14)=68.34 (OB:70.0,OS:30.0) | EMA(20)=2.332069 [buffer: ±0.10% | zone: 2.329737-2.334401] | -> Decision: HOLD
+2025-05-17 04:27:59,298 - trading - INFO - Signal Eval (XRPUSDT): Price=2.343000 | RSI(14)=65.82 (OB:70.0,OS:30.0) | EMA(20)=2.333110 [buffer: ±0.10% | zone: 2.330777-2.335443] | -> Decision: HOLD
+2025-05-17 04:28:59,303 - trading - INFO - Signal Eval (XRPUSDT): Price=2.341200 | RSI(14)=62.61 (OB:70.0,OS:30.0) | EMA(20)=2.333881 [buffer: ±0.10% | zone: 2.331547-2.336214] | -> Decision: HOLD
+2025-05-17 04:29:59,300 - trading - INFO - Signal Eval (XRPUSDT): Price=2.341900 | RSI(14)=63.36 (OB:70.0,OS:30.0) | EMA(20)=2.334644 [buffer: ±0.10% | zone: 2.332310-2.336979] | -> Decision: HOLD
+2025-05-17 04:30:59,295 - trading - INFO - Signal Eval (XRPUSDT): Price=2.345200 | RSI(14)=66.73 (OB:70.0,OS:30.0) | EMA(20)=2.335650 [buffer: ±0.10% | zone: 2.333314-2.337985] | -> Decision: HOLD
+2025-05-17 04:31:59,283 - trading - INFO - Signal Eval (XRPUSDT): Price=2.342000 | RSI(14)=60.88 (OB:70.0,OS:30.0) | EMA(20)=2.336254 [buffer: ±0.10% | zone: 2.333918-2.338591] | -> Decision: HOLD
+2025-05-17 04:32:59,305 - trading - INFO - Signal Eval (XRPUSDT): Price=2.344800 | RSI(14)=63.87 (OB:70.0,OS:30.0) | EMA(20)=2.337068 [buffer: ±0.10% | zone: 2.334731-2.339405] | -> Decision: HOLD
+2025-05-17 04:33:59,289 - trading - INFO - Signal Eval (XRPUSDT): Price=2.343800 | RSI(14)=62.04 (OB:70.0,OS:30.0) | EMA(20)=2.337709 [buffer: ±0.10% | zone: 2.335372-2.340047] | -> Decision: HOLD
+2025-05-17 04:34:59,292 - trading - INFO - Signal Eval (XRPUSDT): Price=2.346300 | RSI(14)=64.75 (OB:70.0,OS:30.0) | EMA(20)=2.338528 [buffer: ±0.10% | zone: 2.336189-2.340866] | -> Decision: HOLD
+2025-05-17 04:35:59,279 - trading - INFO - Signal Eval (XRPUSDT): Price=2.342700 | RSI(14)=58.30 (OB:70.0,OS:30.0) | EMA(20)=2.338925 [buffer: ±0.10% | zone: 2.336586-2.341264] | -> Decision: HOLD
+2025-05-17 04:36:59,274 - trading - INFO - Signal Eval (XRPUSDT): Price=2.343500 | RSI(14)=59.27 (OB:70.0,OS:30.0) | EMA(20)=2.339361 [buffer: ±0.10% | zone: 2.337021-2.341700] | -> Decision: HOLD
+2025-05-17 04:37:59,284 - trading - INFO - Signal Eval (XRPUSDT): Price=2.343200 | RSI(14)=58.72 (OB:70.0,OS:30.0) | EMA(20)=2.339726 [buffer: ±0.10% | zone: 2.337387-2.342066] | -> Decision: HOLD
+2025-05-17 04:38:59,273 - trading - INFO - Signal Eval (XRPUSDT): Price=2.345900 | RSI(14)=62.14 (OB:70.0,OS:30.0) | EMA(20)=2.340314 [buffer: ±0.10% | zone: 2.337974-2.342655] | -> Decision: HOLD
+2025-05-17 04:39:59,272 - trading - INFO - Signal Eval (XRPUSDT): Price=2.344800 | RSI(14)=59.96 (OB:70.0,OS:30.0) | EMA(20)=2.340741 [buffer: ±0.10% | zone: 2.338401-2.343082] | -> Decision: HOLD
+2025-05-17 04:40:59,305 - trading - INFO - Signal Eval (XRPUSDT): Price=2.345200 | RSI(14)=60.50 (OB:70.0,OS:30.0) | EMA(20)=2.341166 [buffer: ±0.10% | zone: 2.338825-2.343507] | -> Decision: HOLD
+2025-05-17 04:41:59,266 - trading - INFO - Signal Eval (XRPUSDT): Price=2.345900 | RSI(14)=61.48 (OB:70.0,OS:30.0) | EMA(20)=2.341617 [buffer: ±0.10% | zone: 2.339275-2.343959] | -> Decision: HOLD
+2025-05-17 04:42:59,265 - trading - INFO - Signal Eval (XRPUSDT): Price=2.346600 | RSI(14)=62.49 (OB:70.0,OS:30.0) | EMA(20)=2.342092 [buffer: ±0.10% | zone: 2.339749-2.344434] | -> Decision: HOLD
+2025-05-17 04:43:59,259 - trading - INFO - Signal Eval (XRPUSDT): Price=2.345100 | RSI(14)=58.94 (OB:70.0,OS:30.0) | EMA(20)=2.342378 [buffer: ±0.10% | zone: 2.340036-2.344720] | -> Decision: HOLD
+2025-05-17 04:44:59,259 - trading - INFO - Signal Eval (XRPUSDT): Price=2.347300 | RSI(14)=62.32 (OB:70.0,OS:30.0) | EMA(20)=2.342847 [buffer: ±0.10% | zone: 2.340504-2.345190] | -> Decision: HOLD
+2025-05-17 04:45:59,249 - trading - INFO - Signal Eval (XRPUSDT): Price=2.347800 | RSI(14)=63.07 (OB:70.0,OS:30.0) | EMA(20)=2.343319 [buffer: ±0.10% | zone: 2.340975-2.345662] | -> Decision: HOLD
+2025-05-17 04:46:59,247 - trading - INFO - Signal Eval (XRPUSDT): Price=2.348400 | RSI(14)=63.99 (OB:70.0,OS:30.0) | EMA(20)=2.343802 [buffer: ±0.10% | zone: 2.341459-2.346146] | -> Decision: HOLD
+2025-05-17 04:47:59,260 - trading - INFO - Signal Eval (XRPUSDT): Price=2.351500 | RSI(14)=68.37 (OB:70.0,OS:30.0) | EMA(20)=2.344536 [buffer: ±0.10% | zone: 2.342191-2.346880] | -> Decision: HOLD
+2025-05-17 04:48:59,263 - trading - INFO - Signal Eval (XRPUSDT): Price=2.347700 | RSI(14)=58.91 (OB:70.0,OS:30.0) | EMA(20)=2.344837 [buffer: ±0.10% | zone: 2.342492-2.347182] | -> Decision: HOLD
+2025-05-17 04:49:59,246 - trading - INFO - Signal Eval (XRPUSDT): Price=2.347500 | RSI(14)=58.45 (OB:70.0,OS:30.0) | EMA(20)=2.345091 [buffer: ±0.10% | zone: 2.342745-2.347436] | -> Decision: HOLD
+2025-05-17 04:50:59,240 - trading - INFO - Signal Eval (XRPUSDT): Price=2.343500 | RSI(14)=50.06 (OB:70.0,OS:30.0) | EMA(20)=2.344939 [buffer: ±0.10% | zone: 2.342594-2.347284] | -> Decision: HOLD
+2025-05-17 04:51:59,248 - trading - INFO - Signal Eval (XRPUSDT): Price=2.345400 | RSI(14)=53.47 (OB:70.0,OS:30.0) | EMA(20)=2.344983 [buffer: ±0.10% | zone: 2.342638-2.347328] | -> Decision: HOLD
+2025-05-17 04:52:59,248 - trading - INFO - Signal Eval (XRPUSDT): Price=2.344300 | RSI(14)=51.28 (OB:70.0,OS:30.0) | EMA(20)=2.344918 [buffer: ±0.10% | zone: 2.342573-2.347263] | -> Decision: HOLD
+2025-05-17 04:53:59,236 - trading - INFO - Signal Eval (XRPUSDT): Price=2.344000 | RSI(14)=50.68 (OB:70.0,OS:30.0) | EMA(20)=2.344831 [buffer: ±0.10% | zone: 2.342486-2.347175] | -> Decision: HOLD
+2025-05-17 04:54:59,234 - trading - INFO - Signal Eval (XRPUSDT): Price=2.343800 | RSI(14)=50.25 (OB:70.0,OS:30.0) | EMA(20)=2.344732 [buffer: ±0.10% | zone: 2.342388-2.347077] | -> Decision: HOLD
+2025-05-17 04:55:59,248 - trading - INFO - Signal Eval (XRPUSDT): Price=2.343200 | RSI(14)=48.91 (OB:70.0,OS:30.0) | EMA(20)=2.344586 [buffer: ±0.10% | zone: 2.342242-2.346931] | -> Decision: HOLD
+2025-05-17 04:56:59,235 - trading - INFO - Signal Eval (XRPUSDT): Price=2.344300 | RSI(14)=51.46 (OB:70.0,OS:30.0) | EMA(20)=2.344559 [buffer: ±0.10% | zone: 2.342215-2.346904] | -> Decision: HOLD
+2025-05-17 04:57:59,261 - trading - INFO - Signal Eval (XRPUSDT): Price=2.345100 | RSI(14)=53.28 (OB:70.0,OS:30.0) | EMA(20)=2.344611 [buffer: ±0.10% | zone: 2.342266-2.346955] | -> Decision: HOLD
+2025-05-17 04:58:59,235 - trading - INFO - Signal Eval (XRPUSDT): Price=2.346500 | RSI(14)=56.37 (OB:70.0,OS:30.0) | EMA(20)=2.344791 [buffer: ±0.10% | zone: 2.342446-2.347135] | -> Decision: HOLD
+2025-05-17 04:59:59,238 - trading - INFO - Signal Eval (XRPUSDT): Price=2.346900 | RSI(14)=57.24 (OB:70.0,OS:30.0) | EMA(20)=2.344991 [buffer: ±0.10% | zone: 2.342647-2.347336] | -> Decision: HOLD
+2025-05-17 05:00:59,221 - trading - INFO - Signal Eval (XRPUSDT): Price=2.348000 | RSI(14)=59.63 (OB:70.0,OS:30.0) | EMA(20)=2.345278 [buffer: ±0.10% | zone: 2.342933-2.347623] | -> Decision: HOLD
+2025-05-17 05:01:59,231 - trading - INFO - Signal Eval (XRPUSDT): Price=2.348600 | RSI(14)=60.91 (OB:70.0,OS:30.0) | EMA(20)=2.345594 [buffer: ±0.10% | zone: 2.343249-2.347940] | -> Decision: HOLD
+2025-05-17 05:02:59,218 - trading - INFO - Signal Eval (XRPUSDT): Price=2.351200 | RSI(14)=65.95 (OB:70.0,OS:30.0) | EMA(20)=2.346128 [buffer: ±0.10% | zone: 2.343782-2.348474] | -> Decision: HOLD
+2025-05-17 05:03:59,242 - trading - INFO - Signal Eval (XRPUSDT): Price=2.349600 | RSI(14)=60.76 (OB:70.0,OS:30.0) | EMA(20)=2.346459 [buffer: ±0.10% | zone: 2.344112-2.348805] | -> Decision: HOLD
+2025-05-17 05:04:59,228 - trading - INFO - Signal Eval (XRPUSDT): Price=2.350500 | RSI(14)=62.55 (OB:70.0,OS:30.0) | EMA(20)=2.346844 [buffer: ±0.10% | zone: 2.344497-2.349191] | -> Decision: HOLD
+2025-05-17 05:05:59,210 - trading - INFO - Signal Eval (XRPUSDT): Price=2.348700 | RSI(14)=56.96 (OB:70.0,OS:30.0) | EMA(20)=2.347021 [buffer: ±0.10% | zone: 2.344674-2.349368] | -> Decision: HOLD
+2025-05-17 05:06:59,206 - trading - INFO - Signal Eval (XRPUSDT): Price=2.348400 | RSI(14)=56.06 (OB:70.0,OS:30.0) | EMA(20)=2.347152 [buffer: ±0.10% | zone: 2.344805-2.349499] | -> Decision: HOLD
+2025-05-17 05:07:59,206 - trading - INFO - Signal Eval (XRPUSDT): Price=2.347100 | RSI(14)=52.22 (OB:70.0,OS:30.0) | EMA(20)=2.347147 [buffer: ±0.10% | zone: 2.344800-2.349494] | -> Decision: HOLD
+2025-05-17 05:08:59,202 - trading - INFO - Signal Eval (XRPUSDT): Price=2.346100 | RSI(14)=49.41 (OB:70.0,OS:30.0) | EMA(20)=2.347047 [buffer: ±0.10% | zone: 2.344700-2.349394] | -> Decision: HOLD
+2025-05-17 05:09:59,201 - trading - INFO - Signal Eval (XRPUSDT): Price=2.345100 | RSI(14)=46.71 (OB:70.0,OS:30.0) | EMA(20)=2.346862 [buffer: ±0.10% | zone: 2.344515-2.349209] | -> Decision: HOLD
+2025-05-17 05:10:59,192 - trading - INFO - Signal Eval (XRPUSDT): Price=2.342800 | RSI(14)=41.13 (OB:70.0,OS:30.0) | EMA(20)=2.346475 [buffer: ±0.10% | zone: 2.344129-2.348821] | -> Decision: HOLD
+2025-05-17 05:11:59,206 - trading - INFO - Signal Eval (XRPUSDT): Price=2.342900 | RSI(14)=41.46 (OB:70.0,OS:30.0) | EMA(20)=2.346135 [buffer: ±0.10% | zone: 2.343788-2.348481] | -> Decision: HOLD
+2025-05-17 05:12:59,204 - trading - INFO - Signal Eval (XRPUSDT): Price=2.343900 | RSI(14)=44.76 (OB:70.0,OS:30.0) | EMA(20)=2.345922 [buffer: ±0.10% | zone: 2.343576-2.348268] | -> Decision: HOLD
+2025-05-17 05:13:59,206 - trading - INFO - Signal Eval (XRPUSDT): Price=2.344300 | RSI(14)=46.08 (OB:70.0,OS:30.0) | EMA(20)=2.345767 [buffer: ±0.10% | zone: 2.343421-2.348113] | -> Decision: HOLD
+2025-05-17 05:14:59,189 - trading - INFO - Signal Eval (XRPUSDT): Price=2.344700 | RSI(14)=47.42 (OB:70.0,OS:30.0) | EMA(20)=2.345666 [buffer: ±0.10% | zone: 2.343320-2.348011] | -> Decision: HOLD
+2025-05-17 05:15:59,197 - trading - INFO - Signal Eval (XRPUSDT): Price=2.344500 | RSI(14)=46.79 (OB:70.0,OS:30.0) | EMA(20)=2.345555 [buffer: ±0.10% | zone: 2.343209-2.347900] | -> Decision: HOLD
+2025-05-17 05:16:59,183 - trading - INFO - Signal Eval (XRPUSDT): Price=2.341200 | RSI(14)=37.88 (OB:70.0,OS:30.0) | EMA(20)=2.345140 [buffer: ±0.10% | zone: 2.342795-2.347485] | -> Decision: HOLD
+2025-05-17 05:17:59,177 - trading - INFO - Signal Eval (XRPUSDT): Price=2.340300 | RSI(14)=35.87 (OB:70.0,OS:30.0) | EMA(20)=2.344679 [buffer: ±0.10% | zone: 2.342334-2.347024] | -> Decision: HOLD
+2025-05-17 05:18:59,175 - trading - INFO - Signal Eval (XRPUSDT): Price=2.339300 | RSI(14)=33.73 (OB:70.0,OS:30.0) | EMA(20)=2.344167 [buffer: ±0.10% | zone: 2.341822-2.346511] | -> Decision: HOLD
+2025-05-17 05:19:59,174 - trading - INFO - Signal Eval (XRPUSDT): Price=2.340800 | RSI(14)=39.55 (OB:70.0,OS:30.0) | EMA(20)=2.343846 [buffer: ±0.10% | zone: 2.341502-2.346190] | -> Decision: HOLD
+2025-05-17 05:20:59,175 - trading - INFO - Signal Eval (XRPUSDT): Price=2.338600 | RSI(14)=34.73 (OB:70.0,OS:30.0) | EMA(20)=2.343346 [buffer: ±0.10% | zone: 2.341003-2.345690] | -> Decision: HOLD
+2025-05-17 05:21:59,168 - trading - INFO - Signal Eval (XRPUSDT): Price=2.338700 | RSI(14)=35.12 (OB:70.0,OS:30.0) | EMA(20)=2.342904 [buffer: ±0.10% | zone: 2.340561-2.345247] | -> Decision: HOLD
+2025-05-17 05:22:59,213 - trading - INFO - Signal Eval (XRPUSDT): Price=2.339800 | RSI(14)=39.38 (OB:70.0,OS:30.0) | EMA(20)=2.342608 [buffer: ±0.10% | zone: 2.340266-2.344951] | -> Decision: HOLD
+2025-05-17 05:23:59,166 - trading - INFO - Signal Eval (XRPUSDT): Price=2.341600 | RSI(14)=45.66 (OB:70.0,OS:30.0) | EMA(20)=2.342512 [buffer: ±0.10% | zone: 2.340170-2.344855] | -> Decision: HOLD
+2025-05-17 05:24:59,162 - trading - INFO - Signal Eval (XRPUSDT): Price=2.342900 | RSI(14)=49.72 (OB:70.0,OS:30.0) | EMA(20)=2.342549 [buffer: ±0.10% | zone: 2.340207-2.344892] | -> Decision: HOLD
+2025-05-17 05:25:59,191 - trading - INFO - Signal Eval (XRPUSDT): Price=2.345600 | RSI(14)=56.91 (OB:70.0,OS:30.0) | EMA(20)=2.342840 [buffer: ±0.10% | zone: 2.340497-2.345183] | -> Decision: HOLD
+2025-05-17 05:26:59,178 - trading - INFO - Signal Eval (XRPUSDT): Price=2.344400 | RSI(14)=53.26 (OB:70.0,OS:30.0) | EMA(20)=2.342988 [buffer: ±0.10% | zone: 2.340645-2.345331] | -> Decision: HOLD
+2025-05-17 05:27:59,159 - trading - INFO - Signal Eval (XRPUSDT): Price=2.346600 | RSI(14)=58.51 (OB:70.0,OS:30.0) | EMA(20)=2.343332 [buffer: ±0.10% | zone: 2.340989-2.345676] | -> Decision: HOLD
+2025-05-17 05:28:59,151 - trading - INFO - Signal Eval (XRPUSDT): Price=2.350000 | RSI(14)=65.05 (OB:70.0,OS:30.0) | EMA(20)=2.343967 [buffer: ±0.10% | zone: 2.341623-2.346311] | -> Decision: HOLD
+2025-05-17 05:29:59,162 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.354900 > EMA(20) 2.345009 + buffer 0.10%
+2025-05-17 05:29:59,163 - trading - INFO - Signal Eval (XRPUSDT): Price=2.354900 | RSI(14)=71.91 (OB:70.0,OS:30.0) | EMA(20)=2.345009 [buffer: ±0.10% | zone: 2.342664-2.347354] | -> Decision: HOLD
+2025-05-17 05:30:59,151 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.354700 > EMA(20) 2.345932 + buffer 0.10%
+2025-05-17 05:30:59,152 - trading - INFO - Signal Eval (XRPUSDT): Price=2.354700 | RSI(14)=71.30 (OB:70.0,OS:30.0) | EMA(20)=2.345932 [buffer: ±0.10% | zone: 2.343586-2.348277] | -> Decision: HOLD
+2025-05-17 05:31:59,156 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.355400 > EMA(20) 2.346833 + buffer 0.10%
+2025-05-17 05:31:59,156 - trading - INFO - Signal Eval (XRPUSDT): Price=2.355400 | RSI(14)=72.19 (OB:70.0,OS:30.0) | EMA(20)=2.346833 [buffer: ±0.10% | zone: 2.344486-2.349180] | -> Decision: HOLD
+2025-05-17 05:32:59,147 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.355100 > EMA(20) 2.347621 + buffer 0.10%
+2025-05-17 05:32:59,147 - trading - INFO - Signal Eval (XRPUSDT): Price=2.355100 | RSI(14)=71.17 (OB:70.0,OS:30.0) | EMA(20)=2.347621 [buffer: ±0.10% | zone: 2.345273-2.349968] | -> Decision: HOLD
+2025-05-17 05:33:59,143 - trading - INFO - Signal Eval (XRPUSDT): Price=2.354700 | RSI(14)=69.74 (OB:70.0,OS:30.0) | EMA(20)=2.348295 [buffer: ±0.10% | zone: 2.345947-2.350643] | -> Decision: HOLD
+2025-05-17 05:34:59,152 - trading - INFO - Signal Eval (XRPUSDT): Price=2.354700 | RSI(14)=69.74 (OB:70.0,OS:30.0) | EMA(20)=2.348905 [buffer: ±0.10% | zone: 2.346556-2.351254] | -> Decision: HOLD
+2025-05-17 05:35:59,150 - trading - INFO - Signal Eval (XRPUSDT): Price=2.352600 | RSI(14)=62.17 (OB:70.0,OS:30.0) | EMA(20)=2.349257 [buffer: ±0.10% | zone: 2.346907-2.351606] | -> Decision: HOLD
+2025-05-17 05:36:59,157 - trading - INFO - Signal Eval (XRPUSDT): Price=2.353000 | RSI(14)=62.99 (OB:70.0,OS:30.0) | EMA(20)=2.349613 [buffer: ±0.10% | zone: 2.347264-2.351963] | -> Decision: HOLD
+2025-05-17 05:37:59,150 - trading - INFO - Signal Eval (XRPUSDT): Price=2.354100 | RSI(14)=65.24 (OB:70.0,OS:30.0) | EMA(20)=2.350041 [buffer: ±0.10% | zone: 2.347691-2.352391] | -> Decision: HOLD
+2025-05-17 05:38:59,153 - trading - INFO - Signal Eval (XRPUSDT): Price=2.355700 | RSI(14)=68.25 (OB:70.0,OS:30.0) | EMA(20)=2.350580 [buffer: ±0.10% | zone: 2.348229-2.352930] | -> Decision: HOLD
+2025-05-17 05:39:59,176 - trading - INFO - Signal Eval (XRPUSDT): Price=2.354100 | RSI(14)=62.42 (OB:70.0,OS:30.0) | EMA(20)=2.350915 [buffer: ±0.10% | zone: 2.348564-2.353266] | -> Decision: HOLD
+2025-05-17 05:40:59,125 - trading - INFO - Signal Eval (XRPUSDT): Price=2.355300 | RSI(14)=64.85 (OB:70.0,OS:30.0) | EMA(20)=2.351332 [buffer: ±0.10% | zone: 2.348981-2.353684] | -> Decision: HOLD
+2025-05-17 05:41:59,129 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.358900 > EMA(20) 2.352053 + buffer 0.10%
+2025-05-17 05:41:59,130 - trading - INFO - Signal Eval (XRPUSDT): Price=2.358900 | RSI(14)=70.91 (OB:70.0,OS:30.0) | EMA(20)=2.352053 [buffer: ±0.10% | zone: 2.349701-2.354405] | -> Decision: HOLD
+2025-05-17 05:42:59,150 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.358900 > EMA(20) 2.352705 + buffer 0.10%
+2025-05-17 05:42:59,150 - trading - INFO - Signal Eval (XRPUSDT): Price=2.358900 | RSI(14)=70.91 (OB:70.0,OS:30.0) | EMA(20)=2.352705 [buffer: ±0.10% | zone: 2.350353-2.355058] | -> Decision: HOLD
+2025-05-17 05:43:59,125 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.359800 > EMA(20) 2.353381 + buffer 0.10%
+2025-05-17 05:43:59,125 - trading - INFO - Signal Eval (XRPUSDT): Price=2.359800 | RSI(14)=72.30 (OB:70.0,OS:30.0) | EMA(20)=2.353381 [buffer: ±0.10% | zone: 2.351028-2.355734] | -> Decision: HOLD
+2025-05-17 05:44:59,131 - trading - INFO - Signal Eval (XRPUSDT): Price=2.358300 | RSI(14)=66.60 (OB:70.0,OS:30.0) | EMA(20)=2.353849 [buffer: ±0.10% | zone: 2.351496-2.356203] | -> Decision: HOLD
+2025-05-17 05:45:59,112 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.361500 > EMA(20) 2.354578 + buffer 0.10%
+2025-05-17 05:45:59,113 - trading - INFO - Signal Eval (XRPUSDT): Price=2.361500 | RSI(14)=71.72 (OB:70.0,OS:30.0) | EMA(20)=2.354578 [buffer: ±0.10% | zone: 2.352223-2.356933] | -> Decision: HOLD
+2025-05-17 05:46:59,117 - trading - INFO - Signal Eval (XRPUSDT): Price=2.358200 | RSI(14)=61.29 (OB:70.0,OS:30.0) | EMA(20)=2.354923 [buffer: ±0.10% | zone: 2.352568-2.357278] | -> Decision: HOLD
+2025-05-17 05:47:59,146 - trading - INFO - Signal Eval (XRPUSDT): Price=2.358000 | RSI(14)=60.71 (OB:70.0,OS:30.0) | EMA(20)=2.355216 [buffer: ±0.10% | zone: 2.352861-2.357571] | -> Decision: HOLD
+2025-05-17 05:48:59,110 - trading - INFO - Signal Eval (XRPUSDT): Price=2.358100 | RSI(14)=60.91 (OB:70.0,OS:30.0) | EMA(20)=2.355491 [buffer: ±0.10% | zone: 2.353135-2.357846] | -> Decision: HOLD
+2025-05-17 05:49:59,113 - trading - INFO - Signal Eval (XRPUSDT): Price=2.358100 | RSI(14)=60.91 (OB:70.0,OS:30.0) | EMA(20)=2.355739 [buffer: ±0.10% | zone: 2.353383-2.358095] | -> Decision: HOLD
+2025-05-17 05:50:59,118 - trading - INFO - Signal Eval (XRPUSDT): Price=2.358300 | RSI(14)=61.36 (OB:70.0,OS:30.0) | EMA(20)=2.355983 [buffer: ±0.10% | zone: 2.353627-2.358339] | -> Decision: HOLD
+2025-05-17 05:51:59,109 - trading - INFO - Signal Eval (XRPUSDT): Price=2.358300 | RSI(14)=61.36 (OB:70.0,OS:30.0) | EMA(20)=2.356204 [buffer: ±0.10% | zone: 2.353848-2.358560] | -> Decision: HOLD
+2025-05-17 05:52:59,130 - trading - INFO - Signal Eval (XRPUSDT): Price=2.359900 | RSI(14)=65.10 (OB:70.0,OS:30.0) | EMA(20)=2.356556 [buffer: ±0.10% | zone: 2.354199-2.358912] | -> Decision: HOLD
+2025-05-17 05:53:59,103 - trading - INFO - Signal Eval (XRPUSDT): Price=2.361800 | RSI(14)=68.95 (OB:70.0,OS:30.0) | EMA(20)=2.357055 [buffer: ±0.10% | zone: 2.354698-2.359412] | -> Decision: HOLD
+2025-05-17 05:54:59,099 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.364800 > EMA(20) 2.357793 + buffer 0.10%
+2025-05-17 05:54:59,099 - trading - INFO - Signal Eval (XRPUSDT): Price=2.364800 | RSI(14)=73.85 (OB:70.0,OS:30.0) | EMA(20)=2.357793 [buffer: ±0.10% | zone: 2.355435-2.360151] | -> Decision: HOLD
+2025-05-17 05:55:59,090 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.367300 > EMA(20) 2.358698 + buffer 0.10%
+2025-05-17 05:55:59,090 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367300 | RSI(14)=77.09 (OB:70.0,OS:30.0) | EMA(20)=2.358698 [buffer: ±0.10% | zone: 2.356340-2.361057] | -> Decision: HOLD
+2025-05-17 05:56:59,105 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.367600 > EMA(20) 2.359546 + buffer 0.10%
+2025-05-17 05:56:59,106 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367600 | RSI(14)=77.45 (OB:70.0,OS:30.0) | EMA(20)=2.359546 [buffer: ±0.10% | zone: 2.357187-2.361906] | -> Decision: HOLD
+2025-05-17 05:57:59,091 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.367600 > EMA(20) 2.360313 + buffer 0.10%
+2025-05-17 05:57:59,091 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367600 | RSI(14)=77.45 (OB:70.0,OS:30.0) | EMA(20)=2.360313 [buffer: ±0.10% | zone: 2.357953-2.362673] | -> Decision: HOLD
+2025-05-17 05:58:59,085 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.367900 > EMA(20) 2.361036 + buffer 0.10%
+2025-05-17 05:58:59,085 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367900 | RSI(14)=77.86 (OB:70.0,OS:30.0) | EMA(20)=2.361036 [buffer: ±0.10% | zone: 2.358675-2.363397] | -> Decision: HOLD
+2025-05-17 05:59:59,122 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.370500 > EMA(20) 2.361937 + buffer 0.10%
+2025-05-17 05:59:59,122 - trading - INFO - Signal Eval (XRPUSDT): Price=2.370500 | RSI(14)=81.04 (OB:70.0,OS:30.0) | EMA(20)=2.361937 [buffer: ±0.10% | zone: 2.359575-2.364299] | -> Decision: HOLD
+2025-05-17 06:00:59,093 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.368300 > EMA(20) 2.362543 + buffer 0.10%
+2025-05-17 06:00:59,093 - trading - INFO - Signal Eval (XRPUSDT): Price=2.368300 | RSI(14)=71.66 (OB:70.0,OS:30.0) | EMA(20)=2.362543 [buffer: ±0.10% | zone: 2.360180-2.364906] | -> Decision: HOLD
+2025-05-17 06:01:59,088 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367500 | RSI(14)=68.55 (OB:70.0,OS:30.0) | EMA(20)=2.363015 [buffer: ±0.10% | zone: 2.360652-2.365378] | -> Decision: HOLD
+2025-05-17 06:02:59,100 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367900 | RSI(14)=69.27 (OB:70.0,OS:30.0) | EMA(20)=2.363480 [buffer: ±0.10% | zone: 2.361117-2.365844] | -> Decision: HOLD
+2025-05-17 06:03:59,084 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.372900 > EMA(20) 2.364377 + buffer 0.10%
+2025-05-17 06:03:59,085 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372900 | RSI(14)=76.49 (OB:70.0,OS:30.0) | EMA(20)=2.364377 [buffer: ±0.10% | zone: 2.362013-2.366742] | -> Decision: HOLD
+2025-05-17 06:04:59,083 - trading - INFO - Signal Eval (XRPUSDT): Price=2.368000 | RSI(14)=61.29 (OB:70.0,OS:30.0) | EMA(20)=2.364722 [buffer: ±0.10% | zone: 2.362358-2.367087] | -> Decision: HOLD
+2025-05-17 06:05:59,129 - trading - INFO - Signal Eval (XRPUSDT): Price=2.368800 | RSI(14)=62.60 (OB:70.0,OS:30.0) | EMA(20)=2.365111 [buffer: ±0.10% | zone: 2.362746-2.367476] | -> Decision: HOLD
+2025-05-17 06:06:59,070 - trading - INFO - Signal Eval (XRPUSDT): Price=2.366600 | RSI(14)=56.91 (OB:70.0,OS:30.0) | EMA(20)=2.365253 [buffer: ±0.10% | zone: 2.362887-2.367618] | -> Decision: HOLD
+2025-05-17 06:07:59,118 - trading - INFO - Signal Eval (XRPUSDT): Price=2.364800 | RSI(14)=52.69 (OB:70.0,OS:30.0) | EMA(20)=2.365210 [buffer: ±0.10% | zone: 2.362844-2.367575] | -> Decision: HOLD
+2025-05-17 06:08:59,073 - trading - INFO - Signal Eval (XRPUSDT): Price=2.365000 | RSI(14)=53.11 (OB:70.0,OS:30.0) | EMA(20)=2.365190 [buffer: ±0.10% | zone: 2.362824-2.367555] | -> Decision: HOLD
+2025-05-17 06:09:59,081 - trading - INFO - Signal Eval (XRPUSDT): Price=2.366300 | RSI(14)=55.83 (OB:70.0,OS:30.0) | EMA(20)=2.365295 [buffer: ±0.10% | zone: 2.362930-2.367661] | -> Decision: HOLD
+2025-05-17 06:10:59,068 - trading - INFO - Signal Eval (XRPUSDT): Price=2.366100 | RSI(14)=55.29 (OB:70.0,OS:30.0) | EMA(20)=2.365372 [buffer: ±0.10% | zone: 2.363007-2.367737] | -> Decision: HOLD
+2025-05-17 06:11:59,060 - trading - INFO - Signal Eval (XRPUSDT): Price=2.365300 | RSI(14)=53.12 (OB:70.0,OS:30.0) | EMA(20)=2.365365 [buffer: ±0.10% | zone: 2.363000-2.367730] | -> Decision: HOLD
+2025-05-17 06:12:59,068 - trading - INFO - Signal Eval (XRPUSDT): Price=2.365600 | RSI(14)=53.85 (OB:70.0,OS:30.0) | EMA(20)=2.365387 [buffer: ±0.10% | zone: 2.363022-2.367753] | -> Decision: HOLD
+2025-05-17 06:13:59,050 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367100 | RSI(14)=57.44 (OB:70.0,OS:30.0) | EMA(20)=2.365551 [buffer: ±0.10% | zone: 2.363185-2.367916] | -> Decision: HOLD
+2025-05-17 06:14:59,070 - trading - INFO - Signal Eval (XRPUSDT): Price=2.368100 | RSI(14)=59.69 (OB:70.0,OS:30.0) | EMA(20)=2.365793 [buffer: ±0.10% | zone: 2.363428-2.368159] | -> Decision: HOLD
+2025-05-17 06:15:59,077 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367900 | RSI(14)=59.02 (OB:70.0,OS:30.0) | EMA(20)=2.365994 [buffer: ±0.10% | zone: 2.363628-2.368360] | -> Decision: HOLD
+2025-05-17 06:16:59,049 - trading - INFO - Signal Eval (XRPUSDT): Price=2.371500 | RSI(14)=66.36 (OB:70.0,OS:30.0) | EMA(20)=2.366518 [buffer: ±0.10% | zone: 2.364152-2.368885] | -> Decision: HOLD
+2025-05-17 06:17:59,046 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372500 | RSI(14)=68.07 (OB:70.0,OS:30.0) | EMA(20)=2.367088 [buffer: ±0.10% | zone: 2.364721-2.369455] | -> Decision: HOLD
+2025-05-17 06:18:59,038 - trading - INFO - Signal Eval (XRPUSDT): Price=2.370600 | RSI(14)=61.65 (OB:70.0,OS:30.0) | EMA(20)=2.367423 [buffer: ±0.10% | zone: 2.365055-2.369790] | -> Decision: HOLD
+2025-05-17 06:19:59,040 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372200 | RSI(14)=64.67 (OB:70.0,OS:30.0) | EMA(20)=2.367878 [buffer: ±0.10% | zone: 2.365510-2.370245] | -> Decision: HOLD
+2025-05-17 06:20:59,078 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372100 | RSI(14)=64.33 (OB:70.0,OS:30.0) | EMA(20)=2.368280 [buffer: ±0.10% | zone: 2.365911-2.370648] | -> Decision: HOLD
+2025-05-17 06:21:59,042 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372800 | RSI(14)=65.69 (OB:70.0,OS:30.0) | EMA(20)=2.368710 [buffer: ±0.10% | zone: 2.366341-2.371079] | -> Decision: HOLD
+2025-05-17 06:22:59,030 - trading - INFO - Signal Eval (XRPUSDT): Price=2.374700 | RSI(14)=69.14 (OB:70.0,OS:30.0) | EMA(20)=2.369281 [buffer: ±0.10% | zone: 2.366911-2.371650] | -> Decision: HOLD
+2025-05-17 06:23:59,028 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373400 | RSI(14)=64.38 (OB:70.0,OS:30.0) | EMA(20)=2.369673 [buffer: ±0.10% | zone: 2.367303-2.372043] | -> Decision: HOLD
+2025-05-17 06:24:59,031 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373500 | RSI(14)=64.58 (OB:70.0,OS:30.0) | EMA(20)=2.370037 [buffer: ±0.10% | zone: 2.367667-2.372407] | -> Decision: HOLD
+2025-05-17 06:25:59,026 - trading - INFO - Signal Eval (XRPUSDT): Price=2.374200 | RSI(14)=66.03 (OB:70.0,OS:30.0) | EMA(20)=2.370434 [buffer: ±0.10% | zone: 2.368063-2.372804] | -> Decision: HOLD
+2025-05-17 06:26:59,027 - trading - INFO - Signal Eval (XRPUSDT): Price=2.374800 | RSI(14)=67.27 (OB:70.0,OS:30.0) | EMA(20)=2.370850 [buffer: ±0.10% | zone: 2.368479-2.373221] | -> Decision: HOLD
+2025-05-17 06:27:59,021 - trading - INFO - Signal Eval (XRPUSDT): Price=2.375600 | RSI(14)=68.90 (OB:70.0,OS:30.0) | EMA(20)=2.371302 [buffer: ±0.10% | zone: 2.368931-2.373673] | -> Decision: HOLD
+2025-05-17 06:28:59,017 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.376600 > EMA(20) 2.371807 + buffer 0.10%
+2025-05-17 06:28:59,017 - trading - INFO - Signal Eval (XRPUSDT): Price=2.376600 | RSI(14)=70.86 (OB:70.0,OS:30.0) | EMA(20)=2.371807 [buffer: ±0.10% | zone: 2.369435-2.374178] | -> Decision: HOLD
+2025-05-17 06:29:59,029 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.377000 > EMA(20) 2.372301 + buffer 0.10%
+2025-05-17 06:29:59,030 - trading - INFO - Signal Eval (XRPUSDT): Price=2.377000 | RSI(14)=71.63 (OB:70.0,OS:30.0) | EMA(20)=2.372301 [buffer: ±0.10% | zone: 2.369929-2.374674] | -> Decision: HOLD
+2025-05-17 06:30:59,017 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.377200 > EMA(20) 2.372768 + buffer 0.10%
+2025-05-17 06:30:59,017 - trading - INFO - Signal Eval (XRPUSDT): Price=2.377200 | RSI(14)=72.02 (OB:70.0,OS:30.0) | EMA(20)=2.372768 [buffer: ±0.10% | zone: 2.370395-2.375141] | -> Decision: HOLD
+2025-05-17 06:31:59,019 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.377800 > EMA(20) 2.373247 + buffer 0.10%
+2025-05-17 06:31:59,019 - trading - INFO - Signal Eval (XRPUSDT): Price=2.377800 | RSI(14)=73.23 (OB:70.0,OS:30.0) | EMA(20)=2.373247 [buffer: ±0.10% | zone: 2.370874-2.375620] | -> Decision: HOLD
+2025-05-17 06:32:59,020 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.379300 > EMA(20) 2.373824 + buffer 0.10%
+2025-05-17 06:32:59,021 - trading - INFO - Signal Eval (XRPUSDT): Price=2.379300 | RSI(14)=76.02 (OB:70.0,OS:30.0) | EMA(20)=2.373824 [buffer: ±0.10% | zone: 2.371450-2.376197] | -> Decision: HOLD
+2025-05-17 06:33:59,004 - trading - INFO - Signal Eval (XRPUSDT): Price=2.378100 | RSI(14)=69.76 (OB:70.0,OS:30.0) | EMA(20)=2.374231 [buffer: ±0.10% | zone: 2.371857-2.376605] | -> Decision: HOLD
+2025-05-17 06:34:59,015 - trading - INFO - Signal Eval (XRPUSDT): Price=2.376200 | RSI(14)=61.16 (OB:70.0,OS:30.0) | EMA(20)=2.374418 [buffer: ±0.10% | zone: 2.372044-2.376793] | -> Decision: HOLD
+2025-05-17 06:35:59,015 - trading - INFO - Signal Eval (XRPUSDT): Price=2.377700 | RSI(14)=64.84 (OB:70.0,OS:30.0) | EMA(20)=2.374731 [buffer: ±0.10% | zone: 2.372356-2.377106] | -> Decision: HOLD
+2025-05-17 06:36:59,013 - trading - INFO - Signal Eval (XRPUSDT): Price=2.375700 | RSI(14)=57.07 (OB:70.0,OS:30.0) | EMA(20)=2.374823 [buffer: ±0.10% | zone: 2.372448-2.377198] | -> Decision: HOLD
+2025-05-17 06:37:59,000 - trading - INFO - Signal Eval (XRPUSDT): Price=2.377900 | RSI(14)=62.41 (OB:70.0,OS:30.0) | EMA(20)=2.375116 [buffer: ±0.10% | zone: 2.372741-2.377491] | -> Decision: HOLD
+2025-05-17 06:38:59,011 - trading - INFO - Signal Eval (XRPUSDT): Price=2.376700 | RSI(14)=58.16 (OB:70.0,OS:30.0) | EMA(20)=2.375267 [buffer: ±0.10% | zone: 2.372892-2.377642] | -> Decision: HOLD
+2025-05-17 06:39:58,992 - trading - INFO - Signal Eval (XRPUSDT): Price=2.378400 | RSI(14)=62.10 (OB:70.0,OS:30.0) | EMA(20)=2.375565 [buffer: ±0.10% | zone: 2.373190-2.377941] | -> Decision: HOLD
+2025-05-17 06:40:58,995 - trading - INFO - Signal Eval (XRPUSDT): Price=2.379900 | RSI(14)=65.21 (OB:70.0,OS:30.0) | EMA(20)=2.375978 [buffer: ±0.10% | zone: 2.373602-2.378354] | -> Decision: HOLD
+2025-05-17 06:41:59,008 - trading - INFO - Signal Eval (XRPUSDT): Price=2.378400 | RSI(14)=59.91 (OB:70.0,OS:30.0) | EMA(20)=2.376209 [buffer: ±0.10% | zone: 2.373833-2.378585] | -> Decision: HOLD
+2025-05-17 06:42:58,986 - trading - INFO - Signal Eval (XRPUSDT): Price=2.378900 | RSI(14)=61.05 (OB:70.0,OS:30.0) | EMA(20)=2.376465 [buffer: ±0.10% | zone: 2.374089-2.378842] | -> Decision: HOLD
+2025-05-17 06:43:58,981 - trading - INFO - Signal Eval (XRPUSDT): Price=2.380600 | RSI(14)=64.71 (OB:70.0,OS:30.0) | EMA(20)=2.376859 [buffer: ±0.10% | zone: 2.374482-2.379236] | -> Decision: HOLD
+2025-05-17 06:44:58,992 - trading - INFO - Signal Eval (XRPUSDT): Price=2.380000 | RSI(14)=62.48 (OB:70.0,OS:30.0) | EMA(20)=2.377158 [buffer: ±0.10% | zone: 2.374781-2.379535] | -> Decision: HOLD
+2025-05-17 06:45:58,984 - trading - INFO - Signal Eval (XRPUSDT): Price=2.377300 | RSI(14)=53.53 (OB:70.0,OS:30.0) | EMA(20)=2.377172 [buffer: ±0.10% | zone: 2.374794-2.379549] | -> Decision: HOLD
+2025-05-17 06:46:58,975 - trading - INFO - Signal Eval (XRPUSDT): Price=2.376600 | RSI(14)=51.47 (OB:70.0,OS:30.0) | EMA(20)=2.377117 [buffer: ±0.10% | zone: 2.374740-2.379494] | -> Decision: HOLD
+2025-05-17 06:47:58,992 - trading - INFO - Signal Eval (XRPUSDT): Price=2.374300 | RSI(14)=45.31 (OB:70.0,OS:30.0) | EMA(20)=2.376849 [buffer: ±0.10% | zone: 2.374472-2.379226] | -> Decision: HOLD
+2025-05-17 06:48:58,978 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373000 | RSI(14)=42.23 (OB:70.0,OS:30.0) | EMA(20)=2.376482 [buffer: ±0.10% | zone: 2.374106-2.378859] | -> Decision: HOLD
+2025-05-17 06:49:58,980 - trading - INFO - Signal Eval (XRPUSDT): Price=2.375400 | RSI(14)=49.10 (OB:70.0,OS:30.0) | EMA(20)=2.376379 [buffer: ±0.10% | zone: 2.374003-2.378756] | -> Decision: HOLD
+2025-05-17 06:50:58,975 - trading - INFO - Signal Eval (XRPUSDT): Price=2.375000 | RSI(14)=48.08 (OB:70.0,OS:30.0) | EMA(20)=2.376248 [buffer: ±0.10% | zone: 2.373872-2.378624] | -> Decision: HOLD
+2025-05-17 06:51:58,966 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372900 | RSI(14)=43.00 (OB:70.0,OS:30.0) | EMA(20)=2.375929 [buffer: ±0.10% | zone: 2.373553-2.378305] | -> Decision: HOLD
+2025-05-17 06:52:58,999 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373700 | RSI(14)=45.36 (OB:70.0,OS:30.0) | EMA(20)=2.375717 [buffer: ±0.10% | zone: 2.373341-2.378092] | -> Decision: HOLD
+2025-05-17 06:53:58,969 - trading - INFO - Signal Eval (XRPUSDT): Price=2.371700 | RSI(14)=40.80 (OB:70.0,OS:30.0) | EMA(20)=2.375334 [buffer: ±0.10% | zone: 2.372959-2.377710] | -> Decision: HOLD
+2025-05-17 06:54:58,990 - trading - INFO - Signal Eval (XRPUSDT): Price=2.371100 | RSI(14)=39.51 (OB:70.0,OS:30.0) | EMA(20)=2.374931 [buffer: ±0.10% | zone: 2.372556-2.377306] | -> Decision: HOLD
+2025-05-17 06:55:58,973 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373200 | RSI(14)=45.93 (OB:70.0,OS:30.0) | EMA(20)=2.374766 [buffer: ±0.10% | zone: 2.372391-2.377141] | -> Decision: HOLD
+2025-05-17 06:56:59,009 - trading - INFO - Signal Eval (XRPUSDT): Price=2.374000 | RSI(14)=48.19 (OB:70.0,OS:30.0) | EMA(20)=2.374693 [buffer: ±0.10% | zone: 2.372318-2.377068] | -> Decision: HOLD
+2025-05-17 06:57:58,961 - trading - INFO - Signal Eval (XRPUSDT): Price=2.374300 | RSI(14)=49.05 (OB:70.0,OS:30.0) | EMA(20)=2.374656 [buffer: ±0.10% | zone: 2.372281-2.377030] | -> Decision: HOLD
+2025-05-17 06:58:58,952 - trading - INFO - Signal Eval (XRPUSDT): Price=2.374900 | RSI(14)=50.80 (OB:70.0,OS:30.0) | EMA(20)=2.374679 [buffer: ±0.10% | zone: 2.372304-2.377054] | -> Decision: HOLD
+2025-05-17 06:59:58,958 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373700 | RSI(14)=47.29 (OB:70.0,OS:30.0) | EMA(20)=2.374586 [buffer: ±0.10% | zone: 2.372211-2.376960] | -> Decision: HOLD
+2025-05-17 07:00:58,944 - trading - INFO - Signal Eval (XRPUSDT): Price=2.375500 | RSI(14)=52.58 (OB:70.0,OS:30.0) | EMA(20)=2.374673 [buffer: ±0.10% | zone: 2.372298-2.377047] | -> Decision: HOLD
+2025-05-17 07:01:58,947 - trading - INFO - Signal Eval (XRPUSDT): Price=2.376100 | RSI(14)=54.23 (OB:70.0,OS:30.0) | EMA(20)=2.374809 [buffer: ±0.10% | zone: 2.372434-2.377184] | -> Decision: HOLD
+2025-05-17 07:02:58,953 - trading - INFO - Signal Eval (XRPUSDT): Price=2.376400 | RSI(14)=55.07 (OB:70.0,OS:30.0) | EMA(20)=2.374960 [buffer: ±0.10% | zone: 2.372585-2.377335] | -> Decision: HOLD
+2025-05-17 07:03:58,986 - trading - INFO - Signal Eval (XRPUSDT): Price=2.375200 | RSI(14)=51.03 (OB:70.0,OS:30.0) | EMA(20)=2.374983 [buffer: ±0.10% | zone: 2.372608-2.377358] | -> Decision: HOLD
+2025-05-17 07:04:58,959 - trading - INFO - Signal Eval (XRPUSDT): Price=2.375600 | RSI(14)=52.29 (OB:70.0,OS:30.0) | EMA(20)=2.375042 [buffer: ±0.10% | zone: 2.372667-2.377417] | -> Decision: HOLD
+2025-05-17 07:05:58,937 - trading - INFO - Signal Eval (XRPUSDT): Price=2.374600 | RSI(14)=48.91 (OB:70.0,OS:30.0) | EMA(20)=2.375000 [buffer: ±0.10% | zone: 2.372625-2.377375] | -> Decision: HOLD
+2025-05-17 07:06:58,939 - trading - INFO - Signal Eval (XRPUSDT): Price=2.375300 | RSI(14)=51.28 (OB:70.0,OS:30.0) | EMA(20)=2.375028 [buffer: ±0.10% | zone: 2.372653-2.377403] | -> Decision: HOLD
+2025-05-17 07:07:58,929 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373100 | RSI(14)=44.31 (OB:70.0,OS:30.0) | EMA(20)=2.374845 [buffer: ±0.10% | zone: 2.372470-2.377220] | -> Decision: HOLD
+2025-05-17 07:08:58,924 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372400 | RSI(14)=42.34 (OB:70.0,OS:30.0) | EMA(20)=2.374612 [buffer: ±0.10% | zone: 2.372237-2.376986] | -> Decision: HOLD
+2025-05-17 07:09:58,942 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373100 | RSI(14)=44.98 (OB:70.0,OS:30.0) | EMA(20)=2.374468 [buffer: ±0.10% | zone: 2.372093-2.376842] | -> Decision: HOLD
+2025-05-17 07:10:58,931 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372000 | RSI(14)=41.75 (OB:70.0,OS:30.0) | EMA(20)=2.374233 [buffer: ±0.10% | zone: 2.371859-2.376607] | -> Decision: HOLD
+2025-05-17 07:11:58,938 - trading - INFO - Signal Eval (XRPUSDT): Price=2.374300 | RSI(14)=49.86 (OB:70.0,OS:30.0) | EMA(20)=2.374239 [buffer: ±0.10% | zone: 2.371865-2.376613] | -> Decision: HOLD
+2025-05-17 07:12:58,949 - trading - INFO - Signal Eval (XRPUSDT): Price=2.374800 | RSI(14)=51.44 (OB:70.0,OS:30.0) | EMA(20)=2.374293 [buffer: ±0.10% | zone: 2.371918-2.376667] | -> Decision: HOLD
+2025-05-17 07:13:58,925 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373500 | RSI(14)=47.26 (OB:70.0,OS:30.0) | EMA(20)=2.374217 [buffer: ±0.10% | zone: 2.371843-2.376591] | -> Decision: HOLD
+2025-05-17 07:14:58,928 - trading - INFO - Signal Eval (XRPUSDT): Price=2.374000 | RSI(14)=48.98 (OB:70.0,OS:30.0) | EMA(20)=2.374196 [buffer: ±0.10% | zone: 2.371822-2.376571] | -> Decision: HOLD
+2025-05-17 07:15:58,913 - trading - INFO - Signal Eval (XRPUSDT): Price=2.377500 | RSI(14)=59.03 (OB:70.0,OS:30.0) | EMA(20)=2.374511 [buffer: ±0.10% | zone: 2.372137-2.376886] | -> Decision: HOLD
+2025-05-17 07:16:58,926 - trading - INFO - Signal Eval (XRPUSDT): Price=2.374100 | RSI(14)=48.94 (OB:70.0,OS:30.0) | EMA(20)=2.374472 [buffer: ±0.10% | zone: 2.372097-2.376846] | -> Decision: HOLD
+2025-05-17 07:17:58,906 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372000 | RSI(14)=43.95 (OB:70.0,OS:30.0) | EMA(20)=2.374237 [buffer: ±0.10% | zone: 2.371862-2.376611] | -> Decision: HOLD
+2025-05-17 07:18:58,902 - trading - INFO - Signal Eval (XRPUSDT): Price=2.371600 | RSI(14)=43.05 (OB:70.0,OS:30.0) | EMA(20)=2.373985 [buffer: ±0.10% | zone: 2.371611-2.376359] | -> Decision: HOLD
+2025-05-17 07:19:58,911 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372500 | RSI(14)=45.74 (OB:70.0,OS:30.0) | EMA(20)=2.373844 [buffer: ±0.10% | zone: 2.371470-2.376218] | -> Decision: HOLD
+2025-05-17 07:20:58,900 - trading - INFO - Signal Eval (XRPUSDT): Price=2.370900 | RSI(14)=41.94 (OB:70.0,OS:30.0) | EMA(20)=2.373564 [buffer: ±0.10% | zone: 2.371190-2.375937] | -> Decision: HOLD
+2025-05-17 07:21:58,947 - trading - INFO - Signal Eval (XRPUSDT): Price=2.370000 | RSI(14)=39.93 (OB:70.0,OS:30.0) | EMA(20)=2.373224 [buffer: ±0.10% | zone: 2.370851-2.375597] | -> Decision: HOLD
+2025-05-17 07:22:58,906 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367500 | RSI(14)=34.93 (OB:70.0,OS:30.0) | EMA(20)=2.372679 [buffer: ±0.10% | zone: 2.370306-2.375052] | -> Decision: HOLD
+2025-05-17 07:23:58,905 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367600 | RSI(14)=35.28 (OB:70.0,OS:30.0) | EMA(20)=2.372195 [buffer: ±0.10% | zone: 2.369823-2.374568] | -> Decision: HOLD
+2025-05-17 07:24:58,968 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367900 | RSI(14)=36.38 (OB:70.0,OS:30.0) | EMA(20)=2.371786 [buffer: ±0.10% | zone: 2.369414-2.374158] | -> Decision: HOLD
+2025-05-17 07:26:00,146 - trading - INFO - Signal Eval (XRPUSDT): Price=2.371100 | RSI(14)=46.80 (OB:70.0,OS:30.0) | EMA(20)=2.371721 [buffer: ±0.10% | zone: 2.369349-2.374093] | -> Decision: HOLD
+2025-05-17 07:27:00,150 - trading - INFO - Signal Eval (XRPUSDT): Price=2.371600 | RSI(14)=48.23 (OB:70.0,OS:30.0) | EMA(20)=2.371709 [buffer: ±0.10% | zone: 2.369338-2.374081] | -> Decision: HOLD
+2025-05-17 07:28:00,144 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372500 | RSI(14)=50.79 (OB:70.0,OS:30.0) | EMA(20)=2.371785 [buffer: ±0.10% | zone: 2.369413-2.374156] | -> Decision: HOLD
+2025-05-17 07:29:00,148 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372200 | RSI(14)=49.91 (OB:70.0,OS:30.0) | EMA(20)=2.371824 [buffer: ±0.10% | zone: 2.369452-2.374196] | -> Decision: HOLD
+2025-05-17 07:30:00,143 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372300 | RSI(14)=50.22 (OB:70.0,OS:30.0) | EMA(20)=2.371870 [buffer: ±0.10% | zone: 2.369498-2.374241] | -> Decision: HOLD
+2025-05-17 07:31:00,136 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373500 | RSI(14)=53.92 (OB:70.0,OS:30.0) | EMA(20)=2.372025 [buffer: ±0.10% | zone: 2.369653-2.374397] | -> Decision: HOLD
+2025-05-17 07:32:00,149 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373100 | RSI(14)=52.52 (OB:70.0,OS:30.0) | EMA(20)=2.372127 [buffer: ±0.10% | zone: 2.369755-2.374499] | -> Decision: HOLD
+2025-05-17 07:33:00,133 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372900 | RSI(14)=51.79 (OB:70.0,OS:30.0) | EMA(20)=2.372201 [buffer: ±0.10% | zone: 2.369829-2.374573] | -> Decision: HOLD
+2025-05-17 07:34:00,137 - trading - INFO - Signal Eval (XRPUSDT): Price=2.371800 | RSI(14)=47.88 (OB:70.0,OS:30.0) | EMA(20)=2.372163 [buffer: ±0.10% | zone: 2.369790-2.374535] | -> Decision: HOLD
+2025-05-17 07:35:00,130 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372900 | RSI(14)=51.80 (OB:70.0,OS:30.0) | EMA(20)=2.372233 [buffer: ±0.10% | zone: 2.369861-2.374605] | -> Decision: HOLD
+2025-05-17 07:36:00,127 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372800 | RSI(14)=51.42 (OB:70.0,OS:30.0) | EMA(20)=2.372287 [buffer: ±0.10% | zone: 2.369915-2.374659] | -> Decision: HOLD
+2025-05-17 07:37:00,132 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373200 | RSI(14)=52.91 (OB:70.0,OS:30.0) | EMA(20)=2.372374 [buffer: ±0.10% | zone: 2.370001-2.374746] | -> Decision: HOLD
+2025-05-17 07:38:00,114 - trading - INFO - Signal Eval (XRPUSDT): Price=2.370000 | RSI(14)=41.88 (OB:70.0,OS:30.0) | EMA(20)=2.372148 [buffer: ±0.10% | zone: 2.369776-2.374520] | -> Decision: HOLD
+2025-05-17 07:39:00,112 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372000 | RSI(14)=49.03 (OB:70.0,OS:30.0) | EMA(20)=2.372134 [buffer: ±0.10% | zone: 2.369762-2.374506] | -> Decision: HOLD
+2025-05-17 07:40:00,132 - trading - INFO - Signal Eval (XRPUSDT): Price=2.368900 | RSI(14)=40.68 (OB:70.0,OS:30.0) | EMA(20)=2.371826 [buffer: ±0.10% | zone: 2.369454-2.374198] | -> Decision: HOLD
+2025-05-17 07:41:00,111 - trading - INFO - Signal Eval (XRPUSDT): Price=2.369600 | RSI(14)=43.04 (OB:70.0,OS:30.0) | EMA(20)=2.371614 [buffer: ±0.10% | zone: 2.369242-2.373985] | -> Decision: HOLD
+2025-05-17 07:42:00,119 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372400 | RSI(14)=51.37 (OB:70.0,OS:30.0) | EMA(20)=2.371689 [buffer: ±0.10% | zone: 2.369317-2.374060] | -> Decision: HOLD
+2025-05-17 07:43:00,110 - trading - INFO - Signal Eval (XRPUSDT): Price=2.371500 | RSI(14)=48.89 (OB:70.0,OS:30.0) | EMA(20)=2.371671 [buffer: ±0.10% | zone: 2.369299-2.374042] | -> Decision: HOLD
+2025-05-17 07:44:00,138 - trading - INFO - Signal Eval (XRPUSDT): Price=2.370800 | RSI(14)=47.00 (OB:70.0,OS:30.0) | EMA(20)=2.371588 [buffer: ±0.10% | zone: 2.369216-2.373959] | -> Decision: HOLD
+2025-05-17 07:45:00,105 - trading - INFO - Signal Eval (XRPUSDT): Price=2.370100 | RSI(14)=45.11 (OB:70.0,OS:30.0) | EMA(20)=2.371446 [buffer: ±0.10% | zone: 2.369075-2.373817] | -> Decision: HOLD
+2025-05-17 07:46:00,098 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367300 | RSI(14)=38.46 (OB:70.0,OS:30.0) | EMA(20)=2.371051 [buffer: ±0.10% | zone: 2.368680-2.373422] | -> Decision: HOLD
+2025-05-17 07:47:00,105 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367100 | RSI(14)=38.03 (OB:70.0,OS:30.0) | EMA(20)=2.370675 [buffer: ±0.10% | zone: 2.368304-2.373046] | -> Decision: HOLD
+2025-05-17 07:48:00,092 - trading - INFO - Signal Eval (XRPUSDT): Price=2.365000 | RSI(14)=33.75 (OB:70.0,OS:30.0) | EMA(20)=2.370134 [buffer: ±0.10% | zone: 2.367764-2.372505] | -> Decision: HOLD
+2025-05-17 07:49:00,099 - trading - INFO - Signal Eval (XRPUSDT): Price=2.364800 | RSI(14)=33.37 (OB:70.0,OS:30.0) | EMA(20)=2.369626 [buffer: ±0.10% | zone: 2.367257-2.371996] | -> Decision: HOLD
+2025-05-17 07:50:00,112 - trading - INFO - Signal Eval (XRPUSDT): Price=2.365400 | RSI(14)=35.74 (OB:70.0,OS:30.0) | EMA(20)=2.369224 [buffer: ±0.10% | zone: 2.366855-2.371593] | -> Decision: HOLD
+2025-05-17 07:51:00,085 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367400 | RSI(14)=43.01 (OB:70.0,OS:30.0) | EMA(20)=2.369050 [buffer: ±0.10% | zone: 2.366681-2.371419] | -> Decision: HOLD
+2025-05-17 07:52:00,086 - trading - INFO - Signal Eval (XRPUSDT): Price=2.366700 | RSI(14)=41.25 (OB:70.0,OS:30.0) | EMA(20)=2.368826 [buffer: ±0.10% | zone: 2.366458-2.371195] | -> Decision: HOLD
+2025-05-17 07:53:00,132 - trading - INFO - Signal Eval (XRPUSDT): Price=2.365900 | RSI(14)=39.27 (OB:70.0,OS:30.0) | EMA(20)=2.368548 [buffer: ±0.10% | zone: 2.366179-2.370916] | -> Decision: HOLD
+2025-05-17 07:54:00,114 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367700 | RSI(14)=45.59 (OB:70.0,OS:30.0) | EMA(20)=2.368467 [buffer: ±0.10% | zone: 2.366098-2.370835] | -> Decision: HOLD
+2025-05-17 07:55:00,085 - trading - INFO - Signal Eval (XRPUSDT): Price=2.368000 | RSI(14)=46.59 (OB:70.0,OS:30.0) | EMA(20)=2.368422 [buffer: ±0.10% | zone: 2.366054-2.370791] | -> Decision: HOLD
+2025-05-17 07:56:00,085 - trading - INFO - Signal Eval (XRPUSDT): Price=2.368600 | RSI(14)=48.62 (OB:70.0,OS:30.0) | EMA(20)=2.368439 [buffer: ±0.10% | zone: 2.366071-2.370808] | -> Decision: HOLD
+2025-05-17 07:57:00,093 - trading - INFO - Signal Eval (XRPUSDT): Price=2.366200 | RSI(14)=41.78 (OB:70.0,OS:30.0) | EMA(20)=2.368226 [buffer: ±0.10% | zone: 2.365858-2.370594] | -> Decision: HOLD
+2025-05-17 07:58:00,095 - trading - INFO - Signal Eval (XRPUSDT): Price=2.366100 | RSI(14)=41.52 (OB:70.0,OS:30.0) | EMA(20)=2.368024 [buffer: ±0.10% | zone: 2.365656-2.370392] | -> Decision: HOLD
+2025-05-17 07:59:00,073 - trading - INFO - Signal Eval (XRPUSDT): Price=2.363700 | RSI(14)=35.73 (OB:70.0,OS:30.0) | EMA(20)=2.367612 [buffer: ±0.10% | zone: 2.365244-2.369979] | -> Decision: HOLD
+2025-05-17 08:00:00,125 - trading - INFO - Signal Eval (XRPUSDT): Price=2.364200 | RSI(14)=37.68 (OB:70.0,OS:30.0) | EMA(20)=2.367287 [buffer: ±0.10% | zone: 2.364920-2.369654] | -> Decision: HOLD
+2025-05-17 08:01:00,077 - trading - INFO - Signal Eval (XRPUSDT): Price=2.366400 | RSI(14)=45.51 (OB:70.0,OS:30.0) | EMA(20)=2.367202 [buffer: ±0.10% | zone: 2.364835-2.369570] | -> Decision: HOLD
+2025-05-17 08:02:00,075 - trading - INFO - Signal Eval (XRPUSDT): Price=2.368500 | RSI(14)=51.75 (OB:70.0,OS:30.0) | EMA(20)=2.367326 [buffer: ±0.10% | zone: 2.364959-2.369693] | -> Decision: HOLD
+2025-05-17 08:03:00,085 - trading - INFO - Signal Eval (XRPUSDT): Price=2.371700 | RSI(14)=59.37 (OB:70.0,OS:30.0) | EMA(20)=2.367743 [buffer: ±0.10% | zone: 2.365375-2.370110] | -> Decision: HOLD
+2025-05-17 08:04:00,062 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373900 | RSI(14)=63.63 (OB:70.0,OS:30.0) | EMA(20)=2.368329 [buffer: ±0.10% | zone: 2.365961-2.370697] | -> Decision: HOLD
+2025-05-17 08:05:00,058 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373900 | RSI(14)=63.63 (OB:70.0,OS:30.0) | EMA(20)=2.368860 [buffer: ±0.10% | zone: 2.366491-2.371228] | -> Decision: HOLD
+2025-05-17 08:06:00,057 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372600 | RSI(14)=59.37 (OB:70.0,OS:30.0) | EMA(20)=2.369216 [buffer: ±0.10% | zone: 2.366847-2.371585] | -> Decision: HOLD
+2025-05-17 08:07:00,058 - trading - INFO - Signal Eval (XRPUSDT): Price=2.370700 | RSI(14)=53.71 (OB:70.0,OS:30.0) | EMA(20)=2.369357 [buffer: ±0.10% | zone: 2.366988-2.371727] | -> Decision: HOLD
+2025-05-17 08:08:00,079 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372100 | RSI(14)=56.96 (OB:70.0,OS:30.0) | EMA(20)=2.369618 [buffer: ±0.10% | zone: 2.367249-2.371988] | -> Decision: HOLD
+2025-05-17 08:09:00,058 - trading - INFO - Signal Eval (XRPUSDT): Price=2.371100 | RSI(14)=54.04 (OB:70.0,OS:30.0) | EMA(20)=2.369759 [buffer: ±0.10% | zone: 2.367390-2.372129] | -> Decision: HOLD
+2025-05-17 08:10:00,053 - trading - INFO - Signal Eval (XRPUSDT): Price=2.368400 | RSI(14)=47.02 (OB:70.0,OS:30.0) | EMA(20)=2.369630 [buffer: ±0.10% | zone: 2.367260-2.372000] | -> Decision: HOLD
+2025-05-17 08:11:00,072 - trading - INFO - Signal Eval (XRPUSDT): Price=2.369100 | RSI(14)=48.87 (OB:70.0,OS:30.0) | EMA(20)=2.369580 [buffer: ±0.10% | zone: 2.367210-2.371949] | -> Decision: HOLD
+2025-05-17 08:12:00,057 - trading - INFO - Signal Eval (XRPUSDT): Price=2.369900 | RSI(14)=50.98 (OB:70.0,OS:30.0) | EMA(20)=2.369610 [buffer: ±0.10% | zone: 2.367240-2.371980] | -> Decision: HOLD
+2025-05-17 08:13:00,050 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372500 | RSI(14)=57.17 (OB:70.0,OS:30.0) | EMA(20)=2.369885 [buffer: ±0.10% | zone: 2.367515-2.372255] | -> Decision: HOLD
+2025-05-17 08:14:00,086 - trading - INFO - Signal Eval (XRPUSDT): Price=2.374700 | RSI(14)=61.59 (OB:70.0,OS:30.0) | EMA(20)=2.370344 [buffer: ±0.10% | zone: 2.367973-2.372714] | -> Decision: HOLD
+2025-05-17 08:15:00,058 - trading - INFO - Signal Eval (XRPUSDT): Price=2.375700 | RSI(14)=63.44 (OB:70.0,OS:30.0) | EMA(20)=2.370854 [buffer: ±0.10% | zone: 2.368483-2.373225] | -> Decision: HOLD
+2025-05-17 08:16:00,058 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373800 | RSI(14)=57.76 (OB:70.0,OS:30.0) | EMA(20)=2.371135 [buffer: ±0.10% | zone: 2.368763-2.373506] | -> Decision: HOLD
+2025-05-17 08:17:00,054 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372700 | RSI(14)=54.70 (OB:70.0,OS:30.0) | EMA(20)=2.371284 [buffer: ±0.10% | zone: 2.368912-2.373655] | -> Decision: HOLD
+2025-05-17 08:18:00,028 - trading - INFO - Signal Eval (XRPUSDT): Price=2.370600 | RSI(14)=49.34 (OB:70.0,OS:30.0) | EMA(20)=2.371219 [buffer: ±0.10% | zone: 2.368847-2.373590] | -> Decision: HOLD
+2025-05-17 08:19:00,023 - trading - INFO - Signal Eval (XRPUSDT): Price=2.370700 | RSI(14)=49.59 (OB:70.0,OS:30.0) | EMA(20)=2.371169 [buffer: ±0.10% | zone: 2.368798-2.373540] | -> Decision: HOLD
+2025-05-17 08:20:00,042 - trading - INFO - Signal Eval (XRPUSDT): Price=2.369200 | RSI(14)=45.88 (OB:70.0,OS:30.0) | EMA(20)=2.370982 [buffer: ±0.10% | zone: 2.368611-2.373353] | -> Decision: HOLD
+2025-05-17 08:21:00,024 - trading - INFO - Signal Eval (XRPUSDT): Price=2.371500 | RSI(14)=51.83 (OB:70.0,OS:30.0) | EMA(20)=2.371031 [buffer: ±0.10% | zone: 2.368660-2.373402] | -> Decision: HOLD
+2025-05-17 08:22:00,017 - trading - INFO - Signal Eval (XRPUSDT): Price=2.368600 | RSI(14)=45.10 (OB:70.0,OS:30.0) | EMA(20)=2.370799 [buffer: ±0.10% | zone: 2.368429-2.373170] | -> Decision: HOLD
+2025-05-17 08:23:00,021 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367000 | RSI(14)=41.87 (OB:70.0,OS:30.0) | EMA(20)=2.370438 [buffer: ±0.10% | zone: 2.368067-2.372808] | -> Decision: HOLD
+2025-05-17 08:24:00,035 - trading - INFO - Signal Eval (XRPUSDT): Price=2.369100 | RSI(14)=47.21 (OB:70.0,OS:30.0) | EMA(20)=2.370310 [buffer: ±0.10% | zone: 2.367940-2.372681] | -> Decision: HOLD
+2025-05-17 08:25:00,018 - trading - INFO - Signal Eval (XRPUSDT): Price=2.368100 | RSI(14)=45.09 (OB:70.0,OS:30.0) | EMA(20)=2.370100 [buffer: ±0.10% | zone: 2.367730-2.372470] | -> Decision: HOLD
+2025-05-17 08:26:00,060 - trading - INFO - Signal Eval (XRPUSDT): Price=2.368300 | RSI(14)=45.61 (OB:70.0,OS:30.0) | EMA(20)=2.369928 [buffer: ±0.10% | zone: 2.367558-2.372298] | -> Decision: HOLD
+2025-05-17 08:27:00,015 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367800 | RSI(14)=44.46 (OB:70.0,OS:30.0) | EMA(20)=2.369726 [buffer: ±0.10% | zone: 2.367356-2.372095] | -> Decision: HOLD
+2025-05-17 08:28:00,007 - trading - INFO - Signal Eval (XRPUSDT): Price=2.366600 | RSI(14)=41.74 (OB:70.0,OS:30.0) | EMA(20)=2.369428 [buffer: ±0.10% | zone: 2.367059-2.371797] | -> Decision: HOLD
+2025-05-17 08:29:00,004 - trading - INFO - Signal Eval (XRPUSDT): Price=2.365200 | RSI(14)=38.76 (OB:70.0,OS:30.0) | EMA(20)=2.369025 [buffer: ±0.10% | zone: 2.366656-2.371394] | -> Decision: HOLD
+2025-05-17 08:30:00,009 - trading - INFO - Signal Eval (XRPUSDT): Price=2.364900 | RSI(14)=38.14 (OB:70.0,OS:30.0) | EMA(20)=2.368632 [buffer: ±0.10% | zone: 2.366264-2.371001] | -> Decision: HOLD
+2025-05-17 08:30:59,995 - trading - INFO - Signal Eval (XRPUSDT): Price=2.363700 | RSI(14)=35.65 (OB:70.0,OS:30.0) | EMA(20)=2.368163 [buffer: ±0.10% | zone: 2.365794-2.370531] | -> Decision: HOLD
+2025-05-17 08:32:00,008 - trading - INFO - Signal Eval (XRPUSDT): Price=2.368700 | RSI(14)=50.22 (OB:70.0,OS:30.0) | EMA(20)=2.368214 [buffer: ±0.10% | zone: 2.365846-2.370582] | -> Decision: HOLD
+2025-05-17 08:32:59,993 - trading - INFO - Signal Eval (XRPUSDT): Price=2.369400 | RSI(14)=51.87 (OB:70.0,OS:30.0) | EMA(20)=2.368327 [buffer: ±0.10% | zone: 2.365958-2.370695] | -> Decision: HOLD
+2025-05-17 08:34:00,006 - trading - INFO - Signal Eval (XRPUSDT): Price=2.369600 | RSI(14)=52.35 (OB:70.0,OS:30.0) | EMA(20)=2.368448 [buffer: ±0.10% | zone: 2.366080-2.370816] | -> Decision: HOLD
+2025-05-17 08:35:00,041 - trading - INFO - Signal Eval (XRPUSDT): Price=2.366700 | RSI(14)=45.24 (OB:70.0,OS:30.0) | EMA(20)=2.368282 [buffer: ±0.10% | zone: 2.365913-2.370650] | -> Decision: HOLD
+2025-05-17 08:35:59,987 - trading - INFO - Signal Eval (XRPUSDT): Price=2.368900 | RSI(14)=50.71 (OB:70.0,OS:30.0) | EMA(20)=2.368340 [buffer: ±0.10% | zone: 2.365972-2.370709] | -> Decision: HOLD
+2025-05-17 08:36:59,981 - trading - INFO - Signal Eval (XRPUSDT): Price=2.368300 | RSI(14)=49.27 (OB:70.0,OS:30.0) | EMA(20)=2.368337 [buffer: ±0.10% | zone: 2.365968-2.370705] | -> Decision: HOLD
+2025-05-17 08:38:00,036 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367700 | RSI(14)=47.80 (OB:70.0,OS:30.0) | EMA(20)=2.368276 [buffer: ±0.10% | zone: 2.365908-2.370644] | -> Decision: HOLD
+2025-05-17 08:38:59,979 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367200 | RSI(14)=46.56 (OB:70.0,OS:30.0) | EMA(20)=2.368174 [buffer: ±0.10% | zone: 2.365805-2.370542] | -> Decision: HOLD
+2025-05-17 08:39:59,987 - trading - INFO - Signal Eval (XRPUSDT): Price=2.365900 | RSI(14)=43.40 (OB:70.0,OS:30.0) | EMA(20)=2.367957 [buffer: ±0.10% | zone: 2.365589-2.370325] | -> Decision: HOLD
+2025-05-17 08:41:00,042 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367700 | RSI(14)=48.60 (OB:70.0,OS:30.0) | EMA(20)=2.367933 [buffer: ±0.10% | zone: 2.365565-2.370300] | -> Decision: HOLD
+2025-05-17 08:42:00,003 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367900 | RSI(14)=49.16 (OB:70.0,OS:30.0) | EMA(20)=2.367929 [buffer: ±0.10% | zone: 2.365561-2.370297] | -> Decision: HOLD
+2025-05-17 08:42:59,988 - trading - INFO - Signal Eval (XRPUSDT): Price=2.370700 | RSI(14)=56.32 (OB:70.0,OS:30.0) | EMA(20)=2.368193 [buffer: ±0.10% | zone: 2.365825-2.370561] | -> Decision: HOLD
+2025-05-17 08:43:59,972 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372600 | RSI(14)=60.40 (OB:70.0,OS:30.0) | EMA(20)=2.368613 [buffer: ±0.10% | zone: 2.366244-2.370982] | -> Decision: HOLD
+2025-05-17 08:44:59,995 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372600 | RSI(14)=60.40 (OB:70.0,OS:30.0) | EMA(20)=2.368993 [buffer: ±0.10% | zone: 2.366624-2.371362] | -> Decision: HOLD
+2025-05-17 08:45:59,978 - trading - INFO - Signal Eval (XRPUSDT): Price=2.374700 | RSI(14)=64.63 (OB:70.0,OS:30.0) | EMA(20)=2.369536 [buffer: ±0.10% | zone: 2.367167-2.371906] | -> Decision: HOLD
+2025-05-17 08:46:59,966 - trading - INFO - Signal Eval (XRPUSDT): Price=2.374800 | RSI(14)=64.83 (OB:70.0,OS:30.0) | EMA(20)=2.370038 [buffer: ±0.10% | zone: 2.367668-2.372408] | -> Decision: HOLD
+2025-05-17 08:47:59,964 - trading - INFO - Signal Eval (XRPUSDT): Price=2.376000 | RSI(14)=67.14 (OB:70.0,OS:30.0) | EMA(20)=2.370605 [buffer: ±0.10% | zone: 2.368235-2.372976] | -> Decision: HOLD
+2025-05-17 08:49:00,021 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373200 | RSI(14)=57.61 (OB:70.0,OS:30.0) | EMA(20)=2.370853 [buffer: ±0.10% | zone: 2.368482-2.373223] | -> Decision: HOLD
+2025-05-17 08:49:59,968 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373400 | RSI(14)=58.07 (OB:70.0,OS:30.0) | EMA(20)=2.371095 [buffer: ±0.10% | zone: 2.368724-2.373466] | -> Decision: HOLD
+2025-05-17 08:50:59,979 - trading - INFO - Signal Eval (XRPUSDT): Price=2.371100 | RSI(14)=51.22 (OB:70.0,OS:30.0) | EMA(20)=2.371096 [buffer: ±0.10% | zone: 2.368724-2.373467] | -> Decision: HOLD
+2025-05-17 08:51:59,955 - trading - INFO - Signal Eval (XRPUSDT): Price=2.371300 | RSI(14)=51.75 (OB:70.0,OS:30.0) | EMA(20)=2.371115 [buffer: ±0.10% | zone: 2.368744-2.373486] | -> Decision: HOLD
+2025-05-17 08:52:59,953 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372600 | RSI(14)=55.18 (OB:70.0,OS:30.0) | EMA(20)=2.371256 [buffer: ±0.10% | zone: 2.368885-2.373628] | -> Decision: HOLD
+2025-05-17 08:53:59,947 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372600 | RSI(14)=55.18 (OB:70.0,OS:30.0) | EMA(20)=2.371384 [buffer: ±0.10% | zone: 2.369013-2.373756] | -> Decision: HOLD
+2025-05-17 08:54:59,962 - trading - INFO - Signal Eval (XRPUSDT): Price=2.371000 | RSI(14)=50.10 (OB:70.0,OS:30.0) | EMA(20)=2.371348 [buffer: ±0.10% | zone: 2.368976-2.373719] | -> Decision: HOLD
+2025-05-17 08:55:59,946 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372400 | RSI(14)=54.08 (OB:70.0,OS:30.0) | EMA(20)=2.371448 [buffer: ±0.10% | zone: 2.369077-2.373819] | -> Decision: HOLD
+2025-05-17 08:56:59,939 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372400 | RSI(14)=54.08 (OB:70.0,OS:30.0) | EMA(20)=2.371539 [buffer: ±0.10% | zone: 2.369167-2.373910] | -> Decision: HOLD
+2025-05-17 08:57:59,977 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372600 | RSI(14)=54.68 (OB:70.0,OS:30.0) | EMA(20)=2.371640 [buffer: ±0.10% | zone: 2.369268-2.374011] | -> Decision: HOLD
+2025-05-17 08:59:00,018 - trading - INFO - Signal Eval (XRPUSDT): Price=2.375200 | RSI(14)=61.69 (OB:70.0,OS:30.0) | EMA(20)=2.371979 [buffer: ±0.10% | zone: 2.369607-2.374351] | -> Decision: HOLD
+2025-05-17 08:59:59,950 - trading - INFO - Signal Eval (XRPUSDT): Price=2.374900 | RSI(14)=60.52 (OB:70.0,OS:30.0) | EMA(20)=2.372257 [buffer: ±0.10% | zone: 2.369885-2.374629] | -> Decision: HOLD
+2025-05-17 09:00:59,948 - trading - INFO - Signal Eval (XRPUSDT): Price=2.374700 | RSI(14)=59.72 (OB:70.0,OS:30.0) | EMA(20)=2.372490 [buffer: ±0.10% | zone: 2.370117-2.374862] | -> Decision: HOLD
+2025-05-17 09:01:59,938 - trading - INFO - Signal Eval (XRPUSDT): Price=2.374600 | RSI(14)=59.29 (OB:70.0,OS:30.0) | EMA(20)=2.372691 [buffer: ±0.10% | zone: 2.370318-2.375063] | -> Decision: HOLD
+2025-05-17 09:02:59,939 - trading - INFO - Signal Eval (XRPUSDT): Price=2.375800 | RSI(14)=62.73 (OB:70.0,OS:30.0) | EMA(20)=2.372987 [buffer: ±0.10% | zone: 2.370614-2.375360] | -> Decision: HOLD
+2025-05-17 09:03:59,924 - trading - INFO - Signal Eval (XRPUSDT): Price=2.378500 | RSI(14)=69.06 (OB:70.0,OS:30.0) | EMA(20)=2.373512 [buffer: ±0.10% | zone: 2.371138-2.375885] | -> Decision: HOLD
+2025-05-17 09:04:59,929 - trading - INFO - Signal Eval (XRPUSDT): Price=2.378200 | RSI(14)=67.68 (OB:70.0,OS:30.0) | EMA(20)=2.373958 [buffer: ±0.10% | zone: 2.371584-2.376332] | -> Decision: HOLD
+2025-05-17 09:05:59,923 - trading - INFO - Signal Eval (XRPUSDT): Price=2.377900 | RSI(14)=66.26 (OB:70.0,OS:30.0) | EMA(20)=2.374334 [buffer: ±0.10% | zone: 2.371959-2.376708] | -> Decision: HOLD
+2025-05-17 09:06:59,932 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.381200 > EMA(20) 2.374988 + buffer 0.10%
+2025-05-17 09:06:59,933 - trading - INFO - Signal Eval (XRPUSDT): Price=2.381200 | RSI(14)=72.98 (OB:70.0,OS:30.0) | EMA(20)=2.374988 [buffer: ±0.10% | zone: 2.372613-2.377363] | -> Decision: HOLD
+2025-05-17 09:07:59,946 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.381100 > EMA(20) 2.375570 + buffer 0.10%
+2025-05-17 09:07:59,946 - trading - INFO - Signal Eval (XRPUSDT): Price=2.381100 | RSI(14)=72.51 (OB:70.0,OS:30.0) | EMA(20)=2.375570 [buffer: ±0.10% | zone: 2.373194-2.377945] | -> Decision: HOLD
+2025-05-17 09:08:59,920 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.381500 > EMA(20) 2.376135 + buffer 0.10%
+2025-05-17 09:08:59,920 - trading - INFO - Signal Eval (XRPUSDT): Price=2.381500 | RSI(14)=73.25 (OB:70.0,OS:30.0) | EMA(20)=2.376135 [buffer: ±0.10% | zone: 2.373758-2.378511] | -> Decision: HOLD
+2025-05-17 09:09:59,927 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.385400 > EMA(20) 2.377017 + buffer 0.10%
+2025-05-17 09:09:59,927 - trading - INFO - Signal Eval (XRPUSDT): Price=2.385400 | RSI(14)=79.17 (OB:70.0,OS:30.0) | EMA(20)=2.377017 [buffer: ±0.10% | zone: 2.374640-2.379394] | -> Decision: HOLD
+2025-05-17 09:10:59,913 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.387200 > EMA(20) 2.377987 + buffer 0.10%
+2025-05-17 09:10:59,913 - trading - INFO - Signal Eval (XRPUSDT): Price=2.387200 | RSI(14)=81.24 (OB:70.0,OS:30.0) | EMA(20)=2.377987 [buffer: ±0.10% | zone: 2.375609-2.380365] | -> Decision: HOLD
+2025-05-17 09:11:59,949 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.387100 > EMA(20) 2.378855 + buffer 0.10%
+2025-05-17 09:11:59,949 - trading - INFO - Signal Eval (XRPUSDT): Price=2.387100 | RSI(14)=80.76 (OB:70.0,OS:30.0) | EMA(20)=2.378855 [buffer: ±0.10% | zone: 2.376476-2.381234] | -> Decision: HOLD
+2025-05-17 09:12:59,900 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.388200 > EMA(20) 2.379745 + buffer 0.10%
+2025-05-17 09:12:59,900 - trading - INFO - Signal Eval (XRPUSDT): Price=2.388200 | RSI(14)=82.01 (OB:70.0,OS:30.0) | EMA(20)=2.379745 [buffer: ±0.10% | zone: 2.377365-2.382125] | -> Decision: HOLD
+2025-05-17 09:13:59,897 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.387500 > EMA(20) 2.380483 + buffer 0.10%
+2025-05-17 09:13:59,897 - trading - INFO - Signal Eval (XRPUSDT): Price=2.387500 | RSI(14)=78.50 (OB:70.0,OS:30.0) | EMA(20)=2.380483 [buffer: ±0.10% | zone: 2.378103-2.382864] | -> Decision: HOLD
+2025-05-17 09:14:59,908 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.387000 > EMA(20) 2.381104 + buffer 0.10%
+2025-05-17 09:14:59,908 - trading - INFO - Signal Eval (XRPUSDT): Price=2.387000 | RSI(14)=76.00 (OB:70.0,OS:30.0) | EMA(20)=2.381104 [buffer: ±0.10% | zone: 2.378723-2.383485] | -> Decision: HOLD
+2025-05-17 09:15:59,906 - trading - INFO - Signal Check (XRPUSDT): SELL IGNORED by EMA filter. Price 2.387400 > EMA(20) 2.381704 + buffer 0.10%
+2025-05-17 09:15:59,906 - trading - INFO - Signal Eval (XRPUSDT): Price=2.387400 | RSI(14)=76.64 (OB:70.0,OS:30.0) | EMA(20)=2.381704 [buffer: ±0.10% | zone: 2.379322-2.384085] | -> Decision: HOLD
+2025-05-17 09:16:59,910 - trading - INFO - Signal Eval (XRPUSDT): Price=2.383700 | RSI(14)=60.52 (OB:70.0,OS:30.0) | EMA(20)=2.381894 [buffer: ±0.10% | zone: 2.379512-2.384276] | -> Decision: HOLD
+2025-05-17 09:17:59,891 - trading - INFO - Signal Eval (XRPUSDT): Price=2.382300 | RSI(14)=55.75 (OB:70.0,OS:30.0) | EMA(20)=2.381932 [buffer: ±0.10% | zone: 2.379551-2.384314] | -> Decision: HOLD
+2025-05-17 09:18:59,895 - trading - INFO - Signal Eval (XRPUSDT): Price=2.383800 | RSI(14)=59.44 (OB:70.0,OS:30.0) | EMA(20)=2.382110 [buffer: ±0.10% | zone: 2.379728-2.384492] | -> Decision: HOLD
+2025-05-17 09:19:59,923 - trading - INFO - Signal Eval (XRPUSDT): Price=2.385100 | RSI(14)=62.37 (OB:70.0,OS:30.0) | EMA(20)=2.382395 [buffer: ±0.10% | zone: 2.380013-2.384777] | -> Decision: HOLD
+2025-05-17 09:20:59,882 - trading - INFO - Signal Eval (XRPUSDT): Price=2.386300 | RSI(14)=64.89 (OB:70.0,OS:30.0) | EMA(20)=2.382767 [buffer: ±0.10% | zone: 2.380384-2.385150] | -> Decision: HOLD
+2025-05-17 09:21:59,885 - trading - INFO - Signal Eval (XRPUSDT): Price=2.387600 | RSI(14)=67.44 (OB:70.0,OS:30.0) | EMA(20)=2.383227 [buffer: ±0.10% | zone: 2.380844-2.385610] | -> Decision: HOLD
+2025-05-17 09:22:59,879 - trading - INFO - Signal Eval (XRPUSDT): Price=2.386300 | RSI(14)=62.55 (OB:70.0,OS:30.0) | EMA(20)=2.383520 [buffer: ±0.10% | zone: 2.381136-2.385903] | -> Decision: HOLD
+2025-05-17 09:23:59,893 - trading - INFO - Signal Eval (XRPUSDT): Price=2.388100 | RSI(14)=66.21 (OB:70.0,OS:30.0) | EMA(20)=2.383956 [buffer: ±0.10% | zone: 2.381572-2.386340] | -> Decision: HOLD
+2025-05-17 09:24:59,880 - trading - INFO - Signal Eval (XRPUSDT): Price=2.385800 | RSI(14)=58.37 (OB:70.0,OS:30.0) | EMA(20)=2.384132 [buffer: ±0.10% | zone: 2.381748-2.386516] | -> Decision: HOLD
+2025-05-17 09:25:59,881 - trading - INFO - Signal Eval (XRPUSDT): Price=2.387200 | RSI(14)=61.37 (OB:70.0,OS:30.0) | EMA(20)=2.384424 [buffer: ±0.10% | zone: 2.382039-2.386808] | -> Decision: HOLD
+2025-05-17 09:26:59,889 - trading - INFO - Signal Eval (XRPUSDT): Price=2.386800 | RSI(14)=60.04 (OB:70.0,OS:30.0) | EMA(20)=2.384650 [buffer: ±0.10% | zone: 2.382266-2.387035] | -> Decision: HOLD
+2025-05-17 09:27:59,891 - trading - INFO - Signal Eval (XRPUSDT): Price=2.389100 | RSI(14)=64.77 (OB:70.0,OS:30.0) | EMA(20)=2.385074 [buffer: ±0.10% | zone: 2.382689-2.387459] | -> Decision: HOLD
+2025-05-17 09:28:59,869 - trading - INFO - Signal Eval (XRPUSDT): Price=2.388500 | RSI(14)=62.68 (OB:70.0,OS:30.0) | EMA(20)=2.385400 [buffer: ±0.10% | zone: 2.383015-2.387786] | -> Decision: HOLD
+2025-05-17 09:29:59,877 - trading - INFO - Signal Eval (XRPUSDT): Price=2.388000 | RSI(14)=60.92 (OB:70.0,OS:30.0) | EMA(20)=2.385648 [buffer: ±0.10% | zone: 2.383262-2.388034] | -> Decision: HOLD
+2025-05-17 09:30:59,868 - trading - INFO - Signal Eval (XRPUSDT): Price=2.387200 | RSI(14)=58.12 (OB:70.0,OS:30.0) | EMA(20)=2.385796 [buffer: ±0.10% | zone: 2.383410-2.388181] | -> Decision: HOLD
+2025-05-17 09:31:59,868 - trading - INFO - Signal Eval (XRPUSDT): Price=2.388300 | RSI(14)=60.79 (OB:70.0,OS:30.0) | EMA(20)=2.386034 [buffer: ±0.10% | zone: 2.383648-2.388420] | -> Decision: HOLD
+2025-05-17 09:32:59,872 - trading - INFO - Signal Eval (XRPUSDT): Price=2.384600 | RSI(14)=49.36 (OB:70.0,OS:30.0) | EMA(20)=2.385898 [buffer: ±0.10% | zone: 2.383512-2.388284] | -> Decision: HOLD
+2025-05-17 09:33:59,852 - trading - INFO - Signal Eval (XRPUSDT): Price=2.383300 | RSI(14)=46.09 (OB:70.0,OS:30.0) | EMA(20)=2.385650 [buffer: ±0.10% | zone: 2.383265-2.388036] | -> Decision: HOLD
+2025-05-17 09:34:59,881 - trading - INFO - Signal Eval (XRPUSDT): Price=2.383900 | RSI(14)=47.81 (OB:70.0,OS:30.0) | EMA(20)=2.385484 [buffer: ±0.10% | zone: 2.383098-2.387869] | -> Decision: HOLD
+2025-05-17 09:35:59,850 - trading - INFO - Signal Eval (XRPUSDT): Price=2.381800 | RSI(14)=42.67 (OB:70.0,OS:30.0) | EMA(20)=2.385133 [buffer: ±0.10% | zone: 2.382748-2.387518] | -> Decision: HOLD
+2025-05-17 09:36:59,866 - trading - INFO - Signal Eval (XRPUSDT): Price=2.380200 | RSI(14)=39.21 (OB:70.0,OS:30.0) | EMA(20)=2.384663 [buffer: ±0.10% | zone: 2.382278-2.387048] | -> Decision: HOLD
+2025-05-17 09:37:59,849 - trading - INFO - Signal Eval (XRPUSDT): Price=2.379700 | RSI(14)=38.17 (OB:70.0,OS:30.0) | EMA(20)=2.384190 [buffer: ±0.10% | zone: 2.381806-2.386574] | -> Decision: HOLD
+2025-05-17 09:38:59,872 - trading - INFO - Signal Eval (XRPUSDT): Price=2.378300 | RSI(14)=35.34 (OB:70.0,OS:30.0) | EMA(20)=2.383629 [buffer: ±0.10% | zone: 2.381246-2.386013] | -> Decision: HOLD
+2025-05-17 09:39:59,860 - trading - INFO - Signal Eval (XRPUSDT): Price=2.376800 | RSI(14)=32.56 (OB:70.0,OS:30.0) | EMA(20)=2.382979 [buffer: ±0.10% | zone: 2.380596-2.385362] | -> Decision: HOLD
+2025-05-17 09:40:59,881 - trading - INFO - Signal Eval (XRPUSDT): Price=2.378700 | RSI(14)=39.10 (OB:70.0,OS:30.0) | EMA(20)=2.382571 [buffer: ±0.10% | zone: 2.380189-2.384954] | -> Decision: HOLD
+2025-05-17 09:41:59,846 - trading - INFO - Signal Eval (XRPUSDT): Price=2.377200 | RSI(14)=36.12 (OB:70.0,OS:30.0) | EMA(20)=2.382060 [buffer: ±0.10% | zone: 2.379678-2.384442] | -> Decision: HOLD
+2025-05-17 09:42:59,836 - trading - INFO - Signal Eval (XRPUSDT): Price=2.376600 | RSI(14)=34.97 (OB:70.0,OS:30.0) | EMA(20)=2.381540 [buffer: ±0.10% | zone: 2.379158-2.383921] | -> Decision: HOLD
+2025-05-17 09:43:59,836 - trading - INFO - Signal Eval (XRPUSDT): Price=2.376900 | RSI(14)=36.07 (OB:70.0,OS:30.0) | EMA(20)=2.381098 [buffer: ±0.10% | zone: 2.378717-2.383479] | -> Decision: HOLD
+2025-05-17 09:44:59,836 - trading - INFO - Signal Eval (XRPUSDT): Price=2.375800 | RSI(14)=33.82 (OB:70.0,OS:30.0) | EMA(20)=2.380593 [buffer: ±0.10% | zone: 2.378213-2.382974] | -> Decision: HOLD
+2025-05-17 09:45:59,824 - trading - INFO - Signal Eval (XRPUSDT): Price=2.375500 | RSI(14)=33.21 (OB:70.0,OS:30.0) | EMA(20)=2.380108 [buffer: ±0.10% | zone: 2.377728-2.382488] | -> Decision: HOLD
+2025-05-17 09:46:59,830 - trading - INFO - Signal Check (XRPUSDT): BUY IGNORED by EMA filter. Price 2.371600 < EMA(20) 2.379298 - buffer 0.10%
+2025-05-17 09:46:59,831 - trading - INFO - Signal Eval (XRPUSDT): Price=2.371600 | RSI(14)=26.53 (OB:70.0,OS:30.0) | EMA(20)=2.379298 [buffer: ±0.10% | zone: 2.376919-2.381677] | -> Decision: HOLD
+2025-05-17 09:47:59,836 - trading - INFO - Signal Check (XRPUSDT): BUY IGNORED by EMA filter. Price 2.370300 < EMA(20) 2.378441 - buffer 0.10%
+2025-05-17 09:47:59,836 - trading - INFO - Signal Eval (XRPUSDT): Price=2.370300 | RSI(14)=24.75 (OB:70.0,OS:30.0) | EMA(20)=2.378441 [buffer: ±0.10% | zone: 2.376063-2.380819] | -> Decision: HOLD
+2025-05-17 09:48:59,817 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372000 | RSI(14)=31.26 (OB:70.0,OS:30.0) | EMA(20)=2.377828 [buffer: ±0.10% | zone: 2.375450-2.380205] | -> Decision: HOLD
+2025-05-17 09:49:59,830 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372500 | RSI(14)=33.10 (OB:70.0,OS:30.0) | EMA(20)=2.377320 [buffer: ±0.10% | zone: 2.374943-2.379698] | -> Decision: HOLD
+2025-05-17 09:50:59,820 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372900 | RSI(14)=34.60 (OB:70.0,OS:30.0) | EMA(20)=2.376899 [buffer: ±0.10% | zone: 2.374522-2.379276] | -> Decision: HOLD
+2025-05-17 09:51:59,817 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373100 | RSI(14)=35.39 (OB:70.0,OS:30.0) | EMA(20)=2.376537 [buffer: ±0.10% | zone: 2.374161-2.378914] | -> Decision: HOLD
+2025-05-17 09:52:59,821 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373000 | RSI(14)=35.16 (OB:70.0,OS:30.0) | EMA(20)=2.376201 [buffer: ±0.10% | zone: 2.373824-2.378577] | -> Decision: HOLD
+2025-05-17 09:53:59,810 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373500 | RSI(14)=37.32 (OB:70.0,OS:30.0) | EMA(20)=2.375943 [buffer: ±0.10% | zone: 2.373567-2.378319] | -> Decision: HOLD
+2025-05-17 09:54:59,810 - trading - INFO - Signal Eval (XRPUSDT): Price=2.375100 | RSI(14)=43.77 (OB:70.0,OS:30.0) | EMA(20)=2.375863 [buffer: ±0.10% | zone: 2.373487-2.378239] | -> Decision: HOLD
+2025-05-17 09:55:59,808 - trading - INFO - Signal Eval (XRPUSDT): Price=2.374000 | RSI(14)=40.67 (OB:70.0,OS:30.0) | EMA(20)=2.375686 [buffer: ±0.10% | zone: 2.373310-2.378061] | -> Decision: HOLD
+2025-05-17 09:56:59,809 - trading - INFO - Signal Eval (XRPUSDT): Price=2.377400 | RSI(14)=51.99 (OB:70.0,OS:30.0) | EMA(20)=2.375849 [buffer: ±0.10% | zone: 2.373473-2.378225] | -> Decision: HOLD
+2025-05-17 09:57:59,798 - trading - INFO - Signal Eval (XRPUSDT): Price=2.379400 | RSI(14)=57.17 (OB:70.0,OS:30.0) | EMA(20)=2.376187 [buffer: ±0.10% | zone: 2.373811-2.378563] | -> Decision: HOLD
+2025-05-17 09:58:59,821 - trading - INFO - Signal Eval (XRPUSDT): Price=2.379700 | RSI(14)=57.90 (OB:70.0,OS:30.0) | EMA(20)=2.376522 [buffer: ±0.10% | zone: 2.374145-2.378898] | -> Decision: HOLD
+2025-05-17 10:00:00,059 - trading - INFO - Signal Eval (XRPUSDT): Price=2.380600 | RSI(14)=60.11 (OB:70.0,OS:30.0) | EMA(20)=2.376910 [buffer: ±0.10% | zone: 2.374533-2.379287] | -> Decision: HOLD
+2025-05-17 10:00:59,798 - trading - INFO - Signal Eval (XRPUSDT): Price=2.380100 | RSI(14)=58.28 (OB:70.0,OS:30.0) | EMA(20)=2.377214 [buffer: ±0.10% | zone: 2.374837-2.379591] | -> Decision: HOLD
+2025-05-17 10:01:59,788 - trading - INFO - Signal Eval (XRPUSDT): Price=2.378600 | RSI(14)=53.07 (OB:70.0,OS:30.0) | EMA(20)=2.377346 [buffer: ±0.10% | zone: 2.374969-2.379723] | -> Decision: HOLD
+2025-05-17 10:02:59,809 - trading - INFO - Signal Eval (XRPUSDT): Price=2.379500 | RSI(14)=55.63 (OB:70.0,OS:30.0) | EMA(20)=2.377551 [buffer: ±0.10% | zone: 2.375173-2.379929] | -> Decision: HOLD
+2025-05-17 10:03:59,784 - trading - INFO - Signal Eval (XRPUSDT): Price=2.377800 | RSI(14)=50.07 (OB:70.0,OS:30.0) | EMA(20)=2.377575 [buffer: ±0.10% | zone: 2.375197-2.379952] | -> Decision: HOLD
+2025-05-17 10:04:59,789 - trading - INFO - Signal Eval (XRPUSDT): Price=2.376300 | RSI(14)=45.72 (OB:70.0,OS:30.0) | EMA(20)=2.377453 [buffer: ±0.10% | zone: 2.375076-2.379831] | -> Decision: HOLD
+2025-05-17 10:05:59,787 - trading - INFO - Signal Eval (XRPUSDT): Price=2.376600 | RSI(14)=46.72 (OB:70.0,OS:30.0) | EMA(20)=2.377372 [buffer: ±0.10% | zone: 2.374995-2.379749] | -> Decision: HOLD
+2025-05-17 10:06:59,780 - trading - INFO - Signal Eval (XRPUSDT): Price=2.377200 | RSI(14)=48.74 (OB:70.0,OS:30.0) | EMA(20)=2.377356 [buffer: ±0.10% | zone: 2.374978-2.379733] | -> Decision: HOLD
+2025-05-17 10:07:59,777 - trading - INFO - Signal Eval (XRPUSDT): Price=2.375500 | RSI(14)=43.68 (OB:70.0,OS:30.0) | EMA(20)=2.377179 [buffer: ±0.10% | zone: 2.374802-2.379556] | -> Decision: HOLD
+2025-05-17 10:08:59,779 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372900 | RSI(14)=37.29 (OB:70.0,OS:30.0) | EMA(20)=2.376771 [buffer: ±0.10% | zone: 2.374395-2.379148] | -> Decision: HOLD
+2025-05-17 10:09:59,770 - trading - INFO - Signal Eval (XRPUSDT): Price=2.374100 | RSI(14)=41.54 (OB:70.0,OS:30.0) | EMA(20)=2.376517 [buffer: ±0.10% | zone: 2.374140-2.378894] | -> Decision: HOLD
+2025-05-17 10:10:59,804 - trading - INFO - Signal Eval (XRPUSDT): Price=2.369400 | RSI(14)=32.31 (OB:70.0,OS:30.0) | EMA(20)=2.375839 [buffer: ±0.10% | zone: 2.373463-2.378215] | -> Decision: HOLD
+2025-05-17 10:11:59,770 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373300 | RSI(14)=43.52 (OB:70.0,OS:30.0) | EMA(20)=2.375597 [buffer: ±0.10% | zone: 2.373222-2.377973] | -> Decision: HOLD
+2025-05-17 10:12:59,764 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373900 | RSI(14)=45.03 (OB:70.0,OS:30.0) | EMA(20)=2.375436 [buffer: ±0.10% | zone: 2.373060-2.377811] | -> Decision: HOLD
+2025-05-17 10:13:59,767 - trading - INFO - Signal Eval (XRPUSDT): Price=2.371900 | RSI(14)=41.09 (OB:70.0,OS:30.0) | EMA(20)=2.375099 [buffer: ±0.10% | zone: 2.372724-2.377474] | -> Decision: HOLD
+2025-05-17 10:14:59,764 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373600 | RSI(14)=45.46 (OB:70.0,OS:30.0) | EMA(20)=2.374956 [buffer: ±0.10% | zone: 2.372581-2.377331] | -> Decision: HOLD
+2025-05-17 10:15:59,758 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373900 | RSI(14)=46.22 (OB:70.0,OS:30.0) | EMA(20)=2.374856 [buffer: ±0.10% | zone: 2.372481-2.377230] | -> Decision: HOLD
+2025-05-17 10:16:59,769 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373800 | RSI(14)=45.99 (OB:70.0,OS:30.0) | EMA(20)=2.374755 [buffer: ±0.10% | zone: 2.372380-2.377130] | -> Decision: HOLD
+2025-05-17 10:17:59,753 - trading - INFO - Signal Eval (XRPUSDT): Price=2.374700 | RSI(14)=48.47 (OB:70.0,OS:30.0) | EMA(20)=2.374750 [buffer: ±0.10% | zone: 2.372375-2.377125] | -> Decision: HOLD
+2025-05-17 10:18:59,753 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373200 | RSI(14)=44.78 (OB:70.0,OS:30.0) | EMA(20)=2.374602 [buffer: ±0.10% | zone: 2.372228-2.376977] | -> Decision: HOLD
+2025-05-17 10:19:59,746 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373100 | RSI(14)=44.54 (OB:70.0,OS:30.0) | EMA(20)=2.374459 [buffer: ±0.10% | zone: 2.372085-2.376834] | -> Decision: HOLD
+2025-05-17 10:20:59,748 - trading - INFO - Signal Eval (XRPUSDT): Price=2.375800 | RSI(14)=52.11 (OB:70.0,OS:30.0) | EMA(20)=2.374587 [buffer: ±0.10% | zone: 2.372212-2.376961] | -> Decision: HOLD
+2025-05-17 10:21:59,752 - trading - INFO - Signal Eval (XRPUSDT): Price=2.366800 | RSI(14)=34.97 (OB:70.0,OS:30.0) | EMA(20)=2.373845 [buffer: ±0.10% | zone: 2.371471-2.376219] | -> Decision: HOLD
+2025-05-17 10:22:59,743 - trading - INFO - Signal Eval (XRPUSDT): Price=2.370400 | RSI(14)=43.04 (OB:70.0,OS:30.0) | EMA(20)=2.373517 [buffer: ±0.10% | zone: 2.371144-2.375891] | -> Decision: HOLD
+2025-05-17 10:23:59,763 - trading - INFO - Signal Eval (XRPUSDT): Price=2.368300 | RSI(14)=39.93 (OB:70.0,OS:30.0) | EMA(20)=2.373020 [buffer: ±0.10% | zone: 2.370647-2.375393] | -> Decision: HOLD
+2025-05-17 10:24:59,746 - trading - INFO - Signal Eval (XRPUSDT): Price=2.369800 | RSI(14)=43.09 (OB:70.0,OS:30.0) | EMA(20)=2.372714 [buffer: ±0.10% | zone: 2.370341-2.375086] | -> Decision: HOLD
+2025-05-17 10:25:59,740 - trading - INFO - Signal Eval (XRPUSDT): Price=2.371600 | RSI(14)=46.72 (OB:70.0,OS:30.0) | EMA(20)=2.372608 [buffer: ±0.10% | zone: 2.370235-2.374980] | -> Decision: HOLD
+2025-05-17 10:26:59,731 - trading - INFO - Signal Eval (XRPUSDT): Price=2.377700 | RSI(14)=56.78 (OB:70.0,OS:30.0) | EMA(20)=2.373093 [buffer: ±0.10% | zone: 2.370719-2.375466] | -> Decision: HOLD
+2025-05-17 10:27:59,732 - trading - INFO - Signal Eval (XRPUSDT): Price=2.378900 | RSI(14)=58.44 (OB:70.0,OS:30.0) | EMA(20)=2.373646 [buffer: ±0.10% | zone: 2.371272-2.376019] | -> Decision: HOLD
+2025-05-17 10:28:59,741 - trading - INFO - Signal Eval (XRPUSDT): Price=2.377700 | RSI(14)=56.12 (OB:70.0,OS:30.0) | EMA(20)=2.374032 [buffer: ±0.10% | zone: 2.371658-2.376406] | -> Decision: HOLD
+2025-05-17 10:29:59,764 - trading - INFO - Signal Eval (XRPUSDT): Price=2.378900 | RSI(14)=57.92 (OB:70.0,OS:30.0) | EMA(20)=2.374495 [buffer: ±0.10% | zone: 2.372121-2.376870] | -> Decision: HOLD
+2025-05-17 10:30:59,731 - trading - INFO - Signal Eval (XRPUSDT): Price=2.381500 | RSI(14)=61.60 (OB:70.0,OS:30.0) | EMA(20)=2.375162 [buffer: ±0.10% | zone: 2.372787-2.377538] | -> Decision: HOLD
+2025-05-17 10:31:59,725 - trading - INFO - Signal Eval (XRPUSDT): Price=2.381200 | RSI(14)=60.94 (OB:70.0,OS:30.0) | EMA(20)=2.375737 [buffer: ±0.10% | zone: 2.373362-2.378113] | -> Decision: HOLD
+2025-05-17 10:32:59,782 - trading - INFO - Signal Eval (XRPUSDT): Price=2.379900 | RSI(14)=58.03 (OB:70.0,OS:30.0) | EMA(20)=2.376134 [buffer: ±0.10% | zone: 2.373758-2.378510] | -> Decision: HOLD
+2025-05-17 10:33:59,727 - trading - INFO - Signal Eval (XRPUSDT): Price=2.379800 | RSI(14)=57.80 (OB:70.0,OS:30.0) | EMA(20)=2.376483 [buffer: ±0.10% | zone: 2.374107-2.378860] | -> Decision: HOLD
+2025-05-17 10:34:59,728 - trading - INFO - Signal Eval (XRPUSDT): Price=2.375400 | RSI(14)=48.70 (OB:70.0,OS:30.0) | EMA(20)=2.376380 [buffer: ±0.10% | zone: 2.374004-2.378756] | -> Decision: HOLD
+2025-05-17 10:35:59,712 - trading - INFO - Signal Eval (XRPUSDT): Price=2.377900 | RSI(14)=53.21 (OB:70.0,OS:30.0) | EMA(20)=2.376525 [buffer: ±0.10% | zone: 2.374148-2.378901] | -> Decision: HOLD
+2025-05-17 10:36:59,717 - trading - INFO - Signal Eval (XRPUSDT): Price=2.377300 | RSI(14)=52.03 (OB:70.0,OS:30.0) | EMA(20)=2.376599 [buffer: ±0.10% | zone: 2.374222-2.378975] | -> Decision: HOLD
+2025-05-17 10:37:59,712 - trading - INFO - Signal Eval (XRPUSDT): Price=2.375300 | RSI(14)=48.19 (OB:70.0,OS:30.0) | EMA(20)=2.376475 [buffer: ±0.10% | zone: 2.374098-2.378851] | -> Decision: HOLD
+2025-05-17 10:38:59,704 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372900 | RSI(14)=43.99 (OB:70.0,OS:30.0) | EMA(20)=2.376134 [buffer: ±0.10% | zone: 2.373758-2.378511] | -> Decision: HOLD
+2025-05-17 10:39:59,967 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373300 | RSI(14)=44.85 (OB:70.0,OS:30.0) | EMA(20)=2.375864 [buffer: ±0.10% | zone: 2.373489-2.378240] | -> Decision: HOLD
+2025-05-17 10:40:59,701 - trading - INFO - Signal Eval (XRPUSDT): Price=2.375100 | RSI(14)=48.68 (OB:70.0,OS:30.0) | EMA(20)=2.375792 [buffer: ±0.10% | zone: 2.373416-2.378167] | -> Decision: HOLD
+2025-05-17 10:41:59,715 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372000 | RSI(14)=43.13 (OB:70.0,OS:30.0) | EMA(20)=2.375431 [buffer: ±0.10% | zone: 2.373055-2.377806] | -> Decision: HOLD
+2025-05-17 10:42:59,700 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372400 | RSI(14)=44.02 (OB:70.0,OS:30.0) | EMA(20)=2.375142 [buffer: ±0.10% | zone: 2.372767-2.377517] | -> Decision: HOLD
+2025-05-17 10:43:59,704 - trading - INFO - Signal Eval (XRPUSDT): Price=2.369600 | RSI(14)=39.38 (OB:70.0,OS:30.0) | EMA(20)=2.374614 [buffer: ±0.10% | zone: 2.372240-2.376989] | -> Decision: HOLD
+2025-05-17 10:44:59,702 - trading - INFO - Signal Eval (XRPUSDT): Price=2.371000 | RSI(14)=42.63 (OB:70.0,OS:30.0) | EMA(20)=2.374270 [buffer: ±0.10% | zone: 2.371896-2.376644] | -> Decision: HOLD
+2025-05-17 10:45:59,686 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373200 | RSI(14)=47.41 (OB:70.0,OS:30.0) | EMA(20)=2.374168 [buffer: ±0.10% | zone: 2.371794-2.376542] | -> Decision: HOLD
+2025-05-17 10:46:59,690 - trading - INFO - Signal Eval (XRPUSDT): Price=2.371300 | RSI(14)=44.00 (OB:70.0,OS:30.0) | EMA(20)=2.373895 [buffer: ±0.10% | zone: 2.371521-2.376269] | -> Decision: HOLD
+2025-05-17 10:47:59,688 - trading - INFO - Signal Eval (XRPUSDT): Price=2.371000 | RSI(14)=43.47 (OB:70.0,OS:30.0) | EMA(20)=2.373619 [buffer: ±0.10% | zone: 2.371246-2.375993] | -> Decision: HOLD
+2025-05-17 10:48:59,690 - trading - INFO - Signal Eval (XRPUSDT): Price=2.370200 | RSI(14)=42.02 (OB:70.0,OS:30.0) | EMA(20)=2.373294 [buffer: ±0.10% | zone: 2.370920-2.375667] | -> Decision: HOLD
+2025-05-17 10:49:59,690 - trading - INFO - Signal Eval (XRPUSDT): Price=2.369100 | RSI(14)=40.03 (OB:70.0,OS:30.0) | EMA(20)=2.372894 [buffer: ±0.10% | zone: 2.370521-2.375267] | -> Decision: HOLD
+2025-05-17 10:50:59,696 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367400 | RSI(14)=37.11 (OB:70.0,OS:30.0) | EMA(20)=2.372371 [buffer: ±0.10% | zone: 2.369999-2.374743] | -> Decision: HOLD
+2025-05-17 10:51:59,708 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367800 | RSI(14)=38.25 (OB:70.0,OS:30.0) | EMA(20)=2.371936 [buffer: ±0.10% | zone: 2.369564-2.374308] | -> Decision: HOLD
+2025-05-17 10:52:59,678 - trading - INFO - Signal Eval (XRPUSDT): Price=2.369300 | RSI(14)=42.47 (OB:70.0,OS:30.0) | EMA(20)=2.371685 [buffer: ±0.10% | zone: 2.369313-2.374056] | -> Decision: HOLD
+2025-05-17 10:53:59,696 - trading - INFO - Signal Eval (XRPUSDT): Price=2.371800 | RSI(14)=48.75 (OB:70.0,OS:30.0) | EMA(20)=2.371696 [buffer: ±0.10% | zone: 2.369324-2.374067] | -> Decision: HOLD
+2025-05-17 10:54:59,674 - trading - INFO - Signal Eval (XRPUSDT): Price=2.371200 | RSI(14)=47.41 (OB:70.0,OS:30.0) | EMA(20)=2.371648 [buffer: ±0.10% | zone: 2.369277-2.374020] | -> Decision: HOLD
+2025-05-17 10:55:59,711 - trading - INFO - Signal Eval (XRPUSDT): Price=2.369800 | RSI(14)=44.35 (OB:70.0,OS:30.0) | EMA(20)=2.371472 [buffer: ±0.10% | zone: 2.369101-2.373844] | -> Decision: HOLD
+2025-05-17 10:56:59,679 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367700 | RSI(14)=40.17 (OB:70.0,OS:30.0) | EMA(20)=2.371113 [buffer: ±0.10% | zone: 2.368742-2.373484] | -> Decision: HOLD
+2025-05-17 10:57:59,659 - trading - INFO - Signal Eval (XRPUSDT): Price=2.366300 | RSI(14)=37.62 (OB:70.0,OS:30.0) | EMA(20)=2.370655 [buffer: ±0.10% | zone: 2.368284-2.373025] | -> Decision: HOLD
+2025-05-17 10:58:59,660 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367600 | RSI(14)=41.34 (OB:70.0,OS:30.0) | EMA(20)=2.370364 [buffer: ±0.10% | zone: 2.367993-2.372734] | -> Decision: HOLD
+2025-05-17 10:59:59,690 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367600 | RSI(14)=41.34 (OB:70.0,OS:30.0) | EMA(20)=2.370101 [buffer: ±0.10% | zone: 2.367730-2.372471] | -> Decision: HOLD
+2025-05-17 11:00:59,657 - trading - INFO - Signal Eval (XRPUSDT): Price=2.368900 | RSI(14)=45.14 (OB:70.0,OS:30.0) | EMA(20)=2.369986 [buffer: ±0.10% | zone: 2.367616-2.372356] | -> Decision: HOLD
+2025-05-17 11:01:59,660 - trading - INFO - Signal Eval (XRPUSDT): Price=2.369200 | RSI(14)=46.00 (OB:70.0,OS:30.0) | EMA(20)=2.369911 [buffer: ±0.10% | zone: 2.367541-2.372281] | -> Decision: HOLD
+2025-05-17 11:02:59,655 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367200 | RSI(14)=41.31 (OB:70.0,OS:30.0) | EMA(20)=2.369653 [buffer: ±0.10% | zone: 2.367283-2.372023] | -> Decision: HOLD
+2025-05-17 11:03:59,656 - trading - INFO - Signal Eval (XRPUSDT): Price=2.363800 | RSI(14)=34.81 (OB:70.0,OS:30.0) | EMA(20)=2.369096 [buffer: ±0.10% | zone: 2.366727-2.371465] | -> Decision: HOLD
+2025-05-17 11:04:59,651 - trading - INFO - Signal Eval (XRPUSDT): Price=2.369100 | RSI(14)=48.43 (OB:70.0,OS:30.0) | EMA(20)=2.369096 [buffer: ±0.10% | zone: 2.366727-2.371465] | -> Decision: HOLD
+2025-05-17 11:05:59,659 - trading - INFO - Signal Eval (XRPUSDT): Price=2.368300 | RSI(14)=46.84 (OB:70.0,OS:30.0) | EMA(20)=2.369020 [buffer: ±0.10% | zone: 2.366651-2.371389] | -> Decision: HOLD
+2025-05-17 11:06:59,651 - trading - INFO - Signal Eval (XRPUSDT): Price=2.364700 | RSI(14)=40.41 (OB:70.0,OS:30.0) | EMA(20)=2.368609 [buffer: ±0.10% | zone: 2.366240-2.370977] | -> Decision: HOLD
+2025-05-17 11:07:59,639 - trading - INFO - Signal Eval (XRPUSDT): Price=2.361500 | RSI(14)=35.71 (OB:70.0,OS:30.0) | EMA(20)=2.367932 [buffer: ±0.10% | zone: 2.365564-2.370300] | -> Decision: HOLD
+2025-05-17 11:08:59,636 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367200 | RSI(14)=47.43 (OB:70.0,OS:30.0) | EMA(20)=2.367862 [buffer: ±0.10% | zone: 2.365494-2.370230] | -> Decision: HOLD
+2025-05-17 11:09:59,649 - trading - INFO - Signal Eval (XRPUSDT): Price=2.371600 | RSI(14)=54.35 (OB:70.0,OS:30.0) | EMA(20)=2.368218 [buffer: ±0.10% | zone: 2.365850-2.370586] | -> Decision: HOLD
+2025-05-17 11:10:59,636 - trading - INFO - Signal Eval (XRPUSDT): Price=2.368300 | RSI(14)=49.13 (OB:70.0,OS:30.0) | EMA(20)=2.368226 [buffer: ±0.10% | zone: 2.365858-2.370594] | -> Decision: HOLD
+2025-05-17 11:11:59,649 - trading - INFO - Signal Eval (XRPUSDT): Price=2.364700 | RSI(14)=44.14 (OB:70.0,OS:30.0) | EMA(20)=2.367890 [buffer: ±0.10% | zone: 2.365522-2.370258] | -> Decision: HOLD
+2025-05-17 11:12:59,628 - trading - INFO - Signal Eval (XRPUSDT): Price=2.363400 | RSI(14)=42.47 (OB:70.0,OS:30.0) | EMA(20)=2.367462 [buffer: ±0.10% | zone: 2.365095-2.369830] | -> Decision: HOLD
+2025-05-17 11:13:59,629 - trading - INFO - Signal Eval (XRPUSDT): Price=2.366500 | RSI(14)=47.58 (OB:70.0,OS:30.0) | EMA(20)=2.367371 [buffer: ±0.10% | zone: 2.365003-2.369738] | -> Decision: HOLD
+2025-05-17 11:14:59,629 - trading - INFO - Signal Eval (XRPUSDT): Price=2.366600 | RSI(14)=47.74 (OB:70.0,OS:30.0) | EMA(20)=2.367297 [buffer: ±0.10% | zone: 2.364930-2.369665] | -> Decision: HOLD
+2025-05-17 11:15:59,619 - trading - INFO - Signal Eval (XRPUSDT): Price=2.364200 | RSI(14)=44.22 (OB:70.0,OS:30.0) | EMA(20)=2.367002 [buffer: ±0.10% | zone: 2.364635-2.369369] | -> Decision: HOLD
+2025-05-17 11:16:59,636 - trading - INFO - Signal Eval (XRPUSDT): Price=2.360600 | RSI(14)=39.52 (OB:70.0,OS:30.0) | EMA(20)=2.366393 [buffer: ±0.10% | zone: 2.364026-2.368759] | -> Decision: HOLD
+2025-05-17 11:17:59,639 - trading - INFO - Signal Eval (XRPUSDT): Price=2.359400 | RSI(14)=38.07 (OB:70.0,OS:30.0) | EMA(20)=2.365727 [buffer: ±0.10% | zone: 2.363361-2.368092] | -> Decision: HOLD
+2025-05-17 11:18:59,631 - trading - INFO - Signal Eval (XRPUSDT): Price=2.360800 | RSI(14)=40.80 (OB:70.0,OS:30.0) | EMA(20)=2.365257 [buffer: ±0.10% | zone: 2.362892-2.367623] | -> Decision: HOLD
+2025-05-17 11:19:59,616 - trading - INFO - Signal Eval (XRPUSDT): Price=2.362400 | RSI(14)=43.85 (OB:70.0,OS:30.0) | EMA(20)=2.364985 [buffer: ±0.10% | zone: 2.362620-2.367350] | -> Decision: HOLD
+2025-05-17 11:20:59,612 - trading - INFO - Signal Eval (XRPUSDT): Price=2.362700 | RSI(14)=44.43 (OB:70.0,OS:30.0) | EMA(20)=2.364768 [buffer: ±0.10% | zone: 2.362403-2.367132] | -> Decision: HOLD
+2025-05-17 11:21:59,621 - trading - INFO - Signal Eval (XRPUSDT): Price=2.360600 | RSI(14)=41.23 (OB:70.0,OS:30.0) | EMA(20)=2.364371 [buffer: ±0.10% | zone: 2.362006-2.366735] | -> Decision: HOLD
+2025-05-17 11:22:59,606 - trading - INFO - Signal Eval (XRPUSDT): Price=2.360200 | RSI(14)=40.63 (OB:70.0,OS:30.0) | EMA(20)=2.363974 [buffer: ±0.10% | zone: 2.361610-2.366338] | -> Decision: HOLD
+2025-05-17 11:23:59,637 - trading - INFO - Signal Eval (XRPUSDT): Price=2.358200 | RSI(14)=37.68 (OB:70.0,OS:30.0) | EMA(20)=2.363424 [buffer: ±0.10% | zone: 2.361060-2.365787] | -> Decision: HOLD
+2025-05-17 11:24:59,609 - trading - INFO - Signal Eval (XRPUSDT): Price=2.358300 | RSI(14)=37.92 (OB:70.0,OS:30.0) | EMA(20)=2.362936 [buffer: ±0.10% | zone: 2.360573-2.365299] | -> Decision: HOLD
+2025-05-17 11:25:59,599 - trading - INFO - Signal Eval (XRPUSDT): Price=2.353800 | RSI(14)=31.89 (OB:70.0,OS:30.0) | EMA(20)=2.362066 [buffer: ±0.10% | zone: 2.359704-2.364428] | -> Decision: HOLD
+2025-05-17 11:26:59,598 - trading - INFO - Signal Eval (XRPUSDT): Price=2.356400 | RSI(14)=38.02 (OB:70.0,OS:30.0) | EMA(20)=2.361526 [buffer: ±0.10% | zone: 2.359165-2.363888] | -> Decision: HOLD
+2025-05-17 11:27:59,595 - trading - INFO - Signal Eval (XRPUSDT): Price=2.359800 | RSI(14)=44.99 (OB:70.0,OS:30.0) | EMA(20)=2.361362 [buffer: ±0.10% | zone: 2.359000-2.363723] | -> Decision: HOLD
+2025-05-17 11:28:59,587 - trading - INFO - Signal Eval (XRPUSDT): Price=2.356100 | RSI(14)=39.75 (OB:70.0,OS:30.0) | EMA(20)=2.360861 [buffer: ±0.10% | zone: 2.358500-2.363221] | -> Decision: HOLD
+2025-05-17 11:29:59,608 - trading - INFO - Signal Eval (XRPUSDT): Price=2.357300 | RSI(14)=42.11 (OB:70.0,OS:30.0) | EMA(20)=2.360521 [buffer: ±0.10% | zone: 2.358161-2.362882] | -> Decision: HOLD
+2025-05-17 11:30:59,590 - trading - INFO - Signal Eval (XRPUSDT): Price=2.360800 | RSI(14)=48.44 (OB:70.0,OS:30.0) | EMA(20)=2.360548 [buffer: ±0.10% | zone: 2.358187-2.362909] | -> Decision: HOLD
+2025-05-17 11:31:59,643 - trading - INFO - Signal Eval (XRPUSDT): Price=2.363700 | RSI(14)=53.02 (OB:70.0,OS:30.0) | EMA(20)=2.360848 [buffer: ±0.10% | zone: 2.358487-2.363209] | -> Decision: HOLD
+2025-05-17 11:32:59,595 - trading - INFO - Signal Eval (XRPUSDT): Price=2.364700 | RSI(14)=54.52 (OB:70.0,OS:30.0) | EMA(20)=2.361215 [buffer: ±0.10% | zone: 2.358854-2.363576] | -> Decision: HOLD
+2025-05-17 11:33:59,588 - trading - INFO - Signal Eval (XRPUSDT): Price=2.363900 | RSI(14)=53.06 (OB:70.0,OS:30.0) | EMA(20)=2.361471 [buffer: ±0.10% | zone: 2.359109-2.363832] | -> Decision: HOLD
+2025-05-17 11:34:59,606 - trading - INFO - Signal Eval (XRPUSDT): Price=2.364100 | RSI(14)=53.40 (OB:70.0,OS:30.0) | EMA(20)=2.361721 [buffer: ±0.10% | zone: 2.359359-2.364083] | -> Decision: HOLD
+2025-05-17 11:35:59,578 - trading - INFO - Signal Eval (XRPUSDT): Price=2.364400 | RSI(14)=53.93 (OB:70.0,OS:30.0) | EMA(20)=2.361976 [buffer: ±0.10% | zone: 2.359614-2.364338] | -> Decision: HOLD
+2025-05-17 11:37:05,345 - trading - INFO - Логгер 'trading_activity' успешно настроен.
+2025-05-17 11:37:19,707 - trading - INFO - TradeLogic (XRPUSDT): Запрос начальных 300 OHLCV данных для XRPUSDT (1m)...
+2025-05-17 11:37:19,971 - trading - INFO - TradeLogic (XRPUSDT): Успешно загружено 300 цен закрытия.
+2025-05-17 11:37:59,586 - trading - INFO - Signal Eval (XRPUSDT): Price=2.365000 | RSI(14)=53.58 (OB:70.0,OS:30.0) | EMA(20)=2.363108 [buffer: ±0.20% | zone: 2.358382-2.367835] | -> Decision: HOLD
+2025-05-17 11:38:59,583 - trading - INFO - Signal Eval (XRPUSDT): Price=2.362500 | RSI(14)=48.59 (OB:70.0,OS:30.0) | EMA(20)=2.363051 [buffer: ±0.20% | zone: 2.358324-2.367777] | -> Decision: HOLD
+2025-05-17 11:39:59,591 - trading - INFO - Signal Eval (XRPUSDT): Price=2.364200 | RSI(14)=51.87 (OB:70.0,OS:30.0) | EMA(20)=2.363160 [buffer: ±0.20% | zone: 2.358434-2.367886] | -> Decision: HOLD
+2025-05-17 11:40:59,569 - trading - INFO - Signal Eval (XRPUSDT): Price=2.362900 | RSI(14)=49.28 (OB:70.0,OS:30.0) | EMA(20)=2.363135 [buffer: ±0.20% | zone: 2.358409-2.367862] | -> Decision: HOLD
+2025-05-17 11:41:59,591 - trading - INFO - Signal Eval (XRPUSDT): Price=2.363800 | RSI(14)=51.10 (OB:70.0,OS:30.0) | EMA(20)=2.363199 [buffer: ±0.20% | zone: 2.358472-2.367925] | -> Decision: HOLD
+2025-05-17 11:42:59,582 - trading - INFO - Signal Eval (XRPUSDT): Price=2.365500 | RSI(14)=54.43 (OB:70.0,OS:30.0) | EMA(20)=2.363418 [buffer: ±0.20% | zone: 2.358691-2.368145] | -> Decision: HOLD
+2025-05-17 11:43:59,564 - trading - INFO - Signal Eval (XRPUSDT): Price=2.364600 | RSI(14)=52.40 (OB:70.0,OS:30.0) | EMA(20)=2.363530 [buffer: ±0.20% | zone: 2.358803-2.368257] | -> Decision: HOLD
+2025-05-17 11:44:59,579 - trading - INFO - Signal Eval (XRPUSDT): Price=2.361100 | RSI(14)=45.31 (OB:70.0,OS:30.0) | EMA(20)=2.363299 [buffer: ±0.20% | zone: 2.358572-2.368025] | -> Decision: HOLD
+2025-05-17 11:45:59,549 - trading - INFO - Signal Eval (XRPUSDT): Price=2.364400 | RSI(14)=51.91 (OB:70.0,OS:30.0) | EMA(20)=2.363404 [buffer: ±0.20% | zone: 2.358677-2.368131] | -> Decision: HOLD
+2025-05-17 11:46:59,553 - trading - INFO - Signal Eval (XRPUSDT): Price=2.364500 | RSI(14)=52.10 (OB:70.0,OS:30.0) | EMA(20)=2.363508 [buffer: ±0.20% | zone: 2.358781-2.368235] | -> Decision: HOLD
+2025-05-17 11:47:59,547 - trading - INFO - Signal Eval (XRPUSDT): Price=2.360300 | RSI(14)=44.25 (OB:70.0,OS:30.0) | EMA(20)=2.363203 [buffer: ±0.20% | zone: 2.358476-2.367929] | -> Decision: HOLD
+2025-05-17 11:48:59,570 - trading - INFO - Signal Eval (XRPUSDT): Price=2.360800 | RSI(14)=45.30 (OB:70.0,OS:30.0) | EMA(20)=2.362974 [buffer: ±0.20% | zone: 2.358248-2.367700] | -> Decision: HOLD
+2025-05-17 11:49:59,551 - trading - INFO - Signal Eval (XRPUSDT): Price=2.361100 | RSI(14)=45.97 (OB:70.0,OS:30.0) | EMA(20)=2.362795 [buffer: ±0.20% | zone: 2.358070-2.367521] | -> Decision: HOLD
+2025-05-17 11:50:59,544 - trading - INFO - Signal Eval (XRPUSDT): Price=2.359100 | RSI(14)=42.29 (OB:70.0,OS:30.0) | EMA(20)=2.362443 [buffer: ±0.20% | zone: 2.357719-2.367168] | -> Decision: HOLD
+2025-05-17 11:51:59,572 - trading - INFO - Signal Eval (XRPUSDT): Price=2.358700 | RSI(14)=41.58 (OB:70.0,OS:30.0) | EMA(20)=2.362087 [buffer: ±0.20% | zone: 2.357363-2.366811] | -> Decision: HOLD
+2025-05-17 11:52:59,557 - trading - INFO - Signal Eval (XRPUSDT): Price=2.359400 | RSI(14)=43.38 (OB:70.0,OS:30.0) | EMA(20)=2.361831 [buffer: ±0.20% | zone: 2.357107-2.366555] | -> Decision: HOLD
+2025-05-17 11:53:59,542 - trading - INFO - Signal Eval (XRPUSDT): Price=2.359800 | RSI(14)=44.44 (OB:70.0,OS:30.0) | EMA(20)=2.361638 [buffer: ±0.20% | zone: 2.356914-2.366361] | -> Decision: HOLD
+2025-05-17 11:54:59,544 - trading - INFO - Signal Eval (XRPUSDT): Price=2.362400 | RSI(14)=50.86 (OB:70.0,OS:30.0) | EMA(20)=2.361710 [buffer: ±0.20% | zone: 2.356987-2.366434] | -> Decision: HOLD
+2025-05-17 11:55:59,532 - trading - INFO - Signal Eval (XRPUSDT): Price=2.361900 | RSI(14)=49.67 (OB:70.0,OS:30.0) | EMA(20)=2.361728 [buffer: ±0.20% | zone: 2.357005-2.366452] | -> Decision: HOLD
+2025-05-17 11:56:59,562 - trading - INFO - Signal Eval (XRPUSDT): Price=2.362100 | RSI(14)=50.17 (OB:70.0,OS:30.0) | EMA(20)=2.361764 [buffer: ±0.20% | zone: 2.357040-2.366487] | -> Decision: HOLD
+2025-05-17 12:05:13,277 - trading - INFO - Логгер 'trading_activity' успешно настроен.
+2025-05-17 12:05:26,273 - trading - INFO - TradeLogic (XRPUSDT): Запрос начальных 300 OHLCV данных для XRPUSDT (1m)...
+2025-05-17 12:05:26,574 - trading - INFO - TradeLogic (XRPUSDT): Успешно загружено 300 цен закрытия.
