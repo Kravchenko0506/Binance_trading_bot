@@ -15077,3 +15077,667 @@ TypeError: unsupported operand type(s) for *: 'float' and 'decimal.Decimal'
 2025-05-18 15:23:59,690 - trading - INFO - Signal Eval (XRPUSDT): Price=2.389800 | RSI(14)=56.87 (OB:70.0,OS:30.0) | EMA(20)=2.388889 [buy buffer: -2.00% → 2.341111 | sell buffer: +2.00% → 2.436667] | -> Decision: HOLD
 2025-05-18 15:24:59,596 - trading - INFO - Signal Eval (XRPUSDT): Price=2.390500 | RSI(14)=60.32 (OB:70.0,OS:30.0) | EMA(20)=2.389043 [buy buffer: -2.00% → 2.341262 | sell buffer: +2.00% → 2.436823] | -> Decision: HOLD
 2025-05-18 15:25:59,697 - trading - INFO - Signal Eval (XRPUSDT): Price=2.391100 | RSI(14)=63.05 (OB:70.0,OS:30.0) | EMA(20)=2.389238 [buy buffer: -2.00% → 2.341454 | sell buffer: +2.00% → 2.437023] | -> Decision: HOLD
+2025-05-18 15:26:59,496 - trading - INFO - Signal Eval (XRPUSDT): Price=2.389800 | RSI(14)=54.33 (OB:70.0,OS:30.0) | EMA(20)=2.389292 [buy buffer: -2.00% → 2.341506 | sell buffer: +2.00% → 2.437078] | -> Decision: HOLD
+2025-05-18 15:27:59,603 - trading - INFO - Signal Eval (XRPUSDT): Price=2.389300 | RSI(14)=51.39 (OB:70.0,OS:30.0) | EMA(20)=2.389293 [buy buffer: -2.00% → 2.341507 | sell buffer: +2.00% → 2.437079] | -> Decision: HOLD
+2025-05-18 15:28:27,870 - trading - INFO - Логгер 'trading_activity' успешно настроен.
+2025-05-18 15:28:48,454 - trading - INFO - TradeLogic (XRPUSDT): Запрос начальных 300 OHLCV данных для XRPUSDT (1m)...
+2025-05-18 15:28:48,759 - trading - INFO - TradeLogic (XRPUSDT): Успешно загружено 300 цен закрытия.
+2025-05-18 15:28:59,508 - trading - INFO - Signal Eval (XRPUSDT): Price=2.390400 | RSI(14)=56.95 (OB:70.0,OS:30.0) | EMA(20)=2.389485 [buy buffer: -2.00% → 2.341695 | sell buffer: +2.00% → 2.437275] | -> Decision: HOLD
+2025-05-18 15:29:59,715 - trading - INFO - Signal Eval (XRPUSDT): Price=2.390600 | RSI(14)=57.96 (OB:70.0,OS:30.0) | EMA(20)=2.389591 [buy buffer: -2.00% → 2.341799 | sell buffer: +2.00% → 2.437383] | -> Decision: HOLD
+2025-05-18 15:30:59,620 - trading - INFO - Signal Eval (XRPUSDT): Price=2.389900 | RSI(14)=53.26 (OB:70.0,OS:30.0) | EMA(20)=2.389621 [buy buffer: -2.00% → 2.341828 | sell buffer: +2.00% → 2.437413] | -> Decision: HOLD
+2025-05-18 15:31:59,520 - trading - INFO - Signal Eval (XRPUSDT): Price=2.390900 | RSI(14)=58.44 (OB:70.0,OS:30.0) | EMA(20)=2.389742 [buy buffer: -2.00% → 2.341948 | sell buffer: +2.00% → 2.437537] | -> Decision: HOLD
+2025-05-18 15:32:59,524 - trading - INFO - Signal Eval (XRPUSDT): Price=2.390500 | RSI(14)=55.78 (OB:70.0,OS:30.0) | EMA(20)=2.389815 [buy buffer: -2.00% → 2.342018 | sell buffer: +2.00% → 2.437611] | -> Decision: HOLD
+2025-05-18 15:33:59,525 - trading - INFO - Signal Eval (XRPUSDT): Price=2.391800 | RSI(14)=61.87 (OB:70.0,OS:30.0) | EMA(20)=2.390004 [buy buffer: -2.00% → 2.342204 | sell buffer: +2.00% → 2.437804] | -> Decision: HOLD
+2025-05-18 15:34:59,476 - trading - INFO - Signal Eval (XRPUSDT): Price=2.391400 | RSI(14)=59.17 (OB:70.0,OS:30.0) | EMA(20)=2.390137 [buy buffer: -2.00% → 2.342334 | sell buffer: +2.00% → 2.437939] | -> Decision: HOLD
+2025-05-18 15:35:59,638 - trading - INFO - Signal Eval (XRPUSDT): Price=2.391700 | RSI(14)=60.56 (OB:70.0,OS:30.0) | EMA(20)=2.390286 [buy buffer: -2.00% → 2.342480 | sell buffer: +2.00% → 2.438091] | -> Decision: HOLD
+2025-05-18 15:36:59,537 - trading - INFO - Signal Eval (XRPUSDT): Price=2.395100 | RSI(14)=72.13 (OB:70.0,OS:30.0) | EMA(20)=2.390744 [buy buffer: -2.00% → 2.342929 | sell buffer: +2.00% → 2.438559] | -> Decision: SELL
+2025-05-18 15:36:59,539 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 15:36:59,541 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 15:37:01,283 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=3.19500000, Кол-во для продажи=3.10000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 15:37:01,687 - trading - INFO - Order Execution (XRPUSDT): Отправка MARKET SELL ордера на 3.1 XRP.
+2025-05-18 15:37:01,994 - trading - INFO - Order Execution (XRPUSDT): Ответ на ордер SELL: {'symbol': 'XRPUSDT', 'orderId': 10716270065, 'orderListId': -1, 'clientOrderId': 'NJlIsHdWXOBV2X1eSzTteB', 'transactTime': 1747575422506, 'price': '0.00000000', 'origQty': '3.10000000', 'executedQty': '3.10000000', 'origQuoteOrderQty': '0.00000000', 'cummulativeQuoteQty': '7.42357000', 'status': 'FILLED', 'timeInForce': 'GTC', 'type': 'MARKET', 'side': 'SELL', 'workingTime': 1747575422506, 'fills': [{'price': '2.39470000', 'qty': '3.00000000', 'commission': '0.00718410', 'commissionAsset': 'USDT', 'tradeId': 1153457837}, {'price': '2.39470000', 'qty': '0.10000000', 'commission': '0.00023947', 'commissionAsset': 'USDT', 'tradeId': 1153457838}], 'selfTradePreventionMode': 'EXPIRE_MAKER'}
+2025-05-18 15:37:01,995 - trading - INFO - ✅ ПРОДАЖА (XRPUSDT): 3.10000000 XRP @ ~2.39470000 USDT. Получено: 7.42357000 USDT. Комиссия: 0.00742357 USDT.
+2025-05-18 15:37:03,026 - trading - DEBUG - clear_position: позиция по XRPUSDT уже была закрыта ранее.
+2025-05-18 15:37:59,462 - trading - INFO - Signal Eval (XRPUSDT): Price=2.396600 | RSI(14)=75.54 (OB:70.0,OS:30.0) | EMA(20)=2.391302 [buy buffer: -2.00% → 2.343476 | sell buffer: +2.00% → 2.439128] | -> Decision: SELL
+2025-05-18 15:37:59,463 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 15:37:59,464 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 15:38:00,570 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 15:38:00,576 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 15:38:59,548 - trading - INFO - Signal Eval (XRPUSDT): Price=2.396400 | RSI(14)=74.24 (OB:70.0,OS:30.0) | EMA(20)=2.391787 [buy buffer: -2.00% → 2.343952 | sell buffer: +2.00% → 2.439623] | -> Decision: SELL
+2025-05-18 15:38:59,549 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 15:38:59,549 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 15:39:00,779 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 15:39:00,780 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 15:39:59,651 - trading - INFO - Signal Eval (XRPUSDT): Price=2.399600 | RSI(14)=80.14 (OB:70.0,OS:30.0) | EMA(20)=2.392531 [buy buffer: -2.00% → 2.344681 | sell buffer: +2.00% → 2.440382] | -> Decision: SELL
+2025-05-18 15:39:59,652 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 15:39:59,653 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 15:40:00,783 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 15:40:00,784 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 15:40:59,554 - trading - INFO - Signal Eval (XRPUSDT): Price=2.403200 | RSI(14)=84.46 (OB:70.0,OS:30.0) | EMA(20)=2.393547 [buy buffer: -2.00% → 2.345676 | sell buffer: +2.00% → 2.441418] | -> Decision: SELL
+2025-05-18 15:40:59,556 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 15:40:59,557 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 15:41:00,564 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 15:41:00,565 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 15:41:59,558 - trading - INFO - Signal Eval (XRPUSDT): Price=2.402600 | RSI(14)=81.29 (OB:70.0,OS:30.0) | EMA(20)=2.394410 [buy buffer: -2.00% → 2.346521 | sell buffer: +2.00% → 2.442298] | -> Decision: SELL
+2025-05-18 15:41:59,560 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 15:41:59,560 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 15:42:01,200 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 15:42:01,200 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 15:42:59,666 - trading - INFO - Signal Eval (XRPUSDT): Price=2.402200 | RSI(14)=79.15 (OB:70.0,OS:30.0) | EMA(20)=2.395152 [buy buffer: -2.00% → 2.347248 | sell buffer: +2.00% → 2.443055] | -> Decision: SELL
+2025-05-18 15:42:59,667 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 15:42:59,667 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 15:43:00,795 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 15:43:00,796 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 15:43:59,448 - trading - INFO - Signal Eval (XRPUSDT): Price=2.401600 | RSI(14)=75.93 (OB:70.0,OS:30.0) | EMA(20)=2.395766 [buy buffer: -2.00% → 2.347850 | sell buffer: +2.00% → 2.443681] | -> Decision: SELL
+2025-05-18 15:43:59,449 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 15:43:59,449 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 15:44:00,388 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 15:44:00,389 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 15:44:59,673 - trading - INFO - Signal Eval (XRPUSDT): Price=2.401300 | RSI(14)=74.31 (OB:70.0,OS:30.0) | EMA(20)=2.396293 [buy buffer: -2.00% → 2.348367 | sell buffer: +2.00% → 2.444219] | -> Decision: SELL
+2025-05-18 15:44:59,675 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 15:44:59,675 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 15:45:01,417 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 15:45:01,420 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 15:45:59,445 - trading - INFO - Signal Eval (XRPUSDT): Price=2.399400 | RSI(14)=64.83 (OB:70.0,OS:30.0) | EMA(20)=2.396589 [buy buffer: -2.00% → 2.348657 | sell buffer: +2.00% → 2.444520] | -> Decision: HOLD
+2025-05-18 15:46:59,458 - trading - INFO - Signal Eval (XRPUSDT): Price=2.398600 | RSI(14)=61.28 (OB:70.0,OS:30.0) | EMA(20)=2.396780 [buy buffer: -2.00% → 2.348845 | sell buffer: +2.00% → 2.444716] | -> Decision: HOLD
+2025-05-18 15:47:59,447 - trading - INFO - Signal Eval (XRPUSDT): Price=2.399400 | RSI(14)=63.44 (OB:70.0,OS:30.0) | EMA(20)=2.397030 [buy buffer: -2.00% → 2.349089 | sell buffer: +2.00% → 2.444970] | -> Decision: HOLD
+2025-05-18 15:48:59,690 - trading - INFO - Signal Eval (XRPUSDT): Price=2.398000 | RSI(14)=57.42 (OB:70.0,OS:30.0) | EMA(20)=2.397122 [buy buffer: -2.00% → 2.349180 | sell buffer: +2.00% → 2.445065] | -> Decision: HOLD
+2025-05-18 15:49:59,455 - trading - INFO - Signal Eval (XRPUSDT): Price=2.397800 | RSI(14)=56.59 (OB:70.0,OS:30.0) | EMA(20)=2.397187 [buy buffer: -2.00% → 2.349243 | sell buffer: +2.00% → 2.445130] | -> Decision: HOLD
+2025-05-18 15:50:59,493 - trading - INFO - Signal Eval (XRPUSDT): Price=2.397500 | RSI(14)=55.31 (OB:70.0,OS:30.0) | EMA(20)=2.397217 [buy buffer: -2.00% → 2.349272 | sell buffer: +2.00% → 2.445161] | -> Decision: HOLD
+2025-05-18 15:51:59,611 - trading - INFO - Signal Eval (XRPUSDT): Price=2.397800 | RSI(14)=56.37 (OB:70.0,OS:30.0) | EMA(20)=2.397272 [buy buffer: -2.00% → 2.349327 | sell buffer: +2.00% → 2.445218] | -> Decision: HOLD
+2025-05-18 15:52:59,505 - trading - INFO - Signal Eval (XRPUSDT): Price=2.398200 | RSI(14)=57.82 (OB:70.0,OS:30.0) | EMA(20)=2.397360 [buy buffer: -2.00% → 2.349413 | sell buffer: +2.00% → 2.445308] | -> Decision: HOLD
+2025-05-18 15:53:59,530 - trading - INFO - Signal Eval (XRPUSDT): Price=2.397700 | RSI(14)=55.35 (OB:70.0,OS:30.0) | EMA(20)=2.397393 [buy buffer: -2.00% → 2.349445 | sell buffer: +2.00% → 2.445341] | -> Decision: HOLD
+2025-05-18 15:54:59,612 - trading - INFO - Signal Eval (XRPUSDT): Price=2.397600 | RSI(14)=54.85 (OB:70.0,OS:30.0) | EMA(20)=2.397413 [buy buffer: -2.00% → 2.349464 | sell buffer: +2.00% → 2.445361] | -> Decision: HOLD
+2025-05-18 15:55:59,615 - trading - INFO - Signal Eval (XRPUSDT): Price=2.400200 | RSI(14)=64.03 (OB:70.0,OS:30.0) | EMA(20)=2.397678 [buy buffer: -2.00% → 2.349724 | sell buffer: +2.00% → 2.445632] | -> Decision: HOLD
+2025-05-18 15:56:59,516 - trading - INFO - Signal Eval (XRPUSDT): Price=2.399400 | RSI(14)=59.99 (OB:70.0,OS:30.0) | EMA(20)=2.397842 [buy buffer: -2.00% → 2.349885 | sell buffer: +2.00% → 2.445799] | -> Decision: HOLD
+2025-05-18 15:57:59,630 - trading - INFO - Signal Eval (XRPUSDT): Price=2.400300 | RSI(14)=62.83 (OB:70.0,OS:30.0) | EMA(20)=2.398076 [buy buffer: -2.00% → 2.350115 | sell buffer: +2.00% → 2.446038] | -> Decision: HOLD
+2025-05-18 15:58:59,527 - trading - INFO - Signal Eval (XRPUSDT): Price=2.407100 | RSI(14)=76.44 (OB:70.0,OS:30.0) | EMA(20)=2.398936 [buy buffer: -2.00% → 2.350957 | sell buffer: +2.00% → 2.446914] | -> Decision: SELL
+2025-05-18 15:58:59,528 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 15:58:59,529 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 15:59:00,655 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 15:59:00,656 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 15:59:59,610 - trading - INFO - Signal Eval (XRPUSDT): Price=2.408600 | RSI(14)=78.33 (OB:70.0,OS:30.0) | EMA(20)=2.399856 [buy buffer: -2.00% → 2.351859 | sell buffer: +2.00% → 2.447853] | -> Decision: SELL
+2025-05-18 15:59:59,612 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 15:59:59,612 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:00:00,967 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 16:00:00,970 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 16:00:59,437 - trading - INFO - Signal Eval (XRPUSDT): Price=2.407800 | RSI(14)=74.89 (OB:70.0,OS:30.0) | EMA(20)=2.400613 [buy buffer: -2.00% → 2.352600 | sell buffer: +2.00% → 2.448625] | -> Decision: SELL
+2025-05-18 16:00:59,439 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:00:59,439 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:01:00,438 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 16:01:00,439 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 16:01:59,437 - trading - INFO - Signal Eval (XRPUSDT): Price=2.406800 | RSI(14)=70.70 (OB:70.0,OS:30.0) | EMA(20)=2.401202 [buy buffer: -2.00% → 2.353178 | sell buffer: +2.00% → 2.449226] | -> Decision: SELL
+2025-05-18 16:01:59,456 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:01:59,456 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:02:00,563 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 16:02:00,565 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 16:02:59,474 - trading - INFO - Signal Eval (XRPUSDT): Price=2.406200 | RSI(14)=68.24 (OB:70.0,OS:30.0) | EMA(20)=2.401678 [buy buffer: -2.00% → 2.353644 | sell buffer: +2.00% → 2.449711] | -> Decision: HOLD
+2025-05-18 16:03:59,546 - trading - INFO - Signal Eval (XRPUSDT): Price=2.405600 | RSI(14)=65.77 (OB:70.0,OS:30.0) | EMA(20)=2.402051 [buy buffer: -2.00% → 2.354010 | sell buffer: +2.00% → 2.450092] | -> Decision: HOLD
+2025-05-18 16:04:59,551 - trading - INFO - Signal Eval (XRPUSDT): Price=2.405200 | RSI(14)=64.11 (OB:70.0,OS:30.0) | EMA(20)=2.402351 [buy buffer: -2.00% → 2.354304 | sell buffer: +2.00% → 2.450398] | -> Decision: HOLD
+2025-05-18 16:05:59,453 - trading - INFO - Signal Eval (XRPUSDT): Price=2.404600 | RSI(14)=61.59 (OB:70.0,OS:30.0) | EMA(20)=2.402565 [buy buffer: -2.00% → 2.354514 | sell buffer: +2.00% → 2.450617] | -> Decision: HOLD
+2025-05-18 16:06:59,406 - trading - INFO - Signal Eval (XRPUSDT): Price=2.404400 | RSI(14)=60.73 (OB:70.0,OS:30.0) | EMA(20)=2.402740 [buy buffer: -2.00% → 2.354685 | sell buffer: +2.00% → 2.450795] | -> Decision: HOLD
+2025-05-18 16:07:59,416 - trading - INFO - Signal Eval (XRPUSDT): Price=2.405700 | RSI(14)=64.22 (OB:70.0,OS:30.0) | EMA(20)=2.403022 [buy buffer: -2.00% → 2.354962 | sell buffer: +2.00% → 2.451082] | -> Decision: HOLD
+2025-05-18 16:08:59,387 - trading - INFO - Signal Eval (XRPUSDT): Price=2.407000 | RSI(14)=67.34 (OB:70.0,OS:30.0) | EMA(20)=2.403401 [buy buffer: -2.00% → 2.355333 | sell buffer: +2.00% → 2.451469] | -> Decision: HOLD
+2025-05-18 16:09:59,396 - trading - INFO - Signal Eval (XRPUSDT): Price=2.407900 | RSI(14)=69.33 (OB:70.0,OS:30.0) | EMA(20)=2.403829 [buy buffer: -2.00% → 2.355753 | sell buffer: +2.00% → 2.451906] | -> Decision: HOLD
+2025-05-18 16:10:59,388 - trading - INFO - Signal Eval (XRPUSDT): Price=2.407500 | RSI(14)=67.36 (OB:70.0,OS:30.0) | EMA(20)=2.404179 [buy buffer: -2.00% → 2.356095 | sell buffer: +2.00% → 2.452263] | -> Decision: HOLD
+2025-05-18 16:11:59,477 - trading - INFO - Signal Eval (XRPUSDT): Price=2.408700 | RSI(14)=70.10 (OB:70.0,OS:30.0) | EMA(20)=2.404610 [buy buffer: -2.00% → 2.356517 | sell buffer: +2.00% → 2.452702] | -> Decision: SELL
+2025-05-18 16:11:59,479 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:11:59,479 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:12:00,710 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 16:12:00,710 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 16:12:59,483 - trading - INFO - Signal Eval (XRPUSDT): Price=2.407700 | RSI(14)=65.19 (OB:70.0,OS:30.0) | EMA(20)=2.404904 [buy buffer: -2.00% → 2.356806 | sell buffer: +2.00% → 2.453002] | -> Decision: HOLD
+2025-05-18 16:13:59,486 - trading - INFO - Signal Eval (XRPUSDT): Price=2.407400 | RSI(14)=63.75 (OB:70.0,OS:30.0) | EMA(20)=2.405142 [buy buffer: -2.00% → 2.357039 | sell buffer: +2.00% → 2.453244] | -> Decision: HOLD
+2025-05-18 16:14:59,487 - trading - INFO - Signal Eval (XRPUSDT): Price=2.403300 | RSI(14)=48.08 (OB:70.0,OS:30.0) | EMA(20)=2.404966 [buy buffer: -2.00% → 2.356867 | sell buffer: +2.00% → 2.453066] | -> Decision: HOLD
+2025-05-18 16:15:59,390 - trading - INFO - Signal Eval (XRPUSDT): Price=2.405000 | RSI(14)=53.21 (OB:70.0,OS:30.0) | EMA(20)=2.404969 [buy buffer: -2.00% → 2.356870 | sell buffer: +2.00% → 2.453069] | -> Decision: HOLD
+2025-05-18 16:16:59,413 - trading - INFO - Signal Eval (XRPUSDT): Price=2.405500 | RSI(14)=54.63 (OB:70.0,OS:30.0) | EMA(20)=2.405020 [buy buffer: -2.00% → 2.356920 | sell buffer: +2.00% → 2.453120] | -> Decision: HOLD
+2025-05-18 16:17:59,400 - trading - INFO - Signal Eval (XRPUSDT): Price=2.405100 | RSI(14)=53.24 (OB:70.0,OS:30.0) | EMA(20)=2.405028 [buy buffer: -2.00% → 2.356927 | sell buffer: +2.00% → 2.453128] | -> Decision: HOLD
+2025-05-18 16:18:59,403 - trading - INFO - Signal Eval (XRPUSDT): Price=2.405800 | RSI(14)=55.38 (OB:70.0,OS:30.0) | EMA(20)=2.405101 [buy buffer: -2.00% → 2.356999 | sell buffer: +2.00% → 2.453203] | -> Decision: HOLD
+2025-05-18 16:19:59,408 - trading - INFO - Signal Eval (XRPUSDT): Price=2.405900 | RSI(14)=55.70 (OB:70.0,OS:30.0) | EMA(20)=2.405177 [buy buffer: -2.00% → 2.357074 | sell buffer: +2.00% → 2.453281] | -> Decision: HOLD
+2025-05-18 16:20:59,364 - trading - INFO - Signal Eval (XRPUSDT): Price=2.409700 | RSI(14)=65.57 (OB:70.0,OS:30.0) | EMA(20)=2.405608 [buy buffer: -2.00% → 2.357496 | sell buffer: +2.00% → 2.453720] | -> Decision: HOLD
+2025-05-18 16:21:59,416 - trading - INFO - Signal Eval (XRPUSDT): Price=2.409700 | RSI(14)=65.57 (OB:70.0,OS:30.0) | EMA(20)=2.405998 [buy buffer: -2.00% → 2.357878 | sell buffer: +2.00% → 2.454118] | -> Decision: HOLD
+2025-05-18 16:22:59,355 - trading - INFO - Signal Eval (XRPUSDT): Price=2.410600 | RSI(14)=67.55 (OB:70.0,OS:30.0) | EMA(20)=2.406436 [buy buffer: -2.00% → 2.358307 | sell buffer: +2.00% → 2.454565] | -> Decision: HOLD
+2025-05-18 16:23:59,424 - trading - INFO - Signal Eval (XRPUSDT): Price=2.408900 | RSI(14)=60.46 (OB:70.0,OS:30.0) | EMA(20)=2.406671 [buy buffer: -2.00% → 2.358537 | sell buffer: +2.00% → 2.454804] | -> Decision: HOLD
+2025-05-18 16:24:59,428 - trading - INFO - Signal Eval (XRPUSDT): Price=2.411500 | RSI(14)=66.29 (OB:70.0,OS:30.0) | EMA(20)=2.407131 [buy buffer: -2.00% → 2.358988 | sell buffer: +2.00% → 2.455273] | -> Decision: HOLD
+2025-05-18 16:25:59,367 - trading - INFO - Signal Eval (XRPUSDT): Price=2.411800 | RSI(14)=66.90 (OB:70.0,OS:30.0) | EMA(20)=2.407575 [buy buffer: -2.00% → 2.359424 | sell buffer: +2.00% → 2.455727] | -> Decision: HOLD
+2025-05-18 16:26:59,354 - trading - INFO - Signal Eval (XRPUSDT): Price=2.409400 | RSI(14)=57.92 (OB:70.0,OS:30.0) | EMA(20)=2.407749 [buy buffer: -2.00% → 2.359594 | sell buffer: +2.00% → 2.455904] | -> Decision: HOLD
+2025-05-18 16:27:59,440 - trading - INFO - Signal Eval (XRPUSDT): Price=2.409900 | RSI(14)=59.15 (OB:70.0,OS:30.0) | EMA(20)=2.407954 [buy buffer: -2.00% → 2.359795 | sell buffer: +2.00% → 2.456113] | -> Decision: HOLD
+2025-05-18 16:28:59,447 - trading - INFO - Signal Eval (XRPUSDT): Price=2.409300 | RSI(14)=57.00 (OB:70.0,OS:30.0) | EMA(20)=2.408082 [buy buffer: -2.00% → 2.359920 | sell buffer: +2.00% → 2.456244] | -> Decision: HOLD
+2025-05-18 16:29:59,448 - trading - INFO - Signal Eval (XRPUSDT): Price=2.409800 | RSI(14)=58.36 (OB:70.0,OS:30.0) | EMA(20)=2.408246 [buy buffer: -2.00% → 2.360081 | sell buffer: +2.00% → 2.456411] | -> Decision: HOLD
+2025-05-18 16:30:59,457 - trading - INFO - Signal Eval (XRPUSDT): Price=2.410600 | RSI(14)=60.51 (OB:70.0,OS:30.0) | EMA(20)=2.408470 [buy buffer: -2.00% → 2.360301 | sell buffer: +2.00% → 2.456639] | -> Decision: HOLD
+2025-05-18 16:31:59,356 - trading - INFO - Signal Eval (XRPUSDT): Price=2.410400 | RSI(14)=59.68 (OB:70.0,OS:30.0) | EMA(20)=2.408654 [buy buffer: -2.00% → 2.360481 | sell buffer: +2.00% → 2.456827] | -> Decision: HOLD
+2025-05-18 16:32:59,362 - trading - INFO - Signal Eval (XRPUSDT): Price=2.410300 | RSI(14)=59.24 (OB:70.0,OS:30.0) | EMA(20)=2.408811 [buy buffer: -2.00% → 2.360634 | sell buffer: +2.00% → 2.456987] | -> Decision: HOLD
+2025-05-18 16:33:59,466 - trading - INFO - Signal Eval (XRPUSDT): Price=2.416300 | RSI(14)=72.35 (OB:70.0,OS:30.0) | EMA(20)=2.409524 [buy buffer: -2.00% → 2.361333 | sell buffer: +2.00% → 2.457714] | -> Decision: SELL
+2025-05-18 16:33:59,487 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:33:59,488 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:34:00,901 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 16:34:00,902 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 16:34:59,372 - trading - INFO - Signal Eval (XRPUSDT): Price=2.415900 | RSI(14)=70.72 (OB:70.0,OS:30.0) | EMA(20)=2.410131 [buy buffer: -2.00% → 2.361928 | sell buffer: +2.00% → 2.458334] | -> Decision: SELL
+2025-05-18 16:34:59,373 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:34:59,373 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:35:00,402 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 16:35:00,406 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 16:35:59,371 - trading - INFO - Signal Eval (XRPUSDT): Price=2.417500 | RSI(14)=73.31 (OB:70.0,OS:30.0) | EMA(20)=2.410833 [buy buffer: -2.00% → 2.362616 | sell buffer: +2.00% → 2.459050] | -> Decision: SELL
+2025-05-18 16:35:59,372 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:35:59,373 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:36:00,688 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 16:36:00,689 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 16:36:59,377 - trading - INFO - Signal Eval (XRPUSDT): Price=2.420800 | RSI(14)=77.70 (OB:70.0,OS:30.0) | EMA(20)=2.411782 [buy buffer: -2.00% → 2.363546 | sell buffer: +2.00% → 2.460018] | -> Decision: SELL
+2025-05-18 16:36:59,377 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:36:59,378 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:37:00,404 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 16:37:00,405 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 16:37:59,380 - trading - INFO - Signal Eval (XRPUSDT): Price=2.422200 | RSI(14)=79.26 (OB:70.0,OS:30.0) | EMA(20)=2.412774 [buy buffer: -2.00% → 2.364519 | sell buffer: +2.00% → 2.461030] | -> Decision: SELL
+2025-05-18 16:37:59,381 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:37:59,381 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:38:00,406 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 16:38:00,408 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 16:38:59,387 - trading - INFO - Signal Eval (XRPUSDT): Price=2.432700 | RSI(14)=86.74 (OB:70.0,OS:30.0) | EMA(20)=2.414672 [buy buffer: -2.00% → 2.366379 | sell buffer: +2.00% → 2.462965] | -> Decision: SELL
+2025-05-18 16:38:59,389 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:38:59,390 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:39:00,414 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 16:39:00,415 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 16:39:59,396 - trading - INFO - Signal Eval (XRPUSDT): Price=2.434200 | RSI(14)=87.44 (OB:70.0,OS:30.0) | EMA(20)=2.416532 [buy buffer: -2.00% → 2.368201 | sell buffer: +2.00% → 2.464862] | -> Decision: SELL
+2025-05-18 16:39:59,397 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:39:59,397 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:40:00,632 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 16:40:00,633 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 16:40:59,397 - trading - INFO - Signal Eval (XRPUSDT): Price=2.428300 | RSI(14)=71.51 (OB:70.0,OS:30.0) | EMA(20)=2.417653 [buy buffer: -2.00% → 2.369300 | sell buffer: +2.00% → 2.466006] | -> Decision: SELL
+2025-05-18 16:40:59,398 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:40:59,398 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:41:00,423 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 16:41:00,426 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 16:41:59,318 - trading - INFO - Signal Eval (XRPUSDT): Price=2.429900 | RSI(14)=72.95 (OB:70.0,OS:30.0) | EMA(20)=2.418819 [buy buffer: -2.00% → 2.370443 | sell buffer: +2.00% → 2.467195] | -> Decision: SELL
+2025-05-18 16:41:59,319 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:41:59,320 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:42:00,200 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 16:42:00,201 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 16:42:59,402 - trading - INFO - Signal Eval (XRPUSDT): Price=2.430300 | RSI(14)=73.31 (OB:70.0,OS:30.0) | EMA(20)=2.419912 [buy buffer: -2.00% → 2.371514 | sell buffer: +2.00% → 2.468311] | -> Decision: SELL
+2025-05-18 16:42:59,403 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:42:59,403 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:43:00,838 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 16:43:00,839 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 16:43:59,406 - trading - INFO - Signal Eval (XRPUSDT): Price=2.428800 | RSI(14)=69.54 (OB:70.0,OS:30.0) | EMA(20)=2.420759 [buy buffer: -2.00% → 2.372344 | sell buffer: +2.00% → 2.469174] | -> Decision: HOLD
+2025-05-18 16:44:59,410 - trading - INFO - Signal Eval (XRPUSDT): Price=2.429000 | RSI(14)=69.77 (OB:70.0,OS:30.0) | EMA(20)=2.421544 [buy buffer: -2.00% → 2.373113 | sell buffer: +2.00% → 2.469975] | -> Decision: HOLD
+2025-05-18 16:45:59,416 - trading - INFO - Signal Eval (XRPUSDT): Price=2.429600 | RSI(14)=70.47 (OB:70.0,OS:30.0) | EMA(20)=2.422311 [buy buffer: -2.00% → 2.373865 | sell buffer: +2.00% → 2.470757] | -> Decision: SELL
+2025-05-18 16:45:59,418 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:45:59,423 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:46:00,542 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 16:46:00,543 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 16:46:59,316 - trading - INFO - Signal Eval (XRPUSDT): Price=2.432600 | RSI(14)=73.74 (OB:70.0,OS:30.0) | EMA(20)=2.423291 [buy buffer: -2.00% → 2.374825 | sell buffer: +2.00% → 2.471757] | -> Decision: SELL
+2025-05-18 16:46:59,317 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:46:59,317 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:47:00,343 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 16:47:00,344 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 16:47:59,309 - trading - INFO - Signal Eval (XRPUSDT): Price=2.431600 | RSI(14)=70.92 (OB:70.0,OS:30.0) | EMA(20)=2.424082 [buy buffer: -2.00% → 2.375601 | sell buffer: +2.00% → 2.472564] | -> Decision: SELL
+2025-05-18 16:47:59,311 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:47:59,311 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:48:00,247 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 16:48:00,248 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 16:48:59,427 - trading - INFO - Signal Eval (XRPUSDT): Price=2.437600 | RSI(14)=76.68 (OB:70.0,OS:30.0) | EMA(20)=2.425370 [buy buffer: -2.00% → 2.376862 | sell buffer: +2.00% → 2.473877] | -> Decision: SELL
+2025-05-18 16:48:59,428 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:48:59,428 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:49:00,455 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 16:49:00,456 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 16:49:59,329 - trading - INFO - Signal Eval (XRPUSDT): Price=2.437100 | RSI(14)=75.34 (OB:70.0,OS:30.0) | EMA(20)=2.426487 [buy buffer: -2.00% → 2.377957 | sell buffer: +2.00% → 2.475017] | -> Decision: SELL
+2025-05-18 16:49:59,330 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:49:59,330 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:50:00,353 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 16:50:00,356 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 16:50:59,333 - trading - INFO - Signal Eval (XRPUSDT): Price=2.435400 | RSI(14)=70.81 (OB:70.0,OS:30.0) | EMA(20)=2.427336 [buy buffer: -2.00% → 2.378789 | sell buffer: +2.00% → 2.475882] | -> Decision: SELL
+2025-05-18 16:50:59,334 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:50:59,334 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:51:00,256 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 16:51:00,257 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 16:51:59,294 - trading - INFO - Signal Eval (XRPUSDT): Price=2.437500 | RSI(14)=72.97 (OB:70.0,OS:30.0) | EMA(20)=2.428304 [buy buffer: -2.00% → 2.379738 | sell buffer: +2.00% → 2.476870] | -> Decision: SELL
+2025-05-18 16:51:59,295 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:51:59,296 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:52:00,362 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 16:52:00,363 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 16:52:59,342 - trading - INFO - Signal Eval (XRPUSDT): Price=2.437100 | RSI(14)=71.88 (OB:70.0,OS:30.0) | EMA(20)=2.429141 [buy buffer: -2.00% → 2.380559 | sell buffer: +2.00% → 2.477724] | -> Decision: SELL
+2025-05-18 16:52:59,343 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:52:59,344 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 16:53:00,265 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 16:53:00,265 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 16:53:59,346 - trading - INFO - Signal Eval (XRPUSDT): Price=2.436000 | RSI(14)=68.83 (OB:70.0,OS:30.0) | EMA(20)=2.429795 [buy buffer: -2.00% → 2.381199 | sell buffer: +2.00% → 2.478391] | -> Decision: HOLD
+2025-05-18 16:54:59,351 - trading - INFO - Signal Eval (XRPUSDT): Price=2.433500 | RSI(14)=62.35 (OB:70.0,OS:30.0) | EMA(20)=2.430148 [buy buffer: -2.00% → 2.381545 | sell buffer: +2.00% → 2.478751] | -> Decision: HOLD
+2025-05-18 16:55:59,355 - trading - INFO - Signal Eval (XRPUSDT): Price=2.433100 | RSI(14)=61.36 (OB:70.0,OS:30.0) | EMA(20)=2.430429 [buy buffer: -2.00% → 2.381820 | sell buffer: +2.00% → 2.479037] | -> Decision: HOLD
+2025-05-18 16:56:59,359 - trading - INFO - Signal Eval (XRPUSDT): Price=2.430200 | RSI(14)=54.56 (OB:70.0,OS:30.0) | EMA(20)=2.430407 [buy buffer: -2.00% → 2.381799 | sell buffer: +2.00% → 2.479015] | -> Decision: HOLD
+2025-05-18 16:57:59,364 - trading - INFO - Signal Eval (XRPUSDT): Price=2.430600 | RSI(14)=55.30 (OB:70.0,OS:30.0) | EMA(20)=2.430425 [buy buffer: -2.00% → 2.381817 | sell buffer: +2.00% → 2.479034] | -> Decision: HOLD
+2025-05-18 16:58:59,284 - trading - INFO - Signal Eval (XRPUSDT): Price=2.428300 | RSI(14)=50.26 (OB:70.0,OS:30.0) | EMA(20)=2.430223 [buy buffer: -2.00% → 2.381618 | sell buffer: +2.00% → 2.478827] | -> Decision: HOLD
+2025-05-18 16:59:59,372 - trading - INFO - Signal Eval (XRPUSDT): Price=2.428200 | RSI(14)=50.05 (OB:70.0,OS:30.0) | EMA(20)=2.430030 [buy buffer: -2.00% → 2.381430 | sell buffer: +2.00% → 2.478631] | -> Decision: HOLD
+2025-05-18 17:00:59,277 - trading - INFO - Signal Eval (XRPUSDT): Price=2.425000 | RSI(14)=43.66 (OB:70.0,OS:30.0) | EMA(20)=2.429551 [buy buffer: -2.00% → 2.380960 | sell buffer: +2.00% → 2.478142] | -> Decision: HOLD
+2025-05-18 17:01:59,282 - trading - INFO - Signal Eval (XRPUSDT): Price=2.423800 | RSI(14)=41.52 (OB:70.0,OS:30.0) | EMA(20)=2.429003 [buy buffer: -2.00% → 2.380423 | sell buffer: +2.00% → 2.477584] | -> Decision: HOLD
+2025-05-18 17:02:59,281 - trading - INFO - Signal Eval (XRPUSDT): Price=2.422200 | RSI(14)=38.79 (OB:70.0,OS:30.0) | EMA(20)=2.428356 [buy buffer: -2.00% → 2.379788 | sell buffer: +2.00% → 2.476923] | -> Decision: HOLD
+2025-05-18 17:03:59,290 - trading - INFO - Signal Eval (XRPUSDT): Price=2.418600 | RSI(14)=33.46 (OB:70.0,OS:30.0) | EMA(20)=2.427426 [buy buffer: -2.00% → 2.378878 | sell buffer: +2.00% → 2.475975] | -> Decision: HOLD
+2025-05-18 17:04:59,290 - trading - INFO - Signal Eval (XRPUSDT): Price=2.420600 | RSI(14)=38.51 (OB:70.0,OS:30.0) | EMA(20)=2.426776 [buy buffer: -2.00% → 2.378241 | sell buffer: +2.00% → 2.475312] | -> Decision: HOLD
+2025-05-18 17:05:59,295 - trading - INFO - Signal Eval (XRPUSDT): Price=2.422100 | RSI(14)=42.07 (OB:70.0,OS:30.0) | EMA(20)=2.426331 [buy buffer: -2.00% → 2.377804 | sell buffer: +2.00% → 2.474858] | -> Decision: HOLD
+2025-05-18 17:06:59,299 - trading - INFO - Signal Eval (XRPUSDT): Price=2.418400 | RSI(14)=36.47 (OB:70.0,OS:30.0) | EMA(20)=2.425576 [buy buffer: -2.00% → 2.377064 | sell buffer: +2.00% → 2.474087] | -> Decision: HOLD
+2025-05-18 17:07:59,410 - trading - INFO - Signal Eval (XRPUSDT): Price=2.419100 | RSI(14)=38.14 (OB:70.0,OS:30.0) | EMA(20)=2.424959 [buy buffer: -2.00% → 2.376460 | sell buffer: +2.00% → 2.473458] | -> Decision: HOLD
+2025-05-18 17:08:59,308 - trading - INFO - Signal Eval (XRPUSDT): Price=2.420600 | RSI(14)=41.70 (OB:70.0,OS:30.0) | EMA(20)=2.424544 [buy buffer: -2.00% → 2.376053 | sell buffer: +2.00% → 2.473035] | -> Decision: HOLD
+2025-05-18 17:09:59,261 - trading - INFO - Signal Eval (XRPUSDT): Price=2.425400 | RSI(14)=51.33 (OB:70.0,OS:30.0) | EMA(20)=2.424625 [buy buffer: -2.00% → 2.376133 | sell buffer: +2.00% → 2.473118] | -> Decision: HOLD
+2025-05-18 17:10:59,316 - trading - INFO - Signal Eval (XRPUSDT): Price=2.425100 | RSI(14)=50.77 (OB:70.0,OS:30.0) | EMA(20)=2.424671 [buy buffer: -2.00% → 2.376177 | sell buffer: +2.00% → 2.473164] | -> Decision: HOLD
+2025-05-18 17:11:59,321 - trading - INFO - Signal Eval (XRPUSDT): Price=2.423900 | RSI(14)=48.47 (OB:70.0,OS:30.0) | EMA(20)=2.424597 [buy buffer: -2.00% → 2.376105 | sell buffer: +2.00% → 2.473089] | -> Decision: HOLD
+2025-05-18 17:12:59,326 - trading - INFO - Signal Eval (XRPUSDT): Price=2.423900 | RSI(14)=48.47 (OB:70.0,OS:30.0) | EMA(20)=2.424531 [buy buffer: -2.00% → 2.376040 | sell buffer: +2.00% → 2.473021] | -> Decision: HOLD
+2025-05-18 17:13:59,328 - trading - INFO - Signal Eval (XRPUSDT): Price=2.424400 | RSI(14)=49.57 (OB:70.0,OS:30.0) | EMA(20)=2.424518 [buy buffer: -2.00% → 2.376028 | sell buffer: +2.00% → 2.473009] | -> Decision: HOLD
+2025-05-18 17:14:59,333 - trading - INFO - Signal Eval (XRPUSDT): Price=2.425700 | RSI(14)=52.43 (OB:70.0,OS:30.0) | EMA(20)=2.424631 [buy buffer: -2.00% → 2.376138 | sell buffer: +2.00% → 2.473123] | -> Decision: HOLD
+2025-05-18 17:15:59,244 - trading - INFO - Signal Eval (XRPUSDT): Price=2.423800 | RSI(14)=48.14 (OB:70.0,OS:30.0) | EMA(20)=2.424552 [buy buffer: -2.00% → 2.376061 | sell buffer: +2.00% → 2.473043] | -> Decision: HOLD
+2025-05-18 17:16:59,342 - trading - INFO - Signal Eval (XRPUSDT): Price=2.431500 | RSI(14)=61.77 (OB:70.0,OS:30.0) | EMA(20)=2.425213 [buy buffer: -2.00% → 2.376709 | sell buffer: +2.00% → 2.473718] | -> Decision: HOLD
+2025-05-18 17:17:59,345 - trading - INFO - Signal Eval (XRPUSDT): Price=2.431700 | RSI(14)=62.05 (OB:70.0,OS:30.0) | EMA(20)=2.425831 [buy buffer: -2.00% → 2.377315 | sell buffer: +2.00% → 2.474348] | -> Decision: HOLD
+2025-05-18 17:18:59,350 - trading - INFO - Signal Eval (XRPUSDT): Price=2.431300 | RSI(14)=61.09 (OB:70.0,OS:30.0) | EMA(20)=2.426352 [buy buffer: -2.00% → 2.377825 | sell buffer: +2.00% → 2.474879] | -> Decision: HOLD
+2025-05-18 17:19:59,252 - trading - INFO - Signal Eval (XRPUSDT): Price=2.434600 | RSI(14)=65.79 (OB:70.0,OS:30.0) | EMA(20)=2.427138 [buy buffer: -2.00% → 2.378595 | sell buffer: +2.00% → 2.475680] | -> Decision: HOLD
+2025-05-18 17:20:59,244 - trading - INFO - Signal Eval (XRPUSDT): Price=2.435000 | RSI(14)=66.33 (OB:70.0,OS:30.0) | EMA(20)=2.427886 [buy buffer: -2.00% → 2.379329 | sell buffer: +2.00% → 2.476444] | -> Decision: HOLD
+2025-05-18 17:21:59,260 - trading - INFO - Signal Eval (XRPUSDT): Price=2.432900 | RSI(14)=60.97 (OB:70.0,OS:30.0) | EMA(20)=2.428364 [buy buffer: -2.00% → 2.379797 | sell buffer: +2.00% → 2.476931] | -> Decision: HOLD
+2025-05-18 17:22:59,273 - trading - INFO - Signal Eval (XRPUSDT): Price=2.433400 | RSI(14)=61.76 (OB:70.0,OS:30.0) | EMA(20)=2.428843 [buy buffer: -2.00% → 2.380267 | sell buffer: +2.00% → 2.477420] | -> Decision: HOLD
+2025-05-18 17:23:59,273 - trading - INFO - Signal Eval (XRPUSDT): Price=2.431400 | RSI(14)=56.80 (OB:70.0,OS:30.0) | EMA(20)=2.429087 [buy buffer: -2.00% → 2.380505 | sell buffer: +2.00% → 2.477669] | -> Decision: HOLD
+2025-05-18 17:24:59,273 - trading - INFO - Signal Eval (XRPUSDT): Price=2.428200 | RSI(14)=49.89 (OB:70.0,OS:30.0) | EMA(20)=2.429002 [buy buffer: -2.00% → 2.380422 | sell buffer: +2.00% → 2.477583] | -> Decision: HOLD
+2025-05-18 17:25:59,279 - trading - INFO - Signal Eval (XRPUSDT): Price=2.429800 | RSI(14)=52.97 (OB:70.0,OS:30.0) | EMA(20)=2.429078 [buy buffer: -2.00% → 2.380497 | sell buffer: +2.00% → 2.477660] | -> Decision: HOLD
+2025-05-18 17:26:59,230 - trading - INFO - Signal Eval (XRPUSDT): Price=2.430700 | RSI(14)=54.66 (OB:70.0,OS:30.0) | EMA(20)=2.429233 [buy buffer: -2.00% → 2.380648 | sell buffer: +2.00% → 2.477818] | -> Decision: HOLD
+2025-05-18 17:27:59,305 - trading - INFO - Signal Eval (XRPUSDT): Price=2.430200 | RSI(14)=53.51 (OB:70.0,OS:30.0) | EMA(20)=2.429325 [buy buffer: -2.00% → 2.380738 | sell buffer: +2.00% → 2.477911] | -> Decision: HOLD
+2025-05-18 17:28:59,292 - trading - INFO - Signal Eval (XRPUSDT): Price=2.430600 | RSI(14)=54.34 (OB:70.0,OS:30.0) | EMA(20)=2.429446 [buy buffer: -2.00% → 2.380857 | sell buffer: +2.00% → 2.478035] | -> Decision: HOLD
+2025-05-18 17:29:59,296 - trading - INFO - Signal Eval (XRPUSDT): Price=2.429500 | RSI(14)=51.62 (OB:70.0,OS:30.0) | EMA(20)=2.429452 [buy buffer: -2.00% → 2.380862 | sell buffer: +2.00% → 2.478041] | -> Decision: HOLD
+2025-05-18 17:30:59,212 - trading - INFO - Signal Eval (XRPUSDT): Price=2.428800 | RSI(14)=49.91 (OB:70.0,OS:30.0) | EMA(20)=2.429389 [buy buffer: -2.00% → 2.380802 | sell buffer: +2.00% → 2.477977] | -> Decision: HOLD
+2025-05-18 17:31:59,303 - trading - INFO - Signal Eval (XRPUSDT): Price=2.427100 | RSI(14)=45.92 (OB:70.0,OS:30.0) | EMA(20)=2.429171 [buy buffer: -2.00% → 2.380588 | sell buffer: +2.00% → 2.477755] | -> Decision: HOLD
+2025-05-18 17:32:59,218 - trading - INFO - Signal Eval (XRPUSDT): Price=2.427000 | RSI(14)=45.69 (OB:70.0,OS:30.0) | EMA(20)=2.428965 [buy buffer: -2.00% → 2.380385 | sell buffer: +2.00% → 2.477544] | -> Decision: HOLD
+2025-05-18 17:33:59,312 - trading - INFO - Signal Eval (XRPUSDT): Price=2.426400 | RSI(14)=44.25 (OB:70.0,OS:30.0) | EMA(20)=2.428720 [buy buffer: -2.00% → 2.380146 | sell buffer: +2.00% → 2.477295] | -> Decision: HOLD
+2025-05-18 17:34:59,254 - trading - INFO - Signal Eval (XRPUSDT): Price=2.431000 | RSI(14)=55.75 (OB:70.0,OS:30.0) | EMA(20)=2.428937 [buy buffer: -2.00% → 2.380359 | sell buffer: +2.00% → 2.477516] | -> Decision: HOLD
+2025-05-18 17:35:59,218 - trading - INFO - Signal Eval (XRPUSDT): Price=2.430100 | RSI(14)=53.43 (OB:70.0,OS:30.0) | EMA(20)=2.429048 [buy buffer: -2.00% → 2.380467 | sell buffer: +2.00% → 2.477629] | -> Decision: HOLD
+2025-05-18 17:36:59,198 - trading - INFO - Signal Eval (XRPUSDT): Price=2.432000 | RSI(14)=57.46 (OB:70.0,OS:30.0) | EMA(20)=2.429329 [buy buffer: -2.00% → 2.380743 | sell buffer: +2.00% → 2.477916] | -> Decision: HOLD
+2025-05-18 17:37:59,195 - trading - INFO - Signal Eval (XRPUSDT): Price=2.431800 | RSI(14)=56.90 (OB:70.0,OS:30.0) | EMA(20)=2.429565 [buy buffer: -2.00% → 2.380973 | sell buffer: +2.00% → 2.478156] | -> Decision: HOLD
+2025-05-18 17:38:59,188 - trading - INFO - Signal Eval (XRPUSDT): Price=2.432000 | RSI(14)=57.35 (OB:70.0,OS:30.0) | EMA(20)=2.429797 [buy buffer: -2.00% → 2.381201 | sell buffer: +2.00% → 2.478392] | -> Decision: HOLD
+2025-05-18 17:39:59,197 - trading - INFO - Signal Eval (XRPUSDT): Price=2.433000 | RSI(14)=59.60 (OB:70.0,OS:30.0) | EMA(20)=2.430102 [buy buffer: -2.00% → 2.381500 | sell buffer: +2.00% → 2.478704] | -> Decision: HOLD
+2025-05-18 17:40:59,188 - trading - INFO - Signal Eval (XRPUSDT): Price=2.431400 | RSI(14)=54.63 (OB:70.0,OS:30.0) | EMA(20)=2.430225 [buy buffer: -2.00% → 2.381621 | sell buffer: +2.00% → 2.478830] | -> Decision: HOLD
+2025-05-18 17:41:59,191 - trading - INFO - Signal Eval (XRPUSDT): Price=2.431900 | RSI(14)=55.87 (OB:70.0,OS:30.0) | EMA(20)=2.430385 [buy buffer: -2.00% → 2.381777 | sell buffer: +2.00% → 2.478992] | -> Decision: HOLD
+2025-05-18 17:42:59,177 - trading - INFO - Signal Eval (XRPUSDT): Price=2.433400 | RSI(14)=59.45 (OB:70.0,OS:30.0) | EMA(20)=2.430672 [buy buffer: -2.00% → 2.382059 | sell buffer: +2.00% → 2.479285] | -> Decision: HOLD
+2025-05-18 17:43:59,176 - trading - INFO - Signal Eval (XRPUSDT): Price=2.435500 | RSI(14)=63.86 (OB:70.0,OS:30.0) | EMA(20)=2.431132 [buy buffer: -2.00% → 2.382509 | sell buffer: +2.00% → 2.479754] | -> Decision: HOLD
+2025-05-18 17:44:59,215 - trading - INFO - Signal Eval (XRPUSDT): Price=2.437100 | RSI(14)=66.82 (OB:70.0,OS:30.0) | EMA(20)=2.431700 [buy buffer: -2.00% → 2.383066 | sell buffer: +2.00% → 2.480334] | -> Decision: HOLD
+2025-05-18 17:45:59,172 - trading - INFO - Signal Eval (XRPUSDT): Price=2.439300 | RSI(14)=70.42 (OB:70.0,OS:30.0) | EMA(20)=2.432424 [buy buffer: -2.00% → 2.383775 | sell buffer: +2.00% → 2.481072] | -> Decision: SELL
+2025-05-18 17:45:59,179 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 17:45:59,180 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 17:46:00,140 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 17:46:00,142 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 17:46:59,172 - trading - INFO - Signal Eval (XRPUSDT): Price=2.434900 | RSI(14)=57.10 (OB:70.0,OS:30.0) | EMA(20)=2.432660 [buy buffer: -2.00% → 2.384007 | sell buffer: +2.00% → 2.481313] | -> Decision: HOLD
+2025-05-18 17:47:59,178 - trading - INFO - Signal Eval (XRPUSDT): Price=2.437300 | RSI(14)=61.39 (OB:70.0,OS:30.0) | EMA(20)=2.433102 [buy buffer: -2.00% → 2.384440 | sell buffer: +2.00% → 2.481764] | -> Decision: HOLD
+2025-05-18 17:48:59,169 - trading - INFO - Signal Eval (XRPUSDT): Price=2.439700 | RSI(14)=65.14 (OB:70.0,OS:30.0) | EMA(20)=2.433730 [buy buffer: -2.00% → 2.385056 | sell buffer: +2.00% → 2.482405] | -> Decision: HOLD
+2025-05-18 17:49:59,169 - trading - INFO - Signal Eval (XRPUSDT): Price=2.439400 | RSI(14)=64.30 (OB:70.0,OS:30.0) | EMA(20)=2.434270 [buy buffer: -2.00% → 2.385585 | sell buffer: +2.00% → 2.482956] | -> Decision: HOLD
+2025-05-18 17:50:59,160 - trading - INFO - Signal Eval (XRPUSDT): Price=2.444000 | RSI(14)=70.58 (OB:70.0,OS:30.0) | EMA(20)=2.435197 [buy buffer: -2.00% → 2.386493 | sell buffer: +2.00% → 2.483901] | -> Decision: SELL
+2025-05-18 17:50:59,160 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 17:50:59,160 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-18 17:50:59,950 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.09500000, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 17:50:59,950 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-18 17:51:59,161 - trading - INFO - Signal Eval (XRPUSDT): Price=2.442200 | RSI(14)=65.71 (OB:70.0,OS:30.0) | EMA(20)=2.435864 [buy buffer: -2.00% → 2.387146 | sell buffer: +2.00% → 2.484581] | -> Decision: HOLD
+2025-05-18 17:52:59,156 - trading - INFO - Signal Eval (XRPUSDT): Price=2.442000 | RSI(14)=65.17 (OB:70.0,OS:30.0) | EMA(20)=2.436448 [buy buffer: -2.00% → 2.387719 | sell buffer: +2.00% → 2.485177] | -> Decision: HOLD
+2025-05-18 17:53:59,158 - trading - INFO - Signal Eval (XRPUSDT): Price=2.439200 | RSI(14)=58.01 (OB:70.0,OS:30.0) | EMA(20)=2.436710 [buy buffer: -2.00% → 2.387976 | sell buffer: +2.00% → 2.485444] | -> Decision: HOLD
+2025-05-18 17:54:59,151 - trading - INFO - Signal Eval (XRPUSDT): Price=2.439400 | RSI(14)=58.36 (OB:70.0,OS:30.0) | EMA(20)=2.436966 [buy buffer: -2.00% → 2.388227 | sell buffer: +2.00% → 2.485706] | -> Decision: HOLD
+2025-05-18 17:55:59,156 - trading - INFO - Signal Eval (XRPUSDT): Price=2.437900 | RSI(14)=54.66 (OB:70.0,OS:30.0) | EMA(20)=2.437055 [buy buffer: -2.00% → 2.388314 | sell buffer: +2.00% → 2.485796] | -> Decision: HOLD
+2025-05-18 17:56:59,147 - trading - INFO - Signal Eval (XRPUSDT): Price=2.434400 | RSI(14)=47.15 (OB:70.0,OS:30.0) | EMA(20)=2.436802 [buy buffer: -2.00% → 2.388066 | sell buffer: +2.00% → 2.485538] | -> Decision: HOLD
+2025-05-18 17:57:59,150 - trading - INFO - Signal Eval (XRPUSDT): Price=2.434600 | RSI(14)=47.60 (OB:70.0,OS:30.0) | EMA(20)=2.436593 [buy buffer: -2.00% → 2.387861 | sell buffer: +2.00% → 2.485325] | -> Decision: HOLD
+2025-05-18 17:58:59,140 - trading - INFO - Signal Eval (XRPUSDT): Price=2.437100 | RSI(14)=52.91 (OB:70.0,OS:30.0) | EMA(20)=2.436641 [buy buffer: -2.00% → 2.387908 | sell buffer: +2.00% → 2.485374] | -> Decision: HOLD
+2025-05-18 17:59:59,173 - trading - INFO - Signal Eval (XRPUSDT): Price=2.437800 | RSI(14)=54.31 (OB:70.0,OS:30.0) | EMA(20)=2.436751 [buy buffer: -2.00% → 2.388016 | sell buffer: +2.00% → 2.485486] | -> Decision: HOLD
+2025-05-18 18:00:59,136 - trading - INFO - Signal Eval (XRPUSDT): Price=2.441500 | RSI(14)=60.91 (OB:70.0,OS:30.0) | EMA(20)=2.437204 [buy buffer: -2.00% → 2.388460 | sell buffer: +2.00% → 2.485948] | -> Decision: HOLD
+2025-05-18 18:01:59,133 - trading - INFO - Signal Eval (XRPUSDT): Price=2.441300 | RSI(14)=60.40 (OB:70.0,OS:30.0) | EMA(20)=2.437594 [buy buffer: -2.00% → 2.388842 | sell buffer: +2.00% → 2.486346] | -> Decision: HOLD
+2025-05-18 18:02:59,139 - trading - INFO - Signal Eval (XRPUSDT): Price=2.435500 | RSI(14)=47.92 (OB:70.0,OS:30.0) | EMA(20)=2.437394 [buy buffer: -2.00% → 2.388646 | sell buffer: +2.00% → 2.486142] | -> Decision: HOLD
+2025-05-18 18:03:59,129 - trading - INFO - Signal Eval (XRPUSDT): Price=2.436100 | RSI(14)=49.09 (OB:70.0,OS:30.0) | EMA(20)=2.437271 [buy buffer: -2.00% → 2.388526 | sell buffer: +2.00% → 2.486016] | -> Decision: HOLD
+2025-05-18 18:04:59,125 - trading - INFO - Signal Eval (XRPUSDT): Price=2.433500 | RSI(14)=44.42 (OB:70.0,OS:30.0) | EMA(20)=2.436912 [buy buffer: -2.00% → 2.388174 | sell buffer: +2.00% → 2.485650] | -> Decision: HOLD
+2025-05-18 18:05:59,125 - trading - INFO - Signal Eval (XRPUSDT): Price=2.434100 | RSI(14)=45.71 (OB:70.0,OS:30.0) | EMA(20)=2.436644 [buy buffer: -2.00% → 2.387911 | sell buffer: +2.00% → 2.485377] | -> Decision: HOLD
+2025-05-18 18:06:59,129 - trading - INFO - Signal Eval (XRPUSDT): Price=2.434600 | RSI(14)=46.81 (OB:70.0,OS:30.0) | EMA(20)=2.436449 [buy buffer: -2.00% → 2.387720 | sell buffer: +2.00% → 2.485178] | -> Decision: HOLD
+2025-05-18 18:07:59,120 - trading - INFO - Signal Eval (XRPUSDT): Price=2.436000 | RSI(14)=49.88 (OB:70.0,OS:30.0) | EMA(20)=2.436407 [buy buffer: -2.00% → 2.387679 | sell buffer: +2.00% → 2.485135] | -> Decision: HOLD
+2025-05-18 18:08:59,154 - trading - INFO - Signal Eval (XRPUSDT): Price=2.438600 | RSI(14)=55.06 (OB:70.0,OS:30.0) | EMA(20)=2.436616 [buy buffer: -2.00% → 2.387883 | sell buffer: +2.00% → 2.485348] | -> Decision: HOLD
+2025-05-18 18:09:59,117 - trading - INFO - Signal Eval (XRPUSDT): Price=2.443800 | RSI(14)=63.24 (OB:70.0,OS:30.0) | EMA(20)=2.437300 [buy buffer: -2.00% → 2.388554 | sell buffer: +2.00% → 2.486046] | -> Decision: HOLD
+2025-05-18 18:10:59,111 - trading - INFO - Signal Eval (XRPUSDT): Price=2.446200 | RSI(14)=66.29 (OB:70.0,OS:30.0) | EMA(20)=2.438147 [buy buffer: -2.00% → 2.389384 | sell buffer: +2.00% → 2.486910] | -> Decision: HOLD
+2025-05-18 18:11:59,124 - trading - INFO - Signal Eval (XRPUSDT): Price=2.445100 | RSI(14)=63.68 (OB:70.0,OS:30.0) | EMA(20)=2.438810 [buy buffer: -2.00% → 2.390033 | sell buffer: +2.00% → 2.487586] | -> Decision: HOLD
+2025-05-18 18:12:59,109 - trading - INFO - Signal Eval (XRPUSDT): Price=2.443000 | RSI(14)=58.92 (OB:70.0,OS:30.0) | EMA(20)=2.439209 [buy buffer: -2.00% → 2.390424 | sell buffer: +2.00% → 2.487993] | -> Decision: HOLD
+2025-05-18 18:13:59,105 - trading - INFO - Signal Eval (XRPUSDT): Price=2.441200 | RSI(14)=55.11 (OB:70.0,OS:30.0) | EMA(20)=2.439398 [buy buffer: -2.00% → 2.390610 | sell buffer: +2.00% → 2.488186] | -> Decision: HOLD
+2025-05-18 18:14:59,114 - trading - INFO - Signal Eval (XRPUSDT): Price=2.439000 | RSI(14)=50.79 (OB:70.0,OS:30.0) | EMA(20)=2.439360 [buy buffer: -2.00% → 2.390573 | sell buffer: +2.00% → 2.488148] | -> Decision: HOLD
+2025-05-18 18:15:59,103 - trading - INFO - Signal Eval (XRPUSDT): Price=2.437700 | RSI(14)=48.37 (OB:70.0,OS:30.0) | EMA(20)=2.439202 [buy buffer: -2.00% → 2.390418 | sell buffer: +2.00% → 2.487986] | -> Decision: HOLD
+2025-05-18 18:16:59,102 - trading - INFO - Signal Eval (XRPUSDT): Price=2.436900 | RSI(14)=46.90 (OB:70.0,OS:30.0) | EMA(20)=2.438983 [buy buffer: -2.00% → 2.390203 | sell buffer: +2.00% → 2.487763] | -> Decision: HOLD
+2025-05-18 18:17:59,100 - trading - INFO - Signal Eval (XRPUSDT): Price=2.435800 | RSI(14)=44.87 (OB:70.0,OS:30.0) | EMA(20)=2.438680 [buy buffer: -2.00% → 2.389906 | sell buffer: +2.00% → 2.487453] | -> Decision: HOLD
+2025-05-18 18:18:59,100 - trading - INFO - Signal Eval (XRPUSDT): Price=2.437400 | RSI(14)=48.37 (OB:70.0,OS:30.0) | EMA(20)=2.438558 [buy buffer: -2.00% → 2.389787 | sell buffer: +2.00% → 2.487329] | -> Decision: HOLD
+2025-05-18 18:19:59,112 - trading - INFO - Signal Eval (XRPUSDT): Price=2.437000 | RSI(14)=47.55 (OB:70.0,OS:30.0) | EMA(20)=2.438410 [buy buffer: -2.00% → 2.389641 | sell buffer: +2.00% → 2.487178] | -> Decision: HOLD
+2025-05-18 18:20:59,098 - trading - INFO - Signal Eval (XRPUSDT): Price=2.439700 | RSI(14)=53.26 (OB:70.0,OS:30.0) | EMA(20)=2.438532 [buy buffer: -2.00% → 2.389762 | sell buffer: +2.00% → 2.487303] | -> Decision: HOLD
+2025-05-18 18:21:59,090 - trading - INFO - Signal Eval (XRPUSDT): Price=2.440900 | RSI(14)=55.58 (OB:70.0,OS:30.0) | EMA(20)=2.438758 [buy buffer: -2.00% → 2.389983 | sell buffer: +2.00% → 2.487533] | -> Decision: HOLD
+2025-05-18 18:22:59,084 - trading - INFO - Signal Eval (XRPUSDT): Price=2.431700 | RSI(14)=39.45 (OB:70.0,OS:30.0) | EMA(20)=2.438086 [buy buffer: -2.00% → 2.389324 | sell buffer: +2.00% → 2.486847] | -> Decision: HOLD
+2025-05-18 18:23:59,086 - trading - INFO - Signal Eval (XRPUSDT): Price=2.427700 | RSI(14)=34.73 (OB:70.0,OS:30.0) | EMA(20)=2.437097 [buy buffer: -2.00% → 2.388355 | sell buffer: +2.00% → 2.485839] | -> Decision: HOLD
+2025-05-18 18:24:59,083 - trading - INFO - Signal Eval (XRPUSDT): Price=2.430700 | RSI(14)=40.48 (OB:70.0,OS:30.0) | EMA(20)=2.436487 [buy buffer: -2.00% → 2.387758 | sell buffer: +2.00% → 2.485217] | -> Decision: HOLD
+2025-05-18 18:25:59,079 - trading - INFO - Signal Eval (XRPUSDT): Price=2.434100 | RSI(14)=46.26 (OB:70.0,OS:30.0) | EMA(20)=2.436260 [buy buffer: -2.00% → 2.387535 | sell buffer: +2.00% → 2.484985] | -> Decision: HOLD
+2025-05-18 18:26:59,088 - trading - INFO - Signal Eval (XRPUSDT): Price=2.435000 | RSI(14)=47.71 (OB:70.0,OS:30.0) | EMA(20)=2.436140 [buy buffer: -2.00% → 2.387417 | sell buffer: +2.00% → 2.484863] | -> Decision: HOLD
+2025-05-18 18:27:59,079 - trading - INFO - Signal Eval (XRPUSDT): Price=2.435300 | RSI(14)=48.21 (OB:70.0,OS:30.0) | EMA(20)=2.436060 [buy buffer: -2.00% → 2.387339 | sell buffer: +2.00% → 2.484781] | -> Decision: HOLD
+2025-05-18 18:28:59,073 - trading - INFO - Signal Eval (XRPUSDT): Price=2.434500 | RSI(14)=46.92 (OB:70.0,OS:30.0) | EMA(20)=2.435911 [buy buffer: -2.00% → 2.387193 | sell buffer: +2.00% → 2.484630] | -> Decision: HOLD
+2025-05-18 18:29:59,095 - trading - INFO - Signal Eval (XRPUSDT): Price=2.439800 | RSI(14)=55.43 (OB:70.0,OS:30.0) | EMA(20)=2.436282 [buy buffer: -2.00% → 2.387556 | sell buffer: +2.00% → 2.485007] | -> Decision: HOLD
+2025-05-18 18:30:59,065 - trading - INFO - Signal Eval (XRPUSDT): Price=2.442400 | RSI(14)=58.91 (OB:70.0,OS:30.0) | EMA(20)=2.436864 [buy buffer: -2.00% → 2.388127 | sell buffer: +2.00% → 2.485602] | -> Decision: HOLD
+2025-05-18 18:31:59,063 - trading - INFO - Signal Eval (XRPUSDT): Price=2.436900 | RSI(14)=50.01 (OB:70.0,OS:30.0) | EMA(20)=2.436868 [buy buffer: -2.00% → 2.388131 | sell buffer: +2.00% → 2.485605] | -> Decision: HOLD
+2025-05-18 18:32:59,071 - trading - INFO - Signal Eval (XRPUSDT): Price=2.436800 | RSI(14)=49.86 (OB:70.0,OS:30.0) | EMA(20)=2.436861 [buy buffer: -2.00% → 2.388124 | sell buffer: +2.00% → 2.485599] | -> Decision: HOLD
+2025-05-18 18:33:59,069 - trading - INFO - Signal Eval (XRPUSDT): Price=2.436100 | RSI(14)=48.78 (OB:70.0,OS:30.0) | EMA(20)=2.436789 [buy buffer: -2.00% → 2.388053 | sell buffer: +2.00% → 2.485525] | -> Decision: HOLD
+2025-05-18 18:34:59,057 - trading - INFO - Signal Eval (XRPUSDT): Price=2.437500 | RSI(14)=51.07 (OB:70.0,OS:30.0) | EMA(20)=2.436857 [buy buffer: -2.00% → 2.388119 | sell buffer: +2.00% → 2.485594] | -> Decision: HOLD
+2025-05-18 18:35:59,059 - trading - INFO - Signal Eval (XRPUSDT): Price=2.436000 | RSI(14)=48.56 (OB:70.0,OS:30.0) | EMA(20)=2.436775 [buy buffer: -2.00% → 2.388040 | sell buffer: +2.00% → 2.485511] | -> Decision: HOLD
+2025-05-18 18:36:59,056 - trading - INFO - Signal Eval (XRPUSDT): Price=2.435900 | RSI(14)=48.39 (OB:70.0,OS:30.0) | EMA(20)=2.436692 [buy buffer: -2.00% → 2.387958 | sell buffer: +2.00% → 2.485426] | -> Decision: HOLD
+2025-05-18 18:37:59,054 - trading - INFO - Signal Eval (XRPUSDT): Price=2.434200 | RSI(14)=45.47 (OB:70.0,OS:30.0) | EMA(20)=2.436454 [buy buffer: -2.00% → 2.387725 | sell buffer: +2.00% → 2.485183] | -> Decision: HOLD
+2025-05-18 18:38:59,050 - trading - INFO - Signal Eval (XRPUSDT): Price=2.435600 | RSI(14)=48.24 (OB:70.0,OS:30.0) | EMA(20)=2.436373 [buy buffer: -2.00% → 2.387646 | sell buffer: +2.00% → 2.485100] | -> Decision: HOLD
+2025-05-18 18:39:59,057 - trading - INFO - Signal Eval (XRPUSDT): Price=2.437500 | RSI(14)=51.82 (OB:70.0,OS:30.0) | EMA(20)=2.436480 [buy buffer: -2.00% → 2.387751 | sell buffer: +2.00% → 2.485210] | -> Decision: HOLD
+2025-05-18 18:40:59,043 - trading - INFO - Signal Eval (XRPUSDT): Price=2.435300 | RSI(14)=47.71 (OB:70.0,OS:30.0) | EMA(20)=2.436368 [buy buffer: -2.00% → 2.387641 | sell buffer: +2.00% → 2.485095] | -> Decision: HOLD
+2025-05-18 18:41:59,045 - trading - INFO - Signal Eval (XRPUSDT): Price=2.437300 | RSI(14)=51.48 (OB:70.0,OS:30.0) | EMA(20)=2.436457 [buy buffer: -2.00% → 2.387728 | sell buffer: +2.00% → 2.485186] | -> Decision: HOLD
+2025-05-18 18:42:59,040 - trading - INFO - Signal Eval (XRPUSDT): Price=2.439700 | RSI(14)=55.62 (OB:70.0,OS:30.0) | EMA(20)=2.436766 [buy buffer: -2.00% → 2.388030 | sell buffer: +2.00% → 2.485501] | -> Decision: HOLD
+2025-05-18 18:43:59,040 - trading - INFO - Signal Eval (XRPUSDT): Price=2.438000 | RSI(14)=52.22 (OB:70.0,OS:30.0) | EMA(20)=2.436883 [buy buffer: -2.00% → 2.388145 | sell buffer: +2.00% → 2.485621] | -> Decision: HOLD
+2025-05-18 18:44:59,043 - trading - INFO - Signal Eval (XRPUSDT): Price=2.437900 | RSI(14)=52.02 (OB:70.0,OS:30.0) | EMA(20)=2.436980 [buy buffer: -2.00% → 2.388240 | sell buffer: +2.00% → 2.485720] | -> Decision: HOLD
+2025-05-18 18:45:59,030 - trading - INFO - Signal Eval (XRPUSDT): Price=2.435500 | RSI(14)=47.31 (OB:70.0,OS:30.0) | EMA(20)=2.436839 [buy buffer: -2.00% → 2.388102 | sell buffer: +2.00% → 2.485576] | -> Decision: HOLD
+2025-05-18 18:46:59,033 - trading - INFO - Signal Eval (XRPUSDT): Price=2.438200 | RSI(14)=52.52 (OB:70.0,OS:30.0) | EMA(20)=2.436969 [buy buffer: -2.00% → 2.388229 | sell buffer: +2.00% → 2.485708] | -> Decision: HOLD
+2025-05-18 18:47:59,029 - trading - INFO - Signal Eval (XRPUSDT): Price=2.440400 | RSI(14)=56.31 (OB:70.0,OS:30.0) | EMA(20)=2.437295 [buy buffer: -2.00% → 2.388550 | sell buffer: +2.00% → 2.486041] | -> Decision: HOLD
+2025-05-18 18:48:59,051 - trading - INFO - Signal Eval (XRPUSDT): Price=2.441100 | RSI(14)=57.47 (OB:70.0,OS:30.0) | EMA(20)=2.437658 [buy buffer: -2.00% → 2.388905 | sell buffer: +2.00% → 2.486411] | -> Decision: HOLD
+2025-05-18 18:49:59,035 - trading - INFO - Signal Eval (XRPUSDT): Price=2.433200 | RSI(14)=43.42 (OB:70.0,OS:30.0) | EMA(20)=2.437233 [buy buffer: -2.00% → 2.388489 | sell buffer: +2.00% → 2.485978] | -> Decision: HOLD
+2025-05-18 18:50:59,019 - trading - INFO - Signal Eval (XRPUSDT): Price=2.434000 | RSI(14)=44.89 (OB:70.0,OS:30.0) | EMA(20)=2.436925 [buy buffer: -2.00% → 2.388187 | sell buffer: +2.00% → 2.485664] | -> Decision: HOLD
+2025-05-18 18:51:59,023 - trading - INFO - Signal Eval (XRPUSDT): Price=2.432900 | RSI(14)=43.23 (OB:70.0,OS:30.0) | EMA(20)=2.436542 [buy buffer: -2.00% → 2.387811 | sell buffer: +2.00% → 2.485273] | -> Decision: HOLD
+2025-05-18 18:52:59,043 - trading - INFO - Signal Eval (XRPUSDT): Price=2.431400 | RSI(14)=41.00 (OB:70.0,OS:30.0) | EMA(20)=2.436052 [buy buffer: -2.00% → 2.387331 | sell buffer: +2.00% → 2.484773] | -> Decision: HOLD
+2025-05-18 18:53:59,022 - trading - INFO - Signal Eval (XRPUSDT): Price=2.432900 | RSI(14)=44.10 (OB:70.0,OS:30.0) | EMA(20)=2.435752 [buy buffer: -2.00% → 2.387037 | sell buffer: +2.00% → 2.484467] | -> Decision: HOLD
+2025-05-18 18:54:59,021 - trading - INFO - Signal Eval (XRPUSDT): Price=2.433500 | RSI(14)=45.34 (OB:70.0,OS:30.0) | EMA(20)=2.435538 [buy buffer: -2.00% → 2.386827 | sell buffer: +2.00% → 2.484248] | -> Decision: HOLD
+2025-05-18 18:55:59,010 - trading - INFO - Signal Eval (XRPUSDT): Price=2.436300 | RSI(14)=50.82 (OB:70.0,OS:30.0) | EMA(20)=2.435610 [buy buffer: -2.00% → 2.386898 | sell buffer: +2.00% → 2.484322] | -> Decision: HOLD
+2025-05-18 18:56:59,031 - trading - INFO - Signal Eval (XRPUSDT): Price=2.437000 | RSI(14)=52.11 (OB:70.0,OS:30.0) | EMA(20)=2.435743 [buy buffer: -2.00% → 2.387028 | sell buffer: +2.00% → 2.484457] | -> Decision: HOLD
+2025-05-18 18:57:59,010 - trading - INFO - Signal Eval (XRPUSDT): Price=2.440600 | RSI(14)=58.20 (OB:70.0,OS:30.0) | EMA(20)=2.436205 [buy buffer: -2.00% → 2.387481 | sell buffer: +2.00% → 2.484929] | -> Decision: HOLD
+2025-05-18 18:58:59,001 - trading - INFO - Signal Eval (XRPUSDT): Price=2.440300 | RSI(14)=57.54 (OB:70.0,OS:30.0) | EMA(20)=2.436595 [buy buffer: -2.00% → 2.387863 | sell buffer: +2.00% → 2.485327] | -> Decision: HOLD
+2025-05-18 18:59:59,032 - trading - INFO - Signal Eval (XRPUSDT): Price=2.437000 | RSI(14)=50.76 (OB:70.0,OS:30.0) | EMA(20)=2.436634 [buy buffer: -2.00% → 2.387901 | sell buffer: +2.00% → 2.485366] | -> Decision: HOLD
+2025-05-18 19:00:59,003 - trading - INFO - Signal Eval (XRPUSDT): Price=2.433300 | RSI(14)=44.44 (OB:70.0,OS:30.0) | EMA(20)=2.436316 [buy buffer: -2.00% → 2.387590 | sell buffer: +2.00% → 2.485043] | -> Decision: HOLD
+2025-05-18 19:01:59,002 - trading - INFO - Signal Eval (XRPUSDT): Price=2.431100 | RSI(14)=41.16 (OB:70.0,OS:30.0) | EMA(20)=2.435819 [buy buffer: -2.00% → 2.387103 | sell buffer: +2.00% → 2.484536] | -> Decision: HOLD
+2025-05-18 19:02:58,996 - trading - INFO - Signal Eval (XRPUSDT): Price=2.431200 | RSI(14)=41.37 (OB:70.0,OS:30.0) | EMA(20)=2.435379 [buy buffer: -2.00% → 2.386672 | sell buffer: +2.00% → 2.484087] | -> Decision: HOLD
+2025-05-18 19:03:58,995 - trading - INFO - Signal Eval (XRPUSDT): Price=2.430300 | RSI(14)=39.97 (OB:70.0,OS:30.0) | EMA(20)=2.434896 [buy buffer: -2.00% → 2.386198 | sell buffer: +2.00% → 2.483594] | -> Decision: HOLD
+2025-05-18 19:04:59,011 - trading - INFO - Signal Eval (XRPUSDT): Price=2.430500 | RSI(14)=40.45 (OB:70.0,OS:30.0) | EMA(20)=2.434477 [buy buffer: -2.00% → 2.385788 | sell buffer: +2.00% → 2.483167] | -> Decision: HOLD
+2025-05-18 19:05:58,991 - trading - INFO - Signal Eval (XRPUSDT): Price=2.431300 | RSI(14)=42.44 (OB:70.0,OS:30.0) | EMA(20)=2.434174 [buy buffer: -2.00% → 2.385491 | sell buffer: +2.00% → 2.482858] | -> Decision: HOLD
+2025-05-18 19:06:58,985 - trading - INFO - Signal Eval (XRPUSDT): Price=2.430900 | RSI(14)=41.69 (OB:70.0,OS:30.0) | EMA(20)=2.433863 [buy buffer: -2.00% → 2.385185 | sell buffer: +2.00% → 2.482540] | -> Decision: HOLD
+2025-05-18 19:07:58,981 - trading - INFO - Signal Eval (XRPUSDT): Price=2.433000 | RSI(14)=46.98 (OB:70.0,OS:30.0) | EMA(20)=2.433780 [buy buffer: -2.00% → 2.385105 | sell buffer: +2.00% → 2.482456] | -> Decision: HOLD
+2025-05-18 19:08:58,988 - trading - INFO - Signal Eval (XRPUSDT): Price=2.431400 | RSI(14)=43.73 (OB:70.0,OS:30.0) | EMA(20)=2.433554 [buy buffer: -2.00% → 2.384883 | sell buffer: +2.00% → 2.482225] | -> Decision: HOLD
+2025-05-18 19:09:58,977 - trading - INFO - Signal Eval (XRPUSDT): Price=2.431000 | RSI(14)=42.93 (OB:70.0,OS:30.0) | EMA(20)=2.433311 [buy buffer: -2.00% → 2.384644 | sell buffer: +2.00% → 2.481977] | -> Decision: HOLD
+2025-05-18 19:10:58,976 - trading - INFO - Signal Eval (XRPUSDT): Price=2.428700 | RSI(14)=38.55 (OB:70.0,OS:30.0) | EMA(20)=2.432871 [buy buffer: -2.00% → 2.384214 | sell buffer: +2.00% → 2.481529] | -> Decision: HOLD
+2025-05-18 19:11:58,981 - trading - INFO - Signal Eval (XRPUSDT): Price=2.427400 | RSI(14)=36.30 (OB:70.0,OS:30.0) | EMA(20)=2.432350 [buy buffer: -2.00% → 2.383703 | sell buffer: +2.00% → 2.480997] | -> Decision: HOLD
+2025-05-18 19:12:58,978 - trading - INFO - Signal Eval (XRPUSDT): Price=2.429200 | RSI(14)=41.40 (OB:70.0,OS:30.0) | EMA(20)=2.432050 [buy buffer: -2.00% → 2.383409 | sell buffer: +2.00% → 2.480691] | -> Decision: HOLD
+2025-05-18 19:13:59,008 - trading - INFO - Signal Eval (XRPUSDT): Price=2.430200 | RSI(14)=44.08 (OB:70.0,OS:30.0) | EMA(20)=2.431874 [buy buffer: -2.00% → 2.383237 | sell buffer: +2.00% → 2.480512] | -> Decision: HOLD
+2025-05-18 19:14:58,984 - trading - INFO - Signal Eval (XRPUSDT): Price=2.430700 | RSI(14)=45.43 (OB:70.0,OS:30.0) | EMA(20)=2.431762 [buy buffer: -2.00% → 2.383127 | sell buffer: +2.00% → 2.480398] | -> Decision: HOLD
+2025-05-18 19:15:58,963 - trading - INFO - Signal Eval (XRPUSDT): Price=2.429000 | RSI(14)=41.75 (OB:70.0,OS:30.0) | EMA(20)=2.431499 [buy buffer: -2.00% → 2.382869 | sell buffer: +2.00% → 2.480129] | -> Decision: HOLD
+2025-05-18 19:16:58,962 - trading - INFO - Signal Eval (XRPUSDT): Price=2.428300 | RSI(14)=40.31 (OB:70.0,OS:30.0) | EMA(20)=2.431195 [buy buffer: -2.00% → 2.382571 | sell buffer: +2.00% → 2.479818] | -> Decision: HOLD
+2025-05-18 19:17:58,972 - trading - INFO - Signal Eval (XRPUSDT): Price=2.425000 | RSI(14)=34.28 (OB:70.0,OS:30.0) | EMA(20)=2.430605 [buy buffer: -2.00% → 2.381992 | sell buffer: +2.00% → 2.479217] | -> Decision: HOLD
+2025-05-18 19:18:58,967 - trading - INFO - Signal Eval (XRPUSDT): Price=2.423700 | RSI(14)=32.24 (OB:70.0,OS:30.0) | EMA(20)=2.429947 [buy buffer: -2.00% → 2.381348 | sell buffer: +2.00% → 2.478546] | -> Decision: HOLD
+2025-05-18 19:19:58,970 - trading - INFO - Signal Eval (XRPUSDT): Price=2.425500 | RSI(14)=37.77 (OB:70.0,OS:30.0) | EMA(20)=2.429523 [buy buffer: -2.00% → 2.380933 | sell buffer: +2.00% → 2.478114] | -> Decision: HOLD
+2025-05-18 19:20:58,957 - trading - INFO - Signal Eval (XRPUSDT): Price=2.423700 | RSI(14)=34.72 (OB:70.0,OS:30.0) | EMA(20)=2.428969 [buy buffer: -2.00% → 2.380389 | sell buffer: +2.00% → 2.477548] | -> Decision: HOLD
+2025-05-18 19:21:58,953 - trading - INFO - Signal Eval (XRPUSDT): Price=2.422900 | RSI(14)=33.43 (OB:70.0,OS:30.0) | EMA(20)=2.428391 [buy buffer: -2.00% → 2.379823 | sell buffer: +2.00% → 2.476959] | -> Decision: HOLD
+2025-05-18 19:22:58,959 - trading - INFO - Signal Eval (XRPUSDT): Price=2.423400 | RSI(14)=35.05 (OB:70.0,OS:30.0) | EMA(20)=2.427916 [buy buffer: -2.00% → 2.379357 | sell buffer: +2.00% → 2.476474] | -> Decision: HOLD
+2025-05-18 19:23:58,944 - trading - INFO - Signal Eval (XRPUSDT): Price=2.422400 | RSI(14)=33.30 (OB:70.0,OS:30.0) | EMA(20)=2.427390 [buy buffer: -2.00% → 2.378842 | sell buffer: +2.00% → 2.475938] | -> Decision: HOLD
+2025-05-18 19:24:58,962 - trading - INFO - Signal Eval (XRPUSDT): Price=2.423300 | RSI(14)=36.39 (OB:70.0,OS:30.0) | EMA(20)=2.427001 [buy buffer: -2.00% → 2.378461 | sell buffer: +2.00% → 2.475541] | -> Decision: HOLD
+2025-05-18 19:25:58,947 - trading - INFO - Signal Eval (XRPUSDT): Price=2.424500 | RSI(14)=40.35 (OB:70.0,OS:30.0) | EMA(20)=2.426763 [buy buffer: -2.00% → 2.378227 | sell buffer: +2.00% → 2.475298] | -> Decision: HOLD
+2025-05-18 19:26:58,936 - trading - INFO - Signal Eval (XRPUSDT): Price=2.419700 | RSI(14)=31.81 (OB:70.0,OS:30.0) | EMA(20)=2.426090 [buy buffer: -2.00% → 2.377568 | sell buffer: +2.00% → 2.474612] | -> Decision: HOLD
+2025-05-18 19:27:58,934 - trading - INFO - Signal Eval (XRPUSDT): Price=2.414600 | RSI(14)=25.61 (OB:70.0,OS:30.0) | EMA(20)=2.424996 [buy buffer: -2.00% → 2.376496 | sell buffer: +2.00% → 2.473496] | -> Decision: BUY
+2025-05-18 19:27:58,939 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 19:27:58,940 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 19:28:00,302 - trading - INFO - Order Execution (XRPUSDT): Расчет покупки: Баланс USDT=7.54078363, Цена=2.41520000, Сумма для траты (USDT)=7.50307971, Расчетное кол-во=3.10660803, Округленное кол-во=3.10000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-18 19:28:00,303 - trading - INFO - Order Execution (XRPUSDT): Отправка MARKET BUY ордера на 3.1 XRP.
+2025-05-18 19:28:00,785 - trading - INFO - Order Execution (XRPUSDT): Ответ на ордер BUY: {'symbol': 'XRPUSDT', 'orderId': 10718675273, 'orderListId': -1, 'clientOrderId': 'IHoNkhbHOspe6IIwOJ9Lnu', 'transactTime': 1747589281864, 'price': '0.00000000', 'origQty': '3.10000000', 'executedQty': '3.10000000', 'origQuoteOrderQty': '0.00000000', 'cummulativeQuoteQty': '7.48743000', 'status': 'FILLED', 'timeInForce': 'GTC', 'type': 'MARKET', 'side': 'BUY', 'workingTime': 1747589281864, 'fills': [{'price': '2.41530000', 'qty': '3.10000000', 'commission': '0.00310000', 'commissionAsset': 'XRP', 'tradeId': 1153795215}], 'selfTradePreventionMode': 'EXPIRE_MAKER'}
+2025-05-18 19:28:00,798 - trading - INFO - Profit Check (XRPUSDT): Цена последней покупки 2.41530000 сохранена в 'data/last_buy_price_XRPUSDT.json'.
+2025-05-18 19:28:00,798 - trading - INFO - ✅ ПОКУПКА (XRPUSDT): 3.10000000 XRP @ ~2.41530000 USDT. Потрачено: 7.48743000 USDT. Комиссия: 0.00310000 XRP.
+2025-05-18 19:28:01,078 - trading - WARNING - save_last_buy_price: позиция по XRPUSDT уже существует. Повторная покупка отменена.
+2025-05-18 19:29:06,252 - trading - ERROR - Order Execution: Баланс не получен для  XRPUSDT после 3 попыток, возвращаю 0.
+2025-05-18 19:29:06,253 - trading - INFO - Файл позиции удалён для XRPUSDT (позиция закрыта)
+2025-05-18 19:29:06,254 - trading - INFO - Signal Eval (XRPUSDT): Price=2.414800 | RSI(14)=26.22 (OB:70.0,OS:30.0) | EMA(20)=2.424025 [buy buffer: -2.00% → 2.375544 | sell buffer: +2.00% → 2.472505] | -> Decision: BUY
+2025-05-18 19:29:06,255 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 19:29:06,255 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 19:29:07,312 - trading - WARNING - Order Execution (XRPUSDT): Сумма для покупки 0.05335363 USDT меньше минимально допустимой по профилю/настройкам (5.00 USDT). Покупка отменена.
+2025-05-18 19:29:58,969 - trading - INFO - Signal Eval (XRPUSDT): Price=2.419200 | RSI(14)=38.18 (OB:70.0,OS:30.0) | EMA(20)=2.423565 [buy buffer: -2.00% → 2.375094 | sell buffer: +2.00% → 2.472036] | -> Decision: HOLD
+2025-05-18 19:30:58,935 - trading - INFO - Signal Eval (XRPUSDT): Price=2.419800 | RSI(14)=39.61 (OB:70.0,OS:30.0) | EMA(20)=2.423207 [buy buffer: -2.00% → 2.374742 | sell buffer: +2.00% → 2.471671] | -> Decision: HOLD
+2025-05-18 19:31:58,934 - trading - INFO - Signal Eval (XRPUSDT): Price=2.420400 | RSI(14)=41.09 (OB:70.0,OS:30.0) | EMA(20)=2.422939 [buy buffer: -2.00% → 2.374480 | sell buffer: +2.00% → 2.471398] | -> Decision: HOLD
+2025-05-18 19:32:58,932 - trading - INFO - Signal Eval (XRPUSDT): Price=2.419000 | RSI(14)=38.71 (OB:70.0,OS:30.0) | EMA(20)=2.422564 [buy buffer: -2.00% → 2.374113 | sell buffer: +2.00% → 2.471015] | -> Decision: HOLD
+2025-05-18 19:33:58,935 - trading - INFO - Signal Eval (XRPUSDT): Price=2.420200 | RSI(14)=41.82 (OB:70.0,OS:30.0) | EMA(20)=2.422339 [buy buffer: -2.00% → 2.373892 | sell buffer: +2.00% → 2.470786] | -> Decision: HOLD
+2025-05-18 19:34:58,932 - trading - INFO - Signal Eval (XRPUSDT): Price=2.416700 | RSI(14)=36.08 (OB:70.0,OS:30.0) | EMA(20)=2.421802 [buy buffer: -2.00% → 2.373366 | sell buffer: +2.00% → 2.470238] | -> Decision: HOLD
+2025-05-18 19:35:58,956 - trading - INFO - Signal Eval (XRPUSDT): Price=2.413700 | RSI(14)=32.02 (OB:70.0,OS:30.0) | EMA(20)=2.421030 [buy buffer: -2.00% → 2.372610 | sell buffer: +2.00% → 2.469451] | -> Decision: HOLD
+2025-05-18 19:36:58,911 - trading - INFO - Signal Eval (XRPUSDT): Price=2.412500 | RSI(14)=30.54 (OB:70.0,OS:30.0) | EMA(20)=2.420218 [buy buffer: -2.00% → 2.371814 | sell buffer: +2.00% → 2.468622] | -> Decision: HOLD
+2025-05-18 19:37:58,924 - trading - INFO - Signal Eval (XRPUSDT): Price=2.411800 | RSI(14)=29.68 (OB:70.0,OS:30.0) | EMA(20)=2.419416 [buy buffer: -2.00% → 2.371028 | sell buffer: +2.00% → 2.467805] | -> Decision: BUY
+2025-05-18 19:37:58,924 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 19:37:58,924 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 19:37:59,982 - trading - WARNING - Order Execution (XRPUSDT): Сумма для покупки 0.05335363 USDT меньше минимально допустимой по профилю/настройкам (5.00 USDT). Покупка отменена.
+2025-05-18 19:38:58,908 - trading - INFO - Signal Eval (XRPUSDT): Price=2.411000 | RSI(14)=28.68 (OB:70.0,OS:30.0) | EMA(20)=2.418615 [buy buffer: -2.00% → 2.370242 | sell buffer: +2.00% → 2.466987] | -> Decision: BUY
+2025-05-18 19:38:58,909 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 19:38:58,909 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 19:38:59,952 - trading - WARNING - Order Execution (XRPUSDT): Сумма для покупки 0.05335363 USDT меньше минимально допустимой по профилю/настройкам (5.00 USDT). Покупка отменена.
+2025-05-18 19:39:58,906 - trading - INFO - Signal Eval (XRPUSDT): Price=2.411700 | RSI(14)=30.87 (OB:70.0,OS:30.0) | EMA(20)=2.417956 [buy buffer: -2.00% → 2.369597 | sell buffer: +2.00% → 2.466315] | -> Decision: HOLD
+2025-05-18 19:40:58,906 - trading - INFO - Signal Eval (XRPUSDT): Price=2.419800 | RSI(14)=49.98 (OB:70.0,OS:30.0) | EMA(20)=2.418132 [buy buffer: -2.00% → 2.369769 | sell buffer: +2.00% → 2.466494] | -> Decision: HOLD
+2025-05-18 19:41:58,920 - trading - INFO - Signal Eval (XRPUSDT): Price=2.417100 | RSI(14)=45.46 (OB:70.0,OS:30.0) | EMA(20)=2.418033 [buy buffer: -2.00% → 2.369673 | sell buffer: +2.00% → 2.466394] | -> Decision: HOLD
+2025-05-18 19:42:58,896 - trading - INFO - Signal Eval (XRPUSDT): Price=2.417100 | RSI(14)=45.46 (OB:70.0,OS:30.0) | EMA(20)=2.417945 [buy buffer: -2.00% → 2.369586 | sell buffer: +2.00% → 2.466303] | -> Decision: HOLD
+2025-05-18 19:43:58,905 - trading - INFO - Signal Eval (XRPUSDT): Price=2.416400 | RSI(14)=44.26 (OB:70.0,OS:30.0) | EMA(20)=2.417797 [buy buffer: -2.00% → 2.369442 | sell buffer: +2.00% → 2.466153] | -> Decision: HOLD
+2025-05-18 19:44:58,907 - trading - INFO - Signal Eval (XRPUSDT): Price=2.417700 | RSI(14)=47.06 (OB:70.0,OS:30.0) | EMA(20)=2.417788 [buy buffer: -2.00% → 2.369432 | sell buffer: +2.00% → 2.466144] | -> Decision: HOLD
+2025-05-18 19:45:58,903 - trading - INFO - Signal Eval (XRPUSDT): Price=2.416600 | RSI(14)=45.00 (OB:70.0,OS:30.0) | EMA(20)=2.417675 [buy buffer: -2.00% → 2.369322 | sell buffer: +2.00% → 2.466029] | -> Decision: HOLD
+2025-05-18 19:46:58,919 - trading - INFO - Signal Eval (XRPUSDT): Price=2.413400 | RSI(14)=39.58 (OB:70.0,OS:30.0) | EMA(20)=2.417268 [buy buffer: -2.00% → 2.368923 | sell buffer: +2.00% → 2.465613] | -> Decision: HOLD
+2025-05-18 19:47:58,903 - trading - INFO - Signal Eval (XRPUSDT): Price=2.412700 | RSI(14)=38.49 (OB:70.0,OS:30.0) | EMA(20)=2.416833 [buy buffer: -2.00% → 2.368496 | sell buffer: +2.00% → 2.465169] | -> Decision: HOLD
+2025-05-18 19:48:58,902 - trading - INFO - Signal Eval (XRPUSDT): Price=2.411900 | RSI(14)=37.22 (OB:70.0,OS:30.0) | EMA(20)=2.416363 [buy buffer: -2.00% → 2.368036 | sell buffer: +2.00% → 2.464690] | -> Decision: HOLD
+2025-05-18 19:50:00,148 - trading - INFO - Signal Eval (XRPUSDT): Price=2.409200 | RSI(14)=33.25 (OB:70.0,OS:30.0) | EMA(20)=2.415681 [buy buffer: -2.00% → 2.367367 | sell buffer: +2.00% → 2.463994] | -> Decision: HOLD
+2025-05-18 19:51:00,148 - trading - INFO - Signal Eval (XRPUSDT): Price=2.408100 | RSI(14)=31.76 (OB:70.0,OS:30.0) | EMA(20)=2.414959 [buy buffer: -2.00% → 2.366660 | sell buffer: +2.00% → 2.463258] | -> Decision: HOLD
+2025-05-18 19:52:00,148 - trading - INFO - Signal Eval (XRPUSDT): Price=2.406300 | RSI(14)=29.44 (OB:70.0,OS:30.0) | EMA(20)=2.414134 [buy buffer: -2.00% → 2.365852 | sell buffer: +2.00% → 2.462417] | -> Decision: BUY
+2025-05-18 19:52:00,149 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 19:52:00,149 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 19:52:01,216 - trading - WARNING - Order Execution (XRPUSDT): Сумма для покупки 0.05335363 USDT меньше минимально допустимой по профилю/настройкам (5.00 USDT). Покупка отменена.
+2025-05-18 19:53:00,143 - trading - INFO - Signal Eval (XRPUSDT): Price=2.404100 | RSI(14)=26.86 (OB:70.0,OS:30.0) | EMA(20)=2.413179 [buy buffer: -2.00% → 2.364915 | sell buffer: +2.00% → 2.461442] | -> Decision: BUY
+2025-05-18 19:53:00,144 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 19:53:00,144 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 19:53:01,171 - trading - WARNING - Order Execution (XRPUSDT): Сумма для покупки 0.05335363 USDT меньше минимально допустимой по профилю/настройкам (5.00 USDT). Покупка отменена.
+2025-05-18 19:54:00,141 - trading - INFO - Signal Eval (XRPUSDT): Price=2.404000 | RSI(14)=26.75 (OB:70.0,OS:30.0) | EMA(20)=2.412304 [buy buffer: -2.00% → 2.364058 | sell buffer: +2.00% → 2.460551] | -> Decision: BUY
+2025-05-18 19:54:00,142 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 19:54:00,142 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 19:54:01,139 - trading - WARNING - Order Execution (XRPUSDT): Сумма для покупки 0.05335363 USDT меньше минимально допустимой по профилю/настройкам (5.00 USDT). Покупка отменена.
+2025-05-18 19:55:00,151 - trading - INFO - Signal Eval (XRPUSDT): Price=2.402400 | RSI(14)=24.91 (OB:70.0,OS:30.0) | EMA(20)=2.411361 [buy buffer: -2.00% → 2.363134 | sell buffer: +2.00% → 2.459588] | -> Decision: BUY
+2025-05-18 19:55:00,152 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 19:55:00,152 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 19:55:01,157 - trading - WARNING - Order Execution (XRPUSDT): Сумма для покупки 0.05335363 USDT меньше минимально допустимой по профилю/настройкам (5.00 USDT). Покупка отменена.
+2025-05-18 19:56:00,143 - trading - INFO - Signal Eval (XRPUSDT): Price=2.405500 | RSI(14)=34.31 (OB:70.0,OS:30.0) | EMA(20)=2.410803 [buy buffer: -2.00% → 2.362587 | sell buffer: +2.00% → 2.459019] | -> Decision: HOLD
+2025-05-18 19:57:00,138 - trading - INFO - Signal Eval (XRPUSDT): Price=2.407700 | RSI(14)=40.05 (OB:70.0,OS:30.0) | EMA(20)=2.410507 [buy buffer: -2.00% → 2.362297 | sell buffer: +2.00% → 2.458718] | -> Decision: HOLD
+2025-05-18 19:58:00,149 - trading - INFO - Signal Eval (XRPUSDT): Price=2.406100 | RSI(14)=37.49 (OB:70.0,OS:30.0) | EMA(20)=2.410088 [buy buffer: -2.00% → 2.361886 | sell buffer: +2.00% → 2.458289] | -> Decision: HOLD
+2025-05-18 19:59:00,126 - trading - INFO - Signal Eval (XRPUSDT): Price=2.397300 | RSI(14)=27.18 (OB:70.0,OS:30.0) | EMA(20)=2.408870 [buy buffer: -2.00% → 2.360692 | sell buffer: +2.00% → 2.457047] | -> Decision: BUY
+2025-05-18 19:59:00,127 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 19:59:00,127 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 19:59:01,135 - trading - WARNING - Order Execution (XRPUSDT): Сумма для покупки 0.05335363 USDT меньше минимально допустимой по профилю/настройкам (5.00 USDT). Покупка отменена.
+2025-05-18 20:00:00,157 - trading - INFO - Signal Eval (XRPUSDT): Price=2.397200 | RSI(14)=27.09 (OB:70.0,OS:30.0) | EMA(20)=2.407758 [buy buffer: -2.00% → 2.359603 | sell buffer: +2.00% → 2.455914] | -> Decision: BUY
+2025-05-18 20:00:00,158 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 20:00:00,158 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 20:00:01,318 - trading - WARNING - Order Execution (XRPUSDT): Сумма для покупки 0.05335363 USDT меньше минимально допустимой по профилю/настройкам (5.00 USDT). Покупка отменена.
+2025-05-18 20:01:00,121 - trading - INFO - Signal Eval (XRPUSDT): Price=2.392400 | RSI(14)=23.09 (OB:70.0,OS:30.0) | EMA(20)=2.406296 [buy buffer: -2.00% → 2.358170 | sell buffer: +2.00% → 2.454422] | -> Decision: BUY
+2025-05-18 20:01:00,121 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 20:01:00,121 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 20:01:01,333 - trading - WARNING - Order Execution (XRPUSDT): Сумма для покупки 0.05335363 USDT меньше минимально допустимой по профилю/настройкам (5.00 USDT). Покупка отменена.
+2025-05-18 20:02:00,130 - trading - INFO - Signal Eval (XRPUSDT): Price=2.382000 | RSI(14)=17.17 (OB:70.0,OS:30.0) | EMA(20)=2.403982 [buy buffer: -2.00% → 2.355902 | sell buffer: +2.00% → 2.452061] | -> Decision: BUY
+2025-05-18 20:02:00,131 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 20:02:00,131 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 20:02:01,157 - trading - WARNING - Order Execution (XRPUSDT): Сумма для покупки 0.05335363 USDT меньше минимально допустимой по профилю/настройкам (5.00 USDT). Покупка отменена.
+2025-05-18 20:03:00,120 - trading - INFO - Signal Eval (XRPUSDT): Price=2.385500 | RSI(14)=24.21 (OB:70.0,OS:30.0) | EMA(20)=2.402222 [buy buffer: -2.00% → 2.354177 | sell buffer: +2.00% → 2.450266] | -> Decision: BUY
+2025-05-18 20:03:00,120 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 20:03:00,120 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 20:03:01,128 - trading - WARNING - Order Execution (XRPUSDT): Сумма для покупки 0.05335363 USDT меньше минимально допустимой по профилю/настройкам (5.00 USDT). Покупка отменена.
+2025-05-18 20:04:00,116 - trading - INFO - Signal Eval (XRPUSDT): Price=2.385700 | RSI(14)=24.60 (OB:70.0,OS:30.0) | EMA(20)=2.400648 [buy buffer: -2.00% → 2.352635 | sell buffer: +2.00% → 2.448661] | -> Decision: BUY
+2025-05-18 20:04:00,116 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 20:04:00,116 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 20:04:01,134 - trading - WARNING - Order Execution (XRPUSDT): Сумма для покупки 0.05335363 USDT меньше минимально допустимой по профилю/настройкам (5.00 USDT). Покупка отменена.
+2025-05-18 20:05:00,116 - trading - INFO - Signal Eval (XRPUSDT): Price=2.379100 | RSI(14)=20.76 (OB:70.0,OS:30.0) | EMA(20)=2.398596 [buy buffer: -2.00% → 2.350624 | sell buffer: +2.00% → 2.446568] | -> Decision: BUY
+2025-05-18 20:05:00,116 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 20:05:00,116 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 20:05:01,131 - trading - WARNING - Order Execution (XRPUSDT): Сумма для покупки 0.05335363 USDT меньше минимально допустимой по профилю/настройкам (5.00 USDT). Покупка отменена.
+2025-05-18 20:06:00,112 - trading - INFO - Signal Eval (XRPUSDT): Price=2.378700 | RSI(14)=20.55 (OB:70.0,OS:30.0) | EMA(20)=2.396701 [buy buffer: -2.00% → 2.348767 | sell buffer: +2.00% → 2.444635] | -> Decision: BUY
+2025-05-18 20:06:00,113 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 20:06:00,113 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 20:06:01,114 - trading - WARNING - Order Execution (XRPUSDT): Сумма для покупки 0.05335363 USDT меньше минимально допустимой по профилю/настройкам (5.00 USDT). Покупка отменена.
+2025-05-18 20:07:00,203 - trading - INFO - Signal Eval (XRPUSDT): Price=2.381000 | RSI(14)=25.22 (OB:70.0,OS:30.0) | EMA(20)=2.395206 [buy buffer: -2.00% → 2.347302 | sell buffer: +2.00% → 2.443110] | -> Decision: BUY
+2025-05-18 20:07:00,204 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 20:07:00,205 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 20:07:01,513 - trading - WARNING - Order Execution (XRPUSDT): Сумма для покупки 0.05335363 USDT меньше минимально допустимой по профилю/настройкам (5.00 USDT). Покупка отменена.
+2025-05-18 20:08:00,186 - trading - INFO - Signal Eval (XRPUSDT): Price=2.379500 | RSI(14)=24.22 (OB:70.0,OS:30.0) | EMA(20)=2.393710 [buy buffer: -2.00% → 2.345836 | sell buffer: +2.00% → 2.441584] | -> Decision: BUY
+2025-05-18 20:08:00,187 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 20:08:00,187 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 20:08:01,523 - trading - WARNING - Order Execution (XRPUSDT): Сумма для покупки 0.05335363 USDT меньше минимально допустимой по профилю/настройкам (5.00 USDT). Покупка отменена.
+2025-05-18 20:09:00,190 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373400 | RSI(14)=20.64 (OB:70.0,OS:30.0) | EMA(20)=2.391776 [buy buffer: -2.00% → 2.343940 | sell buffer: +2.00% → 2.439611] | -> Decision: BUY
+2025-05-18 20:09:00,192 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 20:09:00,192 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 20:09:01,486 - trading - WARNING - Order Execution (XRPUSDT): Сумма для покупки 0.05335363 USDT меньше минимально допустимой по профилю/настройкам (5.00 USDT). Покупка отменена.
+2025-05-18 20:10:00,215 - trading - INFO - Signal Eval (XRPUSDT): Price=2.375900 | RSI(14)=25.50 (OB:70.0,OS:30.0) | EMA(20)=2.390264 [buy buffer: -2.00% → 2.342458 | sell buffer: +2.00% → 2.438069] | -> Decision: BUY
+2025-05-18 20:10:00,216 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 20:10:00,217 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 20:10:01,730 - trading - WARNING - Order Execution (XRPUSDT): Сумма для покупки 0.05335363 USDT меньше минимально допустимой по профилю/настройкам (5.00 USDT). Покупка отменена.
+2025-05-18 20:11:00,204 - trading - INFO - Signal Eval (XRPUSDT): Price=2.378500 | RSI(14)=30.29 (OB:70.0,OS:30.0) | EMA(20)=2.389143 [buy buffer: -2.00% → 2.341360 | sell buffer: +2.00% → 2.436926] | -> Decision: HOLD
+2025-05-18 20:12:00,101 - trading - INFO - Signal Eval (XRPUSDT): Price=2.380900 | RSI(14)=34.47 (OB:70.0,OS:30.0) | EMA(20)=2.388358 [buy buffer: -2.00% → 2.340591 | sell buffer: +2.00% → 2.436125] | -> Decision: HOLD
+2025-05-18 20:13:00,094 - trading - INFO - Signal Eval (XRPUSDT): Price=2.380900 | RSI(14)=34.47 (OB:70.0,OS:30.0) | EMA(20)=2.387648 [buy buffer: -2.00% → 2.339895 | sell buffer: +2.00% → 2.435401] | -> Decision: HOLD
+2025-05-18 20:14:00,091 - trading - INFO - Signal Eval (XRPUSDT): Price=2.376800 | RSI(14)=30.81 (OB:70.0,OS:30.0) | EMA(20)=2.386615 [buy buffer: -2.00% → 2.338883 | sell buffer: +2.00% → 2.434347] | -> Decision: HOLD
+2025-05-18 20:15:00,106 - trading - INFO - Signal Eval (XRPUSDT): Price=2.380400 | RSI(14)=37.13 (OB:70.0,OS:30.0) | EMA(20)=2.386023 [buy buffer: -2.00% → 2.338302 | sell buffer: +2.00% → 2.433743] | -> Decision: HOLD
+2025-05-18 20:16:00,085 - trading - INFO - Signal Eval (XRPUSDT): Price=2.376200 | RSI(14)=33.31 (OB:70.0,OS:30.0) | EMA(20)=2.385087 [buy buffer: -2.00% → 2.337386 | sell buffer: +2.00% → 2.432789] | -> Decision: HOLD
+2025-05-18 20:17:00,086 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367400 | RSI(14)=27.03 (OB:70.0,OS:30.0) | EMA(20)=2.383403 [buy buffer: -2.00% → 2.335735 | sell buffer: +2.00% → 2.431071] | -> Decision: BUY
+2025-05-18 20:17:00,086 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 20:17:00,086 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 20:17:01,233 - trading - WARNING - Order Execution (XRPUSDT): Сумма для покупки 0.05335363 USDT меньше минимально допустимой по профилю/настройкам (5.00 USDT). Покупка отменена.
+2025-05-18 20:18:00,089 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367500 | RSI(14)=27.20 (OB:70.0,OS:30.0) | EMA(20)=2.381888 [buy buffer: -2.00% → 2.334251 | sell buffer: +2.00% → 2.429526] | -> Decision: BUY
+2025-05-18 20:18:00,089 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 20:18:00,089 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 20:18:01,409 - trading - WARNING - Order Execution (XRPUSDT): Сумма для покупки 0.05335363 USDT меньше минимально допустимой по профилю/настройкам (5.00 USDT). Покупка отменена.
+2025-05-18 20:19:00,080 - trading - INFO - Signal Eval (XRPUSDT): Price=2.369400 | RSI(14)=30.47 (OB:70.0,OS:30.0) | EMA(20)=2.380699 [buy buffer: -2.00% → 2.333085 | sell buffer: +2.00% → 2.428313] | -> Decision: HOLD
+2025-05-18 20:20:00,116 - trading - INFO - Signal Eval (XRPUSDT): Price=2.368900 | RSI(14)=30.09 (OB:70.0,OS:30.0) | EMA(20)=2.379575 [buy buffer: -2.00% → 2.331984 | sell buffer: +2.00% → 2.427167] | -> Decision: HOLD
+2025-05-18 20:21:00,078 - trading - INFO - Signal Eval (XRPUSDT): Price=2.376600 | RSI(14)=42.16 (OB:70.0,OS:30.0) | EMA(20)=2.379292 [buy buffer: -2.00% → 2.331706 | sell buffer: +2.00% → 2.426878] | -> Decision: HOLD
+2025-05-18 20:22:00,087 - trading - INFO - Signal Eval (XRPUSDT): Price=2.375300 | RSI(14)=40.88 (OB:70.0,OS:30.0) | EMA(20)=2.378912 [buy buffer: -2.00% → 2.331333 | sell buffer: +2.00% → 2.426490] | -> Decision: HOLD
+2025-05-18 20:23:00,071 - trading - INFO - Signal Eval (XRPUSDT): Price=2.384000 | RSI(14)=51.51 (OB:70.0,OS:30.0) | EMA(20)=2.379396 [buy buffer: -2.00% → 2.331808 | sell buffer: +2.00% → 2.426984] | -> Decision: HOLD
+2025-05-18 20:24:00,074 - trading - INFO - Signal Eval (XRPUSDT): Price=2.384000 | RSI(14)=51.51 (OB:70.0,OS:30.0) | EMA(20)=2.379835 [buy buffer: -2.00% → 2.332238 | sell buffer: +2.00% → 2.427431] | -> Decision: HOLD
+2025-05-18 20:25:00,069 - trading - INFO - Signal Eval (XRPUSDT): Price=2.384100 | RSI(14)=51.63 (OB:70.0,OS:30.0) | EMA(20)=2.380241 [buy buffer: -2.00% → 2.332636 | sell buffer: +2.00% → 2.427846] | -> Decision: HOLD
+2025-05-18 20:26:00,062 - trading - INFO - Signal Eval (XRPUSDT): Price=2.382300 | RSI(14)=49.34 (OB:70.0,OS:30.0) | EMA(20)=2.380437 [buy buffer: -2.00% → 2.332828 | sell buffer: +2.00% → 2.428046] | -> Decision: HOLD
+2025-05-18 20:27:00,100 - trading - INFO - Signal Eval (XRPUSDT): Price=2.383800 | RSI(14)=51.28 (OB:70.0,OS:30.0) | EMA(20)=2.380757 [buy buffer: -2.00% → 2.333142 | sell buffer: +2.00% → 2.428373] | -> Decision: HOLD
+2025-05-18 20:28:00,061 - trading - INFO - Signal Eval (XRPUSDT): Price=2.386500 | RSI(14)=54.64 (OB:70.0,OS:30.0) | EMA(20)=2.381304 [buy buffer: -2.00% → 2.333678 | sell buffer: +2.00% → 2.428930] | -> Decision: HOLD
+2025-05-18 20:29:00,057 - trading - INFO - Signal Eval (XRPUSDT): Price=2.391800 | RSI(14)=60.42 (OB:70.0,OS:30.0) | EMA(20)=2.382304 [buy buffer: -2.00% → 2.334658 | sell buffer: +2.00% → 2.429950] | -> Decision: HOLD
+2025-05-18 20:30:00,090 - trading - INFO - Signal Eval (XRPUSDT): Price=2.392300 | RSI(14)=60.92 (OB:70.0,OS:30.0) | EMA(20)=2.383256 [buy buffer: -2.00% → 2.335591 | sell buffer: +2.00% → 2.430921] | -> Decision: HOLD
+2025-05-18 20:31:00,065 - trading - INFO - Signal Eval (XRPUSDT): Price=2.390200 | RSI(14)=57.60 (OB:70.0,OS:30.0) | EMA(20)=2.383917 [buy buffer: -2.00% → 2.336239 | sell buffer: +2.00% → 2.431596] | -> Decision: HOLD
+2025-05-18 20:32:00,059 - trading - INFO - Signal Eval (XRPUSDT): Price=2.388100 | RSI(14)=54.40 (OB:70.0,OS:30.0) | EMA(20)=2.384316 [buy buffer: -2.00% → 2.336629 | sell buffer: +2.00% → 2.432002] | -> Decision: HOLD
+2025-05-18 20:33:00,056 - trading - INFO - Signal Eval (XRPUSDT): Price=2.389900 | RSI(14)=56.62 (OB:70.0,OS:30.0) | EMA(20)=2.384847 [buy buffer: -2.00% → 2.337150 | sell buffer: +2.00% → 2.432544] | -> Decision: HOLD
+2025-05-18 20:34:00,046 - trading - INFO - Signal Eval (XRPUSDT): Price=2.392500 | RSI(14)=59.68 (OB:70.0,OS:30.0) | EMA(20)=2.385576 [buy buffer: -2.00% → 2.337865 | sell buffer: +2.00% → 2.433288] | -> Decision: HOLD
+2025-05-18 20:35:00,052 - trading - INFO - Signal Eval (XRPUSDT): Price=2.387400 | RSI(14)=51.94 (OB:70.0,OS:30.0) | EMA(20)=2.385750 [buy buffer: -2.00% → 2.338035 | sell buffer: +2.00% → 2.433465] | -> Decision: HOLD
+2025-05-18 20:36:00,041 - trading - INFO - Signal Eval (XRPUSDT): Price=2.388200 | RSI(14)=52.97 (OB:70.0,OS:30.0) | EMA(20)=2.385983 [buy buffer: -2.00% → 2.338264 | sell buffer: +2.00% → 2.433703] | -> Decision: HOLD
+2025-05-18 20:37:00,050 - trading - INFO - Signal Eval (XRPUSDT): Price=2.387200 | RSI(14)=51.49 (OB:70.0,OS:30.0) | EMA(20)=2.386099 [buy buffer: -2.00% → 2.338377 | sell buffer: +2.00% → 2.433821] | -> Decision: HOLD
+2025-05-18 20:38:00,043 - trading - INFO - Signal Eval (XRPUSDT): Price=2.388200 | RSI(14)=52.91 (OB:70.0,OS:30.0) | EMA(20)=2.386299 [buy buffer: -2.00% → 2.338573 | sell buffer: +2.00% → 2.434025] | -> Decision: HOLD
+2025-05-18 20:39:00,033 - trading - INFO - Signal Eval (XRPUSDT): Price=2.387100 | RSI(14)=51.13 (OB:70.0,OS:30.0) | EMA(20)=2.386376 [buy buffer: -2.00% → 2.338648 | sell buffer: +2.00% → 2.434103] | -> Decision: HOLD
+2025-05-18 20:40:00,031 - trading - INFO - Signal Eval (XRPUSDT): Price=2.387400 | RSI(14)=51.61 (OB:70.0,OS:30.0) | EMA(20)=2.386473 [buy buffer: -2.00% → 2.338744 | sell buffer: +2.00% → 2.434203] | -> Decision: HOLD
+2025-05-18 20:41:00,025 - trading - INFO - Signal Eval (XRPUSDT): Price=2.387400 | RSI(14)=51.61 (OB:70.0,OS:30.0) | EMA(20)=2.386561 [buy buffer: -2.00% → 2.338830 | sell buffer: +2.00% → 2.434293] | -> Decision: HOLD
+2025-05-18 20:42:00,038 - trading - INFO - Signal Eval (XRPUSDT): Price=2.388200 | RSI(14)=53.03 (OB:70.0,OS:30.0) | EMA(20)=2.386717 [buy buffer: -2.00% → 2.338983 | sell buffer: +2.00% → 2.434452] | -> Decision: HOLD
+2025-05-18 20:43:00,044 - trading - INFO - Signal Eval (XRPUSDT): Price=2.392900 | RSI(14)=60.38 (OB:70.0,OS:30.0) | EMA(20)=2.387306 [buy buffer: -2.00% → 2.339560 | sell buffer: +2.00% → 2.435052] | -> Decision: HOLD
+2025-05-18 20:44:00,027 - trading - INFO - Signal Eval (XRPUSDT): Price=2.392100 | RSI(14)=58.69 (OB:70.0,OS:30.0) | EMA(20)=2.387763 [buy buffer: -2.00% → 2.340008 | sell buffer: +2.00% → 2.435518] | -> Decision: HOLD
+2025-05-18 20:45:00,030 - trading - INFO - Signal Eval (XRPUSDT): Price=2.389700 | RSI(14)=53.84 (OB:70.0,OS:30.0) | EMA(20)=2.387947 [buy buffer: -2.00% → 2.340188 | sell buffer: +2.00% → 2.435706] | -> Decision: HOLD
+2025-05-18 20:46:00,016 - trading - INFO - Signal Eval (XRPUSDT): Price=2.393000 | RSI(14)=58.87 (OB:70.0,OS:30.0) | EMA(20)=2.388428 [buy buffer: -2.00% → 2.340660 | sell buffer: +2.00% → 2.436197] | -> Decision: HOLD
+2025-05-18 20:47:00,012 - trading - INFO - Signal Eval (XRPUSDT): Price=2.391700 | RSI(14)=56.27 (OB:70.0,OS:30.0) | EMA(20)=2.388740 [buy buffer: -2.00% → 2.340965 | sell buffer: +2.00% → 2.436515] | -> Decision: HOLD
+2025-05-18 20:48:00,011 - trading - INFO - Signal Eval (XRPUSDT): Price=2.386600 | RSI(14)=47.42 (OB:70.0,OS:30.0) | EMA(20)=2.388536 [buy buffer: -2.00% → 2.340766 | sell buffer: +2.00% → 2.436307] | -> Decision: HOLD
+2025-05-18 20:49:00,007 - trading - INFO - Signal Eval (XRPUSDT): Price=2.381100 | RSI(14)=40.09 (OB:70.0,OS:30.0) | EMA(20)=2.387828 [buy buffer: -2.00% → 2.340071 | sell buffer: +2.00% → 2.435585] | -> Decision: HOLD
+2025-05-18 20:50:00,027 - trading - INFO - Signal Eval (XRPUSDT): Price=2.382500 | RSI(14)=42.53 (OB:70.0,OS:30.0) | EMA(20)=2.387321 [buy buffer: -2.00% → 2.339574 | sell buffer: +2.00% → 2.435067] | -> Decision: HOLD
+2025-05-18 20:51:00,005 - trading - INFO - Signal Eval (XRPUSDT): Price=2.382000 | RSI(14)=41.87 (OB:70.0,OS:30.0) | EMA(20)=2.386814 [buy buffer: -2.00% → 2.339078 | sell buffer: +2.00% → 2.434550] | -> Decision: HOLD
+2025-05-18 20:52:00,002 - trading - INFO - Signal Eval (XRPUSDT): Price=2.386900 | RSI(14)=49.99 (OB:70.0,OS:30.0) | EMA(20)=2.386822 [buy buffer: -2.00% → 2.339086 | sell buffer: +2.00% → 2.434559] | -> Decision: HOLD
+2025-05-18 20:52:59,998 - trading - INFO - Signal Eval (XRPUSDT): Price=2.390700 | RSI(14)=55.22 (OB:70.0,OS:30.0) | EMA(20)=2.387191 [buy buffer: -2.00% → 2.339448 | sell buffer: +2.00% → 2.434935] | -> Decision: HOLD
+2025-05-18 20:54:00,013 - trading - INFO - Signal Eval (XRPUSDT): Price=2.393900 | RSI(14)=59.09 (OB:70.0,OS:30.0) | EMA(20)=2.387830 [buy buffer: -2.00% → 2.340074 | sell buffer: +2.00% → 2.435587] | -> Decision: HOLD
+2025-05-18 20:55:00,014 - trading - INFO - Signal Eval (XRPUSDT): Price=2.394800 | RSI(14)=60.14 (OB:70.0,OS:30.0) | EMA(20)=2.388494 [buy buffer: -2.00% → 2.340724 | sell buffer: +2.00% → 2.436264] | -> Decision: HOLD
+2025-05-18 20:56:00,004 - trading - INFO - Signal Eval (XRPUSDT): Price=2.393200 | RSI(14)=57.33 (OB:70.0,OS:30.0) | EMA(20)=2.388942 [buy buffer: -2.00% → 2.341163 | sell buffer: +2.00% → 2.436721] | -> Decision: HOLD
+2025-05-18 20:56:59,992 - trading - INFO - Signal Eval (XRPUSDT): Price=2.391600 | RSI(14)=54.59 (OB:70.0,OS:30.0) | EMA(20)=2.389195 [buy buffer: -2.00% → 2.341411 | sell buffer: +2.00% → 2.436979] | -> Decision: HOLD
+2025-05-18 20:57:59,985 - trading - INFO - Signal Eval (XRPUSDT): Price=2.392300 | RSI(14)=55.59 (OB:70.0,OS:30.0) | EMA(20)=2.389491 [buy buffer: -2.00% → 2.341701 | sell buffer: +2.00% → 2.437281] | -> Decision: HOLD
+2025-05-18 20:58:59,988 - trading - INFO - Signal Eval (XRPUSDT): Price=2.397600 | RSI(14)=62.36 (OB:70.0,OS:30.0) | EMA(20)=2.390263 [buy buffer: -2.00% → 2.342458 | sell buffer: +2.00% → 2.438069] | -> Decision: HOLD
+2025-05-18 21:00:00,024 - trading - INFO - Signal Eval (XRPUSDT): Price=2.398200 | RSI(14)=63.04 (OB:70.0,OS:30.0) | EMA(20)=2.391019 [buy buffer: -2.00% → 2.343199 | sell buffer: +2.00% → 2.438840] | -> Decision: HOLD
+2025-05-18 21:00:59,989 - trading - INFO - Signal Eval (XRPUSDT): Price=2.399300 | RSI(14)=64.33 (OB:70.0,OS:30.0) | EMA(20)=2.391808 [buy buffer: -2.00% → 2.343972 | sell buffer: +2.00% → 2.439644] | -> Decision: HOLD
+2025-05-18 21:01:59,991 - trading - INFO - Signal Eval (XRPUSDT): Price=2.404200 | RSI(14)=69.42 (OB:70.0,OS:30.0) | EMA(20)=2.392988 [buy buffer: -2.00% → 2.345128 | sell buffer: +2.00% → 2.440848] | -> Decision: HOLD
+2025-05-18 21:02:59,975 - trading - INFO - Signal Eval (XRPUSDT): Price=2.401600 | RSI(14)=64.18 (OB:70.0,OS:30.0) | EMA(20)=2.393808 [buy buffer: -2.00% → 2.345932 | sell buffer: +2.00% → 2.441684] | -> Decision: HOLD
+2025-05-18 21:03:59,980 - trading - INFO - Signal Eval (XRPUSDT): Price=2.401600 | RSI(14)=64.18 (OB:70.0,OS:30.0) | EMA(20)=2.394550 [buy buffer: -2.00% → 2.346659 | sell buffer: +2.00% → 2.442441] | -> Decision: HOLD
+2025-05-18 21:04:59,972 - trading - INFO - Signal Eval (XRPUSDT): Price=2.402800 | RSI(14)=65.57 (OB:70.0,OS:30.0) | EMA(20)=2.395336 [buy buffer: -2.00% → 2.347429 | sell buffer: +2.00% → 2.443243] | -> Decision: HOLD
+2025-05-18 21:05:59,976 - trading - INFO - Signal Eval (XRPUSDT): Price=2.399500 | RSI(14)=58.81 (OB:70.0,OS:30.0) | EMA(20)=2.395733 [buy buffer: -2.00% → 2.347818 | sell buffer: +2.00% → 2.443647] | -> Decision: HOLD
+2025-05-18 21:06:59,966 - trading - INFO - Signal Eval (XRPUSDT): Price=2.404100 | RSI(14)=64.33 (OB:70.0,OS:30.0) | EMA(20)=2.396529 [buy buffer: -2.00% → 2.348599 | sell buffer: +2.00% → 2.444460] | -> Decision: HOLD
+2025-05-18 21:08:00,009 - trading - INFO - Signal Eval (XRPUSDT): Price=2.400100 | RSI(14)=57.16 (OB:70.0,OS:30.0) | EMA(20)=2.396870 [buy buffer: -2.00% → 2.348932 | sell buffer: +2.00% → 2.444807] | -> Decision: HOLD
+2025-05-18 21:08:59,965 - trading - INFO - Signal Eval (XRPUSDT): Price=2.402600 | RSI(14)=60.15 (OB:70.0,OS:30.0) | EMA(20)=2.397415 [buy buffer: -2.00% → 2.349467 | sell buffer: +2.00% → 2.445364] | -> Decision: HOLD
+2025-05-18 21:09:59,967 - trading - INFO - Signal Eval (XRPUSDT): Price=2.405500 | RSI(14)=63.35 (OB:70.0,OS:30.0) | EMA(20)=2.398185 [buy buffer: -2.00% → 2.350222 | sell buffer: +2.00% → 2.446149] | -> Decision: HOLD
+2025-05-18 21:10:59,968 - trading - INFO - Signal Eval (XRPUSDT): Price=2.401300 | RSI(14)=56.30 (OB:70.0,OS:30.0) | EMA(20)=2.398482 [buy buffer: -2.00% → 2.350512 | sell buffer: +2.00% → 2.446452] | -> Decision: HOLD
+2025-05-18 21:11:59,969 - trading - INFO - Signal Eval (XRPUSDT): Price=2.401100 | RSI(14)=55.98 (OB:70.0,OS:30.0) | EMA(20)=2.398731 [buy buffer: -2.00% → 2.350757 | sell buffer: +2.00% → 2.446706] | -> Decision: HOLD
+2025-05-18 21:12:59,962 - trading - INFO - Signal Eval (XRPUSDT): Price=2.400500 | RSI(14)=54.97 (OB:70.0,OS:30.0) | EMA(20)=2.398900 [buy buffer: -2.00% → 2.350922 | sell buffer: +2.00% → 2.446878] | -> Decision: HOLD
+2025-05-18 21:13:59,953 - trading - INFO - Signal Eval (XRPUSDT): Price=2.399900 | RSI(14)=53.93 (OB:70.0,OS:30.0) | EMA(20)=2.398995 [buy buffer: -2.00% → 2.351015 | sell buffer: +2.00% → 2.446975] | -> Decision: HOLD
+2025-05-18 21:15:00,005 - trading - INFO - Signal Eval (XRPUSDT): Price=2.400300 | RSI(14)=54.55 (OB:70.0,OS:30.0) | EMA(20)=2.399119 [buy buffer: -2.00% → 2.351137 | sell buffer: +2.00% → 2.447102] | -> Decision: HOLD
+2025-05-18 21:15:59,947 - trading - INFO - Signal Eval (XRPUSDT): Price=2.397400 | RSI(14)=49.36 (OB:70.0,OS:30.0) | EMA(20)=2.398956 [buy buffer: -2.00% → 2.350976 | sell buffer: +2.00% → 2.446935] | -> Decision: HOLD
+2025-05-18 21:16:59,991 - trading - INFO - Signal Eval (XRPUSDT): Price=2.395100 | RSI(14)=45.65 (OB:70.0,OS:30.0) | EMA(20)=2.398588 [buy buffer: -2.00% → 2.350617 | sell buffer: +2.00% → 2.446560] | -> Decision: HOLD
+2025-05-18 21:17:59,941 - trading - INFO - Signal Eval (XRPUSDT): Price=2.396000 | RSI(14)=47.32 (OB:70.0,OS:30.0) | EMA(20)=2.398342 [buy buffer: -2.00% → 2.350375 | sell buffer: +2.00% → 2.446309] | -> Decision: HOLD
+2025-05-18 21:18:59,949 - trading - INFO - Signal Eval (XRPUSDT): Price=2.397900 | RSI(14)=50.76 (OB:70.0,OS:30.0) | EMA(20)=2.398300 [buy buffer: -2.00% → 2.350334 | sell buffer: +2.00% → 2.446266] | -> Decision: HOLD
+2025-05-18 21:19:59,962 - trading - INFO - Signal Eval (XRPUSDT): Price=2.397600 | RSI(14)=50.20 (OB:70.0,OS:30.0) | EMA(20)=2.398233 [buy buffer: -2.00% → 2.350268 | sell buffer: +2.00% → 2.446198] | -> Decision: HOLD
+2025-05-18 21:20:59,946 - trading - INFO - Signal Eval (XRPUSDT): Price=2.399300 | RSI(14)=53.32 (OB:70.0,OS:30.0) | EMA(20)=2.398335 [buy buffer: -2.00% → 2.350368 | sell buffer: +2.00% → 2.446301] | -> Decision: HOLD
+2025-05-18 21:21:59,936 - trading - INFO - Signal Eval (XRPUSDT): Price=2.399800 | RSI(14)=54.23 (OB:70.0,OS:30.0) | EMA(20)=2.398474 [buy buffer: -2.00% → 2.350505 | sell buffer: +2.00% → 2.446444] | -> Decision: HOLD
+2025-05-18 21:22:59,932 - trading - INFO - Signal Eval (XRPUSDT): Price=2.399800 | RSI(14)=54.23 (OB:70.0,OS:30.0) | EMA(20)=2.398601 [buy buffer: -2.00% → 2.350629 | sell buffer: +2.00% → 2.446573] | -> Decision: HOLD
+2025-05-18 21:23:59,926 - trading - INFO - Signal Eval (XRPUSDT): Price=2.402300 | RSI(14)=58.88 (OB:70.0,OS:30.0) | EMA(20)=2.398953 [buy buffer: -2.00% → 2.350974 | sell buffer: +2.00% → 2.446932] | -> Decision: HOLD
+2025-05-18 21:24:59,932 - trading - INFO - Signal Eval (XRPUSDT): Price=2.407700 | RSI(14)=66.74 (OB:70.0,OS:30.0) | EMA(20)=2.399786 [buy buffer: -2.00% → 2.351790 | sell buffer: +2.00% → 2.447782] | -> Decision: HOLD
+2025-05-18 21:25:59,925 - trading - INFO - Signal Eval (XRPUSDT): Price=2.407900 | RSI(14)=66.99 (OB:70.0,OS:30.0) | EMA(20)=2.400559 [buy buffer: -2.00% → 2.352548 | sell buffer: +2.00% → 2.448570] | -> Decision: HOLD
+2025-05-18 21:26:59,948 - trading - INFO - Signal Eval (XRPUSDT): Price=2.407000 | RSI(14)=64.62 (OB:70.0,OS:30.0) | EMA(20)=2.401172 [buy buffer: -2.00% → 2.353149 | sell buffer: +2.00% → 2.449196] | -> Decision: HOLD
+2025-05-18 21:27:59,930 - trading - INFO - Signal Eval (XRPUSDT): Price=2.405000 | RSI(14)=59.58 (OB:70.0,OS:30.0) | EMA(20)=2.401537 [buy buffer: -2.00% → 2.353506 | sell buffer: +2.00% → 2.449567] | -> Decision: HOLD
+2025-05-18 21:28:59,928 - trading - INFO - Signal Eval (XRPUSDT): Price=2.403300 | RSI(14)=55.61 (OB:70.0,OS:30.0) | EMA(20)=2.401705 [buy buffer: -2.00% → 2.353671 | sell buffer: +2.00% → 2.449739] | -> Decision: HOLD
+2025-05-18 21:29:59,938 - trading - INFO - Signal Eval (XRPUSDT): Price=2.403900 | RSI(14)=56.70 (OB:70.0,OS:30.0) | EMA(20)=2.401914 [buy buffer: -2.00% → 2.353875 | sell buffer: +2.00% → 2.449952] | -> Decision: HOLD
+2025-05-18 21:30:59,910 - trading - INFO - Signal Eval (XRPUSDT): Price=2.398800 | RSI(14)=46.25 (OB:70.0,OS:30.0) | EMA(20)=2.401617 [buy buffer: -2.00% → 2.353585 | sell buffer: +2.00% → 2.449650] | -> Decision: HOLD
+2025-05-18 21:31:59,913 - trading - INFO - Signal Eval (XRPUSDT): Price=2.391400 | RSI(14)=35.90 (OB:70.0,OS:30.0) | EMA(20)=2.400644 [buy buffer: -2.00% → 2.352631 | sell buffer: +2.00% → 2.448657] | -> Decision: HOLD
+2025-05-18 21:32:59,906 - trading - INFO - Signal Eval (XRPUSDT): Price=2.392700 | RSI(14)=38.50 (OB:70.0,OS:30.0) | EMA(20)=2.399888 [buy buffer: -2.00% → 2.351890 | sell buffer: +2.00% → 2.447885] | -> Decision: HOLD
+2025-05-18 21:33:59,904 - trading - INFO - Signal Eval (XRPUSDT): Price=2.389000 | RSI(14)=34.24 (OB:70.0,OS:30.0) | EMA(20)=2.398851 [buy buffer: -2.00% → 2.350874 | sell buffer: +2.00% → 2.446828] | -> Decision: HOLD
+2025-05-18 21:34:59,902 - trading - INFO - Signal Eval (XRPUSDT): Price=2.388000 | RSI(14)=33.17 (OB:70.0,OS:30.0) | EMA(20)=2.397817 [buy buffer: -2.00% → 2.349861 | sell buffer: +2.00% → 2.445774] | -> Decision: HOLD
+2025-05-18 21:35:59,903 - trading - INFO - Signal Eval (XRPUSDT): Price=2.389100 | RSI(14)=35.55 (OB:70.0,OS:30.0) | EMA(20)=2.396987 [buy buffer: -2.00% → 2.349047 | sell buffer: +2.00% → 2.444927] | -> Decision: HOLD
+2025-05-18 21:36:59,899 - trading - INFO - Signal Eval (XRPUSDT): Price=2.390100 | RSI(14)=37.73 (OB:70.0,OS:30.0) | EMA(20)=2.396331 [buy buffer: -2.00% → 2.348404 | sell buffer: +2.00% → 2.444258] | -> Decision: HOLD
+2025-05-18 21:37:59,895 - trading - INFO - Signal Eval (XRPUSDT): Price=2.388800 | RSI(14)=36.03 (OB:70.0,OS:30.0) | EMA(20)=2.395614 [buy buffer: -2.00% → 2.347702 | sell buffer: +2.00% → 2.443526] | -> Decision: HOLD
+2025-05-18 21:38:59,907 - trading - INFO - Signal Eval (XRPUSDT): Price=2.388600 | RSI(14)=35.76 (OB:70.0,OS:30.0) | EMA(20)=2.394946 [buy buffer: -2.00% → 2.347047 | sell buffer: +2.00% → 2.442845] | -> Decision: HOLD
+2025-05-18 21:39:59,908 - trading - INFO - Signal Eval (XRPUSDT): Price=2.386500 | RSI(14)=32.99 (OB:70.0,OS:30.0) | EMA(20)=2.394142 [buy buffer: -2.00% → 2.346259 | sell buffer: +2.00% → 2.442024] | -> Decision: HOLD
+2025-05-18 21:40:59,887 - trading - INFO - Signal Eval (XRPUSDT): Price=2.381600 | RSI(14)=27.62 (OB:70.0,OS:30.0) | EMA(20)=2.392947 [buy buffer: -2.00% → 2.345088 | sell buffer: +2.00% → 2.440806] | -> Decision: BUY
+2025-05-18 21:40:59,891 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 21:40:59,892 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 21:41:01,318 - trading - WARNING - Order Execution (XRPUSDT): Сумма для покупки 0.05335363 USDT меньше минимально допустимой по профилю/настройкам (5.00 USDT). Покупка отменена.
+2025-05-18 21:41:59,885 - trading - INFO - Signal Eval (XRPUSDT): Price=2.383400 | RSI(14)=32.00 (OB:70.0,OS:30.0) | EMA(20)=2.392038 [buy buffer: -2.00% → 2.344197 | sell buffer: +2.00% → 2.439879] | -> Decision: HOLD
+2025-05-18 21:42:59,892 - trading - INFO - Signal Eval (XRPUSDT): Price=2.384000 | RSI(14)=33.45 (OB:70.0,OS:30.0) | EMA(20)=2.391272 [buy buffer: -2.00% → 2.343447 | sell buffer: +2.00% → 2.439098] | -> Decision: HOLD
+2025-05-18 21:43:59,887 - trading - INFO - Signal Eval (XRPUSDT): Price=2.382800 | RSI(14)=31.98 (OB:70.0,OS:30.0) | EMA(20)=2.390465 [buy buffer: -2.00% → 2.342656 | sell buffer: +2.00% → 2.438275] | -> Decision: HOLD
+2025-05-18 21:44:59,886 - trading - INFO - Signal Eval (XRPUSDT): Price=2.382400 | RSI(14)=31.49 (OB:70.0,OS:30.0) | EMA(20)=2.389697 [buy buffer: -2.00% → 2.341903 | sell buffer: +2.00% → 2.437491] | -> Decision: HOLD
+2025-05-18 21:45:59,876 - trading - INFO - Signal Eval (XRPUSDT): Price=2.384900 | RSI(14)=37.95 (OB:70.0,OS:30.0) | EMA(20)=2.389240 [buy buffer: -2.00% → 2.341456 | sell buffer: +2.00% → 2.437025] | -> Decision: HOLD
+2025-05-18 21:46:59,877 - trading - INFO - Signal Eval (XRPUSDT): Price=2.380600 | RSI(14)=32.31 (OB:70.0,OS:30.0) | EMA(20)=2.388418 [buy buffer: -2.00% → 2.340649 | sell buffer: +2.00% → 2.436186] | -> Decision: HOLD
+2025-05-18 21:47:59,870 - trading - INFO - Signal Eval (XRPUSDT): Price=2.381800 | RSI(14)=35.20 (OB:70.0,OS:30.0) | EMA(20)=2.387787 [buy buffer: -2.00% → 2.340032 | sell buffer: +2.00% → 2.435543] | -> Decision: HOLD
+2025-05-18 21:48:59,872 - trading - INFO - Signal Eval (XRPUSDT): Price=2.377700 | RSI(14)=30.41 (OB:70.0,OS:30.0) | EMA(20)=2.386827 [buy buffer: -2.00% → 2.339090 | sell buffer: +2.00% → 2.434563] | -> Decision: HOLD
+2025-05-18 21:49:59,872 - trading - INFO - Signal Eval (XRPUSDT): Price=2.376200 | RSI(14)=28.87 (OB:70.0,OS:30.0) | EMA(20)=2.385815 [buy buffer: -2.00% → 2.338098 | sell buffer: +2.00% → 2.433531] | -> Decision: BUY
+2025-05-18 21:49:59,875 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 21:49:59,876 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 21:50:01,107 - trading - WARNING - Order Execution (XRPUSDT): Сумма для покупки 0.05335363 USDT меньше минимально допустимой по профилю/настройкам (5.00 USDT). Покупка отменена.
+2025-05-18 21:50:59,871 - trading - INFO - Signal Eval (XRPUSDT): Price=2.377400 | RSI(14)=31.85 (OB:70.0,OS:30.0) | EMA(20)=2.385013 [buy buffer: -2.00% → 2.337313 | sell buffer: +2.00% → 2.432713] | -> Decision: HOLD
+2025-05-18 21:51:59,859 - trading - INFO - Signal Eval (XRPUSDT): Price=2.374100 | RSI(14)=28.33 (OB:70.0,OS:30.0) | EMA(20)=2.383974 [buy buffer: -2.00% → 2.336294 | sell buffer: +2.00% → 2.431653] | -> Decision: BUY
+2025-05-18 21:51:59,860 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 21:51:59,860 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 21:52:00,884 - trading - WARNING - Order Execution (XRPUSDT): Сумма для покупки 0.05335363 USDT меньше минимально допустимой по профилю/настройкам (5.00 USDT). Покупка отменена.
+2025-05-18 21:52:59,857 - trading - INFO - Signal Eval (XRPUSDT): Price=2.368900 | RSI(14)=23.86 (OB:70.0,OS:30.0) | EMA(20)=2.382538 [buy buffer: -2.00% → 2.334887 | sell buffer: +2.00% → 2.430189] | -> Decision: BUY
+2025-05-18 21:52:59,857 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 21:52:59,857 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 21:53:00,860 - trading - WARNING - Order Execution (XRPUSDT): Сумма для покупки 0.05335363 USDT меньше минимально допустимой по профилю/настройкам (5.00 USDT). Покупка отменена.
+2025-05-18 21:53:59,858 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367800 | RSI(14)=23.03 (OB:70.0,OS:30.0) | EMA(20)=2.381135 [buy buffer: -2.00% → 2.333512 | sell buffer: +2.00% → 2.428757] | -> Decision: BUY
+2025-05-18 21:53:59,861 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 21:53:59,861 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 21:54:00,851 - trading - WARNING - Order Execution (XRPUSDT): Сумма для покупки 0.05335363 USDT меньше минимально допустимой по профилю/настройкам (5.00 USDT). Покупка отменена.
+2025-05-18 21:54:59,868 - trading - INFO - Signal Eval (XRPUSDT): Price=2.369100 | RSI(14)=26.29 (OB:70.0,OS:30.0) | EMA(20)=2.379988 [buy buffer: -2.00% → 2.332389 | sell buffer: +2.00% → 2.427588] | -> Decision: BUY
+2025-05-18 21:54:59,868 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 21:54:59,868 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 21:55:00,874 - trading - WARNING - Order Execution (XRPUSDT): Недостаточно средств USDT для покупки (баланс: 0E-8).
+2025-05-18 21:55:59,852 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373400 | RSI(14)=35.95 (OB:70.0,OS:30.0) | EMA(20)=2.379361 [buy buffer: -2.00% → 2.331774 | sell buffer: +2.00% → 2.426948] | -> Decision: HOLD
+2025-05-18 21:56:59,866 - trading - INFO - Signal Eval (XRPUSDT): Price=2.375500 | RSI(14)=40.08 (OB:70.0,OS:30.0) | EMA(20)=2.378993 [buy buffer: -2.00% → 2.331413 | sell buffer: +2.00% → 2.426573] | -> Decision: HOLD
+2025-05-18 21:57:59,850 - trading - INFO - Signal Eval (XRPUSDT): Price=2.374700 | RSI(14)=39.05 (OB:70.0,OS:30.0) | EMA(20)=2.378584 [buy buffer: -2.00% → 2.331013 | sell buffer: +2.00% → 2.426156] | -> Decision: HOLD
+2025-05-18 21:58:59,845 - trading - INFO - Signal Eval (XRPUSDT): Price=2.370900 | RSI(14)=34.50 (OB:70.0,OS:30.0) | EMA(20)=2.377853 [buy buffer: -2.00% → 2.330295 | sell buffer: +2.00% → 2.425410] | -> Decision: HOLD
+2025-05-18 21:59:59,876 - trading - INFO - Signal Eval (XRPUSDT): Price=2.369400 | RSI(14)=32.87 (OB:70.0,OS:30.0) | EMA(20)=2.377048 [buy buffer: -2.00% → 2.329507 | sell buffer: +2.00% → 2.424588] | -> Decision: HOLD
+2025-05-18 22:00:59,854 - trading - INFO - Signal Eval (XRPUSDT): Price=2.345600 | RSI(14)=18.20 (OB:70.0,OS:30.0) | EMA(20)=2.374053 [buy buffer: -2.00% → 2.326571 | sell buffer: +2.00% → 2.421534] | -> Decision: BUY
+2025-05-18 22:00:59,855 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 22:00:59,855 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 22:01:00,677 - trading - WARNING - Order Execution (XRPUSDT): Недостаточно средств USDT для покупки (баланс: 0E-8).
+2025-05-18 22:01:59,836 - trading - INFO - Signal Eval (XRPUSDT): Price=2.345300 | RSI(14)=18.09 (OB:70.0,OS:30.0) | EMA(20)=2.371314 [buy buffer: -2.00% → 2.323888 | sell buffer: +2.00% → 2.418740] | -> Decision: BUY
+2025-05-18 22:01:59,837 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 22:01:59,837 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 22:02:00,586 - trading - WARNING - Order Execution (XRPUSDT): Недостаточно средств USDT для покупки (баланс: 0E-8).
+2025-05-18 22:02:59,844 - trading - INFO - Signal Eval (XRPUSDT): Price=2.343300 | RSI(14)=17.34 (OB:70.0,OS:30.0) | EMA(20)=2.368646 [buy buffer: -2.00% → 2.321273 | sell buffer: +2.00% → 2.416019] | -> Decision: BUY
+2025-05-18 22:02:59,845 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 22:02:59,845 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 22:03:00,589 - trading - WARNING - Order Execution (XRPUSDT): Недостаточно средств USDT для покупки (баланс: 0E-8).
+2025-05-18 22:03:59,836 - trading - INFO - Signal Eval (XRPUSDT): Price=2.343400 | RSI(14)=17.52 (OB:70.0,OS:30.0) | EMA(20)=2.366242 [buy buffer: -2.00% → 2.318917 | sell buffer: +2.00% → 2.413567] | -> Decision: BUY
+2025-05-18 22:03:59,836 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 22:03:59,837 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 22:04:00,585 - trading - WARNING - Order Execution (XRPUSDT): Недостаточно средств USDT для покупки (баланс: 0E-8).
+2025-05-18 22:04:59,834 - trading - INFO - Signal Eval (XRPUSDT): Price=2.347200 | RSI(14)=24.41 (OB:70.0,OS:30.0) | EMA(20)=2.364428 [buy buffer: -2.00% → 2.317140 | sell buffer: +2.00% → 2.411717] | -> Decision: BUY
+2025-05-18 22:04:59,834 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 22:04:59,834 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-18 22:05:00,643 - trading - WARNING - Order Execution (XRPUSDT): Недостаточно средств USDT для покупки (баланс: 0E-8).
+2025-05-18 22:05:59,835 - trading - INFO - Signal Eval (XRPUSDT): Price=2.350600 | RSI(14)=30.04 (OB:70.0,OS:30.0) | EMA(20)=2.363111 [buy buffer: -2.00% → 2.315849 | sell buffer: +2.00% → 2.410374] | -> Decision: HOLD
+2025-05-18 22:06:59,828 - trading - INFO - Signal Eval (XRPUSDT): Price=2.358300 | RSI(14)=40.80 (OB:70.0,OS:30.0) | EMA(20)=2.362653 [buy buffer: -2.00% → 2.315400 | sell buffer: +2.00% → 2.409906] | -> Decision: HOLD
+2025-05-18 22:07:59,832 - trading - INFO - Signal Eval (XRPUSDT): Price=2.359100 | RSI(14)=41.80 (OB:70.0,OS:30.0) | EMA(20)=2.362315 [buy buffer: -2.00% → 2.315068 | sell buffer: +2.00% → 2.409561] | -> Decision: HOLD
+2025-05-18 22:08:59,824 - trading - INFO - Signal Eval (XRPUSDT): Price=2.358500 | RSI(14)=41.23 (OB:70.0,OS:30.0) | EMA(20)=2.361951 [buy buffer: -2.00% → 2.314712 | sell buffer: +2.00% → 2.409190] | -> Decision: HOLD
+2025-05-18 22:09:59,825 - trading - INFO - Signal Eval (XRPUSDT): Price=2.360400 | RSI(14)=43.81 (OB:70.0,OS:30.0) | EMA(20)=2.361804 [buy buffer: -2.00% → 2.314568 | sell buffer: +2.00% → 2.409040] | -> Decision: HOLD
+2025-05-18 22:10:59,828 - trading - INFO - Signal Eval (XRPUSDT): Price=2.352900 | RSI(14)=36.92 (OB:70.0,OS:30.0) | EMA(20)=2.360956 [buy buffer: -2.00% → 2.313737 | sell buffer: +2.00% → 2.408175] | -> Decision: HOLD
+2025-05-18 22:11:59,816 - trading - INFO - Signal Eval (XRPUSDT): Price=2.348600 | RSI(14)=33.65 (OB:70.0,OS:30.0) | EMA(20)=2.359779 [buy buffer: -2.00% → 2.312583 | sell buffer: +2.00% → 2.406975] | -> Decision: HOLD
+2025-05-18 22:12:59,824 - trading - INFO - Signal Eval (XRPUSDT): Price=2.349600 | RSI(14)=35.09 (OB:70.0,OS:30.0) | EMA(20)=2.358810 [buy buffer: -2.00% → 2.311633 | sell buffer: +2.00% → 2.405986] | -> Decision: HOLD
+2025-05-18 22:13:59,812 - trading - INFO - Signal Eval (XRPUSDT): Price=2.351000 | RSI(14)=37.15 (OB:70.0,OS:30.0) | EMA(20)=2.358066 [buy buffer: -2.00% → 2.310904 | sell buffer: +2.00% → 2.405227] | -> Decision: HOLD
+2025-05-18 22:14:59,844 - trading - INFO - Signal Eval (XRPUSDT): Price=2.349000 | RSI(14)=35.42 (OB:70.0,OS:30.0) | EMA(20)=2.357202 [buy buffer: -2.00% → 2.310058 | sell buffer: +2.00% → 2.404346] | -> Decision: HOLD
+2025-05-18 22:15:59,808 - trading - INFO - Signal Eval (XRPUSDT): Price=2.355300 | RSI(14)=44.21 (OB:70.0,OS:30.0) | EMA(20)=2.357021 [buy buffer: -2.00% → 2.309881 | sell buffer: +2.00% → 2.404162] | -> Decision: HOLD
+2025-05-18 22:16:59,802 - trading - INFO - Signal Eval (XRPUSDT): Price=2.350500 | RSI(14)=39.77 (OB:70.0,OS:30.0) | EMA(20)=2.356400 [buy buffer: -2.00% → 2.309272 | sell buffer: +2.00% → 2.403528] | -> Decision: HOLD
+2025-05-18 22:17:59,803 - trading - INFO - Signal Eval (XRPUSDT): Price=2.356900 | RSI(14)=47.37 (OB:70.0,OS:30.0) | EMA(20)=2.356448 [buy buffer: -2.00% → 2.309319 | sell buffer: +2.00% → 2.403577] | -> Decision: HOLD
+2025-05-18 22:18:59,817 - trading - INFO - Signal Eval (XRPUSDT): Price=2.358300 | RSI(14)=48.88 (OB:70.0,OS:30.0) | EMA(20)=2.356624 [buy buffer: -2.00% → 2.309492 | sell buffer: +2.00% → 2.403757] | -> Decision: HOLD
+2025-05-18 22:19:59,796 - trading - INFO - Signal Eval (XRPUSDT): Price=2.355100 | RSI(14)=45.64 (OB:70.0,OS:30.0) | EMA(20)=2.356479 [buy buffer: -2.00% → 2.309349 | sell buffer: +2.00% → 2.403609] | -> Decision: HOLD
+2025-05-18 22:20:59,811 - trading - INFO - Signal Eval (XRPUSDT): Price=2.354000 | RSI(14)=44.55 (OB:70.0,OS:30.0) | EMA(20)=2.356243 [buy buffer: -2.00% → 2.309118 | sell buffer: +2.00% → 2.403368] | -> Decision: HOLD
+2025-05-18 22:21:54,718 - trading - INFO - Логгер 'trading_activity' успешно настроен.

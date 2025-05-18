@@ -79,6 +79,16 @@ async def execute_trade_action(action_type, symbol, profile, reason_message, exe
         system_logger.error(f"Price processor ({symbol}): Ошибка при размещении ордера '{action_type}': {e}", exc_info=True)
         return False
 
+def extract_base_asset(symbol: str) -> str:
+    """
+    Универсально извлекает base asset из symbol для любых пар.
+    Например: 'XRPUSDT' -> 'XRP', 'ETHBTC' -> 'ETH'
+    """
+    for quote in ["USDT", "BUSD", "BTC", "ETH", "BNB"]:
+        if symbol.endswith(quote):
+            return symbol[:-len(quote)]
+    # fallback: если не нашли, возьми первые три-четыре символа
+    return symbol[:3]
 
 async def check_and_handle_risk_conditions(symbol, profile, current_price, strategy_has_issued_sell):
     """
@@ -102,7 +112,8 @@ async def check_and_handle_risk_conditions(symbol, profile, current_price, strat
 
     min_qty = Decimal(min_qty)
 
-    balance = await get_asset_balance_async(symbol)
+    asset = extract_base_asset(symbol)
+    balance = await get_asset_balance_async(asset)
 
     if balance is None:
         system_logger.error(

@@ -3,6 +3,7 @@ import json
 import os
 import asyncio # Для asyncio.to_thread
 from decimal import Decimal, ROUND_DOWN # Для точной работы с числами
+from typing import Optional
 
 from services.binance_client import client # Клиент Binance
 from utils.quantity_utils import get_lot_size, round_step_size # Утилиты для расчета количества
@@ -13,8 +14,7 @@ from utils.notifier import send_notification # Асинхронные уведо
 from utils.logger import trading_logger, system_logger # Логгеры
 
 
-
-async def get_asset_balance_async(asset: str) -> Decimal:
+async def get_asset_balance_async(asset: str) -> Optional[Decimal]:
     """
     Асинхронно получает СВОБОДНЫЙ баланс указанного актива.
     Возвращает Decimal для точности. В случае ошибки возвращает Decimal('0').
@@ -27,7 +27,7 @@ async def get_asset_balance_async(asset: str) -> Decimal:
             await asyncio.sleep(2)
         else:
             trading_logger.error(f"Order Execution: Баланс не получен для  {asset} после 3 попыток, возвращаю 0.")
-            return Decimal("0")
+            return None
 
         free_balance_str = balance_info.get('free', '0')
         return Decimal(free_balance_str)
@@ -35,7 +35,7 @@ async def get_asset_balance_async(asset: str) -> Decimal:
     except Exception as e:
         trading_logger.error(f"Order Execution: Ошибка при получении баланса для {asset}: {e}", exc_info=True)
         await send_notification(f"⚠️ Ошибка API: Не удалось получить баланс {asset}. Проверьте логи.")
-        return Decimal('0')
+        return None
 
 
 

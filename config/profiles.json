@@ -13,10 +13,10 @@
     "use_macd_for_buy": false,
     "use_macd_for_sell": false,
     "use_ema": true,
-    "ema_period": 20,
+    "ema_period": 50,
     "EMA_BUY_BUFFER": 0.02,
     "EMA_SELL_BUFFER": 0.02,
-    "commission_rate": 0.001,
+    "commission_rate": 0.000,
     "min_profit_ratio": 0.3,
     
     "stop_loss_ratio": 0.1,
