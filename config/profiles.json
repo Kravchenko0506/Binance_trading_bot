@@ -14,12 +14,13 @@
     "use_macd_for_sell": false,
     "use_ema": true,
     "ema_period": 20,
-    "EMA_BUY_BUFFER": 0.002,
-    "EMA_SELL_BUFFER": 0.002,
+    "EMA_BUY_BUFFER": 0.02,
+    "EMA_SELL_BUFFER": 0.02,
     "commission_rate": 0.001,
-    "min_profit_ratio": 0.030,
-    "stop_loss_ratio": -0.003,
-    "take_profit_ratio": 0.000,
+    "min_profit_ratio": 0.3,
+    
+    "stop_loss_ratio": 0.1,
+    "take_profit_ratio": 0.50,
     "price_precision": 2,
     "min_order_quantity": 1,
     "min_trade_amount": 5

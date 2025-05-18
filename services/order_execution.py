@@ -202,7 +202,7 @@ async def place_order(action: str, symbol: str, profile: object) -> dict | None:
                         )
                         trading_logger.info(log_msg)
                         print(Fore.GREEN + log_msg + Style.RESET_ALL)
-                        await send_notification(f"🟢 КУПЛЕНО: {total_qty_filled:.6f} {base_asset} для {symbol} @ ~{avg_price_filled:.6f} {quote_asset}")
+                        await send_notification(f"🟢 КУПЛЕНО: {total_qty_filled:.6f} {base_asset} для {symbol} @ ~{avg_price_filled:.6f} {quote_asset} Комиссия: {total_commission_paid:.8f} {commission_asset}")
                     else:
                         trading_logger.warning(f"Order Execution ({symbol}): Ордер BUY выполнен, но не найдено исполненных частей (fills) или нулевое количество.")
                 else:
@@ -292,7 +292,7 @@ async def place_order(action: str, symbol: str, profile: object) -> dict | None:
                         )
                         trading_logger.info(log_msg)
                         print(Fore.RED + log_msg + Style.RESET_ALL)
-                        await send_notification(f"🔴 ПРОДАНО: {total_qty_filled:.6f} {base_asset} для {symbol} @ ~{avg_price_filled:.6f} {quote_asset}")
+                        await send_notification(f"🔴 ПРОДАНО: {total_qty_filled:.6f} {base_asset} для {symbol} @ ~{avg_price_filled:.6f} {quote_asset} Комиссия: {total_commission_paid:.8f} {commission_asset}")
                         
                         # После успешной продажи можно удалить файл с ценой покупки
                         # чтобы следующая покупка не ориентировалась на старую цену для profit_check

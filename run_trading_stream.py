@@ -104,11 +104,23 @@ async def check_and_handle_risk_conditions(symbol, profile, current_price, strat
 
     balance = await get_asset_balance_async(symbol)
 
-    if balance < min_qty:
+    if balance is None:
+        system_logger.error(
+        f"{symbol}: Баланс не удалось получить (balance is None). Позиция НЕ сбрасывается, пробую снова позже."
+    )
+        return False
+
+    if balance < min_qty and balance != Decimal("0"):
+    # Возможно, стоит подождать, не сбрасывать сразу
         system_logger.warning(
-            f"{symbol}: Баланс {balance} меньше MinQty ({min_qty}). Считаем позицию закрытой, сбрасываем last_buy_price."
-        )
+        f"{symbol}: Баланс {balance} меньше MinQty ({min_qty}). НЕ сбрасываю позицию, жду подтверждения на следующей итерации."
+    )
+        return False
+
+# Только если явно получен баланс = 0 (и не по ошибке API)
+    if balance == Decimal("0"):
         clear_position(symbol)
+        system_logger.info(f"{symbol}: Баланс стал 0 — позиция сброшена.")
         return False
 
     # === Стоп-лосс
