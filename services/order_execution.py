@@ -26,7 +26,7 @@ async def get_asset_balance_async(asset: str) -> Decimal:
                 break
             await asyncio.sleep(2)
         else:
-            trading_logger.error(f"Order Execution: Баланс не получен для {symbol} после 3 попыток, возвращаю 0.")
+            trading_logger.error(f"Order Execution: Баланс не получен для  {asset} после 3 попыток, возвращаю 0.")
             return Decimal("0")
 
         free_balance_str = balance_info.get('free', '0')
