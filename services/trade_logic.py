@@ -222,7 +222,7 @@ def check_buy_sell_signals(profile: object, historic_prices_np_array: np.ndarray
         lower = last_ema * (1 - ema_buy_buffer)
         upper = last_ema * (1 + ema_sell_buffer)
         log_message_parts.append(
-            f"EMA({ema_period})={ema_val_str} [buy buffer: -{ema_buy_buffer*100:.2f}% | sell buffer: +{ema_sell_buffer*100:.2f}% | zone: {lower:.6f}-{upper:.6f}]"
+            f"EMA({ema_period})={ema_val_str} [buy buffer: -{ema_buy_buffer*100:.2f}% → {lower:.6f} | sell buffer: +{ema_sell_buffer*100:.2f}% → {upper:.6f}]"
         )
     else:
         log_message_parts.append(f"EMA({ema_period})={ema_val_str}")

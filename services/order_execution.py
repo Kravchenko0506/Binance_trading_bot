@@ -20,15 +20,23 @@ async def get_asset_balance_async(asset: str) -> Decimal:
     Возвращает Decimal для точности. В случае ошибки возвращает Decimal('0').
     """
     try:
-        # client.get_asset_balance - блокирующий вызов
-        balance_info = await asyncio.to_thread(client.get_asset_balance, asset=asset)
+        for attempt in range(3):
+            balance_info = await asyncio.to_thread(client.get_asset_balance, asset=asset)
+            if balance_info is not None:
+                break
+            await asyncio.sleep(2)
+        else:
+            trading_logger.error(f"Order Execution: Баланс не получен для {symbol} после 3 попыток, возвращаю 0.")
+            return Decimal("0")
+
         free_balance_str = balance_info.get('free', '0')
-        # trading_logger.debug(f"Order Execution: Баланс {asset} из API: {free_balance_str}")
         return Decimal(free_balance_str)
+
     except Exception as e:
         trading_logger.error(f"Order Execution: Ошибка при получении баланса для {asset}: {e}", exc_info=True)
         await send_notification(f"⚠️ Ошибка API: Не удалось получить баланс {asset}. Проверьте логи.")
         return Decimal('0')
+
 
 
 async def get_current_market_price_async(symbol: str) -> Decimal | None:
@@ -232,7 +240,7 @@ async def place_order(action: str, symbol: str, profile: object) -> dict | None:
                 # Это важно, т.к. слишком маленькая продажа может быть отклонена биржей
                 current_price_for_sell_check = await get_current_market_price_async(symbol)
                 if current_price_for_sell_check and current_price_for_sell_check > Decimal('0'):
-                    estimated_sell_value_in_quote = quantity_to_sell * current_price_for_sell_check
+                    estimated_sell_value_in_quote = Decimal(str(quantity_to_sell)) * Decimal(str(current_price_for_sell_check))
                     min_trade_amount_profile = Decimal(str(getattr(profile, 'MIN_TRADE_AMOUNT', settings.MIN_TRADE_AMOUNT)))
                     if estimated_sell_value_in_quote < min_trade_amount_profile:
                         trading_logger.warning(
