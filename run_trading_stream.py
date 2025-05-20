@@ -104,6 +104,20 @@ async def check_and_handle_risk_conditions(symbol, profile, current_price, strat
         system_logger.warning(f"Risk Check: не удалось загрузить цену покупки для {symbol}. Пропускаем проверки.")
         return False
 
+    # 🔒 Жесткая защита: если цена ниже покупки и нет условий — продажа запрещена
+    if (
+        current_price < last_buy_price
+        and not is_stop_loss_triggered(symbol, current_price, last_buy_price)
+        and not is_take_profit_reached(symbol, current_price, last_buy_price)
+        and not is_enough_profit(symbol, current_price, last_buy_price)
+    ):
+        system_logger.info(
+            f"❌ Продажа {symbol} отклонена: текущая цена {current_price:.6f} ниже цены покупки {last_buy_price:.6f}, "
+            f"и не сработал ни SL, ни TP, ни min profit."
+        )
+        return False
+
+
     # === Защита от продаж при нулевом балансе (MinQty check)
     step_size, min_qty = get_lot_size(symbol)
     if min_qty is None:

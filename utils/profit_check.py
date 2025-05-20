@@ -10,6 +10,7 @@ from config import settings
 from utils.notifier import send_notification 
 # Логгер для торговых операций
 from utils.logger import trading_logger, system_logger 
+from decimal import Decimal, getcontext
 
 
 def get_last_buy_price_path(symbol: str) -> str:
@@ -82,46 +83,43 @@ def load_last_buy_price(symbol: str) -> float | None:
 
 def is_enough_profit(symbol: str, current_price: float, last_buy_price: float | None) -> bool:
     """
-    Проверяет, достаточно ли текущей прибыли для продажи, основываясь на MIN_PROFIT_RATIO.
-    Эта функция теперь не отправляет уведомление об отмене сама, а только проверяет условие.
-    Уведомление и логирование отмены продажи должно быть в вызывающем коде.
+    Проверяет, достигнут ли минимальный профит на основе MIN_PROFIT_RATIO.
 
     Args:
         symbol (str): Торговый символ.
         current_price (float): Текущая рыночная цена актива.
-        last_buy_price (float | None): Цена последней покупки. Если None, считается, что прибыли нет.
+        last_buy_price (float | None): Цена последней покупки. Если None, не можем оценить профит.
 
     Returns:
-        bool: True, если текущая цена обеспечивает достаточную прибыль, иначе False.
+        bool: True, если достигнут минимально допустимый профит.
     """
+    if not getattr(settings, 'USE_MIN_PROFIT', False):
+        return False
+
     if last_buy_price is None or last_buy_price <= 0:
-        trading_logger.debug(f"Profit Check ({symbol}): Проверка мин. прибыли невозможна - нет корректной цены покупки (цена покупки: {last_buy_price}).")
-        return False # Нет цены покупки или она некорректна - нет прибыли.
+        trading_logger.debug(f"Min-Profit Check ({symbol}): Нет last_buy_price. Считаем профит достаточным.")
+        return True
 
-    # Убедимся, что MIN_PROFIT_RATIO загружен корректно
-    min_profit_ratio = getattr(settings, 'MIN_PROFIT_RATIO', 0.002) # Значение по умолчанию, если не найдено
+    min_profit_ratio = getattr(settings, 'MIN_PROFIT_RATIO', 0.01)
+    target_price = last_buy_price * (1 + min_profit_ratio)
+    price_change_ratio = (current_price - last_buy_price) / last_buy_price
+    profit_pct = price_change_ratio * 100
 
-    target_sell_price = last_buy_price * (1 + min_profit_ratio)
-    
-    is_sufficient = current_price >= target_sell_price
-    
-    if is_sufficient:
-        profit_percentage = ((current_price - last_buy_price) / last_buy_price) * 100
+    if current_price >= target_price:
         trading_logger.info(
-            f"Profit Check ({symbol}): ДОСТАТОЧНО ПРОФИТА для продажи. "
-            f"Куплено: {last_buy_price:.8f}, Текущая: {current_price:.8f} (Профит: {profit_percentage:.2f}%). "
-            f"Цель ({min_profit_ratio*100:.2f}%): {target_sell_price:.8f}."
+            f"✅ Минимальный профит ДОСТИГНУТ для {symbol}. "
+            f"Куплено: {last_buy_price:.8f}, Текущая: {current_price:.8f}, Цель: {target_price:.8f}. "
+            f"Профит: {profit_pct:.2f}%, Порог: {min_profit_ratio*100:.2f}%"
         )
+        return True
     else:
-        # Логируем, что профит не достаточен, но не отправляем уведомление здесь.
-        # Уведомление должно отправляться из price_processor, если он *отменяет* продажу из-за этого.
-        profit_percentage = ((current_price - last_buy_price) / last_buy_price) * 100
         trading_logger.info(
-            f"Profit Check ({symbol}): Минимальный профит НЕ достигнут. "
-            f"Куплено: {last_buy_price:.8f}, Текущая: {current_price:.8f} (Профит: {profit_percentage:.2f}%). "
-            f"Нужно >= {target_sell_price:.8f} (для {min_profit_ratio*100:.2f}% профита)."
+            f"❌ Минимальный профит НЕ достигнут для {symbol}. "
+            f"Куплено: {last_buy_price:.8f}, Текущая: {current_price:.8f}, Цель: {target_price:.8f}. "
+            f"Профит: {profit_pct:.2f}%, Порог: {min_profit_ratio*100:.2f}%"
         )
-    return is_sufficient
+        return False
+
 
 
 def is_stop_loss_triggered(symbol: str, current_price: float, last_buy_price: float | None) -> bool:
@@ -180,30 +178,29 @@ def is_take_profit_reached(symbol: str, current_price: float, last_buy_price: fl
     Returns:
         bool: True, если прибыль достигла или превысила порог тейк-профита, иначе False.
     """
-    if not getattr(settings, 'USE_TAKE_PROFIT', False): # Проверяем флаг из настроек
+    if not getattr(settings, 'USE_TAKE_PROFIT', False):
         return False
 
     if last_buy_price is None or last_buy_price <= 0:
-        trading_logger.debug(f"Take-Profit Check ({symbol}): Проверка невозможна - нет корректной цены покупки (цена: {last_buy_price}).")
+        trading_logger.debug(f"Take-Profit Check ({symbol}): Проверка невозможна — нет корректной цены покупки (цена: {last_buy_price}).")
         return False
 
-    take_profit_ratio = getattr(settings, 'TAKE_PROFIT_RATIO', 0.05) # Ожидается положительное значение
-
+    take_profit_ratio = getattr(settings, 'TAKE_PROFIT_RATIO', 0.05)
+    target_price = last_buy_price * (1 + take_profit_ratio)
     price_change_ratio = (current_price - last_buy_price) / last_buy_price
-    
-    # Тейк-профит срабатывает, если изменение цены БОЛЬШЕ ИЛИ РАВНО установленному take_profit_ratio
-    reached = price_change_ratio >= take_profit_ratio
-    
-    if reached:
+    profit_pct = price_change_ratio * 100
+
+    if current_price >= target_price:
         trading_logger.info(
             f"✅ Take-Profit REACHED for {symbol}! "
-            f"Куплено: {last_buy_price:.8f}, Текущая: {current_price:.8f}. "
-            f"Изменение цены: {price_change_ratio*100:.2f}%, Порог TP: {take_profit_ratio*100:.2f}%"
+            f"Куплено: {last_buy_price:.8f}, Текущая: {current_price:.8f}, Цель: {target_price:.8f}. "
+            f"Профит: {profit_pct:.2f}%, Порог TP: {take_profit_ratio*100:.2f}%"
         )
+        return True
     else:
         trading_logger.debug(
-            f"Take-Profit Check ({symbol}): Not reached. "
-            f"Куплено: {last_buy_price:.8f}, Текущая: {current_price:.8f}. "
-            f"Изменение цены: {price_change_ratio*100:.2f}%, Порог TP: {take_profit_ratio*100:.2f}%"
+            f"Take-Profit Check ({symbol}): НЕ достигнут. "
+            f"Куплено: {last_buy_price:.8f}, Текущая: {current_price:.8f}, Цель: {target_price:.8f}. "
+            f"Профит: {profit_pct:.2f}%, Порог TP: {take_profit_ratio*100:.2f}%"
         )
-    return reached
+        return False
