@@ -254,8 +254,13 @@ async def price_processor(
                     action_taken_this_cycle = True
             
             elif strategy_action == 'sell':
-                # Логика продажи по сигналу стратегии
-                proceed_with_strategy_sell = True
+    # Передаём, что стратегия дала SELL, но не исполняем — даём решать risk-блоку
+                strategy_has_issued_sell = True
+                if await check_and_handle_risk_conditions(symbol, profile, new_close_price, strategy_has_issued_sell):
+                    action_taken_this_cycle = True
+                else:
+                    system_logger.info(f"Price processor ({symbol}): Продажа по сигналу стратегии отменена риск-менеджером.")
+
                 # Опциональная проверка минимальной прибыли для ПРОДАЖИ по СТРАТЕГИИ
                 if getattr(settings, "USE_MIN_PROFIT_FOR_STRATEGY_SELL", False): # Если такой флаг есть и True
                     if not is_enough_profit(symbol, new_close_price): # is_enough_profit сама логирует отмену

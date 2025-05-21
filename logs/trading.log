@@ -20008,3 +20008,459 @@ requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetErro
 2025-05-20 08:00:00,641 - trading - INFO - Profit Check (XRPUSDT): Цена последней покупки 2.37620000 сохранена в 'data/last_buy_price_XRPUSDT.json'.
 2025-05-20 08:00:00,642 - trading - INFO - ✅ ПОКУПКА (XRPUSDT): 7.00000000 XRP @ ~2.37620000 USDT. Потрачено: 16.63340000 USDT. Комиссия: 0.00700000 XRP.
 2025-05-20 08:00:00,968 - trading - WARNING - save_last_buy_price: позиция по XRPUSDT уже существует. Повторная покупка отменена.
+2025-05-20 22:21:03,481 - trading - INFO - Логгер 'trading_activity' успешно настроен.
+2025-05-20 22:21:13,059 - trading - INFO - TradeLogic (XRPUSDT): Запрос начальных 300 OHLCV данных для XRPUSDT (5m)...
+2025-05-20 22:21:13,325 - trading - INFO - TradeLogic (XRPUSDT): Успешно загружено 300 цен закрытия.
+2025-05-20 22:24:59,459 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.37620000, Текущая: 2.34810000, Цель: 2.49501000. Профит: -1.18%, Порог: 5.00%
+2025-05-20 22:24:59,812 - trading - INFO - Signal Eval (XRPUSDT): Price=2.348100 | RSI(7)=52.43 (OB:70.0,OS:30.0) | EMA(50)=2.342014 [buy buffer: -2.00% → 2.295174 | sell buffer: +2.00% → 2.388854] | -> Decision: HOLD
+2025-05-20 22:24:59,813 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.37620000, Текущая: 2.34810000, Цель: 2.49501000. Профит: -1.18%, Порог: 5.00%
+2025-05-20 22:29:59,446 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.37620000, Текущая: 2.34890000, Цель: 2.49501000. Профит: -1.15%, Порог: 5.00%
+2025-05-20 22:29:59,447 - trading - INFO - Signal Eval (XRPUSDT): Price=2.348900 | RSI(7)=54.55 (OB:70.0,OS:30.0) | EMA(50)=2.342284 [buy buffer: -2.00% → 2.295438 | sell buffer: +2.00% → 2.389130] | -> Decision: HOLD
+2025-05-20 22:29:59,448 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.37620000, Текущая: 2.34890000, Цель: 2.49501000. Профит: -1.15%, Порог: 5.00%
+2025-05-20 22:34:59,411 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.37620000, Текущая: 2.34690000, Цель: 2.49501000. Профит: -1.23%, Порог: 5.00%
+2025-05-20 22:34:59,412 - trading - INFO - Signal Eval (XRPUSDT): Price=2.346900 | RSI(7)=48.27 (OB:70.0,OS:30.0) | EMA(50)=2.342465 [buy buffer: -2.00% → 2.295616 | sell buffer: +2.00% → 2.389315] | -> Decision: HOLD
+2025-05-20 22:34:59,413 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.37620000, Текущая: 2.34690000, Цель: 2.49501000. Профит: -1.23%, Порог: 5.00%
+2025-05-20 22:39:59,393 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.37620000, Текущая: 2.34700000, Цель: 2.49501000. Профит: -1.23%, Порог: 5.00%
+2025-05-20 22:39:59,394 - trading - INFO - Signal Eval (XRPUSDT): Price=2.347000 | RSI(7)=48.61 (OB:70.0,OS:30.0) | EMA(50)=2.342643 [buy buffer: -2.00% → 2.295790 | sell buffer: +2.00% → 2.389496] | -> Decision: HOLD
+2025-05-20 22:39:59,395 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.37620000, Текущая: 2.34700000, Цель: 2.49501000. Профит: -1.23%, Порог: 5.00%
+2025-05-20 22:44:59,401 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.37620000, Текущая: 2.35020000, Цель: 2.49501000. Профит: -1.09%, Порог: 5.00%
+2025-05-20 22:44:59,402 - trading - INFO - Signal Eval (XRPUSDT): Price=2.350200 | RSI(7)=58.87 (OB:70.0,OS:30.0) | EMA(50)=2.342940 [buy buffer: -2.00% → 2.296081 | sell buffer: +2.00% → 2.389799] | -> Decision: HOLD
+2025-05-20 22:44:59,403 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.37620000, Текущая: 2.35020000, Цель: 2.49501000. Профит: -1.09%, Порог: 5.00%
+2025-05-20 22:49:59,380 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.37620000, Текущая: 2.36040000, Цель: 2.49501000. Профит: -0.66%, Порог: 5.00%
+2025-05-20 22:49:59,381 - trading - INFO - Signal Eval (XRPUSDT): Price=2.360400 | RSI(7)=76.39 (OB:70.0,OS:30.0) | EMA(50)=2.343625 [buy buffer: -2.00% → 2.296752 | sell buffer: +2.00% → 2.390497] | -> Decision: SELL
+2025-05-20 22:49:59,382 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-20 22:49:59,383 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-20 22:50:01,019 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=7.05253874, Кол-во для продажи=7.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-20 22:50:01,307 - trading - INFO - Order Execution (XRPUSDT): Отправка MARKET SELL ордера на 7.0 XRP.
+2025-05-20 22:50:01,596 - trading - INFO - Order Execution (XRPUSDT): Ответ на ордер SELL: {'symbol': 'XRPUSDT', 'orderId': 10749410667, 'orderListId': -1, 'clientOrderId': '0Ry59h6RapB4EpHDtgIXaE', 'transactTime': 1747774202242, 'price': '0.00000000', 'origQty': '7.00000000', 'executedQty': '7.00000000', 'origQuoteOrderQty': '0.00000000', 'cummulativeQuoteQty': '16.51370000', 'status': 'FILLED', 'timeInForce': 'GTC', 'type': 'MARKET', 'side': 'SELL', 'workingTime': 1747774202242, 'fills': [{'price': '2.35910000', 'qty': '4.30000000', 'commission': '0.01014413', 'commissionAsset': 'USDT', 'tradeId': 1157463903}, {'price': '2.35910000', 'qty': '2.70000000', 'commission': '0.00636957', 'commissionAsset': 'USDT', 'tradeId': 1157463904}], 'selfTradePreventionMode': 'EXPIRE_MAKER'}
+2025-05-20 22:50:01,598 - trading - INFO - ✅ ПРОДАЖА (XRPUSDT): 7.00000000 XRP @ ~2.35910000 USDT. Получено: 16.51370000 USDT. Комиссия: 0.01651370 USDT.
+2025-05-20 22:50:01,876 - trading - INFO - Order Execution (XRPUSDT): Файл цены покупки 'data/last_buy_price_XRPUSDT.json' удален после продажи.
+2025-05-20 22:50:01,929 - trading - DEBUG - clear_position: позиция по XRPUSDT уже была закрыта ранее.
+2025-05-20 22:54:59,358 - trading - INFO - Signal Eval (XRPUSDT): Price=2.354800 | RSI(7)=60.01 (OB:70.0,OS:30.0) | EMA(50)=2.344063 [buy buffer: -2.00% → 2.297182 | sell buffer: +2.00% → 2.390944] | -> Decision: HOLD
+2025-05-20 22:59:59,368 - trading - INFO - Signal Eval (XRPUSDT): Price=2.355100 | RSI(7)=60.54 (OB:70.0,OS:30.0) | EMA(50)=2.344496 [buy buffer: -2.00% → 2.297606 | sell buffer: +2.00% → 2.391386] | -> Decision: HOLD
+2025-05-20 23:04:59,341 - trading - INFO - Signal Eval (XRPUSDT): Price=2.359500 | RSI(7)=67.82 (OB:70.0,OS:30.0) | EMA(50)=2.345084 [buy buffer: -2.00% → 2.298183 | sell buffer: +2.00% → 2.391986] | -> Decision: HOLD
+2025-05-20 23:09:59,322 - trading - INFO - Signal Eval (XRPUSDT): Price=2.361800 | RSI(7)=71.08 (OB:70.0,OS:30.0) | EMA(50)=2.345740 [buy buffer: -2.00% → 2.298825 | sell buffer: +2.00% → 2.392655] | -> Decision: SELL
+2025-05-20 23:09:59,323 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-20 23:09:59,323 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-20 23:10:00,438 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.05253874, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-20 23:10:00,438 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-20 23:14:59,324 - trading - INFO - Signal Eval (XRPUSDT): Price=2.347600 | RSI(7)=41.12 (OB:70.0,OS:30.0) | EMA(50)=2.345813 [buy buffer: -2.00% → 2.298897 | sell buffer: +2.00% → 2.392729] | -> Decision: HOLD
+2025-05-20 23:19:59,297 - trading - INFO - Signal Eval (XRPUSDT): Price=2.352200 | RSI(7)=49.21 (OB:70.0,OS:30.0) | EMA(50)=2.346063 [buy buffer: -2.00% → 2.299142 | sell buffer: +2.00% → 2.392985] | -> Decision: HOLD
+2025-05-20 23:24:59,294 - trading - INFO - Signal Eval (XRPUSDT): Price=2.357600 | RSI(7)=57.25 (OB:70.0,OS:30.0) | EMA(50)=2.346516 [buy buffer: -2.00% → 2.299586 | sell buffer: +2.00% → 2.393446] | -> Decision: HOLD
+2025-05-20 23:29:59,301 - trading - INFO - Signal Eval (XRPUSDT): Price=2.346500 | RSI(7)=41.50 (OB:70.0,OS:30.0) | EMA(50)=2.346515 [buy buffer: -2.00% → 2.299585 | sell buffer: +2.00% → 2.393446] | -> Decision: HOLD
+2025-05-20 23:34:59,263 - trading - INFO - Signal Eval (XRPUSDT): Price=2.351100 | RSI(7)=48.37 (OB:70.0,OS:30.0) | EMA(50)=2.346695 [buy buffer: -2.00% → 2.299761 | sell buffer: +2.00% → 2.393629] | -> Decision: HOLD
+2025-05-20 23:39:59,248 - trading - INFO - Signal Eval (XRPUSDT): Price=2.350500 | RSI(7)=47.52 (OB:70.0,OS:30.0) | EMA(50)=2.346844 [buy buffer: -2.00% → 2.299908 | sell buffer: +2.00% → 2.393781] | -> Decision: HOLD
+2025-05-20 23:44:59,269 - trading - INFO - Signal Eval (XRPUSDT): Price=2.353300 | RSI(7)=52.10 (OB:70.0,OS:30.0) | EMA(50)=2.347098 [buy buffer: -2.00% → 2.300156 | sell buffer: +2.00% → 2.394040] | -> Decision: HOLD
+2025-05-20 23:49:59,245 - trading - INFO - Signal Eval (XRPUSDT): Price=2.356800 | RSI(7)=57.50 (OB:70.0,OS:30.0) | EMA(50)=2.347478 [buy buffer: -2.00% → 2.300529 | sell buffer: +2.00% → 2.394428] | -> Decision: HOLD
+2025-05-20 23:54:59,223 - trading - INFO - Signal Eval (XRPUSDT): Price=2.355400 | RSI(7)=54.63 (OB:70.0,OS:30.0) | EMA(50)=2.347789 [buy buffer: -2.00% → 2.300833 | sell buffer: +2.00% → 2.394745] | -> Decision: HOLD
+2025-05-20 23:59:59,234 - trading - INFO - Signal Eval (XRPUSDT): Price=2.355300 | RSI(7)=54.40 (OB:70.0,OS:30.0) | EMA(50)=2.348083 [buy buffer: -2.00% → 2.301122 | sell buffer: +2.00% → 2.395045] | -> Decision: HOLD
+2025-05-21 00:04:59,203 - trading - INFO - Signal Eval (XRPUSDT): Price=2.352900 | RSI(7)=48.73 (OB:70.0,OS:30.0) | EMA(50)=2.348272 [buy buffer: -2.00% → 2.301307 | sell buffer: +2.00% → 2.395238] | -> Decision: HOLD
+2025-05-21 00:09:59,195 - trading - INFO - Signal Eval (XRPUSDT): Price=2.351600 | RSI(7)=45.72 (OB:70.0,OS:30.0) | EMA(50)=2.348403 [buy buffer: -2.00% → 2.301435 | sell buffer: +2.00% → 2.395371] | -> Decision: HOLD
+2025-05-21 00:14:59,201 - trading - INFO - Signal Eval (XRPUSDT): Price=2.349500 | RSI(7)=40.96 (OB:70.0,OS:30.0) | EMA(50)=2.348446 [buy buffer: -2.00% → 2.301477 | sell buffer: +2.00% → 2.395415] | -> Decision: HOLD
+2025-05-21 00:19:59,171 - trading - INFO - Signal Eval (XRPUSDT): Price=2.345500 | RSI(7)=33.25 (OB:70.0,OS:30.0) | EMA(50)=2.348330 [buy buffer: -2.00% → 2.301364 | sell buffer: +2.00% → 2.395297] | -> Decision: HOLD
+2025-05-21 00:24:59,151 - trading - INFO - Signal Eval (XRPUSDT): Price=2.339000 | RSI(7)=24.51 (OB:70.0,OS:30.0) | EMA(50)=2.347964 [buy buffer: -2.00% → 2.301005 | sell buffer: +2.00% → 2.394924] | -> Decision: BUY
+2025-05-21 00:24:59,152 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-21 00:24:59,152 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-21 00:25:00,844 - trading - INFO - Order Execution (XRPUSDT): Расчет покупки: Баланс USDT=16.66883691, Цена=2.33900000, Сумма для траты (USDT)=16.58549273, Расчетное кол-во=7.09084768, Округленное кол-во=7.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-21 00:25:00,844 - trading - INFO - Order Execution (XRPUSDT): Отправка MARKET BUY ордера на 7.0 XRP.
+2025-05-21 00:25:01,144 - trading - INFO - Order Execution (XRPUSDT): Ответ на ордер BUY: {'symbol': 'XRPUSDT', 'orderId': 10750003657, 'orderListId': -1, 'clientOrderId': 'LboXjrx8a0BCUoKhBJcZKs', 'transactTime': 1747779902004, 'price': '0.00000000', 'origQty': '7.00000000', 'executedQty': '7.00000000', 'origQuoteOrderQty': '0.00000000', 'cummulativeQuoteQty': '16.37370000', 'status': 'FILLED', 'timeInForce': 'GTC', 'type': 'MARKET', 'side': 'BUY', 'workingTime': 1747779902004, 'fills': [{'price': '2.33910000', 'qty': '3.00000000', 'commission': '0.00300000', 'commissionAsset': 'XRP', 'tradeId': 1157553733}, {'price': '2.33910000', 'qty': '3.00000000', 'commission': '0.00300000', 'commissionAsset': 'XRP', 'tradeId': 1157553734}, {'price': '2.33910000', 'qty': '1.00000000', 'commission': '0.00100000', 'commissionAsset': 'XRP', 'tradeId': 1157553735}], 'selfTradePreventionMode': 'EXPIRE_MAKER'}
+2025-05-21 00:25:01,152 - trading - INFO - Profit Check (XRPUSDT): Цена последней покупки 2.33910000 сохранена в 'data/last_buy_price_XRPUSDT.json'.
+2025-05-21 00:25:01,152 - trading - INFO - ✅ ПОКУПКА (XRPUSDT): 7.00000000 XRP @ ~2.33910000 USDT. Потрачено: 16.37370000 USDT. Комиссия: 0.00700000 XRP.
+2025-05-21 00:25:01,383 - trading - WARNING - save_last_buy_price: позиция по XRPUSDT уже существует. Повторная покупка отменена.
+2025-05-21 00:30:00,028 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.33910000, Текущая: 2.34580000, Цель: 2.45605500. Профит: 0.29%, Порог: 5.00%
+2025-05-21 00:30:00,029 - trading - INFO - Signal Eval (XRPUSDT): Price=2.345800 | RSI(7)=42.85 (OB:70.0,OS:30.0) | EMA(50)=2.347879 [buy buffer: -2.00% → 2.300922 | sell buffer: +2.00% → 2.394837] | -> Decision: HOLD
+2025-05-21 00:30:00,855 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.33910000, Текущая: 2.34580000, Цель: 2.45605500. Профит: 0.29%, Порог: 5.00%
+2025-05-21 00:35:00,035 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.33910000, Текущая: 2.34500000, Цель: 2.45605500. Профит: 0.25%, Порог: 5.00%
+2025-05-21 00:35:00,036 - trading - INFO - Signal Eval (XRPUSDT): Price=2.345000 | RSI(7)=41.47 (OB:70.0,OS:30.0) | EMA(50)=2.347767 [buy buffer: -2.00% → 2.300811 | sell buffer: +2.00% → 2.394722] | -> Decision: HOLD
+2025-05-21 00:35:00,863 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.33910000, Текущая: 2.34500000, Цель: 2.45605500. Профит: 0.25%, Порог: 5.00%
+2025-05-21 00:39:59,992 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.33910000, Текущая: 2.34150000, Цель: 2.45605500. Профит: 0.10%, Порог: 5.00%
+2025-05-21 00:39:59,993 - trading - INFO - Signal Eval (XRPUSDT): Price=2.341500 | RSI(7)=35.60 (OB:70.0,OS:30.0) | EMA(50)=2.347521 [buy buffer: -2.00% → 2.300570 | sell buffer: +2.00% → 2.394471] | -> Decision: HOLD
+2025-05-21 00:40:00,810 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.33910000, Текущая: 2.34150000, Цель: 2.45605500. Профит: 0.10%, Порог: 5.00%
+2025-05-21 00:45:00,020 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.33910000, Текущая: 2.34730000, Цель: 2.45605500. Профит: 0.35%, Порог: 5.00%
+2025-05-21 00:45:00,021 - trading - INFO - Signal Eval (XRPUSDT): Price=2.347300 | RSI(7)=49.43 (OB:70.0,OS:30.0) | EMA(50)=2.347512 [buy buffer: -2.00% → 2.300562 | sell buffer: +2.00% → 2.394462] | -> Decision: HOLD
+2025-05-21 00:45:00,832 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.33910000, Текущая: 2.34730000, Цель: 2.45605500. Профит: 0.35%, Порог: 5.00%
+2025-05-21 00:49:59,966 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.33910000, Текущая: 2.34530000, Цель: 2.45605500. Профит: 0.27%, Порог: 5.00%
+2025-05-21 00:49:59,967 - trading - INFO - Signal Eval (XRPUSDT): Price=2.345300 | RSI(7)=45.50 (OB:70.0,OS:30.0) | EMA(50)=2.347425 [buy buffer: -2.00% → 2.300477 | sell buffer: +2.00% → 2.394374] | -> Decision: HOLD
+2025-05-21 00:50:00,788 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.33910000, Текущая: 2.34530000, Цель: 2.45605500. Профит: 0.27%, Порог: 5.00%
+2025-05-21 00:54:59,971 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.33910000, Текущая: 2.34610000, Цель: 2.45605500. Профит: 0.30%, Порог: 5.00%
+2025-05-21 00:54:59,971 - trading - INFO - Signal Eval (XRPUSDT): Price=2.346100 | RSI(7)=47.45 (OB:70.0,OS:30.0) | EMA(50)=2.347373 [buy buffer: -2.00% → 2.300426 | sell buffer: +2.00% → 2.394321] | -> Decision: HOLD
+2025-05-21 00:55:00,779 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.33910000, Текущая: 2.34610000, Цель: 2.45605500. Профит: 0.30%, Порог: 5.00%
+2025-05-21 01:00:00,141 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.33910000, Текущая: 2.34930000, Цель: 2.45605500. Профит: 0.44%, Порог: 5.00%
+2025-05-21 01:00:00,142 - trading - INFO - Signal Eval (XRPUSDT): Price=2.349300 | RSI(7)=54.97 (OB:70.0,OS:30.0) | EMA(50)=2.347449 [buy buffer: -2.00% → 2.300500 | sell buffer: +2.00% → 2.394398] | -> Decision: HOLD
+2025-05-21 01:00:01,133 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.33910000, Текущая: 2.34930000, Цель: 2.45605500. Профит: 0.44%, Порог: 5.00%
+2025-05-21 01:05:00,447 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.33910000, Текущая: 2.34700000, Цель: 2.45605500. Профит: 0.34%, Порог: 5.00%
+2025-05-21 01:05:00,448 - trading - INFO - Signal Eval (XRPUSDT): Price=2.347000 | RSI(7)=49.08 (OB:70.0,OS:30.0) | EMA(50)=2.347431 [buy buffer: -2.00% → 2.300483 | sell buffer: +2.00% → 2.394380] | -> Decision: HOLD
+2025-05-21 01:05:01,276 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.33910000, Текущая: 2.34700000, Цель: 2.45605500. Профит: 0.34%, Порог: 5.00%
+2025-05-21 01:09:59,921 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.33910000, Текущая: 2.35150000, Цель: 2.45605500. Профит: 0.53%, Порог: 5.00%
+2025-05-21 01:09:59,922 - trading - INFO - Signal Eval (XRPUSDT): Price=2.351500 | RSI(7)=59.08 (OB:70.0,OS:30.0) | EMA(50)=2.347591 [buy buffer: -2.00% → 2.300639 | sell buffer: +2.00% → 2.394543] | -> Decision: HOLD
+2025-05-21 01:10:01,024 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.33910000, Текущая: 2.35150000, Цель: 2.45605500. Профит: 0.53%, Порог: 5.00%
+2025-05-21 01:14:59,921 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.33910000, Текущая: 2.35790000, Цель: 2.45605500. Профит: 0.80%, Порог: 5.00%
+2025-05-21 01:14:59,922 - trading - INFO - Signal Eval (XRPUSDT): Price=2.357900 | RSI(7)=69.14 (OB:70.0,OS:30.0) | EMA(50)=2.347995 [buy buffer: -2.00% → 2.301035 | sell buffer: +2.00% → 2.394955] | -> Decision: HOLD
+2025-05-21 01:15:00,999 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.33910000, Текущая: 2.35790000, Цель: 2.45605500. Профит: 0.80%, Порог: 5.00%
+2025-05-21 01:19:59,927 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.33910000, Текущая: 2.36370000, Цель: 2.45605500. Профит: 1.05%, Порог: 5.00%
+2025-05-21 01:19:59,928 - trading - INFO - Signal Eval (XRPUSDT): Price=2.363700 | RSI(7)=75.51 (OB:70.0,OS:30.0) | EMA(50)=2.348611 [buy buffer: -2.00% → 2.301639 | sell buffer: +2.00% → 2.395583] | -> Decision: SELL
+2025-05-21 01:19:59,928 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 01:19:59,929 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 01:20:00,759 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=7.04553874, Кол-во для продажи=7.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-21 01:20:01,056 - trading - INFO - Order Execution (XRPUSDT): Отправка MARKET SELL ордера на 7.0 XRP.
+2025-05-21 01:20:01,356 - trading - INFO - Order Execution (XRPUSDT): Ответ на ордер SELL: {'symbol': 'XRPUSDT', 'orderId': 10750359206, 'orderListId': -1, 'clientOrderId': 'd50OzCVy6eOFXmxbIv1Idi', 'transactTime': 1747783202344, 'price': '0.00000000', 'origQty': '7.00000000', 'executedQty': '7.00000000', 'origQuoteOrderQty': '0.00000000', 'cummulativeQuoteQty': '16.54800000', 'status': 'FILLED', 'timeInForce': 'GTC', 'type': 'MARKET', 'side': 'SELL', 'workingTime': 1747783202344, 'fills': [{'price': '2.36400000', 'qty': '7.00000000', 'commission': '0.01654800', 'commissionAsset': 'USDT', 'tradeId': 1157594707}], 'selfTradePreventionMode': 'EXPIRE_MAKER'}
+2025-05-21 01:20:01,358 - trading - INFO - ✅ ПРОДАЖА (XRPUSDT): 7.00000000 XRP @ ~2.36400000 USDT. Получено: 16.54800000 USDT. Комиссия: 0.01654800 USDT.
+2025-05-21 01:20:01,496 - trading - INFO - Order Execution (XRPUSDT): Файл цены покупки 'data/last_buy_price_XRPUSDT.json' удален после продажи.
+2025-05-21 01:20:01,546 - trading - DEBUG - clear_position: позиция по XRPUSDT уже была закрыта ранее.
+2025-05-21 01:24:59,006 - trading - INFO - Signal Eval (XRPUSDT): Price=2.359800 | RSI(7)=64.99 (OB:70.0,OS:30.0) | EMA(50)=2.349050 [buy buffer: -2.00% → 2.302069 | sell buffer: +2.00% → 2.396031] | -> Decision: HOLD
+2025-05-21 01:29:59,025 - trading - INFO - Signal Eval (XRPUSDT): Price=2.361000 | RSI(7)=66.66 (OB:70.0,OS:30.0) | EMA(50)=2.349518 [buy buffer: -2.00% → 2.302528 | sell buffer: +2.00% → 2.396509] | -> Decision: HOLD
+2025-05-21 01:34:58,977 - trading - INFO - Signal Eval (XRPUSDT): Price=2.359600 | RSI(7)=62.60 (OB:70.0,OS:30.0) | EMA(50)=2.349914 [buy buffer: -2.00% → 2.302916 | sell buffer: +2.00% → 2.396912] | -> Decision: HOLD
+2025-05-21 01:39:58,989 - trading - INFO - Signal Eval (XRPUSDT): Price=2.355200 | RSI(7)=51.18 (OB:70.0,OS:30.0) | EMA(50)=2.350121 [buy buffer: -2.00% → 2.303119 | sell buffer: +2.00% → 2.397124] | -> Decision: HOLD
+2025-05-21 01:44:58,979 - trading - INFO - Signal Eval (XRPUSDT): Price=2.352700 | RSI(7)=45.65 (OB:70.0,OS:30.0) | EMA(50)=2.350222 [buy buffer: -2.00% → 2.303218 | sell buffer: +2.00% → 2.397227] | -> Decision: HOLD
+2025-05-21 01:49:58,964 - trading - INFO - Signal Eval (XRPUSDT): Price=2.358400 | RSI(7)=57.77 (OB:70.0,OS:30.0) | EMA(50)=2.350543 [buy buffer: -2.00% → 2.303532 | sell buffer: +2.00% → 2.397554] | -> Decision: HOLD
+2025-05-21 01:54:58,946 - trading - INFO - Signal Eval (XRPUSDT): Price=2.355100 | RSI(7)=50.21 (OB:70.0,OS:30.0) | EMA(50)=2.350722 [buy buffer: -2.00% → 2.303707 | sell buffer: +2.00% → 2.397736] | -> Decision: HOLD
+2025-05-21 01:59:58,993 - trading - INFO - Signal Eval (XRPUSDT): Price=2.356500 | RSI(7)=53.24 (OB:70.0,OS:30.0) | EMA(50)=2.350949 [buy buffer: -2.00% → 2.303930 | sell buffer: +2.00% → 2.397967] | -> Decision: HOLD
+2025-05-21 02:04:58,907 - trading - INFO - Signal Eval (XRPUSDT): Price=2.355500 | RSI(7)=50.67 (OB:70.0,OS:30.0) | EMA(50)=2.351127 [buy buffer: -2.00% → 2.304105 | sell buffer: +2.00% → 2.398150] | -> Decision: HOLD
+2025-05-21 02:09:58,905 - trading - INFO - Signal Eval (XRPUSDT): Price=2.352700 | RSI(7)=43.77 (OB:70.0,OS:30.0) | EMA(50)=2.351189 [buy buffer: -2.00% → 2.304165 | sell buffer: +2.00% → 2.398213] | -> Decision: HOLD
+2025-05-21 02:14:58,900 - trading - INFO - Signal Eval (XRPUSDT): Price=2.358100 | RSI(7)=56.96 (OB:70.0,OS:30.0) | EMA(50)=2.351460 [buy buffer: -2.00% → 2.304431 | sell buffer: +2.00% → 2.398489] | -> Decision: HOLD
+2025-05-21 02:19:58,872 - trading - INFO - Signal Eval (XRPUSDT): Price=2.351700 | RSI(7)=43.01 (OB:70.0,OS:30.0) | EMA(50)=2.351469 [buy buffer: -2.00% → 2.304440 | sell buffer: +2.00% → 2.398499] | -> Decision: HOLD
+2025-05-21 02:24:58,885 - trading - INFO - Signal Eval (XRPUSDT): Price=2.352100 | RSI(7)=44.01 (OB:70.0,OS:30.0) | EMA(50)=2.351494 [buy buffer: -2.00% → 2.304464 | sell buffer: +2.00% → 2.398524] | -> Decision: HOLD
+2025-05-21 02:30:00,226 - trading - INFO - Signal Eval (XRPUSDT): Price=2.351100 | RSI(7)=41.87 (OB:70.0,OS:30.0) | EMA(50)=2.351479 [buy buffer: -2.00% → 2.304449 | sell buffer: +2.00% → 2.398509] | -> Decision: HOLD
+2025-05-21 02:35:00,161 - trading - INFO - Signal Eval (XRPUSDT): Price=2.353700 | RSI(7)=49.35 (OB:70.0,OS:30.0) | EMA(50)=2.351566 [buy buffer: -2.00% → 2.304535 | sell buffer: +2.00% → 2.398598] | -> Decision: HOLD
+2025-05-21 02:40:00,160 - trading - INFO - Signal Eval (XRPUSDT): Price=2.349600 | RSI(7)=39.90 (OB:70.0,OS:30.0) | EMA(50)=2.351489 [buy buffer: -2.00% → 2.304459 | sell buffer: +2.00% → 2.398519] | -> Decision: HOLD
+2025-05-21 02:45:00,115 - trading - INFO - Signal Eval (XRPUSDT): Price=2.349900 | RSI(7)=40.87 (OB:70.0,OS:30.0) | EMA(50)=2.351427 [buy buffer: -2.00% → 2.304398 | sell buffer: +2.00% → 2.398456] | -> Decision: HOLD
+2025-05-21 02:50:00,104 - trading - INFO - Signal Eval (XRPUSDT): Price=2.353100 | RSI(7)=50.73 (OB:70.0,OS:30.0) | EMA(50)=2.351493 [buy buffer: -2.00% → 2.304463 | sell buffer: +2.00% → 2.398523] | -> Decision: HOLD
+2025-05-21 02:55:00,086 - trading - INFO - Signal Eval (XRPUSDT): Price=2.351100 | RSI(7)=45.23 (OB:70.0,OS:30.0) | EMA(50)=2.351477 [buy buffer: -2.00% → 2.304448 | sell buffer: +2.00% → 2.398507] | -> Decision: HOLD
+2025-05-21 03:00:00,107 - trading - INFO - Signal Eval (XRPUSDT): Price=2.351000 | RSI(7)=44.94 (OB:70.0,OS:30.0) | EMA(50)=2.351459 [buy buffer: -2.00% → 2.304430 | sell buffer: +2.00% → 2.398488] | -> Decision: HOLD
+2025-05-21 03:05:00,072 - trading - INFO - Signal Eval (XRPUSDT): Price=2.352500 | RSI(7)=50.40 (OB:70.0,OS:30.0) | EMA(50)=2.351500 [buy buffer: -2.00% → 2.304470 | sell buffer: +2.00% → 2.398530] | -> Decision: HOLD
+2025-05-21 03:10:00,069 - trading - INFO - Signal Eval (XRPUSDT): Price=2.357300 | RSI(7)=63.79 (OB:70.0,OS:30.0) | EMA(50)=2.351727 [buy buffer: -2.00% → 2.304693 | sell buffer: +2.00% → 2.398762] | -> Decision: HOLD
+2025-05-21 03:15:00,084 - trading - INFO - Signal Eval (XRPUSDT): Price=2.357300 | RSI(7)=63.79 (OB:70.0,OS:30.0) | EMA(50)=2.351946 [buy buffer: -2.00% → 2.304907 | sell buffer: +2.00% → 2.398985] | -> Decision: HOLD
+2025-05-21 03:20:00,035 - trading - INFO - Signal Eval (XRPUSDT): Price=2.357200 | RSI(7)=63.30 (OB:70.0,OS:30.0) | EMA(50)=2.352152 [buy buffer: -2.00% → 2.305109 | sell buffer: +2.00% → 2.399195] | -> Decision: HOLD
+2025-05-21 03:25:00,032 - trading - INFO - Signal Eval (XRPUSDT): Price=2.352700 | RSI(7)=45.25 (OB:70.0,OS:30.0) | EMA(50)=2.352173 [buy buffer: -2.00% → 2.305130 | sell buffer: +2.00% → 2.399217] | -> Decision: HOLD
+2025-05-21 03:30:00,017 - trading - INFO - Signal Eval (XRPUSDT): Price=2.353200 | RSI(7)=47.21 (OB:70.0,OS:30.0) | EMA(50)=2.352214 [buy buffer: -2.00% → 2.305169 | sell buffer: +2.00% → 2.399258] | -> Decision: HOLD
+2025-05-21 03:34:59,991 - trading - INFO - Signal Eval (XRPUSDT): Price=2.354500 | RSI(7)=52.36 (OB:70.0,OS:30.0) | EMA(50)=2.352303 [buy buffer: -2.00% → 2.305257 | sell buffer: +2.00% → 2.399349] | -> Decision: HOLD
+2025-05-21 03:39:59,995 - trading - INFO - Signal Eval (XRPUSDT): Price=2.353700 | RSI(7)=48.93 (OB:70.0,OS:30.0) | EMA(50)=2.352358 [buy buffer: -2.00% → 2.305311 | sell buffer: +2.00% → 2.399405] | -> Decision: HOLD
+2025-05-21 03:44:59,984 - trading - INFO - Signal Eval (XRPUSDT): Price=2.354100 | RSI(7)=50.81 (OB:70.0,OS:30.0) | EMA(50)=2.352426 [buy buffer: -2.00% → 2.305378 | sell buffer: +2.00% → 2.399475] | -> Decision: HOLD
+2025-05-21 03:49:59,968 - trading - INFO - Signal Eval (XRPUSDT): Price=2.352700 | RSI(7)=44.17 (OB:70.0,OS:30.0) | EMA(50)=2.352437 [buy buffer: -2.00% → 2.305388 | sell buffer: +2.00% → 2.399485] | -> Decision: HOLD
+2025-05-21 03:54:59,958 - trading - INFO - Signal Eval (XRPUSDT): Price=2.351300 | RSI(7)=38.33 (OB:70.0,OS:30.0) | EMA(50)=2.352392 [buy buffer: -2.00% → 2.305344 | sell buffer: +2.00% → 2.399440] | -> Decision: HOLD
+2025-05-21 03:59:59,962 - trading - INFO - Signal Eval (XRPUSDT): Price=2.346500 | RSI(7)=25.07 (OB:70.0,OS:30.0) | EMA(50)=2.352161 [buy buffer: -2.00% → 2.305118 | sell buffer: +2.00% → 2.399204] | -> Decision: BUY
+2025-05-21 03:59:59,983 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-21 03:59:59,985 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-21 04:00:01,422 - trading - INFO - Order Execution (XRPUSDT): Расчет покупки: Баланс USDT=16.82658891, Цена=2.34650000, Сумма для траты (USDT)=16.74245597, Расчетное кол-во=7.13507606, Округленное кол-во=7.10000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-21 04:00:01,424 - trading - INFO - Order Execution (XRPUSDT): Отправка MARKET BUY ордера на 7.1 XRP.
+2025-05-21 04:00:01,732 - trading - INFO - Order Execution (XRPUSDT): Ответ на ордер BUY: {'symbol': 'XRPUSDT', 'orderId': 10751533111, 'orderListId': -1, 'clientOrderId': 'E9ZEJRFiyNQBpUc7NqFHgS', 'transactTime': 1747792801802, 'price': '0.00000000', 'origQty': '7.10000000', 'executedQty': '7.10000000', 'origQuoteOrderQty': '0.00000000', 'cummulativeQuoteQty': '16.66015000', 'status': 'FILLED', 'timeInForce': 'GTC', 'type': 'MARKET', 'side': 'BUY', 'workingTime': 1747792801802, 'fills': [{'price': '2.34650000', 'qty': '7.10000000', 'commission': '0.00710000', 'commissionAsset': 'XRP', 'tradeId': 1157711449}], 'selfTradePreventionMode': 'EXPIRE_MAKER'}
+2025-05-21 04:00:01,741 - trading - INFO - Profit Check (XRPUSDT): Цена последней покупки 2.34650000 сохранена в 'data/last_buy_price_XRPUSDT.json'.
+2025-05-21 04:00:01,742 - trading - INFO - ✅ ПОКУПКА (XRPUSDT): 7.10000000 XRP @ ~2.34650000 USDT. Потрачено: 16.66015000 USDT. Комиссия: 0.00710000 XRP.
+2025-05-21 04:00:02,033 - trading - WARNING - save_last_buy_price: позиция по XRPUSDT уже существует. Повторная покупка отменена.
+2025-05-21 04:04:59,953 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34650000, Текущая: 2.33790000, Цель: 2.46382500. Профит: -0.37%, Порог: 5.00%
+2025-05-21 04:04:59,954 - trading - INFO - Signal Eval (XRPUSDT): Price=2.337900 | RSI(7)=14.55 (OB:70.0,OS:30.0) | EMA(50)=2.351602 [buy buffer: -2.00% → 2.304570 | sell buffer: +2.00% → 2.398634] | -> Decision: BUY
+2025-05-21 04:09:59,908 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34650000, Текущая: 2.33340000, Цель: 2.46382500. Профит: -0.56%, Порог: 5.00%
+2025-05-21 04:09:59,909 - trading - INFO - Signal Eval (XRPUSDT): Price=2.333400 | RSI(7)=11.58 (OB:70.0,OS:30.0) | EMA(50)=2.350888 [buy buffer: -2.00% → 2.303870 | sell buffer: +2.00% → 2.397905] | -> Decision: BUY
+2025-05-21 04:14:59,930 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34650000, Текущая: 2.33840000, Цель: 2.46382500. Профит: -0.35%, Порог: 5.00%
+2025-05-21 04:14:59,930 - trading - INFO - Signal Eval (XRPUSDT): Price=2.338400 | RSI(7)=30.07 (OB:70.0,OS:30.0) | EMA(50)=2.350398 [buy buffer: -2.00% → 2.303390 | sell buffer: +2.00% → 2.397406] | -> Decision: HOLD
+2025-05-21 04:14:59,931 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34650000, Текущая: 2.33840000, Цель: 2.46382500. Профит: -0.35%, Порог: 5.00%
+2025-05-21 04:19:59,882 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34650000, Текущая: 2.33470000, Цель: 2.46382500. Профит: -0.50%, Порог: 5.00%
+2025-05-21 04:19:59,883 - trading - INFO - Signal Eval (XRPUSDT): Price=2.334700 | RSI(7)=25.47 (OB:70.0,OS:30.0) | EMA(50)=2.349782 [buy buffer: -2.00% → 2.302786 | sell buffer: +2.00% → 2.396778] | -> Decision: BUY
+2025-05-21 04:24:59,872 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34650000, Текущая: 2.33670000, Цель: 2.46382500. Профит: -0.42%, Порог: 5.00%
+2025-05-21 04:24:59,873 - trading - INFO - Signal Eval (XRPUSDT): Price=2.336700 | RSI(7)=32.03 (OB:70.0,OS:30.0) | EMA(50)=2.349269 [buy buffer: -2.00% → 2.302284 | sell buffer: +2.00% → 2.396254] | -> Decision: HOLD
+2025-05-21 04:24:59,874 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34650000, Текущая: 2.33670000, Цель: 2.46382500. Профит: -0.42%, Порог: 5.00%
+2025-05-21 04:29:59,871 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34650000, Текущая: 2.33930000, Цель: 2.46382500. Профит: -0.31%, Порог: 5.00%
+2025-05-21 04:29:59,872 - trading - INFO - Signal Eval (XRPUSDT): Price=2.339300 | RSI(7)=40.03 (OB:70.0,OS:30.0) | EMA(50)=2.348878 [buy buffer: -2.00% → 2.301900 | sell buffer: +2.00% → 2.395855] | -> Decision: HOLD
+2025-05-21 04:29:59,872 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34650000, Текущая: 2.33930000, Цель: 2.46382500. Профит: -0.31%, Порог: 5.00%
+2025-05-21 04:35:00,748 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34650000, Текущая: 2.34700000, Цель: 2.46382500. Профит: 0.02%, Порог: 5.00%
+2025-05-21 04:35:00,748 - trading - INFO - Signal Eval (XRPUSDT): Price=2.347000 | RSI(7)=57.36 (OB:70.0,OS:30.0) | EMA(50)=2.348804 [buy buffer: -2.00% → 2.301828 | sell buffer: +2.00% → 2.395780] | -> Decision: HOLD
+2025-05-21 04:35:01,582 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34650000, Текущая: 2.34700000, Цель: 2.46382500. Профит: 0.02%, Порог: 5.00%
+2025-05-21 04:40:00,712 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34650000, Текущая: 2.35240000, Цель: 2.46382500. Профит: 0.25%, Порог: 5.00%
+2025-05-21 04:40:00,713 - trading - INFO - Signal Eval (XRPUSDT): Price=2.352400 | RSI(7)=65.52 (OB:70.0,OS:30.0) | EMA(50)=2.348945 [buy buffer: -2.00% → 2.301966 | sell buffer: +2.00% → 2.395924] | -> Decision: HOLD
+2025-05-21 04:40:01,577 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34650000, Текущая: 2.35240000, Цель: 2.46382500. Профит: 0.25%, Порог: 5.00%
+2025-05-21 04:45:01,241 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34650000, Текущая: 2.35100000, Цель: 2.46382500. Профит: 0.19%, Порог: 5.00%
+2025-05-21 04:45:01,242 - trading - INFO - Signal Eval (XRPUSDT): Price=2.351000 | RSI(7)=61.94 (OB:70.0,OS:30.0) | EMA(50)=2.349025 [buy buffer: -2.00% → 2.302045 | sell buffer: +2.00% → 2.396006] | -> Decision: HOLD
+2025-05-21 04:45:03,161 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34650000, Текущая: 2.35100000, Цель: 2.46382500. Профит: 0.19%, Порог: 5.00%
+2025-05-21 04:50:00,688 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34650000, Текущая: 2.35350000, Цель: 2.46382500. Профит: 0.30%, Порог: 5.00%
+2025-05-21 04:50:00,689 - trading - INFO - Signal Eval (XRPUSDT): Price=2.353500 | RSI(7)=65.83 (OB:70.0,OS:30.0) | EMA(50)=2.349201 [buy buffer: -2.00% → 2.302217 | sell buffer: +2.00% → 2.396185] | -> Decision: HOLD
+2025-05-21 04:50:01,508 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34650000, Текущая: 2.35350000, Цель: 2.46382500. Профит: 0.30%, Порог: 5.00%
+2025-05-21 04:55:00,669 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34650000, Текущая: 2.35770000, Цель: 2.46382500. Профит: 0.48%, Порог: 5.00%
+2025-05-21 04:55:00,669 - trading - INFO - Signal Eval (XRPUSDT): Price=2.357700 | RSI(7)=71.54 (OB:70.0,OS:30.0) | EMA(50)=2.349534 [buy buffer: -2.00% → 2.302543 | sell buffer: +2.00% → 2.396525] | -> Decision: SELL
+2025-05-21 04:55:00,671 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 04:55:00,672 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 04:55:01,500 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=7.13843874, Кол-во для продажи=7.10000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-21 04:55:01,804 - trading - INFO - Order Execution (XRPUSDT): Отправка MARKET SELL ордера на 7.1 XRP.
+2025-05-21 04:55:02,107 - trading - INFO - Order Execution (XRPUSDT): Ответ на ордер SELL: {'symbol': 'XRPUSDT', 'orderId': 10751917396, 'orderListId': -1, 'clientOrderId': 'Ecnt6nIYzZFRuGJ2ahjxoe', 'transactTime': 1747796102305, 'price': '0.00000000', 'origQty': '7.10000000', 'executedQty': '7.10000000', 'origQuoteOrderQty': '0.00000000', 'cummulativeQuoteQty': '16.73967000', 'status': 'FILLED', 'timeInForce': 'GTC', 'type': 'MARKET', 'side': 'SELL', 'workingTime': 1747796102305, 'fills': [{'price': '2.35770000', 'qty': '7.10000000', 'commission': '0.01673967', 'commissionAsset': 'USDT', 'tradeId': 1157756307}], 'selfTradePreventionMode': 'EXPIRE_MAKER'}
+2025-05-21 04:55:02,108 - trading - INFO - ✅ ПРОДАЖА (XRPUSDT): 7.10000000 XRP @ ~2.35770000 USDT. Получено: 16.73967000 USDT. Комиссия: 0.01673967 USDT.
+2025-05-21 04:55:02,339 - trading - INFO - Order Execution (XRPUSDT): Файл цены покупки 'data/last_buy_price_XRPUSDT.json' удален после продажи.
+2025-05-21 04:55:02,390 - trading - DEBUG - clear_position: позиция по XRPUSDT уже была закрыта ранее.
+2025-05-21 05:00:00,155 - trading - INFO - Signal Eval (XRPUSDT): Price=2.356400 | RSI(7)=67.47 (OB:70.0,OS:30.0) | EMA(50)=2.349803 [buy buffer: -2.00% → 2.302807 | sell buffer: +2.00% → 2.396799] | -> Decision: HOLD
+2025-05-21 05:04:59,792 - trading - INFO - Signal Eval (XRPUSDT): Price=2.355700 | RSI(7)=65.14 (OB:70.0,OS:30.0) | EMA(50)=2.350035 [buy buffer: -2.00% → 2.303034 | sell buffer: +2.00% → 2.397035] | -> Decision: HOLD
+2025-05-21 05:09:59,783 - trading - INFO - Signal Eval (XRPUSDT): Price=2.361700 | RSI(7)=74.08 (OB:70.0,OS:30.0) | EMA(50)=2.350492 [buy buffer: -2.00% → 2.303482 | sell buffer: +2.00% → 2.397502] | -> Decision: SELL
+2025-05-21 05:09:59,783 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 05:09:59,783 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 05:10:00,689 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.03843874, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-21 05:10:00,689 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-21 05:14:59,762 - trading - INFO - Signal Eval (XRPUSDT): Price=2.362900 | RSI(7)=75.54 (OB:70.0,OS:30.0) | EMA(50)=2.350979 [buy buffer: -2.00% → 2.303959 | sell buffer: +2.00% → 2.397998] | -> Decision: SELL
+2025-05-21 05:14:59,762 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 05:14:59,763 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 05:15:00,652 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.03843874, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-21 05:15:00,653 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-21 05:19:59,768 - trading - INFO - Signal Eval (XRPUSDT): Price=2.361300 | RSI(7)=69.44 (OB:70.0,OS:30.0) | EMA(50)=2.351383 [buy buffer: -2.00% → 2.304356 | sell buffer: +2.00% → 2.398411] | -> Decision: HOLD
+2025-05-21 05:24:59,744 - trading - INFO - Signal Eval (XRPUSDT): Price=2.362800 | RSI(7)=71.92 (OB:70.0,OS:30.0) | EMA(50)=2.351831 [buy buffer: -2.00% → 2.304794 | sell buffer: +2.00% → 2.398868] | -> Decision: SELL
+2025-05-21 05:24:59,745 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 05:24:59,745 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 05:25:00,627 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.03843874, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-21 05:25:00,628 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-21 05:29:59,742 - trading - INFO - Signal Eval (XRPUSDT): Price=2.363400 | RSI(7)=72.95 (OB:70.0,OS:30.0) | EMA(50)=2.352285 [buy buffer: -2.00% → 2.305239 | sell buffer: +2.00% → 2.399330] | -> Decision: SELL
+2025-05-21 05:29:59,742 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 05:29:59,743 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 05:30:00,619 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.03843874, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-21 05:30:00,619 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-21 05:34:59,713 - trading - INFO - Signal Eval (XRPUSDT): Price=2.365400 | RSI(7)=76.31 (OB:70.0,OS:30.0) | EMA(50)=2.352799 [buy buffer: -2.00% → 2.305743 | sell buffer: +2.00% → 2.399855] | -> Decision: SELL
+2025-05-21 05:34:59,714 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 05:34:59,714 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 05:35:00,601 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.03843874, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-21 05:35:00,601 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-21 05:39:59,715 - trading - INFO - Signal Eval (XRPUSDT): Price=2.364900 | RSI(7)=73.64 (OB:70.0,OS:30.0) | EMA(50)=2.353274 [buy buffer: -2.00% → 2.306208 | sell buffer: +2.00% → 2.400339] | -> Decision: SELL
+2025-05-21 05:39:59,716 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 05:40:00,028 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 05:40:00,899 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.03843874, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-21 05:40:00,899 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-21 05:44:59,694 - trading - INFO - Signal Eval (XRPUSDT): Price=2.362500 | RSI(7)=61.58 (OB:70.0,OS:30.0) | EMA(50)=2.353635 [buy buffer: -2.00% → 2.306563 | sell buffer: +2.00% → 2.400708] | -> Decision: HOLD
+2025-05-21 05:49:59,686 - trading - INFO - Signal Eval (XRPUSDT): Price=2.363400 | RSI(7)=64.15 (OB:70.0,OS:30.0) | EMA(50)=2.354018 [buy buffer: -2.00% → 2.306938 | sell buffer: +2.00% → 2.401099] | -> Decision: HOLD
+2025-05-21 05:54:59,678 - trading - INFO - Signal Eval (XRPUSDT): Price=2.359300 | RSI(7)=47.33 (OB:70.0,OS:30.0) | EMA(50)=2.354225 [buy buffer: -2.00% → 2.307141 | sell buffer: +2.00% → 2.401310] | -> Decision: HOLD
+2025-05-21 05:59:59,688 - trading - INFO - Signal Eval (XRPUSDT): Price=2.358500 | RSI(7)=44.66 (OB:70.0,OS:30.0) | EMA(50)=2.354393 [buy buffer: -2.00% → 2.307305 | sell buffer: +2.00% → 2.401481] | -> Decision: HOLD
+2025-05-21 06:04:59,644 - trading - INFO - Signal Eval (XRPUSDT): Price=2.362800 | RSI(7)=59.11 (OB:70.0,OS:30.0) | EMA(50)=2.354723 [buy buffer: -2.00% → 2.307628 | sell buffer: +2.00% → 2.401817] | -> Decision: HOLD
+2025-05-21 06:09:59,633 - trading - INFO - Signal Eval (XRPUSDT): Price=2.367300 | RSI(7)=68.99 (OB:70.0,OS:30.0) | EMA(50)=2.355216 [buy buffer: -2.00% → 2.308112 | sell buffer: +2.00% → 2.402320] | -> Decision: HOLD
+2025-05-21 06:14:59,639 - trading - INFO - Signal Eval (XRPUSDT): Price=2.363400 | RSI(7)=55.44 (OB:70.0,OS:30.0) | EMA(50)=2.355537 [buy buffer: -2.00% → 2.308426 | sell buffer: +2.00% → 2.402647] | -> Decision: HOLD
+2025-05-21 06:19:59,611 - trading - INFO - Signal Eval (XRPUSDT): Price=2.362800 | RSI(7)=53.55 (OB:70.0,OS:30.0) | EMA(50)=2.355822 [buy buffer: -2.00% → 2.308705 | sell buffer: +2.00% → 2.402938] | -> Decision: HOLD
+2025-05-21 06:24:59,604 - trading - INFO - Signal Eval (XRPUSDT): Price=2.361700 | RSI(7)=49.92 (OB:70.0,OS:30.0) | EMA(50)=2.356052 [buy buffer: -2.00% → 2.308931 | sell buffer: +2.00% → 2.403173] | -> Decision: HOLD
+2025-05-21 06:29:59,606 - trading - INFO - Signal Eval (XRPUSDT): Price=2.358700 | RSI(7)=41.05 (OB:70.0,OS:30.0) | EMA(50)=2.356156 [buy buffer: -2.00% → 2.309033 | sell buffer: +2.00% → 2.403279] | -> Decision: HOLD
+2025-05-21 06:34:59,586 - trading - INFO - Signal Eval (XRPUSDT): Price=2.359600 | RSI(7)=44.50 (OB:70.0,OS:30.0) | EMA(50)=2.356291 [buy buffer: -2.00% → 2.309165 | sell buffer: +2.00% → 2.403417] | -> Decision: HOLD
+2025-05-21 06:39:59,559 - trading - INFO - Signal Eval (XRPUSDT): Price=2.372000 | RSI(7)=71.40 (OB:70.0,OS:30.0) | EMA(50)=2.356907 [buy buffer: -2.00% → 2.309769 | sell buffer: +2.00% → 2.404045] | -> Decision: SELL
+2025-05-21 06:39:59,559 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 06:39:59,560 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 06:40:00,484 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.03843874, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-21 06:40:00,485 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-21 06:44:59,563 - trading - INFO - Signal Eval (XRPUSDT): Price=2.375800 | RSI(7)=75.63 (OB:70.0,OS:30.0) | EMA(50)=2.357648 [buy buffer: -2.00% → 2.310495 | sell buffer: +2.00% → 2.404801] | -> Decision: SELL
+2025-05-21 06:44:59,563 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 06:44:59,564 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 06:45:00,479 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.03843874, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-21 06:45:00,480 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-21 06:49:59,551 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373300 | RSI(7)=67.93 (OB:70.0,OS:30.0) | EMA(50)=2.358262 [buy buffer: -2.00% → 2.311097 | sell buffer: +2.00% → 2.405427] | -> Decision: HOLD
+2025-05-21 06:54:59,539 - trading - INFO - Signal Eval (XRPUSDT): Price=2.370700 | RSI(7)=60.46 (OB:70.0,OS:30.0) | EMA(50)=2.358750 [buy buffer: -2.00% → 2.311575 | sell buffer: +2.00% → 2.405925] | -> Decision: HOLD
+2025-05-21 06:59:59,534 - trading - INFO - Signal Eval (XRPUSDT): Price=2.369900 | RSI(7)=58.16 (OB:70.0,OS:30.0) | EMA(50)=2.359187 [buy buffer: -2.00% → 2.312003 | sell buffer: +2.00% → 2.406371] | -> Decision: HOLD
+2025-05-21 07:04:59,543 - trading - INFO - Signal Eval (XRPUSDT): Price=2.374000 | RSI(7)=65.90 (OB:70.0,OS:30.0) | EMA(50)=2.359768 [buy buffer: -2.00% → 2.312573 | sell buffer: +2.00% → 2.406963] | -> Decision: HOLD
+2025-05-21 07:09:59,503 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373800 | RSI(7)=65.22 (OB:70.0,OS:30.0) | EMA(50)=2.360318 [buy buffer: -2.00% → 2.313112 | sell buffer: +2.00% → 2.407525] | -> Decision: HOLD
+2025-05-21 07:14:59,487 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373300 | RSI(7)=63.29 (OB:70.0,OS:30.0) | EMA(50)=2.360828 [buy buffer: -2.00% → 2.313611 | sell buffer: +2.00% → 2.408044] | -> Decision: HOLD
+2025-05-21 07:19:59,470 - trading - INFO - Signal Eval (XRPUSDT): Price=2.382300 | RSI(7)=77.33 (OB:70.0,OS:30.0) | EMA(50)=2.361670 [buy buffer: -2.00% → 2.314436 | sell buffer: +2.00% → 2.408903] | -> Decision: SELL
+2025-05-21 07:19:59,472 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 07:19:59,473 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 07:20:00,359 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.03843874, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-21 07:20:00,360 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-21 07:24:59,457 - trading - INFO - Signal Eval (XRPUSDT): Price=2.384800 | RSI(7)=79.83 (OB:70.0,OS:30.0) | EMA(50)=2.362577 [buy buffer: -2.00% → 2.315325 | sell buffer: +2.00% → 2.409828] | -> Decision: SELL
+2025-05-21 07:24:59,458 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 07:24:59,458 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 07:25:00,363 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.03843874, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-21 07:25:00,363 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-21 07:29:59,475 - trading - INFO - Signal Eval (XRPUSDT): Price=2.378300 | RSI(7)=59.82 (OB:70.0,OS:30.0) | EMA(50)=2.363193 [buy buffer: -2.00% → 2.315929 | sell buffer: +2.00% → 2.410457] | -> Decision: HOLD
+2025-05-21 07:34:59,442 - trading - INFO - Signal Eval (XRPUSDT): Price=2.388300 | RSI(7)=72.29 (OB:70.0,OS:30.0) | EMA(50)=2.364178 [buy buffer: -2.00% → 2.316894 | sell buffer: +2.00% → 2.411461] | -> Decision: SELL
+2025-05-21 07:34:59,443 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 07:34:59,444 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 07:35:00,358 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.03843874, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-21 07:35:00,358 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-21 07:39:59,420 - trading - INFO - Signal Eval (XRPUSDT): Price=2.380500 | RSI(7)=56.37 (OB:70.0,OS:30.0) | EMA(50)=2.364818 [buy buffer: -2.00% → 2.317522 | sell buffer: +2.00% → 2.412114] | -> Decision: HOLD
+2025-05-21 07:44:59,419 - trading - INFO - Signal Eval (XRPUSDT): Price=2.379200 | RSI(7)=54.06 (OB:70.0,OS:30.0) | EMA(50)=2.365382 [buy buffer: -2.00% → 2.318074 | sell buffer: +2.00% → 2.412690] | -> Decision: HOLD
+2025-05-21 07:49:59,406 - trading - INFO - Signal Eval (XRPUSDT): Price=2.380900 | RSI(7)=56.76 (OB:70.0,OS:30.0) | EMA(50)=2.365991 [buy buffer: -2.00% → 2.318671 | sell buffer: +2.00% → 2.413310] | -> Decision: HOLD
+2025-05-21 07:54:59,383 - trading - INFO - Signal Eval (XRPUSDT): Price=2.385100 | RSI(7)=63.04 (OB:70.0,OS:30.0) | EMA(50)=2.366740 [buy buffer: -2.00% → 2.319405 | sell buffer: +2.00% → 2.414075] | -> Decision: HOLD
+2025-05-21 07:59:59,423 - trading - INFO - Signal Eval (XRPUSDT): Price=2.381800 | RSI(7)=55.64 (OB:70.0,OS:30.0) | EMA(50)=2.367330 [buy buffer: -2.00% → 2.319984 | sell buffer: +2.00% → 2.414677] | -> Decision: HOLD
+2025-05-21 08:04:59,371 - trading - INFO - Signal Eval (XRPUSDT): Price=2.381600 | RSI(7)=55.18 (OB:70.0,OS:30.0) | EMA(50)=2.367890 [buy buffer: -2.00% → 2.320532 | sell buffer: +2.00% → 2.415248] | -> Decision: HOLD
+2025-05-21 08:09:59,349 - trading - INFO - Signal Eval (XRPUSDT): Price=2.378800 | RSI(7)=48.63 (OB:70.0,OS:30.0) | EMA(50)=2.368318 [buy buffer: -2.00% → 2.320951 | sell buffer: +2.00% → 2.415684] | -> Decision: HOLD
+2025-05-21 08:14:59,355 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373100 | RSI(7)=37.94 (OB:70.0,OS:30.0) | EMA(50)=2.368505 [buy buffer: -2.00% → 2.321135 | sell buffer: +2.00% → 2.415875] | -> Decision: HOLD
+2025-05-21 08:19:59,334 - trading - INFO - Signal Eval (XRPUSDT): Price=2.376100 | RSI(7)=45.32 (OB:70.0,OS:30.0) | EMA(50)=2.368803 [buy buffer: -2.00% → 2.321427 | sell buffer: +2.00% → 2.416179] | -> Decision: HOLD
+2025-05-21 08:24:59,317 - trading - INFO - Signal Eval (XRPUSDT): Price=2.376900 | RSI(7)=47.27 (OB:70.0,OS:30.0) | EMA(50)=2.369121 [buy buffer: -2.00% → 2.321738 | sell buffer: +2.00% → 2.416503] | -> Decision: HOLD
+2025-05-21 08:29:59,312 - trading - INFO - Signal Eval (XRPUSDT): Price=2.381200 | RSI(7)=56.91 (OB:70.0,OS:30.0) | EMA(50)=2.369594 [buy buffer: -2.00% → 2.322203 | sell buffer: +2.00% → 2.416986] | -> Decision: HOLD
+2025-05-21 08:34:59,289 - trading - INFO - Signal Eval (XRPUSDT): Price=2.382600 | RSI(7)=59.71 (OB:70.0,OS:30.0) | EMA(50)=2.370104 [buy buffer: -2.00% → 2.322702 | sell buffer: +2.00% → 2.417507] | -> Decision: HOLD
+2025-05-21 08:39:59,281 - trading - INFO - Signal Eval (XRPUSDT): Price=2.379200 | RSI(7)=50.43 (OB:70.0,OS:30.0) | EMA(50)=2.370461 [buy buffer: -2.00% → 2.323052 | sell buffer: +2.00% → 2.417870] | -> Decision: HOLD
+2025-05-21 08:44:59,274 - trading - INFO - Signal Eval (XRPUSDT): Price=2.384500 | RSI(7)=61.35 (OB:70.0,OS:30.0) | EMA(50)=2.371012 [buy buffer: -2.00% → 2.323592 | sell buffer: +2.00% → 2.418432] | -> Decision: HOLD
+2025-05-21 08:49:59,261 - trading - INFO - Signal Eval (XRPUSDT): Price=2.380000 | RSI(7)=50.36 (OB:70.0,OS:30.0) | EMA(50)=2.371364 [buy buffer: -2.00% → 2.323937 | sell buffer: +2.00% → 2.418792] | -> Decision: HOLD
+2025-05-21 08:54:59,258 - trading - INFO - Signal Eval (XRPUSDT): Price=2.381600 | RSI(7)=53.80 (OB:70.0,OS:30.0) | EMA(50)=2.371766 [buy buffer: -2.00% → 2.324330 | sell buffer: +2.00% → 2.419201] | -> Decision: HOLD
+2025-05-21 08:59:59,266 - trading - INFO - Signal Eval (XRPUSDT): Price=2.377300 | RSI(7)=44.21 (OB:70.0,OS:30.0) | EMA(50)=2.371983 [buy buffer: -2.00% → 2.324543 | sell buffer: +2.00% → 2.419422] | -> Decision: HOLD
+2025-05-21 09:04:59,224 - trading - INFO - Signal Eval (XRPUSDT): Price=2.374800 | RSI(7)=39.44 (OB:70.0,OS:30.0) | EMA(50)=2.372093 [buy buffer: -2.00% → 2.324651 | sell buffer: +2.00% → 2.419535] | -> Decision: HOLD
+2025-05-21 09:09:59,211 - trading - INFO - Signal Eval (XRPUSDT): Price=2.373300 | RSI(7)=36.67 (OB:70.0,OS:30.0) | EMA(50)=2.372140 [buy buffer: -2.00% → 2.324698 | sell buffer: +2.00% → 2.419583] | -> Decision: HOLD
+2025-05-21 09:14:59,206 - trading - INFO - Signal Eval (XRPUSDT): Price=2.365800 | RSI(7)=26.02 (OB:70.0,OS:30.0) | EMA(50)=2.371892 [buy buffer: -2.00% → 2.324454 | sell buffer: +2.00% → 2.419330] | -> Decision: BUY
+2025-05-21 09:14:59,208 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-21 09:14:59,209 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-21 09:15:00,427 - trading - INFO - Order Execution (XRPUSDT): Расчет покупки: Баланс USDT=16.88936924, Цена=2.36590000, Сумма для траты (USDT)=16.80492239, Расчетное кол-во=7.10297240, Округленное кол-во=7.10000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-21 09:15:00,428 - trading - INFO - Order Execution (XRPUSDT): Отправка MARKET BUY ордера на 7.1 XRP.
+2025-05-21 09:15:00,737 - trading - INFO - Order Execution (XRPUSDT): Ответ на ордер BUY: {'symbol': 'XRPUSDT', 'orderId': 10753823510, 'orderListId': -1, 'clientOrderId': 'ZNsdcpk0vhsHGzYqAS5xaL', 'transactTime': 1747811701538, 'price': '0.00000000', 'origQty': '7.10000000', 'executedQty': '7.10000000', 'origQuoteOrderQty': '0.00000000', 'cummulativeQuoteQty': '16.79860000', 'status': 'FILLED', 'timeInForce': 'GTC', 'type': 'MARKET', 'side': 'BUY', 'workingTime': 1747811701538, 'fills': [{'price': '2.36600000', 'qty': '2.30000000', 'commission': '0.00230000', 'commissionAsset': 'XRP', 'tradeId': 1157986840}, {'price': '2.36600000', 'qty': '2.30000000', 'commission': '0.00230000', 'commissionAsset': 'XRP', 'tradeId': 1157986841}, {'price': '2.36600000', 'qty': '2.50000000', 'commission': '0.00250000', 'commissionAsset': 'XRP', 'tradeId': 1157986842}], 'selfTradePreventionMode': 'EXPIRE_MAKER'}
+2025-05-21 09:15:01,095 - trading - INFO - Profit Check (XRPUSDT): Цена последней покупки 2.36600000 сохранена в 'data/last_buy_price_XRPUSDT.json'.
+2025-05-21 09:15:01,096 - trading - INFO - ✅ ПОКУПКА (XRPUSDT): 7.10000000 XRP @ ~2.36600000 USDT. Потрачено: 16.79860000 USDT. Комиссия: 0.00710000 XRP.
+2025-05-21 09:15:01,320 - trading - WARNING - save_last_buy_price: позиция по XRPUSDT уже существует. Повторная покупка отменена.
+2025-05-21 09:19:59,224 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.36210000, Цель: 2.48430000. Профит: -0.16%, Порог: 5.00%
+2025-05-21 09:19:59,224 - trading - INFO - Signal Eval (XRPUSDT): Price=2.362100 | RSI(7)=22.29 (OB:70.0,OS:30.0) | EMA(50)=2.371508 [buy buffer: -2.00% → 2.324077 | sell buffer: +2.00% → 2.418938] | -> Decision: BUY
+2025-05-21 09:24:59,170 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35180000, Цель: 2.48430000. Профит: -0.60%, Порог: 5.00%
+2025-05-21 09:24:59,171 - trading - INFO - Signal Eval (XRPUSDT): Price=2.351800 | RSI(7)=15.21 (OB:70.0,OS:30.0) | EMA(50)=2.370735 [buy buffer: -2.00% → 2.323320 | sell buffer: +2.00% → 2.418149] | -> Decision: BUY
+2025-05-21 09:29:59,187 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35450000, Цель: 2.48430000. Профит: -0.49%, Порог: 5.00%
+2025-05-21 09:29:59,188 - trading - INFO - Signal Eval (XRPUSDT): Price=2.354500 | RSI(7)=22.72 (OB:70.0,OS:30.0) | EMA(50)=2.370098 [buy buffer: -2.00% → 2.322696 | sell buffer: +2.00% → 2.417500] | -> Decision: BUY
+2025-05-21 09:34:59,150 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35120000, Цель: 2.48430000. Профит: -0.63%, Порог: 5.00%
+2025-05-21 09:34:59,151 - trading - INFO - Signal Eval (XRPUSDT): Price=2.351200 | RSI(7)=20.17 (OB:70.0,OS:30.0) | EMA(50)=2.369357 [buy buffer: -2.00% → 2.321970 | sell buffer: +2.00% → 2.416744] | -> Decision: BUY
+2025-05-21 09:39:59,149 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34510000, Цель: 2.48430000. Профит: -0.88%, Порог: 5.00%
+2025-05-21 09:39:59,150 - trading - INFO - Signal Eval (XRPUSDT): Price=2.345100 | RSI(7)=16.25 (OB:70.0,OS:30.0) | EMA(50)=2.368406 [buy buffer: -2.00% → 2.321038 | sell buffer: +2.00% → 2.415774] | -> Decision: BUY
+2025-05-21 09:44:59,135 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34610000, Цель: 2.48430000. Профит: -0.84%, Порог: 5.00%
+2025-05-21 09:44:59,136 - trading - INFO - Signal Eval (XRPUSDT): Price=2.346100 | RSI(7)=19.25 (OB:70.0,OS:30.0) | EMA(50)=2.367531 [buy buffer: -2.00% → 2.320180 | sell buffer: +2.00% → 2.414882] | -> Decision: BUY
+2025-05-21 09:49:59,123 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34950000, Цель: 2.48430000. Профит: -0.70%, Порог: 5.00%
+2025-05-21 09:49:59,124 - trading - INFO - Signal Eval (XRPUSDT): Price=2.349500 | RSI(7)=29.31 (OB:70.0,OS:30.0) | EMA(50)=2.366824 [buy buffer: -2.00% → 2.319487 | sell buffer: +2.00% → 2.414160] | -> Decision: BUY
+2025-05-21 09:54:59,099 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34950000, Цель: 2.48430000. Профит: -0.70%, Порог: 5.00%
+2025-05-21 09:54:59,101 - trading - INFO - Signal Eval (XRPUSDT): Price=2.349500 | RSI(7)=29.31 (OB:70.0,OS:30.0) | EMA(50)=2.366144 [buy buffer: -2.00% → 2.318822 | sell buffer: +2.00% → 2.413467] | -> Decision: BUY
+2025-05-21 09:59:59,136 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34900000, Цель: 2.48430000. Профит: -0.72%, Порог: 5.00%
+2025-05-21 09:59:59,137 - trading - INFO - Signal Eval (XRPUSDT): Price=2.349000 | RSI(7)=28.60 (OB:70.0,OS:30.0) | EMA(50)=2.365472 [buy buffer: -2.00% → 2.318163 | sell buffer: +2.00% → 2.412782] | -> Decision: BUY
+2025-05-21 10:04:59,115 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35330000, Цель: 2.48430000. Профит: -0.54%, Порог: 5.00%
+2025-05-21 10:04:59,116 - trading - INFO - Signal Eval (XRPUSDT): Price=2.353300 | RSI(7)=42.61 (OB:70.0,OS:30.0) | EMA(50)=2.364995 [buy buffer: -2.00% → 2.317695 | sell buffer: +2.00% → 2.412295] | -> Decision: HOLD
+2025-05-21 10:04:59,116 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35330000, Цель: 2.48430000. Профит: -0.54%, Порог: 5.00%
+2025-05-21 10:09:59,084 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35160000, Цель: 2.48430000. Профит: -0.61%, Порог: 5.00%
+2025-05-21 10:09:59,085 - trading - INFO - Signal Eval (XRPUSDT): Price=2.351600 | RSI(7)=39.08 (OB:70.0,OS:30.0) | EMA(50)=2.364469 [buy buffer: -2.00% → 2.317180 | sell buffer: +2.00% → 2.411759] | -> Decision: HOLD
+2025-05-21 10:09:59,085 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35160000, Цель: 2.48430000. Профит: -0.61%, Порог: 5.00%
+2025-05-21 10:14:59,067 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35950000, Цель: 2.48430000. Профит: -0.27%, Порог: 5.00%
+2025-05-21 10:14:59,068 - trading - INFO - Signal Eval (XRPUSDT): Price=2.359500 | RSI(7)=57.99 (OB:70.0,OS:30.0) | EMA(50)=2.364274 [buy buffer: -2.00% → 2.316989 | sell buffer: +2.00% → 2.411560] | -> Decision: HOLD
+2025-05-21 10:14:59,069 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35950000, Цель: 2.48430000. Профит: -0.27%, Порог: 5.00%
+2025-05-21 10:19:59,043 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35520000, Цель: 2.48430000. Профит: -0.46%, Порог: 5.00%
+2025-05-21 10:19:59,044 - trading - INFO - Signal Eval (XRPUSDT): Price=2.355200 | RSI(7)=48.44 (OB:70.0,OS:30.0) | EMA(50)=2.363918 [buy buffer: -2.00% → 2.316640 | sell buffer: +2.00% → 2.411197] | -> Decision: HOLD
+2025-05-21 10:19:59,044 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35520000, Цель: 2.48430000. Профит: -0.46%, Порог: 5.00%
+2025-05-21 10:24:59,029 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35740000, Цель: 2.48430000. Профит: -0.36%, Порог: 5.00%
+2025-05-21 10:24:59,030 - trading - INFO - Signal Eval (XRPUSDT): Price=2.357400 | RSI(7)=53.05 (OB:70.0,OS:30.0) | EMA(50)=2.363663 [buy buffer: -2.00% → 2.316389 | sell buffer: +2.00% → 2.410936] | -> Decision: HOLD
+2025-05-21 10:24:59,031 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35740000, Цель: 2.48430000. Профит: -0.36%, Порог: 5.00%
+2025-05-21 10:29:59,034 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35400000, Цель: 2.48430000. Профит: -0.51%, Порог: 5.00%
+2025-05-21 10:29:59,036 - trading - INFO - Signal Eval (XRPUSDT): Price=2.354000 | RSI(7)=45.68 (OB:70.0,OS:30.0) | EMA(50)=2.363284 [buy buffer: -2.00% → 2.316018 | sell buffer: +2.00% → 2.410549] | -> Decision: HOLD
+2025-05-21 10:29:59,037 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35400000, Цель: 2.48430000. Профит: -0.51%, Порог: 5.00%
+2025-05-21 10:34:59,012 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35290000, Цель: 2.48430000. Профит: -0.55%, Порог: 5.00%
+2025-05-21 10:34:59,013 - trading - INFO - Signal Eval (XRPUSDT): Price=2.352900 | RSI(7)=43.41 (OB:70.0,OS:30.0) | EMA(50)=2.362876 [buy buffer: -2.00% → 2.315619 | sell buffer: +2.00% → 2.410134] | -> Decision: HOLD
+2025-05-21 10:34:59,014 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35290000, Цель: 2.48430000. Профит: -0.55%, Порог: 5.00%
+2025-05-21 10:39:58,999 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35240000, Цель: 2.48430000. Профит: -0.57%, Порог: 5.00%
+2025-05-21 10:39:58,999 - trading - INFO - Signal Eval (XRPUSDT): Price=2.352400 | RSI(7)=42.29 (OB:70.0,OS:30.0) | EMA(50)=2.362465 [buy buffer: -2.00% → 2.315216 | sell buffer: +2.00% → 2.409715] | -> Decision: HOLD
+2025-05-21 10:39:59,000 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35240000, Цель: 2.48430000. Профит: -0.57%, Порог: 5.00%
+2025-05-21 10:44:58,996 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35250000, Цель: 2.48430000. Профит: -0.57%, Порог: 5.00%
+2025-05-21 10:44:58,997 - trading - INFO - Signal Eval (XRPUSDT): Price=2.352500 | RSI(7)=42.63 (OB:70.0,OS:30.0) | EMA(50)=2.362074 [buy buffer: -2.00% → 2.314833 | sell buffer: +2.00% → 2.409316] | -> Decision: HOLD
+2025-05-21 10:44:58,997 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35250000, Цель: 2.48430000. Профит: -0.57%, Порог: 5.00%
+2025-05-21 10:49:59,006 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35250000, Цель: 2.48430000. Профит: -0.57%, Порог: 5.00%
+2025-05-21 10:49:59,007 - trading - INFO - Signal Eval (XRPUSDT): Price=2.352500 | RSI(7)=42.63 (OB:70.0,OS:30.0) | EMA(50)=2.361699 [buy buffer: -2.00% → 2.314465 | sell buffer: +2.00% → 2.408933] | -> Decision: HOLD
+2025-05-21 10:49:59,008 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35250000, Цель: 2.48430000. Профит: -0.57%, Порог: 5.00%
+2025-05-21 10:54:58,972 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35050000, Цель: 2.48430000. Профит: -0.66%, Порог: 5.00%
+2025-05-21 10:54:58,973 - trading - INFO - Signal Eval (XRPUSDT): Price=2.350500 | RSI(7)=36.67 (OB:70.0,OS:30.0) | EMA(50)=2.361260 [buy buffer: -2.00% → 2.314035 | sell buffer: +2.00% → 2.408485] | -> Decision: HOLD
+2025-05-21 10:54:58,973 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35050000, Цель: 2.48430000. Профит: -0.66%, Порог: 5.00%
+2025-05-21 10:59:58,976 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34940000, Цель: 2.48430000. Профит: -0.70%, Порог: 5.00%
+2025-05-21 10:59:58,977 - trading - INFO - Signal Eval (XRPUSDT): Price=2.349400 | RSI(7)=33.65 (OB:70.0,OS:30.0) | EMA(50)=2.360795 [buy buffer: -2.00% → 2.313579 | sell buffer: +2.00% → 2.408010] | -> Decision: HOLD
+2025-05-21 10:59:58,978 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34940000, Цель: 2.48430000. Профит: -0.70%, Порог: 5.00%
+2025-05-21 11:04:58,940 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35280000, Цель: 2.48430000. Профит: -0.56%, Порог: 5.00%
+2025-05-21 11:04:58,941 - trading - INFO - Signal Eval (XRPUSDT): Price=2.352800 | RSI(7)=48.84 (OB:70.0,OS:30.0) | EMA(50)=2.360481 [buy buffer: -2.00% → 2.313271 | sell buffer: +2.00% → 2.407691] | -> Decision: HOLD
+2025-05-21 11:04:58,942 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35280000, Цель: 2.48430000. Профит: -0.56%, Порог: 5.00%
+2025-05-21 11:09:58,921 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34720000, Цель: 2.48430000. Профит: -0.79%, Порог: 5.00%
+2025-05-21 11:09:58,922 - trading - INFO - Signal Eval (XRPUSDT): Price=2.347200 | RSI(7)=33.92 (OB:70.0,OS:30.0) | EMA(50)=2.359960 [buy buffer: -2.00% → 2.312761 | sell buffer: +2.00% → 2.407159] | -> Decision: HOLD
+2025-05-21 11:09:58,923 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34720000, Цель: 2.48430000. Профит: -0.79%, Порог: 5.00%
+2025-05-21 11:14:58,955 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34460000, Цель: 2.48430000. Профит: -0.90%, Порог: 5.00%
+2025-05-21 11:14:58,956 - trading - INFO - Signal Eval (XRPUSDT): Price=2.344600 | RSI(7)=29.10 (OB:70.0,OS:30.0) | EMA(50)=2.359358 [buy buffer: -2.00% → 2.312171 | sell buffer: +2.00% → 2.406545] | -> Decision: BUY
+2025-05-21 11:19:58,906 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34270000, Цель: 2.48430000. Профит: -0.98%, Порог: 5.00%
+2025-05-21 11:19:58,907 - trading - INFO - Signal Eval (XRPUSDT): Price=2.342700 | RSI(7)=25.96 (OB:70.0,OS:30.0) | EMA(50)=2.358704 [buy buffer: -2.00% → 2.311530 | sell buffer: +2.00% → 2.405879] | -> Decision: BUY
+2025-05-21 11:24:58,894 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34780000, Цель: 2.48430000. Профит: -0.77%, Порог: 5.00%
+2025-05-21 11:24:58,894 - trading - INFO - Signal Eval (XRPUSDT): Price=2.347800 | RSI(7)=44.67 (OB:70.0,OS:30.0) | EMA(50)=2.358277 [buy buffer: -2.00% → 2.311111 | sell buffer: +2.00% → 2.405442] | -> Decision: HOLD
+2025-05-21 11:24:58,895 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34780000, Цель: 2.48430000. Профит: -0.77%, Порог: 5.00%
+2025-05-21 11:29:58,898 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34580000, Цель: 2.48430000. Профит: -0.85%, Порог: 5.00%
+2025-05-21 11:29:58,899 - trading - INFO - Signal Eval (XRPUSDT): Price=2.345800 | RSI(7)=40.04 (OB:70.0,OS:30.0) | EMA(50)=2.357788 [buy buffer: -2.00% → 2.310632 | sell buffer: +2.00% → 2.404943] | -> Decision: HOLD
+2025-05-21 11:29:58,899 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34580000, Цель: 2.48430000. Профит: -0.85%, Порог: 5.00%
+2025-05-21 11:35:00,164 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34310000, Цель: 2.48430000. Профит: -0.97%, Порог: 5.00%
+2025-05-21 11:35:00,164 - trading - INFO - Signal Eval (XRPUSDT): Price=2.343100 | RSI(7)=34.42 (OB:70.0,OS:30.0) | EMA(50)=2.357212 [buy buffer: -2.00% → 2.310067 | sell buffer: +2.00% → 2.404356] | -> Decision: HOLD
+2025-05-21 11:35:00,165 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34310000, Цель: 2.48430000. Профит: -0.97%, Порог: 5.00%
+2025-05-21 11:40:00,137 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34440000, Цель: 2.48430000. Профит: -0.91%, Порог: 5.00%
+2025-05-21 11:40:00,138 - trading - INFO - Signal Eval (XRPUSDT): Price=2.344400 | RSI(7)=39.21 (OB:70.0,OS:30.0) | EMA(50)=2.356709 [buy buffer: -2.00% → 2.309575 | sell buffer: +2.00% → 2.403843] | -> Decision: HOLD
+2025-05-21 11:40:00,156 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34440000, Цель: 2.48430000. Профит: -0.91%, Порог: 5.00%
+2025-05-21 11:45:00,163 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.33790000, Цель: 2.48430000. Профит: -1.19%, Порог: 5.00%
+2025-05-21 11:45:00,164 - trading - INFO - Signal Eval (XRPUSDT): Price=2.337900 | RSI(7)=27.50 (OB:70.0,OS:30.0) | EMA(50)=2.355972 [buy buffer: -2.00% → 2.308852 | sell buffer: +2.00% → 2.403091] | -> Decision: BUY
+2025-05-21 11:50:00,113 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.33670000, Цель: 2.48430000. Профит: -1.24%, Порог: 5.00%
+2025-05-21 11:50:00,114 - trading - INFO - Signal Eval (XRPUSDT): Price=2.336700 | RSI(7)=25.83 (OB:70.0,OS:30.0) | EMA(50)=2.355216 [buy buffer: -2.00% → 2.308111 | sell buffer: +2.00% → 2.402320] | -> Decision: BUY
+2025-05-21 11:55:00,102 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.33930000, Цель: 2.48430000. Профит: -1.13%, Порог: 5.00%
+2025-05-21 11:55:00,102 - trading - INFO - Signal Eval (XRPUSDT): Price=2.339300 | RSI(7)=35.67 (OB:70.0,OS:30.0) | EMA(50)=2.354591 [buy buffer: -2.00% → 2.307500 | sell buffer: +2.00% → 2.401683] | -> Decision: HOLD
+2025-05-21 11:55:00,103 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.33930000, Цель: 2.48430000. Профит: -1.13%, Порог: 5.00%
+2025-05-21 12:00:00,143 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.33920000, Цель: 2.48430000. Профит: -1.13%, Порог: 5.00%
+2025-05-21 12:00:00,144 - trading - INFO - Signal Eval (XRPUSDT): Price=2.339200 | RSI(7)=35.46 (OB:70.0,OS:30.0) | EMA(50)=2.353988 [buy buffer: -2.00% → 2.306908 | sell buffer: +2.00% → 2.401068] | -> Decision: HOLD
+2025-05-21 12:00:00,145 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.33920000, Цель: 2.48430000. Профит: -1.13%, Порог: 5.00%
+2025-05-21 12:05:00,086 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34020000, Цель: 2.48430000. Профит: -1.09%, Порог: 5.00%
+2025-05-21 12:05:00,087 - trading - INFO - Signal Eval (XRPUSDT): Price=2.340200 | RSI(7)=39.62 (OB:70.0,OS:30.0) | EMA(50)=2.353447 [buy buffer: -2.00% → 2.306378 | sell buffer: +2.00% → 2.400516] | -> Decision: HOLD
+2025-05-21 12:05:00,088 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34020000, Цель: 2.48430000. Профит: -1.09%, Порог: 5.00%
+2025-05-21 12:10:00,065 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.33550000, Цель: 2.48430000. Профит: -1.29%, Порог: 5.00%
+2025-05-21 12:10:00,066 - trading - INFO - Signal Eval (XRPUSDT): Price=2.335500 | RSI(7)=29.26 (OB:70.0,OS:30.0) | EMA(50)=2.352743 [buy buffer: -2.00% → 2.305688 | sell buffer: +2.00% → 2.399798] | -> Decision: BUY
+2025-05-21 12:15:00,072 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.33780000, Цель: 2.48430000. Профит: -1.19%, Порог: 5.00%
+2025-05-21 12:15:00,073 - trading - INFO - Signal Eval (XRPUSDT): Price=2.337800 | RSI(7)=38.45 (OB:70.0,OS:30.0) | EMA(50)=2.352157 [buy buffer: -2.00% → 2.305114 | sell buffer: +2.00% → 2.399200] | -> Decision: HOLD
+2025-05-21 12:15:00,074 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.33780000, Цель: 2.48430000. Профит: -1.19%, Порог: 5.00%
+2025-05-21 12:20:00,052 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.33760000, Цель: 2.48430000. Профит: -1.20%, Порог: 5.00%
+2025-05-21 12:20:00,053 - trading - INFO - Signal Eval (XRPUSDT): Price=2.337600 | RSI(7)=37.95 (OB:70.0,OS:30.0) | EMA(50)=2.351586 [buy buffer: -2.00% → 2.304554 | sell buffer: +2.00% → 2.398618] | -> Decision: HOLD
+2025-05-21 12:20:00,054 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.33760000, Цель: 2.48430000. Профит: -1.20%, Порог: 5.00%
+2025-05-21 12:25:00,037 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.33360000, Цель: 2.48430000. Профит: -1.37%, Порог: 5.00%
+2025-05-21 12:25:00,038 - trading - INFO - Signal Eval (XRPUSDT): Price=2.333600 | RSI(7)=29.12 (OB:70.0,OS:30.0) | EMA(50)=2.350881 [buy buffer: -2.00% → 2.303863 | sell buffer: +2.00% → 2.397898] | -> Decision: BUY
+2025-05-21 12:30:00,052 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.33640000, Цель: 2.48430000. Профит: -1.25%, Порог: 5.00%
+2025-05-21 12:30:00,052 - trading - INFO - Signal Eval (XRPUSDT): Price=2.336400 | RSI(7)=40.44 (OB:70.0,OS:30.0) | EMA(50)=2.350313 [buy buffer: -2.00% → 2.303307 | sell buffer: +2.00% → 2.397319] | -> Decision: HOLD
+2025-05-21 12:30:00,053 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.33640000, Цель: 2.48430000. Профит: -1.25%, Порог: 5.00%
+2025-05-21 12:35:00,010 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34440000, Цель: 2.48430000. Профит: -0.91%, Порог: 5.00%
+2025-05-21 12:35:00,011 - trading - INFO - Signal Eval (XRPUSDT): Price=2.344400 | RSI(7)=61.13 (OB:70.0,OS:30.0) | EMA(50)=2.350081 [buy buffer: -2.00% → 2.303079 | sell buffer: +2.00% → 2.397083] | -> Decision: HOLD
+2025-05-21 12:35:00,012 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34440000, Цель: 2.48430000. Профит: -0.91%, Порог: 5.00%
+2025-05-21 12:39:59,992 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34630000, Цель: 2.48430000. Профит: -0.83%, Порог: 5.00%
+2025-05-21 12:39:59,994 - trading - INFO - Signal Eval (XRPUSDT): Price=2.346300 | RSI(7)=64.55 (OB:70.0,OS:30.0) | EMA(50)=2.349933 [buy buffer: -2.00% → 2.302934 | sell buffer: +2.00% → 2.396931] | -> Decision: HOLD
+2025-05-21 12:39:59,994 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34630000, Цель: 2.48430000. Профит: -0.83%, Порог: 5.00%
+2025-05-21 12:44:59,984 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34740000, Цель: 2.48430000. Профит: -0.79%, Порог: 5.00%
+2025-05-21 12:44:59,985 - trading - INFO - Signal Eval (XRPUSDT): Price=2.347400 | RSI(7)=66.53 (OB:70.0,OS:30.0) | EMA(50)=2.349833 [buy buffer: -2.00% → 2.302837 | sell buffer: +2.00% → 2.396830] | -> Decision: HOLD
+2025-05-21 12:44:59,986 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34740000, Цель: 2.48430000. Профит: -0.79%, Порог: 5.00%
+2025-05-21 12:49:59,970 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34580000, Цель: 2.48430000. Профит: -0.85%, Порог: 5.00%
+2025-05-21 12:49:59,971 - trading - INFO - Signal Eval (XRPUSDT): Price=2.345800 | RSI(7)=60.76 (OB:70.0,OS:30.0) | EMA(50)=2.349675 [buy buffer: -2.00% → 2.302682 | sell buffer: +2.00% → 2.396669] | -> Decision: HOLD
+2025-05-21 12:49:59,972 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34580000, Цель: 2.48430000. Профит: -0.85%, Порог: 5.00%
+2025-05-21 12:54:59,966 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34680000, Цель: 2.48430000. Профит: -0.81%, Порог: 5.00%
+2025-05-21 12:54:59,967 - trading - INFO - Signal Eval (XRPUSDT): Price=2.346800 | RSI(7)=63.09 (OB:70.0,OS:30.0) | EMA(50)=2.349563 [buy buffer: -2.00% → 2.302571 | sell buffer: +2.00% → 2.396554] | -> Decision: HOLD
+2025-05-21 12:54:59,968 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34680000, Цель: 2.48430000. Профит: -0.81%, Порог: 5.00%
+2025-05-21 12:59:59,959 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34400000, Цель: 2.48430000. Профит: -0.93%, Порог: 5.00%
+2025-05-21 12:59:59,960 - trading - INFO - Signal Eval (XRPUSDT): Price=2.344000 | RSI(7)=52.83 (OB:70.0,OS:30.0) | EMA(50)=2.349345 [buy buffer: -2.00% → 2.302358 | sell buffer: +2.00% → 2.396331] | -> Decision: HOLD
+2025-05-21 12:59:59,960 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34400000, Цель: 2.48430000. Профит: -0.93%, Порог: 5.00%
+2025-05-21 13:04:59,944 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34770000, Цель: 2.48430000. Профит: -0.77%, Порог: 5.00%
+2025-05-21 13:04:59,945 - trading - INFO - Signal Eval (XRPUSDT): Price=2.347700 | RSI(7)=62.29 (OB:70.0,OS:30.0) | EMA(50)=2.349280 [buy buffer: -2.00% → 2.302295 | sell buffer: +2.00% → 2.396266] | -> Decision: HOLD
+2025-05-21 13:04:59,945 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.34770000, Цель: 2.48430000. Профит: -0.77%, Порог: 5.00%
+2025-05-21 13:09:59,935 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.36600000, Текущая: 2.35280000, Цель: 2.48430000. Профит: -0.56%, Порог: 5.00%
+2025-05-21 13:09:59,936 - trading - INFO - Signal Eval (XRPUSDT): Price=2.352800 | RSI(7)=71.49 (OB:70.0,OS:30.0) | EMA(50)=2.349418 [buy buffer: -2.00% → 2.302430 | sell buffer: +2.00% → 2.396407] | -> Decision: SELL
+2025-05-21 13:09:59,939 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 13:09:59,939 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 13:10:00,775 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=7.13133874, Кол-во для продажи=7.10000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-21 13:10:01,058 - trading - INFO - Order Execution (XRPUSDT): Отправка MARKET SELL ордера на 7.1 XRP.
+2025-05-21 13:10:01,338 - trading - INFO - Order Execution (XRPUSDT): Ответ на ордер SELL: {'symbol': 'XRPUSDT', 'orderId': 10755721379, 'orderListId': -1, 'clientOrderId': 'fEMBLNPFl7jKDMjzYWT69c', 'transactTime': 1747825801438, 'price': '0.00000000', 'origQty': '7.10000000', 'executedQty': '7.10000000', 'origQuoteOrderQty': '0.00000000', 'cummulativeQuoteQty': '16.70062000', 'status': 'FILLED', 'timeInForce': 'GTC', 'type': 'MARKET', 'side': 'SELL', 'workingTime': 1747825801438, 'fills': [{'price': '2.35220000', 'qty': '2.20000000', 'commission': '0.00517484', 'commissionAsset': 'USDT', 'tradeId': 1158215793}, {'price': '2.35220000', 'qty': '4.90000000', 'commission': '0.01152578', 'commissionAsset': 'USDT', 'tradeId': 1158215794}], 'selfTradePreventionMode': 'EXPIRE_MAKER'}
+2025-05-21 13:10:01,339 - trading - INFO - ✅ ПРОДАЖА (XRPUSDT): 7.10000000 XRP @ ~2.35220000 USDT. Получено: 16.70062000 USDT. Комиссия: 0.01670062 USDT.
+2025-05-21 13:10:01,901 - trading - INFO - Order Execution (XRPUSDT): Файл цены покупки 'data/last_buy_price_XRPUSDT.json' удален после продажи.
+2025-05-21 13:10:01,967 - trading - DEBUG - clear_position: позиция по XRPUSDT уже была закрыта ранее.
+2025-05-21 13:14:59,918 - trading - INFO - Signal Eval (XRPUSDT): Price=2.351400 | RSI(7)=66.31 (OB:70.0,OS:30.0) | EMA(50)=2.349496 [buy buffer: -2.00% → 2.302506 | sell buffer: +2.00% → 2.396486] | -> Decision: HOLD
+2025-05-21 13:19:59,895 - trading - INFO - Signal Eval (XRPUSDT): Price=2.356200 | RSI(7)=73.88 (OB:70.0,OS:30.0) | EMA(50)=2.349759 [buy buffer: -2.00% → 2.302764 | sell buffer: +2.00% → 2.396754] | -> Decision: SELL
+2025-05-21 13:19:59,896 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 13:19:59,896 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'sell'...
+2025-05-21 13:20:00,706 - trading - INFO - Order Execution (XRPUSDT): Расчет продажи: Баланс XRP=0.03133874, Кол-во для продажи=0.00000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-21 13:20:00,706 - trading - WARNING - Order Execution (XRPUSDT): Рассчитанное количество для продажи 0.00000000 XRP меньше минимально допустимого (0.10000000 XRP). Продажа отменена.
+2025-05-21 13:24:59,883 - trading - INFO - Signal Eval (XRPUSDT): Price=2.354500 | RSI(7)=67.60 (OB:70.0,OS:30.0) | EMA(50)=2.349945 [buy buffer: -2.00% → 2.302946 | sell buffer: +2.00% → 2.396944] | -> Decision: HOLD
+2025-05-21 13:29:59,886 - trading - INFO - Signal Eval (XRPUSDT): Price=2.354100 | RSI(7)=66.06 (OB:70.0,OS:30.0) | EMA(50)=2.350108 [buy buffer: -2.00% → 2.303106 | sell buffer: +2.00% → 2.397110] | -> Decision: HOLD
+2025-05-21 13:34:59,888 - trading - INFO - Signal Eval (XRPUSDT): Price=2.354500 | RSI(7)=66.94 (OB:70.0,OS:30.0) | EMA(50)=2.350281 [buy buffer: -2.00% → 2.303275 | sell buffer: +2.00% → 2.397286] | -> Decision: HOLD
+2025-05-21 13:39:59,849 - trading - INFO - Signal Eval (XRPUSDT): Price=2.353200 | RSI(7)=60.95 (OB:70.0,OS:30.0) | EMA(50)=2.350395 [buy buffer: -2.00% → 2.303387 | sell buffer: +2.00% → 2.397403] | -> Decision: HOLD
+2025-05-21 13:44:59,874 - trading - INFO - Signal Eval (XRPUSDT): Price=2.355600 | RSI(7)=67.26 (OB:70.0,OS:30.0) | EMA(50)=2.350600 [buy buffer: -2.00% → 2.303588 | sell buffer: +2.00% → 2.397612] | -> Decision: HOLD
+2025-05-21 13:49:59,887 - trading - INFO - Signal Eval (XRPUSDT): Price=2.351900 | RSI(7)=52.12 (OB:70.0,OS:30.0) | EMA(50)=2.350651 [buy buffer: -2.00% → 2.303638 | sell buffer: +2.00% → 2.397664] | -> Decision: HOLD
+2025-05-21 13:54:59,817 - trading - INFO - Signal Eval (XRPUSDT): Price=2.352200 | RSI(7)=53.12 (OB:70.0,OS:30.0) | EMA(50)=2.350711 [buy buffer: -2.00% → 2.303697 | sell buffer: +2.00% → 2.397726] | -> Decision: HOLD
+2025-05-21 13:59:59,841 - trading - INFO - Signal Eval (XRPUSDT): Price=2.352400 | RSI(7)=53.87 (OB:70.0,OS:30.0) | EMA(50)=2.350778 [buy buffer: -2.00% → 2.303762 | sell buffer: +2.00% → 2.397793] | -> Decision: HOLD
+2025-05-21 14:04:59,796 - trading - INFO - Signal Eval (XRPUSDT): Price=2.348700 | RSI(7)=40.07 (OB:70.0,OS:30.0) | EMA(50)=2.350696 [buy buffer: -2.00% → 2.303682 | sell buffer: +2.00% → 2.397710] | -> Decision: HOLD
+2025-05-21 14:09:59,773 - trading - INFO - Signal Eval (XRPUSDT): Price=2.347200 | RSI(7)=35.74 (OB:70.0,OS:30.0) | EMA(50)=2.350559 [buy buffer: -2.00% → 2.303548 | sell buffer: +2.00% → 2.397570] | -> Decision: HOLD
+2025-05-21 14:14:59,769 - trading - INFO - Signal Eval (XRPUSDT): Price=2.353800 | RSI(7)=58.67 (OB:70.0,OS:30.0) | EMA(50)=2.350686 [buy buffer: -2.00% → 2.303672 | sell buffer: +2.00% → 2.397700] | -> Decision: HOLD
+2025-05-21 14:19:59,752 - trading - INFO - Signal Eval (XRPUSDT): Price=2.359400 | RSI(7)=69.46 (OB:70.0,OS:30.0) | EMA(50)=2.351028 [buy buffer: -2.00% → 2.304007 | sell buffer: +2.00% → 2.398048] | -> Decision: HOLD
+2025-05-21 14:24:59,746 - trading - INFO - Signal Eval (XRPUSDT): Price=2.358200 | RSI(7)=65.20 (OB:70.0,OS:30.0) | EMA(50)=2.351309 [buy buffer: -2.00% → 2.304283 | sell buffer: +2.00% → 2.398335] | -> Decision: HOLD
+2025-05-21 14:29:59,743 - trading - INFO - Signal Eval (XRPUSDT): Price=2.360100 | RSI(7)=68.74 (OB:70.0,OS:30.0) | EMA(50)=2.351654 [buy buffer: -2.00% → 2.304621 | sell buffer: +2.00% → 2.398687] | -> Decision: HOLD
+2025-05-21 14:34:59,731 - trading - INFO - Signal Eval (XRPUSDT): Price=2.357200 | RSI(7)=58.20 (OB:70.0,OS:30.0) | EMA(50)=2.351871 [buy buffer: -2.00% → 2.304834 | sell buffer: +2.00% → 2.398908] | -> Decision: HOLD
+2025-05-21 14:39:59,711 - trading - INFO - Signal Eval (XRPUSDT): Price=2.356000 | RSI(7)=54.19 (OB:70.0,OS:30.0) | EMA(50)=2.352033 [buy buffer: -2.00% → 2.304992 | sell buffer: +2.00% → 2.399074] | -> Decision: HOLD
+2025-05-21 14:44:59,700 - trading - INFO - Signal Eval (XRPUSDT): Price=2.355700 | RSI(7)=53.13 (OB:70.0,OS:30.0) | EMA(50)=2.352177 [buy buffer: -2.00% → 2.305133 | sell buffer: +2.00% → 2.399220] | -> Decision: HOLD
+2025-05-21 14:49:59,696 - trading - INFO - Signal Eval (XRPUSDT): Price=2.354400 | RSI(7)=48.31 (OB:70.0,OS:30.0) | EMA(50)=2.352264 [buy buffer: -2.00% → 2.305218 | sell buffer: +2.00% → 2.399309] | -> Decision: HOLD
+2025-05-21 14:54:59,696 - trading - INFO - Signal Eval (XRPUSDT): Price=2.352900 | RSI(7)=43.06 (OB:70.0,OS:30.0) | EMA(50)=2.352289 [buy buffer: -2.00% → 2.305243 | sell buffer: +2.00% → 2.399334] | -> Decision: HOLD
+2025-05-21 14:59:59,689 - trading - INFO - Signal Eval (XRPUSDT): Price=2.354400 | RSI(7)=49.47 (OB:70.0,OS:30.0) | EMA(50)=2.352371 [buy buffer: -2.00% → 2.305324 | sell buffer: +2.00% → 2.399419] | -> Decision: HOLD
+2025-05-21 15:04:59,690 - trading - INFO - Signal Eval (XRPUSDT): Price=2.353500 | RSI(7)=45.86 (OB:70.0,OS:30.0) | EMA(50)=2.352416 [buy buffer: -2.00% → 2.305367 | sell buffer: +2.00% → 2.399464] | -> Decision: HOLD
+2025-05-21 15:09:59,651 - trading - INFO - Signal Eval (XRPUSDT): Price=2.350900 | RSI(7)=36.80 (OB:70.0,OS:30.0) | EMA(50)=2.352356 [buy buffer: -2.00% → 2.305309 | sell buffer: +2.00% → 2.399403] | -> Decision: HOLD
+2025-05-21 15:14:59,644 - trading - INFO - Signal Eval (XRPUSDT): Price=2.346900 | RSI(7)=27.17 (OB:70.0,OS:30.0) | EMA(50)=2.352142 [buy buffer: -2.00% → 2.305099 | sell buffer: +2.00% → 2.399185] | -> Decision: BUY
+2025-05-21 15:14:59,645 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-21 15:14:59,645 - trading - INFO - Order Execution (XRPUSDT): Инициировано размещение ордера 'buy'...
+2025-05-21 15:15:00,724 - trading - INFO - Order Execution (XRPUSDT): Расчет покупки: Баланс USDT=16.77468862, Цена=2.34710000, Сумма для траты (USDT)=16.69081518, Расчетное кол-во=7.11125013, Округленное кол-во=7.10000000 XRP, MinQty=0.10000000, StepSize=0.10000000
+2025-05-21 15:15:00,725 - trading - INFO - Order Execution (XRPUSDT): Отправка MARKET BUY ордера на 7.1 XRP.
+2025-05-21 15:15:00,994 - trading - INFO - Order Execution (XRPUSDT): Ответ на ордер BUY: {'symbol': 'XRPUSDT', 'orderId': 10756319159, 'orderListId': -1, 'clientOrderId': 'LrABMn4AMDtRxXozwwdukU', 'transactTime': 1747833301392, 'price': '0.00000000', 'origQty': '7.10000000', 'executedQty': '7.10000000', 'origQuoteOrderQty': '0.00000000', 'cummulativeQuoteQty': '16.66512000', 'status': 'FILLED', 'timeInForce': 'GTC', 'type': 'MARKET', 'side': 'BUY', 'workingTime': 1747833301392, 'fills': [{'price': '2.34720000', 'qty': '2.40000000', 'commission': '0.00240000', 'commissionAsset': 'XRP', 'tradeId': 1158283701}, {'price': '2.34720000', 'qty': '4.70000000', 'commission': '0.00470000', 'commissionAsset': 'XRP', 'tradeId': 1158283702}], 'selfTradePreventionMode': 'EXPIRE_MAKER'}
+2025-05-21 15:15:01,388 - trading - INFO - Profit Check (XRPUSDT): Цена последней покупки 2.34720000 сохранена в 'data/last_buy_price_XRPUSDT.json'.
+2025-05-21 15:15:01,389 - trading - INFO - ✅ ПОКУПКА (XRPUSDT): 7.10000000 XRP @ ~2.34720000 USDT. Потрачено: 16.66512000 USDT. Комиссия: 0.00710000 XRP.
+2025-05-21 15:15:01,651 - trading - WARNING - save_last_buy_price: позиция по XRPUSDT уже существует. Повторная покупка отменена.
+2025-05-21 15:20:00,450 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34720000, Текущая: 2.35020000, Цель: 2.46456000. Профит: 0.13%, Порог: 5.00%
+2025-05-21 15:20:00,451 - trading - INFO - Signal Eval (XRPUSDT): Price=2.350200 | RSI(7)=41.82 (OB:70.0,OS:30.0) | EMA(50)=2.352066 [buy buffer: -2.00% → 2.305025 | sell buffer: +2.00% → 2.399107] | -> Decision: HOLD
+2025-05-21 15:20:01,218 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34720000, Текущая: 2.35020000, Цель: 2.46456000. Профит: 0.13%, Порог: 5.00%
+2025-05-21 15:25:00,413 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34720000, Текущая: 2.34970000, Цель: 2.46456000. Профит: 0.11%, Порог: 5.00%
+2025-05-21 15:25:00,413 - trading - INFO - Signal Eval (XRPUSDT): Price=2.349700 | RSI(7)=40.39 (OB:70.0,OS:30.0) | EMA(50)=2.351973 [buy buffer: -2.00% → 2.304934 | sell buffer: +2.00% → 2.399013] | -> Decision: HOLD
+2025-05-21 15:25:01,153 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34720000, Текущая: 2.34970000, Цель: 2.46456000. Профит: 0.11%, Порог: 5.00%
