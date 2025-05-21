@@ -81,23 +81,25 @@ def load_last_buy_price(symbol: str) -> float | None:
         return None
 
 
-def is_enough_profit(symbol: str, current_price: float, last_buy_price: float | None) -> bool:
+def is_enough_profit(symbol: str, current_price: float, last_buy_price: float | None, context: str = "") -> bool:
     """
-    Проверяет, достигнут ли минимальный профит на основе MIN_PROFIT_RATIO.
+    Проверяет, достигнут ли минимальный профит.
 
     Args:
-        symbol (str): Торговый символ.
-        current_price (float): Текущая рыночная цена актива.
-        last_buy_price (float | None): Цена последней покупки. Если None, не можем оценить профит.
+        symbol (str): Торговая пара.
+        current_price (float): Текущая цена.
+        last_buy_price (float | None): Цена покупки.
+        context (str): Источник вызова ("risk" или "strategy").
 
     Returns:
-        bool: True, если достигнут минимально допустимый профит.
+        bool: True, если минимальный профит достигнут.
     """
     if not getattr(settings, 'USE_MIN_PROFIT', False):
         return False
 
     if last_buy_price is None or last_buy_price <= 0:
-        trading_logger.debug(f"Min-Profit Check ({symbol}): Нет last_buy_price. Считаем профит достаточным.")
+        if context != "strategy":
+            trading_logger.debug(f"[MinProfit] {symbol}: Нет last_buy_price — считаем профит допустимым.")
         return True
 
     min_profit_ratio = getattr(settings, 'MIN_PROFIT_RATIO', 0.01)
@@ -106,22 +108,22 @@ def is_enough_profit(symbol: str, current_price: float, last_buy_price: float | 
     profit_pct = price_change_ratio * 100
 
     if current_price >= target_price:
-        trading_logger.info(
-            f"✅ Минимальный профит ДОСТИГНУТ для {symbol}. "
-            f"Куплено: {last_buy_price:.8f}, Текущая: {current_price:.8f}, Цель: {target_price:.8f}. "
-            f"Профит: {profit_pct:.2f}%, Порог: {min_profit_ratio*100:.2f}%"
-        )
+        if context != "strategy":
+            trading_logger.info(
+                f"✅ Минимальный профит ДОСТИГНУТ для {symbol}. "
+                f"Куплено: {last_buy_price:.8f}, Текущая: {current_price:.8f}, Цель: {target_price:.8f}. "
+                f"Профит: {profit_pct:.2f}%, Порог: {min_profit_ratio*100:.2f}%"
+            )
         return True
     else:
-        trading_logger.info(
-            f"❌ Минимальный профит НЕ достигнут для {symbol}. "
-            f"Куплено: {last_buy_price:.8f}, Текущая: {current_price:.8f}, Цель: {target_price:.8f}. "
-            f"Профит: {profit_pct:.2f}%, Порог: {min_profit_ratio*100:.2f}%"
-        )
+        if context != "strategy":
+            trading_logger.info(
+                f"❌ Минимальный профит НЕ достигнут для {symbol}. "
+                f"Куплено: {last_buy_price:.8f}, Текущая: {current_price:.8f}, Цель: {target_price:.8f}. "
+                f"Профит: {profit_pct:.2f}%, Порог: {min_profit_ratio*100:.2f}%"
+            )
         return False
-
-
-
+    
 def is_stop_loss_triggered(symbol: str, current_price: float, last_buy_price: float | None) -> bool:
     """
     Проверяет, сработал ли стоп-лосс на основе STOP_LOSS_RATIO.
@@ -203,4 +205,5 @@ def is_take_profit_reached(symbol: str, current_price: float, last_buy_price: fl
             f"Куплено: {last_buy_price:.8f}, Текущая: {current_price:.8f}, Цель: {target_price:.8f}. "
             f"Профит: {profit_pct:.2f}%, Порог TP: {take_profit_ratio*100:.2f}%"
         )
-        return False
+        return False    
+

@@ -20464,3 +20464,122 @@ requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetErro
 2025-05-21 15:25:00,413 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34720000, Текущая: 2.34970000, Цель: 2.46456000. Профит: 0.11%, Порог: 5.00%
 2025-05-21 15:25:00,413 - trading - INFO - Signal Eval (XRPUSDT): Price=2.349700 | RSI(7)=40.39 (OB:70.0,OS:30.0) | EMA(50)=2.351973 [buy buffer: -2.00% → 2.304934 | sell buffer: +2.00% → 2.399013] | -> Decision: HOLD
 2025-05-21 15:25:01,153 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34720000, Текущая: 2.34970000, Цель: 2.46456000. Профит: 0.11%, Порог: 5.00%
+2025-05-21 17:45:25,946 - trading - INFO - Логгер 'trading_activity' успешно настроен.
+2025-05-21 17:46:09,192 - trading - INFO - TradeLogic (XRPUSDT): Запрос начальных 300 OHLCV данных для XRPUSDT (5m)...
+2025-05-21 17:46:09,577 - trading - INFO - TradeLogic (XRPUSDT): Успешно загружено 300 цен закрытия.
+2025-05-21 17:50:00,582 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34720000, Текущая: 2.39740000, Цель: 2.46456000. Профит: 2.14%, Порог: 5.00%
+2025-05-21 17:50:00,623 - trading - INFO - Signal Eval (XRPUSDT): Price=2.397400 | RSI(7)=57.90 (OB:70.0,OS:30.0) | EMA(50)=2.374792 [buy buffer: -2.00% → 2.327296 | sell buffer: +2.00% → 2.422288] | -> Decision: HOLD
+2025-05-21 17:50:01,544 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34720000, Текущая: 2.39740000, Цель: 2.46456000. Профит: 2.14%, Порог: 5.00%
+2025-05-21 17:55:00,849 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34720000, Текущая: 2.40360000, Цель: 2.46456000. Профит: 2.40%, Порог: 5.00%
+2025-05-21 17:55:00,904 - trading - INFO - Signal Eval (XRPUSDT): Price=2.403600 | RSI(7)=64.77 (OB:70.0,OS:30.0) | EMA(50)=2.375922 [buy buffer: -2.00% → 2.328404 | sell buffer: +2.00% → 2.423440] | -> Decision: HOLD
+2025-05-21 17:55:01,771 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34720000, Текущая: 2.40360000, Цель: 2.46456000. Профит: 2.40%, Порог: 5.00%
+2025-05-21 18:00:00,153 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34720000, Текущая: 2.39930000, Цель: 2.46456000. Профит: 2.22%, Порог: 5.00%
+2025-05-21 18:00:00,153 - trading - INFO - Signal Eval (XRPUSDT): Price=2.399300 | RSI(7)=57.21 (OB:70.0,OS:30.0) | EMA(50)=2.376839 [buy buffer: -2.00% → 2.329302 | sell buffer: +2.00% → 2.424376] | -> Decision: HOLD
+2025-05-21 18:00:00,911 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34720000, Текущая: 2.39930000, Цель: 2.46456000. Профит: 2.22%, Порог: 5.00%
+2025-05-21 18:05:01,197 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34720000, Текущая: 2.39760000, Цель: 2.46456000. Профит: 2.15%, Порог: 5.00%
+2025-05-21 18:05:01,286 - trading - INFO - Signal Eval (XRPUSDT): Price=2.397600 | RSI(7)=54.29 (OB:70.0,OS:30.0) | EMA(50)=2.377653 [buy buffer: -2.00% → 2.330100 | sell buffer: +2.00% → 2.425206] | -> Decision: HOLD
+2025-05-21 18:05:02,450 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34720000, Текущая: 2.39760000, Цель: 2.46456000. Профит: 2.15%, Порог: 5.00%
+2025-05-21 18:10:03,560 - trading - ERROR - Ошибка при получении LOT_SIZE для XRPUSDT: Unable to allocate output buffer.
+Traceback (most recent call last):
+  File "d:\Python\Binance_trading_bot\utils\quantity_utils.py", line 19, in get_lot_size
+    exchange_info = client.get_symbol_info(symbol)
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\binance\client.py", line 502, in get_symbol_info
+    res = self.get_exchange_info()
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\binance\client.py", line 459, in get_exchange_info
+    return self._get('exchangeInfo', version=self.PRIVATE_API_VERSION)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\binance\client.py", line 371, in _get
+    return self._request_api('get', path, signed, version, **kwargs)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\binance\client.py", line 334, in _request_api
+    return self._request(method, uri, signed, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\binance\client.py", line 314, in _request
+    self.response = getattr(self.session, method)(uri, **kwargs)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\requests\sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\requests\sessions.py", line 746, in send
+    r.content
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\requests\models.py", line 902, in content
+    self._content = b"".join(self.iter_content(CONTENT_CHUNK_SIZE)) or b""
+                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\requests\models.py", line 820, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\urllib3\response.py", line 1066, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\urllib3\response.py", line 976, in read
+    decoded_data = self._decode(data, decode_content, flush_decoder)
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\urllib3\response.py", line 485, in _decode
+    data = self._decoder.decompress(data)
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\urllib3\response.py", line 128, in decompress
+    ret += self._obj.decompress(data)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^
+MemoryError: Unable to allocate output buffer.
+2025-05-21 18:10:05,415 - trading - INFO - Signal Eval (XRPUSDT): Price=2.398300 | RSI(7)=55.38 (OB:70.0,OS:30.0) | EMA(50)=2.378463 [buy buffer: -2.00% → 2.330893 | sell buffer: +2.00% → 2.426032] | -> Decision: HOLD
+2025-05-21 18:10:06,131 - trading - ERROR - Ошибка при получении LOT_SIZE для XRPUSDT: 
+Traceback (most recent call last):
+  File "d:\Python\Binance_trading_bot\utils\quantity_utils.py", line 19, in get_lot_size
+    exchange_info = client.get_symbol_info(symbol)
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\binance\client.py", line 502, in get_symbol_info
+    res = self.get_exchange_info()
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\binance\client.py", line 459, in get_exchange_info
+    return self._get('exchangeInfo', version=self.PRIVATE_API_VERSION)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\binance\client.py", line 371, in _get
+    return self._request_api('get', path, signed, version, **kwargs)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\binance\client.py", line 334, in _request_api
+    return self._request(method, uri, signed, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\binance\client.py", line 314, in _request
+    self.response = getattr(self.session, method)(uri, **kwargs)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\requests\sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\requests\sessions.py", line 746, in send
+    r.content
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\requests\models.py", line 902, in content
+    self._content = b"".join(self.iter_content(CONTENT_CHUNK_SIZE)) or b""
+                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+MemoryError
+2025-05-21 18:15:01,090 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34720000, Текущая: 2.40310000, Цель: 2.46456000. Профит: 2.38%, Порог: 5.00%
+2025-05-21 18:15:01,162 - trading - INFO - Signal Eval (XRPUSDT): Price=2.403100 | RSI(7)=62.56 (OB:70.0,OS:30.0) | EMA(50)=2.379429 [buy buffer: -2.00% → 2.331840 | sell buffer: +2.00% → 2.427018] | -> Decision: HOLD
+2025-05-21 18:15:02,099 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34720000, Текущая: 2.40310000, Цель: 2.46456000. Профит: 2.38%, Порог: 5.00%
+2025-05-21 18:20:00,759 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34720000, Текущая: 2.40280000, Цель: 2.46456000. Профит: 2.37%, Порог: 5.00%
+2025-05-21 18:20:00,821 - trading - INFO - Signal Eval (XRPUSDT): Price=2.402800 | RSI(7)=61.83 (OB:70.0,OS:30.0) | EMA(50)=2.380345 [buy buffer: -2.00% → 2.332739 | sell buffer: +2.00% → 2.427952] | -> Decision: HOLD
+2025-05-21 18:20:02,192 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34720000, Текущая: 2.40280000, Цель: 2.46456000. Профит: 2.37%, Порог: 5.00%
+2025-05-21 18:25:00,370 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34720000, Текущая: 2.40470000, Цель: 2.46456000. Профит: 2.45%, Порог: 5.00%
+2025-05-21 18:25:00,373 - trading - INFO - Signal Eval (XRPUSDT): Price=2.404700 | RSI(7)=64.84 (OB:70.0,OS:30.0) | EMA(50)=2.381301 [buy buffer: -2.00% → 2.333675 | sell buffer: +2.00% → 2.428927] | -> Decision: HOLD
+2025-05-21 18:25:02,797 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34720000, Текущая: 2.40470000, Цель: 2.46456000. Профит: 2.45%, Порог: 5.00%
+2025-05-21 18:30:01,011 - trading - INFO - ❌ Минимальный профит НЕ достигнут для XRPUSDT. Куплено: 2.34720000, Текущая: 2.41200000, Цель: 2.46456000. Профит: 2.76%, Порог: 5.00%
+2025-05-21 18:30:01,115 - trading - INFO - Signal Eval (XRPUSDT): Price=2.412000 | RSI(7)=74.03 (OB:70.0,OS:30.0) | EMA(50)=2.382505 [buy buffer: -2.00% → 2.334854 | sell buffer: +2.00% → 2.430155] | -> Decision: SELL
+2025-05-21 22:28:01,341 - trading - INFO - Логгер 'trading_activity' успешно настроен.
+2025-05-21 22:35:25,230 - trading - INFO - Логгер 'trading_activity' успешно настроен.
+2025-05-21 22:35:49,748 - trading - INFO - TradeLogic (XRPUSDT): Запрос начальных 300 OHLCV данных для XRPUSDT (2m)...
+2025-05-21 22:35:50,004 - trading - ERROR - TradeLogic (XRPUSDT): Ошибка при получении OHLCV: APIError(code=-1120): Invalid interval.
+Traceback (most recent call last):
+  File "d:\Python\Binance_trading_bot\services\trade_logic.py", line 39, in get_initial_ohlcv
+    klines = client.get_klines(
+        symbol=symbol, interval=timeframe, limit=limit)
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\binance\client.py", line 868, in get_klines
+    return self._get('klines', data=params, version=self.PRIVATE_API_VERSION)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\binance\client.py", line 371, in _get
+    return self._request_api('get', path, signed, version, **kwargs)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\binance\client.py", line 334, in _request_api
+    return self._request(method, uri, signed, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\binance\client.py", line 315, in _request
+    return self._handle_response(self.response)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\Python\Binance_trading_bot\.venv\Lib\site-packages\binance\client.py", line 324, in _handle_response
+    raise BinanceAPIException(response, response.status_code, response.text)
+binance.exceptions.BinanceAPIException: APIError(code=-1120): Invalid interval.

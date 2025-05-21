@@ -107,7 +107,7 @@ async def check_and_handle_risk_conditions(symbol, profile, current_price, strat
     # 🔒 Жесткая защита: если цена ниже покупки и нет условий — продажа запрещена
     if (
         current_price < last_buy_price
-        and not is_stop_loss_triggered(symbol, current_price, last_buy_price)
+        and not is_stop_loss_triggered(symbol, current_price, last_buy_price,)
         and not is_take_profit_reached(symbol, current_price, last_buy_price)
         and not is_enough_profit(symbol, current_price, last_buy_price)
     ):
@@ -154,7 +154,7 @@ async def check_and_handle_risk_conditions(symbol, profile, current_price, strat
         return await execute_trade_action("sell", symbol, profile, reason, current_price,)
 
     # === Тейк-профит
-    if settings.USE_TAKE_PROFIT and is_take_profit_reached(symbol, current_price, last_buy_price):
+    if settings.USE_TAKE_PROFIT and is_take_profit_reached(symbol, current_price, last_buy_price, context="risk"):
         reason = f"✅ Take-profit: {symbol} достиг цели прибыли (цена {current_price:.6f}). Принудительная продажа."
         return await execute_trade_action("sell", symbol, profile, reason, current_price)
 
@@ -262,6 +262,8 @@ async def price_processor(
                     system_logger.info(f"Price processor ({symbol}): Продажа по сигналу стратегии отменена риск-менеджером.")
 
                 # Опциональная проверка минимальной прибыли для ПРОДАЖИ по СТРАТЕГИИ
+                proceed_with_strategy_sell = True  # по умолчанию считаем, что продажа разрешена
+
                 if getattr(settings, "USE_MIN_PROFIT_FOR_STRATEGY_SELL", False): # Если такой флаг есть и True
                     if not is_enough_profit(symbol, new_close_price): # is_enough_profit сама логирует отмену
                         proceed_with_strategy_sell = False
