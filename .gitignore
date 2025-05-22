@@ -12,4 +12,3 @@ config/profiles.json
 data/last_buy_price_XRPUSDT.json
 logs/system.log
 logs/trading.log
-

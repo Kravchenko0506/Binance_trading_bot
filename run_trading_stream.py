@@ -16,7 +16,7 @@ from config import settings
 # Функции для проверки условий стоп-лосса, тейк-профита и достаточной прибыли.
 # ВАЖНО: Эти функции должны быть адаптированы, чтобы принимать current_close_price как аргумент,
 # а не делать собственные API-запросы для получения текущей цены.
-from utils.profit_check import is_stop_loss_triggered, is_take_profit_reached, is_enough_profit
+from utils.profit_check import is_stop_loss_triggered, is_take_profit_reached, is_enough_profit, should_block_sell_due_to_low_price
 # Асинхронная функция для отправки уведомлений в Telegram
 from utils.notifier import send_notification
 from utils.quantity_utils import get_lot_size
@@ -29,7 +29,7 @@ from services.binance_stream import listen_klines
 # Функции торговой логики: проверка сигналов по индикаторам и начальная загрузка истории цен
 from services.trade_logic import check_buy_sell_signals, get_initial_ohlcv
 # Функция для размещения ордеров на бирже (покупка/продажа)
-from services.order_execution import place_order, get_asset_balance_async
+from services.order_execution import place_order_async, get_asset_balance_async
 
 # Централизованные логгеры: system_logger для системных событий, trading_logger для торговых операций
 from utils.logger import system_logger, trading_logger
@@ -61,7 +61,7 @@ async def execute_trade_action(action_type, symbol, profile, reason_message, exe
         system_logger.info(f"Price processor ({symbol}): Инициировано действие '{action_type}' по причине: {reason_message}")
         trading_logger.info(f"Order Execution ({symbol}): Инициировано размещение ордера '{action_type}'...")
 
-        success = await place_order(action_type, symbol, profile)
+        success = await place_order_async(action_type, symbol, profile)
         if not success:
             system_logger.warning(f"Ордер '{action_type}' по {symbol} не был размещён — действие отменено.")
             return False
@@ -71,6 +71,14 @@ async def execute_trade_action(action_type, symbol, profile, reason_message, exe
         if action_type == "buy":
             save_last_buy_price(symbol, execution_price)
         elif action_type == "sell":
+            
+            if should_block_sell_due_to_low_price(symbol, execution_price):
+                trading_logger.warning(
+                f"❌ Защита внутри execute_trade_action: {symbol} — продажа отменена, цена ниже покупки ({execution_price})."
+        )
+                return False
+
+            
             clear_position(symbol)
 
         return True
@@ -256,14 +264,26 @@ async def price_processor(
             elif strategy_action == 'sell':
     # Передаём, что стратегия дала SELL, но не исполняем — даём решать risk-блоку
                 strategy_has_issued_sell = True
+    # 🔒 Жесткая защита — цена ниже покупки без TP/SL/min-profit
+                if should_block_sell_due_to_low_price(symbol, new_close_price):
+                    price_queue.task_done()
+                    continue
+
+                if await check_and_handle_risk_conditions(symbol, profile, new_close_price, strategy_has_issued_sell):
+                    action_taken_this_cycle = True
+                else:
+                    system_logger.info(f"Price processor ({symbol}): Продажа по сигналу стратегии отменена риск-менеджером.")
+
+                
+                
+                
                 if await check_and_handle_risk_conditions(symbol, profile, new_close_price, strategy_has_issued_sell):
                     action_taken_this_cycle = True
                 else:
                     system_logger.info(f"Price processor ({symbol}): Продажа по сигналу стратегии отменена риск-менеджером.")
 
                 # Опциональная проверка минимальной прибыли для ПРОДАЖИ по СТРАТЕГИИ
-                proceed_with_strategy_sell = True  # по умолчанию считаем, что продажа разрешена
-
+                
                 if getattr(settings, "USE_MIN_PROFIT_FOR_STRATEGY_SELL", False): # Если такой флаг есть и True
                     if not is_enough_profit(symbol, new_close_price): # is_enough_profit сама логирует отмену
                         proceed_with_strategy_sell = False

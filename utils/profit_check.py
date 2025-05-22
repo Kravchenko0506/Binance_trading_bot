@@ -115,7 +115,7 @@ def is_enough_profit(symbol: str, current_price: float, last_buy_price: float | 
                 f"Профит: {profit_pct:.2f}%, Порог: {min_profit_ratio*100:.2f}%"
             )
         return True
-    else:
+    #else:
         if context != "strategy":
             trading_logger.info(
                 f"❌ Минимальный профит НЕ достигнут для {symbol}. "
@@ -206,4 +206,21 @@ def is_take_profit_reached(symbol: str, current_price: float, last_buy_price: fl
             f"Профит: {profit_pct:.2f}%, Порог TP: {take_profit_ratio*100:.2f}%"
         )
         return False    
+    
+def should_block_sell_due_to_low_price(symbol: str, current_price: float) -> bool:
+    """
+    Возвращает True, если цена продажи ниже цены покупки (без срабатывания SL/TP).
+    Используется как финальная защита от убыточной продажи.
+    """
+    last_buy_price = load_last_buy_price(symbol)
+    if last_buy_price is None:
+        return False  # нет данных — не блокируем
+    if current_price < last_buy_price:
+        system_logger.info(
+            f"❌ Продажа {symbol} отклонена: текущая цена {current_price:.6f} "
+            f"< цена покупки {last_buy_price:.6f} (без TP/SL)"
+        )
+        return True
+    return False
+
 

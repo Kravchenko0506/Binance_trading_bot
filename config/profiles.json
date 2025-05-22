@@ -3,7 +3,7 @@
     "symbol": "XRPUSDT",
     "timeframe": "3m",
     "use_rsi": true,
-    "rsi_period": 7,
+    "rsi_period": 14,
     "rsi_overbought": 70,
     "rsi_oversold": 30,
     "use_macd": false,
@@ -18,7 +18,6 @@
     "EMA_SELL_BUFFER": 0.02,
     "commission_rate": 0.000,
     "min_profit_ratio": 0.3,
-    
     "stop_loss_ratio": 0.0,
     "take_profit_ratio": 0.50,
     "price_precision": 2,
@@ -50,7 +49,7 @@
     "min_trade_amount": 5
   },
   "doge": {
-     "symbol": "DOGEUSDT",
+    "symbol": "DOGEUSDT",
     "timeframe": "1m",
     "use_rsi": true,
     "rsi_period": 14,
