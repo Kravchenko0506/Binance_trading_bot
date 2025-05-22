@@ -15,10 +15,7 @@ from utils.logger import trading_logger, system_logger # Логгеры
 
 
 async def get_asset_balance_async(asset: str) -> Optional[Decimal]:
-    """
-    Асинхронно получает СВОБОДНЫЙ баланс указанного актива.
-    Возвращает Decimal для точности. В случае ошибки возвращает Decimal('0').
-    """
+    # ... (твой существующий код get_asset_balance_async)
     try:
         for attempt in range(3):
             balance_info = await asyncio.to_thread(client.get_asset_balance, asset=asset)
@@ -29,301 +26,328 @@ async def get_asset_balance_async(asset: str) -> Optional[Decimal]:
             trading_logger.error(f"Order Execution: Баланс не получен для  {asset} после 3 попыток, возвращаю 0.")
             return None
 
-        free_balance_str = balance_info.get('free', '0')
-        return Decimal(free_balance_str)
-
+        if balance_info and 'free' in balance_info:
+            return Decimal(balance_info['free'])
+        trading_logger.warning(f"Order Execution: Не удалось получить 'free' баланс для {asset}, ответ: {balance_info}")
+        return Decimal('0') # Возвращаем 0 если 'free' нет
     except Exception as e:
         trading_logger.error(f"Order Execution: Ошибка при получении баланса для {asset}: {e}", exc_info=True)
-        await send_notification(f"⚠️ Ошибка API: Не удалось получить баланс {asset}. Проверьте логи.")
+        return None # Возвращаем None в случае других ошибок
+
+
+async def place_order_async(
+    symbol: str,
+    action: str, # 'buy' or 'sell'
+    quantity_to_trade: Decimal,
+    order_type: str, # 'MARKET' или 'LIMIT'
+    limit_price: Optional[Decimal] = None, # Цена для LIMIT ордера или ТЕКУЩАЯ РЫНОЧНАЯ для MARKET SELL (для проверки)
+    stop_price: Optional[Decimal] = None,
+    profile_name: Optional[str] = "default"
+) -> Optional[dict]:
+    """
+    Асинхронно размещает ордер на покупку или продажу с учетом всех проверок и логики.
+    Использует Decimal для всех расчетов, связанных с ценой и количеством.
+    """
+    qty_str = f"{quantity_to_trade:.8f}" if isinstance(quantity_to_trade, Decimal) else str(quantity_to_trade)
+    limit_price_str = f"{limit_price:.8f}" if limit_price else "N/A"
+
+    # --- НАЧАЛО БЛОКА ЛОГИРОВАНИЯ ДЛЯ ДИАГНОСТИКИ ---
+    trading_logger.info(
+        f"place_order_async ВЫЗВАН для {symbol}: action={action}, quantity_to_trade={qty_str}, "
+        f"order_type={order_type}, limit_price_ARG={limit_price_str}, profile={profile_name}"
+    )
+    # --- КОНЕЦ БЛОКА ЛОГИРОВАНИЯ ДЛЯ ДИАГНОСТИКИ ---
+
+    lot_size_info = await asyncio.to_thread(get_lot_size, symbol)
+    if not lot_size_info:
+        trading_logger.error(f"Order Execution ({symbol}): Не удалось получить информацию о лоте. Ордер отменен.")
+        await send_notification(f"❌ Ошибка ордера {action.upper()} для {symbol}: Не получена информация о лоте.")
         return None
 
+    min_qty = Decimal(lot_size_info['minQty'])
+    step_size = Decimal(lot_size_info['stepSize'])
+    base_asset = lot_size_info['baseAsset']
+    quote_asset = lot_size_info['quoteAsset']
+    precision_amount = int(lot_size_info['precision_amount'])
+    precision_price = int(lot_size_info['precision_price'])
 
-
-async def get_current_market_price_async(symbol: str) -> Decimal | None:
-    """
-    Асинхронно получает текущую рыночную цену для символа.
-    Возвращает Decimal или None в случае ошибки.
-    """
-    try:
-        # client.get_symbol_ticker - блокирующий вызов
-        ticker_info = await asyncio.to_thread(client.get_symbol_ticker, symbol=symbol)
-        price_str = ticker_info.get('price')
-        if price_str:
-            # trading_logger.debug(f"Order Execution: Текущая цена {symbol} из API: {price_str}")
-            return Decimal(price_str)
-        else:
-            trading_logger.error(f"Order Execution: API не вернуло цену для {symbol}. Ответ: {ticker_info}")
-            return None
-    except Exception as e:
-        trading_logger.error(f"Order Execution: Ошибка при получении текущей цены для {symbol}: {e}", exc_info=True)
-        await send_notification(f"⚠️ Ошибка API: Не удалось получить цену для {symbol}. Проверьте логи.")
-        return None
-
-
-async def place_order(action: str, symbol: str, profile: object) -> dict | None:
-    """
-    Асинхронно размещает рыночный ордер на покупку или продажу.
-    Возвращает ответ от биржи (словарь) в случае успеха, или None в случае ошибки.
-
-    Args:
-        action (str): 'buy' или 'sell'.
-        symbol (str): Торговый символ (например, 'XRPUSDT').
-        profile (object): Объект профиля, содержащий настройки, включая MIN_TRADE_AMOUNT.
-                          Ожидается, что у profile есть атрибут profile.MIN_TRADE_AMOUNT.
-    """
-    trading_logger.info(f"Order Execution ({symbol}): Инициировано размещение ордера '{action}'...")
+    if not isinstance(quantity_to_trade, Decimal):
+        quantity_to_trade = Decimal(str(quantity_to_trade))
     
-    base_asset, quote_asset = "", ""
-    # Определение базового и квотируемого актива (например, XRP и USDT для XRPUSDT)
-    # Это нужно для корректного получения балансов и имен активов
-    # Обычно USDT идет вторым. Если нет, логику нужно будет усложнить.
-    if symbol.endswith("USDT"):
-        base_asset = symbol[:-4]
-        quote_asset = "USDT"
-    elif symbol.endswith("BUSD"): # Пример для других квот
-        base_asset = symbol[:-4]
-        quote_asset = "BUSD"
-    # Добавить другие популярные квотируемые активы при необходимости (BTC, ETH, etc.)
-    else:
-        trading_logger.error(f"Order Execution ({symbol}): Не удалось определить базовый и квотируемый актив из символа '{symbol}'. Ордер отменен.")
-        await send_notification(f"❌ Ошибка конфигурации: Неизвестный формат символа {symbol} для определения активов.")
+    rounded_quantity = round_step_size(quantity_to_trade, step_size)
+    
+    if rounded_quantity < min_qty and rounded_quantity > Decimal('0'): # Пропускаем проверку если quantity_to_trade == 0 (например, при ошибке расчета)
+        trading_logger.warning(
+            f"Order Execution ({symbol}): Рассчитанное количество {rounded_quantity:.8f} {base_asset} "
+            f"меньше минимально допустимого ({min_qty:.8f} {base_asset}). Действие '{action}' отменено."
+        )
         return None
-
-    # Асинхронное получение параметров лота
-    try:
-        step_size_str, min_qty_str = await asyncio.to_thread(get_lot_size, symbol)
-        if step_size_str is None or min_qty_str is None: # get_lot_size мог вернуть None, None
-            trading_logger.error(f"Order Execution ({symbol}): Не удалось получить LOT_SIZE. Ордер '{action}' отменен.")
-            # Уведомление уже должно быть отправлено из get_lot_size или обертки над ним
-            return None
-        step_size = Decimal(step_size_str)
-        min_qty = Decimal(min_qty_str)
-    except Exception as e:
-        trading_logger.error(f"Order Execution ({symbol}): Ошибка при получении или обработке LOT_SIZE: {e}", exc_info=True)
-        await send_notification(f"❌ Ошибка API: Не удалось получить LOT_SIZE для {symbol}. Ордер '{action}' отменен.")
+    if rounded_quantity == Decimal('0'):
+        trading_logger.error(f"Order Execution ({symbol}): Количество для торговли равно 0 для {action}. Ордер отменен.")
         return None
-
+        
     order_response = None
-    
-    if action == 'buy':
-        quote_balance = await get_asset_balance_async(quote_asset) # Баланс в USDT, BUSD и т.д.
-        
-        if quote_balance <= Decimal('0'):
-            trading_logger.warning(f"Order Execution ({symbol}): Недостаточно средств {quote_asset} для покупки (баланс: {quote_balance}).")
-            await send_notification(f"ℹ️ Попытка покупки {symbol}: недостаточно {quote_asset} (баланс {quote_balance}).")
-            return None
 
-        current_price = await get_current_market_price_async(symbol)
-        if current_price is None or current_price <= Decimal('0'):
-            trading_logger.error(f"Order Execution ({symbol}): Не удалось получить корректную текущую цену ({current_price}). Покупка отменена.")
-            return None
-            
-        # Определяем, сколько USDT/BUSD потратить. Используем почти весь баланс квотируемого актива.
-        # Учитываем минимальную сумму ордера (например, 5 USDT для Binance)
-        min_trade_amount_profile = Decimal(str(getattr(profile, 'MIN_TRADE_AMOUNT', settings.MIN_TRADE_AMOUNT)))
+    if action.lower() == 'buy':
+        # ... (существующая логика покупки: проверка баланса, расчет стоимости и т.д.)
+        # ВАЖНО: Убедись, что save_last_buy_price и position_manager.update_position вызываются корректно ПОСЛЕ УСПЕШНОЙ ПОКУПКИ
+        # Примерно так, как было в твоем коде (я добавил avg_executed_price):
+        trading_logger.info(f"Order Execution ({symbol}): Инициация покупки {rounded_quantity:.{precision_amount}f} {base_asset}...")
+        try:
+            quote_asset_balance = await get_asset_balance_async(quote_asset)
+            if quote_asset_balance is None: # Ошибка получения баланса
+                trading_logger.error(f"Order Execution ({symbol}): Не удалось получить баланс {quote_asset}. Покупка отменена.")
+                await send_notification(f"❌ Ошибка ордера BUY для {symbol}: Не удалось получить баланс {quote_asset}.")
+                return None
 
-        amount_to_spend_in_quote = quote_balance
-        if amount_to_spend_in_quote < min_trade_amount_profile:
-            trading_logger.warning(
-                f"Order Execution ({symbol}): Сумма для покупки {amount_to_spend_in_quote:.8f} {quote_asset} "
-                f"меньше минимально допустимой по профилю/настройкам ({min_trade_amount_profile:.2f} {quote_asset}). Покупка отменена."
-            )
-            await send_notification(f"ℹ️ Попытка покупки {symbol}: сумма {amount_to_spend_in_quote:.2f} {quote_asset} меньше минимальной.")
-            return None
+            estimated_cost = Decimal('0')
+            current_price_for_buy_check = limit_price # Предполагаем, что limit_price - это текущая цена для MARKET
 
-        # Рассчитываем количество базового актива для покупки
-        # quantity = (amount_to_spend_in_quote / current_price) # Это даст максимальное количество
-        # Binance для MARKET ордера при указании quantity ожидает количество базового актива.
-        # Можно использовать quoteOrderQty, чтобы указать сумму в USDT, которую хотим потратить.
-        # Если использовать quantity, нужно быть осторожным с комиссией и точностью.
-        # Попробуем использовать quoteOrderQty, если это более надежно.
-        # Для данного кода, где используется round_step_size, мы считаем quantity.
-        
-        # Уменьшим немного сумму для учета возможной комиссии, если она платится из quote_asset
-        # и для предотвращения ошибки "insufficient balance" из-за округлений.
-        # Это не самый точный способ, но для рыночных ордеров может сработать.
-        effective_amount_to_spend = amount_to_spend_in_quote * Decimal('0.995') # Тратим 99.5%
-        
-        if effective_amount_to_spend < min_trade_amount_profile:
-             trading_logger.warning(f"Order Execution ({symbol}): Эффективная сумма для покупки {effective_amount_to_spend:.8f} {quote_asset} стала меньше минимальной после резерва. Покупка отменена.")
-             return None
+            if order_type.upper() == 'MARKET':
+                if current_price_for_buy_check is None or current_price_for_buy_check <= Decimal('0'):
+                    trading_logger.error(f"Order Execution ({symbol}): Для MARKET BUY не передана текущая цена (через limit_price). Невозможно оценить стоимость. Покупка отменена.")
+                    return None
+                estimated_cost = rounded_quantity * current_price_for_buy_check
+            elif order_type.upper() == 'LIMIT':
+                if limit_price is None or limit_price <= Decimal('0'):
+                    trading_logger.error(f"Order Execution ({symbol}): Для LIMIT BUY не указана корректная цена. Покупка отменена.")
+                    return None
+                estimated_cost = rounded_quantity * limit_price
 
-        raw_quantity_to_buy = effective_amount_to_spend / current_price
-        
-        # Округляем количество до разрешенного биржей шага (step_size)
-        # round_step_size должна корректно работать с Decimal
-        quantity_to_buy = round_step_size(raw_quantity_to_buy, step_size) # round_step_size должна вернуть Decimal
-
-        trading_logger.info(f"Order Execution ({symbol}): Расчет покупки: Баланс {quote_asset}={quote_balance:.8f}, Цена={current_price:.8f}, "
-                            f"Сумма для траты ({quote_asset})={effective_amount_to_spend:.8f}, "
-                            f"Расчетное кол-во={raw_quantity_to_buy:.8f}, Округленное кол-во={quantity_to_buy:.8f} {base_asset}, "
-                            f"MinQty={min_qty:.8f}, StepSize={step_size:.8f}")
-
-        if quantity_to_buy >= min_qty:
-            try:
-                trading_logger.info(f"Order Execution ({symbol}): Отправка MARKET BUY ордера на {quantity_to_buy} {base_asset}.")
-                # client.order_market_buy - блокирующий вызов
-                order_response = await asyncio.to_thread(
-                    client.order_market_buy,
-                    symbol=symbol,
-                    quantity=float(quantity_to_buy) # API может ожидать float
+            if quote_asset_balance < estimated_cost:
+                trading_logger.error(
+                    f"Order Execution ({symbol}): Недостаточно средств на балансе {quote_asset}. "
+                    f"Требуется: ~{estimated_cost:.8f}, Доступно: {quote_asset_balance:.8f}. Покупка отменена."
                 )
-                trading_logger.info(f"Order Execution ({symbol}): Ответ на ордер BUY: {order_response}")
-                
-                # Обработка успешного ордера и сохранение цены покупки
-                fills = order_response.get('fills', [])
-                if fills:
-                    total_qty_filled = Decimal('0')
-                    weighted_sum_price = Decimal('0')
-                    total_commission_paid = Decimal('0')
-                    commission_asset = ""
-
-                    for fill in fills:
-                        fill_qty = Decimal(fill.get('qty', '0'))
-                        fill_price = Decimal(fill.get('price', '0'))
-                        total_qty_filled += fill_qty
-                        weighted_sum_price += fill_qty * fill_price
-                        total_commission_paid += Decimal(fill.get('commission', '0'))
-                        if not commission_asset: # Берем из первого филла
-                            commission_asset = fill.get('commissionAsset', '')
-                    
-                    if total_qty_filled > Decimal('0'):
-                        avg_price_filled = weighted_sum_price / total_qty_filled
-                        # Сохраняем среднюю цену исполнения
-                        save_last_buy_price(symbol, float(avg_price_filled)) # profit_check ожидает float
-                        
-                        spent_quote_asset = avg_price_filled * total_qty_filled # Сколько фактически потрачено USDT
-
-                        log_msg = (
-                            f"✅ ПОКУПКА ({symbol}): {total_qty_filled:.8f} {base_asset} "
-                            f"@ ~{avg_price_filled:.8f} {quote_asset}. "
-                            f"Потрачено: {spent_quote_asset:.8f} {quote_asset}. "
-                            f"Комиссия: {total_commission_paid:.8f} {commission_asset}."
-                        )
-                        trading_logger.info(log_msg)
-                        print(Fore.GREEN + log_msg + Style.RESET_ALL)
-                        await send_notification(f"🟢 КУПЛЕНО: {total_qty_filled:.6f} {base_asset} для {symbol} @ ~{avg_price_filled:.6f} {quote_asset} Комиссия: {total_commission_paid:.8f} {commission_asset}")
-                    else:
-                        trading_logger.warning(f"Order Execution ({symbol}): Ордер BUY выполнен, но не найдено исполненных частей (fills) или нулевое количество.")
-                else:
-                    trading_logger.warning(f"Order Execution ({symbol}): Ордер BUY размещен, но fills отсутствуют в ответе: {order_response}")
-
-            except Exception as e:
-                trading_logger.error(f"Order Execution ({symbol}): Ошибка при размещении ордера BUY: {e}", exc_info=True)
-                await send_notification(f"❌ Ошибка ордера BUY для {symbol}: {e}")
-                order_response = None # Явный сброс в случае ошибки
-        else:
-            trading_logger.warning(
-                f"Order Execution ({symbol}): Рассчитанное количество для покупки {quantity_to_buy:.8f} {base_asset} "
-                f"меньше минимально допустимого ({min_qty:.8f} {base_asset}). Покупка отменена."
-            )
-            await send_notification(f"ℹ️ Попытка покупки {symbol}: рассчитанное кол-во {quantity_to_buy:.8f} меньше мин. {min_qty:.8f}.")
-
-    elif action == 'sell':
-        base_asset_balance = await get_asset_balance_async(base_asset) # Баланс в XRP, BTC и т.д.
-
-        if base_asset_balance <= Decimal('0'):
-            trading_logger.warning(f"Order Execution ({symbol}): Нет {base_asset} для продажи (баланс: {base_asset_balance}).")
-            # Уведомление здесь может быть излишним, если это штатная ситуация (нет актива для продажи)
-            return None
+                await send_notification(
+                    f"❌ Ордер BUY для {symbol} отменен: недостаточно {quote_asset}. "
+                    f"Надо: ~{estimated_cost:.2f}, есть: {quote_asset_balance:.2f}"
+                )
+                return None
             
-        # Количество для продажи - это весь доступный баланс базового актива, округленный по step_size
-        quantity_to_sell = round_step_size(base_asset_balance, step_size) # round_step_size должна вернуть Decimal
+            order_params = {
+                'symbol': symbol, 'side': client.SIDE_BUY, 'type': order_type.upper(),
+                'quantity': f"{rounded_quantity:.{precision_amount}f}"
+            }
+            if order_type.upper() == 'LIMIT':
+                order_params['price'] = f"{limit_price:.{precision_price}f}"
+                order_params['timeInForce'] = client.TIME_IN_FORCE_GTC
+            
+            trading_logger.info(f"Order Execution ({symbol}): Отправка {order_type.upper()} BUY ордера: {order_params}")
+            order_response = await asyncio.to_thread(client.create_order, **order_params)
+            trading_logger.info(f"Order Execution ({symbol}): Ответ на ордер BUY: {json.dumps(order_response, indent=2)}")
 
-        trading_logger.info(f"Order Execution ({symbol}): Расчет продажи: Баланс {base_asset}={base_asset_balance:.8f}, "
-                            f"Кол-во для продажи={quantity_to_sell:.8f} {base_asset}, "
-                            f"MinQty={min_qty:.8f}, StepSize={step_size:.8f}")
+            if order_response and order_response.get('status') == 'FILLED':
+                executed_qty_str = order_response.get('executedQty', '0')
+                cummulative_quote_qty_str = order_response.get('cummulativeQuoteQty', '0')
+                executed_qty = Decimal(executed_qty_str)
+                cummulative_quote_qty = Decimal(cummulative_quote_qty_str)
+                
+                avg_executed_price = Decimal('0')
+                if executed_qty > Decimal('0'):
+                    avg_executed_price = (cummulative_quote_qty / executed_qty).quantize(Decimal('1e-{}'.format(precision_price)))
 
-        if quantity_to_sell >= min_qty:
+                commission_total = Decimal('0')
+                commission_asset_str = base_asset # По умолчанию
+                if order_response.get('fills'):
+                    for fill in order_response['fills']:
+                        commission_total += Decimal(fill['commission'])
+                        commission_asset_str = fill['commissionAsset']
+                
+                trading_logger.info(
+                    f"✅ ПОКУПКА ({symbol}): {executed_qty:.{precision_amount}f} {base_asset} @ ~{avg_executed_price:.{precision_price}f} {quote_asset}. "
+                    f"Потрачено: {cummulative_quote_qty:.8f} {quote_asset}. Комиссия: {commission_total:.8f} {commission_asset_str}."
+                )
+                await send_notification(
+                    f"🟢 КУПЛЕНО: {executed_qty:.4f} {base_asset} для {symbol} @ ~{avg_executed_price:.4f} {quote_asset}\n"
+                    f"Комиссия: {commission_total:.6f} {commission_asset_str}"
+                )
+                save_last_buy_price(symbol, float(avg_executed_price), float(executed_qty), profile_name if profile_name else "unknown_profile")
+                # Здесь тебе нужно будет импортировать и использовать твой position_manager
+                # from utils.position_manager import position_manager # Сделай это в начале файла
+                # position_manager.update_position(...) # Раскомментируй и используй, если он глобальный
+                                                      # или передавай его как аргумент, как мы обсуждали для Пути 2
+            # ... (остальная обработка ответа на покупку) ...
+        except Exception as e:
+            trading_logger.error(f"Order Execution ({symbol}): Ошибка при размещении ордера BUY: {e}", exc_info=True)
+            await send_notification(f"❌ Ошибка ордера BUY для {symbol}: {e}")
+            order_response = None
+
+
+    elif action.lower() == 'sell':
+        trading_logger.info(f"Order Execution ({symbol}): Инициация продажи {rounded_quantity:.{precision_amount}f} {base_asset}...")
+        base_asset_balance = await get_asset_balance_async(base_asset)
+
+        # Убеждаемся, что количество для продажи не превышает доступный баланс
+        # и что оно соответствует тому, что мы хотим продать (rounded_quantity)
+        if base_asset_balance is None:
+            trading_logger.error(f"Order Execution ({symbol}): Не удалось получить баланс {base_asset} для продажи. Продажа отменена.")
+            return None
+        if rounded_quantity > base_asset_balance:
+            trading_logger.warning(
+                f"Order Execution ({symbol}): Количество для продажи ({rounded_quantity:.{precision_amount}f}) "
+                f"превышает доступный баланс ({base_asset_balance:.{precision_amount}f} {base_asset}). "
+                f"Продаем доступный баланс."
+            )
+            rounded_quantity = round_step_size(base_asset_balance, step_size) # Округляем доступный баланс
+            if rounded_quantity < min_qty:
+                 trading_logger.warning(f"Order Execution ({symbol}): Доступный баланс {base_asset_balance} после округления {rounded_quantity} меньше min_qty {min_qty}. Продажа отменена.")
+                 return None
+
+        if rounded_quantity < min_qty: # Проверка после возможной коррекции по балансу
+            trading_logger.warning(
+                f"Order Execution ({symbol}): Рассчитанное количество для продажи {rounded_quantity:.{precision_amount}f} {base_asset} "
+                f"меньше минимально допустимого ({min_qty:.{precision_amount}f} {base_asset}). Продажа отменена."
+            )
+            return None
+
+        # --- НАЧАЛО БЛОКА ЛОГИРОВАНИЯ ДЛЯ ДИАГНОСТИКИ ЗАЩИТЫ ОТ УБЫТКА ---
+        buy_price_file_path = get_last_buy_price_path(symbol, profile_name if profile_name else "unknown_profile")
+        last_buy_info = None
+        if os.path.exists(buy_price_file_path):
             try:
-                # Проверка, не превышает ли объем продажи минимальный размер ордера в USDT эквиваленте
-                # Это важно, т.к. слишком маленькая продажа может быть отклонена биржей
-                current_price_for_sell_check = await get_current_market_price_async(symbol)
-                if current_price_for_sell_check and current_price_for_sell_check > Decimal('0'):
-                    estimated_sell_value_in_quote = Decimal(str(quantity_to_sell)) * Decimal(str(current_price_for_sell_check))
-                    min_trade_amount_profile = Decimal(str(getattr(profile, 'MIN_TRADE_AMOUNT', settings.MIN_TRADE_AMOUNT)))
-                    if estimated_sell_value_in_quote < min_trade_amount_profile:
+                with open(buy_price_file_path, 'r') as f:
+                    last_buy_info = json.load(f)
+            except Exception as e_load:
+                 trading_logger.error(f"Order Execution ({symbol}): Ошибка загрузки файла цены покупки '{buy_price_file_path}': {e_load}")
+        
+        price_to_check_against_buy = Decimal('0') # Цена, с которой будем сравнивать цену покупки
+
+        if order_type.upper() == 'MARKET':
+            if limit_price is not None and limit_price > Decimal('0'): # limit_price используется для передачи current_market_price
+                price_to_check_against_buy = limit_price
+                trading_logger.info(f"Order Execution ({symbol}): Для MARKET SELL используем переданную рыночную цену для проверки: {price_to_check_against_buy:.{precision_price}f}")
+            else:
+                trading_logger.warning(
+                    f"Order Execution ({symbol}): Для MARKET SELL не передана текущая рыночная цена (через аргумент limit_price) для проверки защиты от убытка. "
+                    f"Защита от продажи в убыток НЕ БУДЕТ ВЫПОЛНЕНА."
+                )
+                # Если цена для проверки не предоставлена, мы не можем выполнить защиту.
+                # Продолжаем без нее, но это рискованно.
+        elif order_type.upper() == 'LIMIT':
+            if limit_price is None or limit_price <= Decimal('0'):
+                trading_logger.error(f"Order Execution ({symbol}): Для LIMIT SELL не указана корректная цена (в limit_price). Продажа отменена.")
+                return None
+            price_to_check_against_buy = limit_price # Для LIMIT ордера сравниваем с ценой лимита
+            trading_logger.info(f"Order Execution ({symbol}): Для LIMIT SELL используем цену лимита для проверки: {price_to_check_against_buy:.{precision_price}f}")
+
+
+        if last_buy_info:
+            try:
+                last_buy_price_from_file = Decimal(str(last_buy_info['price']))
+                # buy_quantity_from_file = Decimal(str(last_buy_info.get('quantity', '0.0'))) # Можем использовать позже, если нужно
+                
+                trading_logger.info(
+                    f"ПРОВЕРКА ПЕРЕД ПРОДАЖЕЙ ({symbol}):\n"
+                    f"  Цена покупки из файла (last_buy_price_from_file): {last_buy_price_from_file:.{precision_price}f}\n"
+                    f"  Цена для проверки продажи (price_to_check_against_buy): {price_to_check_against_buy:.{precision_price}f}\n"
+                    f"  settings.USE_PAPER_TRADING: {settings.USE_PAPER_TRADING}"
+                )
+
+                if price_to_check_against_buy > Decimal('0'): # Только если есть актуальная цена для проверки
+                    check1_not_paper_trading = not settings.USE_PAPER_TRADING
+                    check2_price_lower = price_to_check_against_buy < last_buy_price_from_file
+                    
+                    trading_logger.info(
+                        f"ПОДУСЛОВИЯ для отмены продажи ({symbol}):\n"
+                        f"  (not settings.USE_PAPER_TRADING) IS {check1_not_paper_trading}\n"
+                        f"  (price_to_check_against_buy < last_buy_price_from_file) IS {check2_price_lower} "
+                        f"({price_to_check_against_buy:.{precision_price}f} < {last_buy_price_from_file:.{precision_price}f})"
+                    )
+
+                    if check1_not_paper_trading and check2_price_lower:
                         trading_logger.warning(
-                            f"Order Execution ({symbol}): Расчетная стоимость продажи {quantity_to_sell:.8f} {base_asset} "
-                            f"({estimated_sell_value_in_quote:.8f} {quote_asset}) меньше минимальной суммы сделки "
-                            f"({min_trade_amount_profile:.2f} {quote_asset}). Продажа отменена."
+                            f"🚫 ОТМЕНА ПРОДАЖИ ({symbol}): Цена проверки ({price_to_check_against_buy:.{precision_price}f}) "
+                            f"НИЖЕ цены покупки ({last_buy_price_from_file:.{precision_price}f}). Защита сработала."
                         )
-                        # Можно отправить уведомление, если это неожиданно
-                        # await send_notification(f"ℹ️ Попытка продажи {symbol}: сумма ({estimated_sell_value_in_quote:.2f} {quote_asset}) меньше минимальной.")
-                        return False
-                else:
-                    trading_logger.warning(f"Order Execution ({symbol}): Не удалось получить цену для проверки мин. суммы продажи. Продолжаем с осторожностью.")
-                
-                trading_logger.info(f"Order Execution ({symbol}): Отправка MARKET SELL ордера на {quantity_to_sell} {base_asset}.")
-                # client.order_market_sell - блокирующий вызов
-                order_response = await asyncio.to_thread(
-                    client.order_market_sell,
-                    symbol=symbol,
-                    quantity=float(quantity_to_sell) # API может ожидать float
-                )
-                trading_logger.info(f"Order Execution ({symbol}): Ответ на ордер SELL: {order_response}")
-
-                # Обработка успешного ордера на продажу
-                fills = order_response.get('fills', [])
-                if fills:
-                    total_qty_filled = Decimal('0')
-                    weighted_sum_price = Decimal('0')
-                    total_commission_paid = Decimal('0')
-                    commission_asset = ""
-
-                    for fill in fills:
-                        fill_qty = Decimal(fill.get('qty', '0'))
-                        fill_price = Decimal(fill.get('price', '0'))
-                        total_qty_filled += fill_qty
-                        weighted_sum_price += fill_qty * fill_price
-                        total_commission_paid += Decimal(fill.get('commission', '0'))
-                        if not commission_asset:
-                            commission_asset = fill.get('commissionAsset', '')
-                    
-                    if total_qty_filled > Decimal('0'):
-                        avg_price_filled = weighted_sum_price / total_qty_filled
-                        received_quote_asset = avg_price_filled * total_qty_filled # Сколько фактически получено USDT/BUSD
-
-                        log_msg = (
-                            f"✅ ПРОДАЖА ({symbol}): {total_qty_filled:.8f} {base_asset} "
-                            f"@ ~{avg_price_filled:.8f} {quote_asset}. "
-                            f"Получено: {received_quote_asset:.8f} {quote_asset}. "
-                            f"Комиссия: {total_commission_paid:.8f} {commission_asset}."
-                        )
-                        trading_logger.info(log_msg)
-                        print(Fore.RED + log_msg + Style.RESET_ALL)
-                        await send_notification(f"🔴 ПРОДАНО: {total_qty_filled:.6f} {base_asset} для {symbol} @ ~{avg_price_filled:.6f} {quote_asset} Комиссия: {total_commission_paid:.8f} {commission_asset}")
-                        
-                        # После успешной продажи можно удалить файл с ценой покупки
-                        # чтобы следующая покупка не ориентировалась на старую цену для profit_check
-                        buy_price_file = get_last_buy_price_path(symbol)
-                        if os.path.exists(buy_price_file):
-                            try:
-                                os.remove(buy_price_file)
-                                trading_logger.info(f"Order Execution ({symbol}): Файл цены покупки '{buy_price_file}' удален после продажи.")
-                            except OSError as e_remove:
-                                trading_logger.error(f"Order Execution ({symbol}): Не удалось удалить файл цены покупки '{buy_price_file}': {e_remove}")
+                        return None # Отменяем продажу
                     else:
-                        trading_logger.warning(f"Order Execution ({symbol}): Ордер SELL выполнен, но не найдено исполненных частей (fills) или нулевое количество.")
+                        trading_logger.info(
+                            f"Условие отмены продажи НЕ ВЫПОЛНЕНО для {symbol}. Продажа РАЗРЕШЕНА."
+                        )
                 else:
-                    trading_logger.warning(f"Order Execution ({symbol}): Ордер SELL размещен, но fills отсутствуют в ответе: {order_response}")
-            
-            except Exception as e:
-                trading_logger.error(f"Order Execution ({symbol}): Ошибка при размещении ордера SELL: {e}", exc_info=True)
-                await send_notification(f"❌ Ошибка ордера SELL для {symbol}: {e}")
-                order_response = None
+                    trading_logger.warning(
+                        f"Order Execution ({symbol}): Нет актуальной цены для проверки (price_to_check_against_buy = 0). "
+                        f"Продажа продолжается без ценовой защиты от убытков. ЭТО РИСК!"
+                    )
+            except (ValueError, TypeError, KeyError) as e:
+                trading_logger.error(
+                    f"Order Execution ({symbol}): Ошибка данных в файле цены покупки '{buy_price_file_path}' при проверке: {e}. Содержимое: {last_buy_info}"
+                )
+                await send_notification(f"⚠️ Ошибка данных о покупке для {symbol}. Продажа отменена для безопасности.")
+                return None
         else:
             trading_logger.warning(
-                f"Order Execution ({symbol}): Рассчитанное количество для продажи {quantity_to_sell:.8f} {base_asset} "
-                f"меньше минимально допустимого ({min_qty:.8f} {base_asset}). Продажа отменена."
+                f"Информация для ПРОДАЖИ ({symbol}): Файл цены покупки '{buy_price_file_path}' не найден. "
+                f"Продажа без проверки цены покупки."
             )
-            # Уведомление здесь не нужно, если баланс просто меньше min_qty - это может быть штатно.
+        # --- КОНЕЦ БЛОКА ЛОГИРОВАНИЯ ДЛЯ ДИАГНОСТИКИ ЗАЩИТЫ ОТ УБЫТКА ---
+
+        # Если все проверки пройдены, размещаем ордер на продажу
+        try:
+            order_params = {
+                'symbol': symbol, 'side': client.SIDE_SELL, 'type': order_type.upper(),
+                'quantity': f"{rounded_quantity:.{precision_amount}f}"
+            }
+            if order_type.upper() == 'LIMIT':
+                if limit_price is None or limit_price <= Decimal('0'): # Доп. проверка для LIMIT перед отправкой
+                     trading_logger.error(f"Order Execution ({symbol}): Попытка отправить LIMIT SELL без корректной limit_price. Ордер отменен.")
+                     return None
+                order_params['price'] = f"{limit_price:.{precision_price}f}"
+                order_params['timeInForce'] = client.TIME_IN_FORCE_GTC
+
+            trading_logger.info(f"Order Execution ({symbol}): Отправка {order_type.upper()} SELL ордера: {order_params}")
+            order_response = await asyncio.to_thread(client.create_order, **order_params)
+            trading_logger.info(f"Order Execution ({symbol}): Ответ на ордер SELL: {json.dumps(order_response, indent=2)}")
+
+            if order_response and order_response.get('status') == 'FILLED':
+                # ... (существующая логика обработки успешной продажи) ...
+                # Важно: Убедись, что delete_last_buy_price и position_manager.clear_position вызываются здесь
+                executed_qty_str = order_response.get('executedQty', '0')
+                cummulative_quote_qty_str = order_response.get('cummulativeQuoteQty', '0')
+                executed_qty = Decimal(executed_qty_str)
+                cummulative_quote_qty = Decimal(cummulative_quote_qty_str)
+
+                avg_executed_price = Decimal('0')
+                if executed_qty > Decimal('0'):
+                    avg_executed_price = (cummulative_quote_qty / executed_qty).quantize(Decimal('1e-{}'.format(precision_price)))
+
+                commission_total = Decimal('0')
+                commission_asset_str = quote_asset
+                if order_response.get('fills'):
+                    for fill in order_response['fills']:
+                        commission_total += Decimal(fill['commission'])
+                        commission_asset_str = fill['commissionAsset']
+                
+                trading_logger.info(
+                    f"✅ ПРОДАЖА ({symbol}): {executed_qty:.{precision_amount}f} {base_asset} @ ~{avg_executed_price:.{precision_price}f} {quote_asset}. "
+                    f"Получено: {cummulative_quote_qty:.8f} {quote_asset}. Комиссия: {commission_total:.8f} {commission_asset_str}."
+                )
+                await send_notification(
+                    f"🔴 ПРОДАНО: {executed_qty:.4f} {base_asset} для {symbol} @ ~{avg_executed_price:.4f} {quote_asset}\n"
+                    f"Комиссия: {commission_total:.6f} {commission_asset_str}"
+                )
+                
+                if os.path.exists(buy_price_file_path):
+                    try:
+                        await asyncio.to_thread(os.remove, buy_price_file_path)
+                        trading_logger.info(f"Order Execution ({symbol}): Файл цены покупки '{buy_price_file_path}' удален после продажи.")
+                    except OSError as e_remove:
+                        trading_logger.error(f"Order Execution ({symbol}): Не удалось удалить файл цены покупки '{buy_price_file_path}': {e_remove}")
+                # Здесь тебе нужно будет импортировать и использовать твой position_manager
+                # from utils.position_manager import position_manager # Сделай это в начале файла
+                # position_manager.clear_position(symbol) # Раскомментируй и используй, если он глобальный
+            # ... (остальная обработка ответа на продажу) ...
+        except Exception as e:
+            trading_logger.error(f"Order Execution ({symbol}): Ошибка при размещении ордера SELL: {e}", exc_info=True)
+            await send_notification(f"❌ Ошибка ордера SELL для {symbol}: {e}")
+            order_response = None
 
     else:
         trading_logger.error(f"Order Execution ({symbol}): Неизвестное действие '{action}'. Допустимы 'buy' или 'sell'.")
         return None
 
-    return order_response # Возвращаем ответ от биржи
+    return order_response
 
 
 

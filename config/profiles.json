@@ -1,7 +1,7 @@
 {
   "xrp": {
     "symbol": "XRPUSDT",
-    "timeframe": "2m",
+    "timeframe": "3m",
     "use_rsi": true,
     "rsi_period": 7,
     "rsi_overbought": 70,
