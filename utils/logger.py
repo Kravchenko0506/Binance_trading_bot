@@ -87,5 +87,5 @@ def get_test_logger():
     return test_logger
 
 system_logger.info("Логгер 'system' успешно настроен.")
-trading_logger.info("Логгер 'trading_activity' успешно настроен.")
+trading_logger.info("Логгер 'trading' успешно настроен.")
 test_logger.info("Логгер 'test' успешно настроен.")

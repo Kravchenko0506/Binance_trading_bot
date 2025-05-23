@@ -11,7 +11,8 @@ config/auth.json
 config/profiles.json
 data/last_buy_price_XRPUSDT.json
 logs/system.log
-logs/trading.log
 logs/trading-test.log
 binance_trading_bot_code_audit.md
 logs/trading.log
+pyproject.toml
+

@@ -7,52 +7,61 @@ import numpy as np
 from utils.logger import trading_logger
 
 # Custom exception for indicator calculation failures
+
+
 class IndicatorCalculationError(Exception):
     """Exception raised when a technical indicator calculation fails."""
-    
+
 
 def calculate_rsi(data, timeperiod):
     try:
         if talib:
             return talib.RSI(data, timeperiod=timeperiod)
         else:
-            trading_logger.warning("📉 TA-Lib not available. Using fallback RSI.")
+            trading_logger.warning(
+                "📉 TA-Lib not available. Using fallback RSI.")
         return fallback_rsi(data, timeperiod)
 
     except Exception as e:
         trading_logger.error(f"Ошибка при расчете RSI: {e}")
         raise IndicatorCalculationError(f"RSI calculation failed: {e}")
 
+
 def calculate_macd(data, fastperiod, slowperiod, signalperiod):
     try:
         if talib:
-            macd, signal, _ = talib.MACD(data, fastperiod, slowperiod, signalperiod)
+            macd, signal, _ = talib.MACD(
+                data, fastperiod, slowperiod, signalperiod)
             return macd, signal
         else:
-            trading_logger.warning("📉 TA-Lib not available. Using fallback MACD.")
+            trading_logger.warning(
+                "📉 TA-Lib not available. Using fallback MACD.")
             return fallback_macd(data, fastperiod, slowperiod, signalperiod)
     except Exception as e:
         trading_logger.error(f"Ошибка при расчете MACD: {e}")
         raise IndicatorCalculationError(f"MACD calculation failed: {e}")
+
 
 def calculate_ema(data, period):
     try:
         if talib:
             return talib.EMA(data, timeperiod=period)
         else:
-            trading_logger.warning("📉 TA-Lib not available. Using fallback EMA.")
+            trading_logger.warning(
+                "📉 TA-Lib not available. Using fallback EMA.")
             return fallback_ema(data, period)
 
     except Exception as e:
         trading_logger.error(f"Ошибка при расчете EMA: {e}")
         raise IndicatorCalculationError(f"EMA calculation failed: {e}")
 
-    
+
 def fallback_ema(data, period):
     weights = np.exp(np.linspace(-1., 0., period))
     weights /= weights.sum()
     ema = np.convolve(data, weights, mode='full')[:len(data)]
     return np.concatenate([np.full(period - 1, ema[period - 1]), ema[period - 1:]])
+
 
 def fallback_rsi(data, period):
     delta = np.diff(data)
@@ -64,6 +73,7 @@ def fallback_rsi(data, period):
     rsi = 100.0 - (100.0 / (1.0 + rs))
     return np.concatenate([np.full(period, np.nan), rsi])
 
+
 def fallback_macd(data, fast=12, slow=26, signal=9):
     ema_fast = fallback_ema(data, fast)
     ema_slow = fallback_ema(data, slow)
@@ -71,18 +81,16 @@ def fallback_macd(data, fast=12, slow=26, signal=9):
     signal_line = fallback_ema(macd_line, signal)
     return macd_line, signal_line
 
+
 def apply_indicators(df, profile):
     # Добавляем индикаторы к датафрейму, если они включены
     if profile.USE_RSI:
         df["rsi"] = calculate_rsi(df["close"], profile.RSI_PERIOD)
     if profile.USE_MACD:
         macd, signal = calculate_macd(df["close"], profile.MACD_FAST_PERIOD,
-                                       profile.MACD_SLOW_PERIOD, profile.MACD_SIGNAL_PERIOD)
+                                      profile.MACD_SLOW_PERIOD, profile.MACD_SIGNAL_PERIOD)
         df["macd"] = macd
         df["macd_signal"] = signal
     if profile.USE_EMA:
         df["ema"] = calculate_ema(df["close"], profile.EMA_PERIOD)
     return df
-
-
-    
