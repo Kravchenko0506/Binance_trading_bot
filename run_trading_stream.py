@@ -262,37 +262,26 @@ async def price_processor(
                     action_taken_this_cycle = True
             
             elif strategy_action == 'sell':
-    # Передаём, что стратегия дала SELL, но не исполняем — даём решать risk-блоку
                 strategy_has_issued_sell = True
-    # 🔒 Жесткая защита — цена ниже покупки без TP/SL/min-profit
+
+    # Жёсткая защита — не продавать ниже цены покупки без TP/SL/min-profit
                 if should_block_sell_due_to_low_price(symbol, new_close_price):
                     price_queue.task_done()
                     continue
 
-                if await check_and_handle_risk_conditions(symbol, profile, new_close_price, strategy_has_issued_sell):
-                    action_taken_this_cycle = True
-                else:
-                    system_logger.info(f"Price processor ({symbol}): Продажа по сигналу стратегии отменена риск-менеджером.")
+    # Проверка минимального профита включается опционально через settings
+                if getattr(settings, "USE_MIN_PROFIT_FOR_STRATEGY_SELL", False):
+                    if not is_enough_profit(symbol, new_close_price):
+                        trading_logger.info(
+                            f"Price processor ({symbol}): Продажа по стратегии отменена из-за недостаточной прибыли (согласно is_enough_profit)."
+            )
+                        price_queue.task_done()
+                        continue
 
-                
-                
-                
-                if await check_and_handle_risk_conditions(symbol, profile, new_close_price, strategy_has_issued_sell):
+    # Если проверки нет, или профита достаточно — совершаем продажу!
+                reason_msg_sell = f"📉 Стратегия ({symbol}) подала сигнал на ПРОДАЖУ по цене {new_close_price:.6f}."
+                if await execute_trade_action("sell", symbol, profile, reason_msg_sell, new_close_price):
                     action_taken_this_cycle = True
-                else:
-                    system_logger.info(f"Price processor ({symbol}): Продажа по сигналу стратегии отменена риск-менеджером.")
-
-                # Опциональная проверка минимальной прибыли для ПРОДАЖИ по СТРАТЕГИИ
-                
-                if getattr(settings, "USE_MIN_PROFIT_FOR_STRATEGY_SELL", False): # Если такой флаг есть и True
-                    if not is_enough_profit(symbol, new_close_price): # is_enough_profit сама логирует отмену
-                        proceed_with_strategy_sell = False
-                        trading_logger.info(f"Price processor ({symbol}): Продажа по стратегии отменена из-за недостаточной прибыли (согласно is_enough_profit).")
-                
-                if proceed_with_strategy_sell:
-                    reason_msg_sell = f"📉 Стратегия ({symbol}) подала сигнал на ПРОДАЖУ по цене {new_close_price:.6f}."
-                    if await execute_trade_action("sell", symbol, profile, reason_msg_sell, new_close_price):
-                        action_taken_this_cycle = True
 
             # --- Шаг 3: Проверка минимального профита (если не было других действий) ---
             # Вызываем, только если стратегия сказала 'hold' (т.е. strategy_action == 'hold')

@@ -70,11 +70,22 @@ trading_logger = configure_logger(
     add_console_handler=True 
 )
 
+test_logger = configure_logger(
+    logger_name="test", # или "trading_log", если ты использовал это имя
+    log_file=os.path.join(LOG_DIR, "trading-test.log"),
+    level=logging.DEBUG,
+    add_console_handler=True 
+)
+
 def get_system_logger():
     return system_logger
 
 def get_trading_logger():
     return trading_logger
 
+def get_test_logger():
+    return test_logger
+
 system_logger.info("Логгер 'system' успешно настроен.")
 trading_logger.info("Логгер 'trading_activity' успешно настроен.")
+test_logger.info("Логгер 'test' успешно настроен.")

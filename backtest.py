@@ -9,7 +9,7 @@ import pickle
 
 from services.technical_indicators import apply_indicators
 from services.trade_logic import check_buy_sell_signals
-from utils.logger import setup_logger
+from utils.logger import test_logger
 from config.profile_loader import get_profile_by_name
 
 
@@ -35,7 +35,7 @@ def fetch_klines(symbol, interval, start_str, end_str):
 
 
 def run_backtest(df, profile):
-    setup_logger()
+    test_logger()
     df = apply_indicators(df, profile)
 
     usdt = 100
