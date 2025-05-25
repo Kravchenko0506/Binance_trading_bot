@@ -1,13 +1,29 @@
+# Telegram Bot Framework
+aiogram==3.4.1
 
-aiogram
-python-dotenv
-binance
-pandas
-numpy
-colorama
-websocket-client
-pytest
-cryptography
+# Database drivers and ORM
+asyncpg==0.29.0
+sqlalchemy[asyncio]==2.0.25
+
+# Environment variables management
+python-dotenv==1.0.0
+
+# Additional dependencies for aiogram
+aiohttp>=3.8.0
+aiofiles>=23.0.0
+magic-filter>=1.0.9
+
+# For better async performance (optional but recommended)
+uvloop>=0.17.0; sys_platform != "win32"
+
+# Development and testing dependencies (optional)
+# pytest==7.4.4
+# pytest-asyncio==0.21.1
+# pytest-cov==4.1.0
+
+# Type checking (optional)
+# mypy==1.7.1
+# types-python-dateutil==2.8.19
 
 
 
